@@ -1,0 +1,282 @@
+{
+  "site": {
+    "siteName": "NeoNeX MindX",
+    "siteUrl": "https://neonexmindx.com",
+    "timezone": "Asia/Kolkata",
+    "defaultRobots": "index, follow",
+    "defaultOgImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "contactEmail": "contact@neonexmindx.com",
+    "blogPrefix": "/blog/",
+    "blogsPage": {
+      "badge": "NeoNeX Knowledge Hub",
+      "heroTitle": "Tech & Career Insights for Future Leaders",
+      "heroSubtitle": "Expert articles, proven transition roadmaps, and step-by-step technical guides in AI, Data Science & Modern Analytics."
+    }
+  },
+  "categories": [
+    {
+      "id": "cat-ai-ml",
+      "name": "AI & Machine Learning",
+      "slug": "ai-machine-learning",
+      "description": "Deep learning, neural networks, LLMs, computer vision, and applied artificial intelligence."
+    },
+    {
+      "id": "cat-data-science",
+      "name": "Data Science",
+      "slug": "data-science",
+      "description": "Predictive modeling, statistical analysis, Python data stack, and machine learning pipelines."
+    },
+    {
+      "id": "cat-data-analytics",
+      "name": "Data Analytics",
+      "slug": "data-analytics",
+      "description": "Business intelligence, Power BI dashboards, SQL querying, Excel reporting, and Tableau."
+    },
+    {
+      "id": "cat-career",
+      "name": "Career & Placement",
+      "slug": "career-placement",
+      "description": "Tech transition roadmaps, interview prep, resume optimization, and placement success stories."
+    },
+    {
+      "id": "cat-data-eng",
+      "name": "Data Engineering",
+      "slug": "data-engineering",
+      "description": "ETL pipelines, big data systems, cloud data warehouses, Apache Spark, and database design."
+    }
+  ],
+  "tags": [
+    "Python",
+    "Machine Learning",
+    "Deep Learning",
+    "Data Science",
+    "Power BI",
+    "SQL",
+    "Generative AI",
+    "LLM",
+    "Career Roadmap",
+    "Big Data",
+    "Cloud Computing",
+    "Tableau"
+  ],
+  "authors": [
+    {
+      "id": "author-rajesh",
+      "name": "Dr. Rajesh Varma",
+      "designation": "Head of AI & Lead Mentor",
+      "email": "rajesh.varma@neonexmindx.com",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80",
+      "bio": "Dr. Rajesh Varma is a Senior AI Specialist and mentor at NeoNeX MindX with 14+ years of industry experience across NLP, predictive modeling, and enterprise AI transformation.",
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://twitter.com"
+    },
+    {
+      "id": "author-ananya",
+      "name": "Ananya Sen",
+      "designation": "Principal Analytics Mentor & BI Consultant",
+      "email": "ananya.sen@neonexmindx.com",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=240&h=240&q=80",
+      "bio": "Ananya Sen leads Business Intelligence & Analytics curriculum at NeoNeX MindX. She has trained 3,500+ professionals in Power BI, SQL, and enterprise data storytelling.",
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://twitter.com"
+    },
+    {
+      "id": "author-vikram",
+      "name": "Vikramaditya Rao",
+      "designation": "Chief Data Architect & Engineering Lead",
+      "email": "vikram.rao@neonexmindx.com",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=240&h=240&q=80",
+      "bio": "Vikramaditya Rao specializes in scalable cloud pipelines, distributed computing with Spark & Kafka, and modern warehouse architecture at NeoNeX MindX.",
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://twitter.com"
+    }
+  ],
+  "posts": [
+    {
+      "id": "post-ds-roadmap-2026",
+      "title": "The Complete Roadmap to Becoming a Data Scientist in 2026: Skills, Tools & Portfolio",
+      "slug": "complete-roadmap-to-become-data-scientist-2026",
+      "category": "Data Science",
+      "author": "Dr. Rajesh Varma",
+      "authorId": "author-rajesh",
+      "status": "published",
+      "publishDate": "2026-09-18",
+      "readTime": "7 min read",
+      "heroImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "heroAlt": "Data Science roadmap and analytics dashboard",
+      "focusKeyword": "Data Scientist Roadmap",
+      "metaDescription": "Discover the step-by-step roadmap to become a job-ready Data Scientist in 2026. Learn Python, statistics, SQL, ML models, and how to build a portfolio that lands high-paying roles.",
+      "excerpt": "A definitive, industry-aligned guide breaking down math prerequisites, programming essentials, machine learning workflows, and hands-on portfolio projects required to land top Data Science roles in 2026.",
+      "seoScore": 96,
+      "tags": ["Data Science", "Python", "Machine Learning", "Career Roadmap"],
+      "featured": true,
+      "body": "<h2>The Evolving Landscape of Data Science</h2><p>The field of Data Science is experiencing a fundamental transformation. In 2026, recruiters and engineering leads are no longer satisfied with candidates who merely understand theoretical concepts or know how to run <code>fit()</code> and <code>predict()</code> in scikit-learn. Top companies demand professionals who can translate unstructured real-world problems into production-grade predictive pipelines and extract measurable business impact.</p><h3>1. Core Mathematical and Statistical Foundations</h3><p>Before jumping into algorithms, establishing a rock-solid grasp of statistical thinking is non-negotiable. Focus specifically on:</p><ul><li><strong>Descriptive &amp; Inferential Statistics:</strong> Probability distributions, hypothesis testing (Z-test, T-test, ANOVA), and p-value interpretations.</li><li><strong>Linear Algebra:</strong> Vectors, matrix decomposition, eigenvalues, and eigenvectors (crucial for dimensionality reduction techniques like PCA).</li><li><strong>Multivariable Calculus:</strong> Gradient descent optimization, cost functions, and partial derivatives.</li></ul><blockquote>\"Data Science isn't about memorizing algorithm names; it's about asking the right questions from numbers and deriving decision-making clarity.\"</blockquote><h3>2. The Modern Python Data Stack</h3><p>Python remains the lingua franca of data engineering and machine learning. To be truly enterprise-ready, your daily toolkit must include:</p><ol><li><strong>Data Wrangling:</strong> Pandas and NumPy for high-performance vectorized operations.</li><li><strong>Visual Exploration:</strong> Seaborn, Matplotlib, and Plotly for interactive storytelling.</li><li><strong>Machine Learning:</strong> Scikit-Learn for supervised and unsupervised algorithms; XGBoost and LightGBM for tabular competitive modeling.</li><li><strong>SQL &amp; Relational Querying:</strong> Advanced joins, window functions (<code>ROW_NUMBER()</code>, <code>LEAD/LAG</code>), and subqueries.</li></ol><h3>3. The 2026 Data Scientist Skills Matrix</h3><table><thead><tr><th>Competency Area</th><th>Essential Tools</th><th>Industry Benchmark</th></tr></thead><tbody><tr><td>Statistical Analysis</td><td>Python, R, SciPy</td><td>Hypothesis testing &amp; A/B experimentation</td></tr><tr><td>Machine Learning</td><td>Scikit-learn, XGBoost</td><td>Cross-validation, hyperparameter tuning</td></tr><tr><td>Deep Learning &amp; AI</td><td>PyTorch, Hugging Face</td><td>Transfer learning, embeddings, fine-tuning</td></tr><tr><td>Deployment &amp; MLOps</td><td>FastAPI, Docker, MLflow</td><td>API serving and model performance drift monitoring</td></tr></tbody></table><h3>4. Building an Unbeatable Portfolio</h3><p>Recruiters review hundreds of GitHub profiles every week. Differentiate yourself by building <strong>end-to-end applications</strong> rather than generic Kaggle Titanic datasets. Deploy a real-time churn prediction API on the cloud or build an automated customer lifetime value estimator with an interactive Streamlit UI.</p><p>At NeoNeX MindX, our <strong>Data Science Master Program</strong> pairs every learner with top industry mentors, guiding you step-by-step through real client datasets, end-to-end MLOps deployments, and personalized interview preparation.</p>"
+    },
+    {
+      "id": "post-ml-vs-dl",
+      "title": "Machine Learning vs. Deep Learning: Key Differences, Algorithms and Industry Applications",
+      "slug": "machine-learning-vs-deep-learning-differences-guide",
+      "category": "AI & Machine Learning",
+      "author": "Dr. Rajesh Varma",
+      "authorId": "author-rajesh",
+      "status": "published",
+      "publishDate": "2026-09-12",
+      "readTime": "6 min read",
+      "heroImage": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
+      "heroAlt": "Abstract neural network and machine learning visualization",
+      "focusKeyword": "Machine Learning vs Deep Learning",
+      "metaDescription": "Explore Machine Learning vs Deep Learning. Understand the key differences in feature engineering, compute requirements, neural network architectures, and real-world enterprise use cases.",
+      "excerpt": "Clear comparison between traditional machine learning and multi-layer deep neural networks, detailing hardware dependencies, sample efficiency, and when to use each in production.",
+      "seoScore": 92,
+      "tags": ["Machine Learning", "Deep Learning", "Generative AI", "Python"],
+      "featured": false,
+      "body": "<h2>Understanding the AI Spectrum</h2><p>While Machine Learning (ML) and Deep Learning (DL) are frequently used interchangeably in tech headlines, they represent distinct tiers of computational intelligence. Understanding when to deploy classical ML versus when to invest in heavy Deep Learning architectures is one of the most critical decisions a modern tech team faces.</p><h3>Core Distinctions at a Glance</h3><p>Classical Machine Learning relies heavily on human domain expertise for <em>feature engineering</em>. In contrast, Deep Learning algorithms learn hierarchical feature representations directly from raw inputs using interconnected neural layers.</p><table><thead><tr><th>Attribute</th><th>Machine Learning</th><th>Deep Learning</th></tr></thead><tbody><tr><td>Feature Engineering</td><td>Manual, requiring domain knowledge</td><td>Automated feature representation extraction</td></tr><tr><td>Data Requirements</td><td>Effective on small-to-medium datasets</td><td>Demands large volumes of labeled data</td></tr><tr><td>Hardware</td><td>Runs well on standard multi-core CPUs</td><td>Requires GPUs / TPUs with parallel matrix compute</td></tr><tr><td>Interpretability</td><td>High (Decision Trees, Linear Models)</td><td>Lower ('Black box' neural representations)</td></tr><tr><td>Execution Time</td><td>Minutes to hours for training</td><td>Days to weeks for complex architectures</td></tr></tbody></table><h3>When to Choose Traditional Machine Learning</h3><p>For tabular, structured business data—such as financial fraud detection, credit risk scoring, or retail sales forecasting—ensemble tree algorithms like <strong>Random Forests</strong> and <strong>XGBoost</strong> consistently outperform complex deep networks with a fraction of the compute overhead.</p><h3>When Deep Learning is Indispensable</h3><p>Deep Learning excels in unstructured data spaces where manual feature engineering is practically impossible:</p><ul><li><strong>Computer Vision:</strong> Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) for autonomous navigation and medical imaging.</li><li><strong>Natural Language Processing:</strong> Transformer architectures for real-time translation, contextual document search, and conversational intelligence.</li><li><strong>Audio Processing:</strong> Waveform synthesis and voice biometrics.</li></ul><p>Ready to master both traditional machine learning algorithms and advanced deep learning frameworks? Explore the <strong>NeoNeX MindX AI &amp; ML Course</strong> with hands-on GPU labs and 1-on-1 industry mentorship.</p>"
+    },
+    {
+      "id": "post-analytics-tools-2026",
+      "title": "Top 10 High-Paying Data Analytics Tools Every Analyst Must Master (Power BI, SQL, Python)",
+      "slug": "top-high-paying-data-analytics-tools-2026",
+      "category": "Data Analytics",
+      "author": "Ananya Sen",
+      "authorId": "author-ananya",
+      "status": "published",
+      "publishDate": "2026-09-07",
+      "readTime": "8 min read",
+      "heroImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "heroAlt": "Data analytics dashboard with KPI visualizations and business charts",
+      "focusKeyword": "Data Analytics Tools",
+      "metaDescription": "Discover the top 10 in-demand data analytics tools that commanding high salaries in 2026. From SQL and Power BI to Python and Tableau, see which tools accelerate your analytics career.",
+      "excerpt": "A strategic review of the highest-paying tools for modern data analysts in 2026, comparing Power BI, SQL, Python, Tableau, and cloud warehouse connectors with actionable learning paths.",
+      "seoScore": 95,
+      "tags": ["Power BI", "SQL", "Tableau", "Data Analytics"],
+      "featured": false,
+      "body": "<h2>The 2026 Analytics Tech Stack</h2><p>Data analytics has evolved from static spreadsheets into dynamic, automated decision ecosystems. Today's high-earning business analysts and data consultants combine rigorous query writing with striking data visualization and predictive logic. Here are the 10 most valuable tools shaping modern enterprise analytics.</p><h3>1. SQL (Structured Query Language)</h3><p>SQL remains the undisputed king of data extraction and manipulation. Whether querying PostgreSQL, Snowflake, BigQuery, or Databricks, writing clean, optimized CTEs (Common Table Expressions) and window functions is the cornerstone of every high-performing analyst.</p><h3>2. Microsoft Power BI</h3><p>Power BI dominates the enterprise business intelligence landscape. Mastering DAX (Data Analysis Expressions), Power Query M script, and row-level security empowers analysts to deliver live executive dashboards that influence strategic C-suite decisions.</p><h3>3. Python for Analytics</h3><p>While Excel is great for quick calculations, Python handles million-row datasets effortlessly. Libraries like <code>pandas</code>, <code>seaborn</code>, and <code>openpyxl</code> automate routine weekly reporting into clean, one-click scripts.</p><h3>4. Tableau</h3><p>Tableau remains the benchmark for intricate, interactive geographic and categorical data exploration, favored by global consultancy firms and tech innovators.</p><h3>Essential Tool Comparison</h3><table><thead><tr><th>Tool</th><th>Primary Purpose</th><th>Average Analyst Salary (Global)</th></tr></thead><tbody><tr><td>SQL</td><td>Data querying, transformations</td><td>$85,000 - $120,000</td></tr><tr><td>Power BI</td><td>Enterprise reporting &amp; DAX modeling</td><td>$80,000 - $115,000</td></tr><tr><td>Python</td><td>Statistical analysis &amp; automation</td><td>$90,000 - $130,000</td></tr><tr><td>Snowflake / BigQuery</td><td>Cloud data warehousing</td><td>$95,000 - $135,000</td></tr></tbody></table><p>At NeoNeX MindX, our <strong>Data Analytics &amp; Power BI Masterclass</strong> covers practical case studies from retail, healthcare, and finance so you build an impressive dashboard portfolio before your first interview.</p>"
+    },
+    {
+      "id": "post-genai-llms-enterprise",
+      "title": "Generative AI and Large Language Models: How Modern Enterprises Are Deploying LLMs",
+      "slug": "generative-ai-llm-enterprise-deployment-strategies",
+      "category": "AI & Machine Learning",
+      "author": "Dr. Rajesh Varma",
+      "authorId": "author-rajesh",
+      "status": "published",
+      "publishDate": "2026-08-29",
+      "readTime": "6 min read",
+      "heroImage": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+      "heroAlt": "Futuristic generative artificial intelligence conceptual illustration",
+      "focusKeyword": "Generative AI Enterprise",
+      "metaDescription": "Explore how modern enterprises deploy Generative AI and LLMs in 2026 using Retrieval-Augmented Generation (RAG), vector databases, and private fine-tuning architectures.",
+      "excerpt": "A deep dive into real-world enterprise Generative AI architectures, exploring RAG pipelines, vector search with LangChain, safety guardrails, and cost optimization techniques.",
+      "seoScore": 90,
+      "tags": ["Generative AI", "LLM", "AI & Machine Learning", "Python"],
+      "featured": false,
+      "body": "<h2>Beyond the Chatbot Hype</h2><p>In 2026, enterprise Generative AI has transitioned from conversational novelties into mission-critical workflows. Organizations are actively integrating foundational LLMs with proprietary internal data stores to automate legal compliance, accelerate clinical trial documentation, and optimize customer resolutions.</p><h3>Retrieval-Augmented Generation (RAG) Architecture</h3><p>Rather than continually fine-tuning multi-billion parameter models at massive expense, companies rely on <strong>RAG</strong> to ground language models in real-time enterprise facts. A standard RAG pipeline operates in three key phases:</p><ol><li><strong>Document Chunking &amp; Embedding:</strong> Internal PDFs, databases, and policies are converted into dense vector representations.</li><li><strong>Vector Database Storage:</strong> Embeddings are indexed in vector databases like Pinecone, Milvus, or pgvector for sub-millisecond semantic retrieval.</li><li><strong>Context Injection:</strong> When a user asks a question, the top matching chunks are retrieved and passed into the LLM's prompt window for grounded generation.</li></ol><blockquote>\"The competitive moat in generative AI isn't the foundational model itself; it's how effectively you connect the model to your proprietary domain intelligence.\"</blockquote><p>Learn how to engineer production-ready RAG workflows, evaluate hallucination metrics, and deploy private AI models with the <strong>NeoNeX MindX AI &amp; Machine Learning Master Program</strong>.</p>"
+    },
+    {
+      "id": "post-placement-transition-guide",
+      "title": "How NeoNeX MindX Placement Assistance Helps Non-Tech Learners Transition into Tech Careers",
+      "slug": "how-neonex-mindx-helps-non-tech-learners-transition",
+      "category": "Career & Placement",
+      "author": "Ananya Sen",
+      "authorId": "author-ananya",
+      "status": "published",
+      "publishDate": "2026-08-20",
+      "readTime": "5 min read",
+      "heroImage": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+      "heroAlt": "Team collaborating in a modern tech office environment",
+      "focusKeyword": "Tech Career Transition",
+      "metaDescription": "Discover how professionals from commerce, arts, and non-coding backgrounds successfully transition into high-growth data roles with NeoNeX MindX 1-on-1 placement support.",
+      "excerpt": "A transparent look at how learners from non-IT backgrounds bridge skill gaps, build competitive portfolios, and clear technical interviews with NeoNeX MindX placement assistance.",
+      "seoScore": 94,
+      "tags": ["Career Roadmap", "Data Analytics", "Data Science"],
+      "featured": false,
+      "body": "<h2>Can a Non-Tech Professional Transition into Data Science?</h2><p>One of the most frequent questions our academic counselors receive is: <em>'I don't have a computer science degree or coding background. Can I realistically build a career in Data Science or Analytics?'</em> The short answer is an emphatic <strong>yes</strong>.</p><h3>Why Domain Diversity is a Superpower</h3><p>Companies don't just hire code typists; they hire problem solvers. A professional with a background in marketing, finance, mechanical engineering, or operations already possesses valuable domain intuition. When combined with SQL, Python, and Power BI expertise, these professionals often transition faster into senior analytical roles than fresh college graduates.</p><h3>The NeoNeX MindX 4-Pillar Career Framework</h3><ul><li><strong>1. Fundamentals First:</strong> Zero-assumption coding bootcamps starting from absolute scratch.</li><li><strong>2. Real-World Client Projects:</strong> Hands-on portfolios that showcase tangible business outcomes rather than classroom toy examples.</li><li><strong>3. 1-on-1 Mock Technical Interviews:</strong> Comprehensive drills covering live coding, architecture rounds, and behavioral storytelling with senior industry practitioners.</li><li><strong>4. Dedicated Placement Team:</strong> Active hiring partner referrals, resume ATS optimization, and personalized salary negotiation guidance.</li></ul><p>Ready to take the first step toward a rewarding career in tech? Book a free 1-on-1 counseling session with our senior mentors today!</p>"
+    },
+    {
+      "id": "post-modern-data-engineering",
+      "title": "Modern Data Engineering Pipelines: From Kafka and Spark to Cloud Data Warehouses",
+      "slug": "modern-data-engineering-pipelines-kafka-spark-cloud",
+      "category": "Data Engineering",
+      "author": "Vikramaditya Rao",
+      "authorId": "author-vikram",
+      "status": "published",
+      "publishDate": "2026-08-14",
+      "readTime": "7 min read",
+      "heroImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+      "heroAlt": "Server racks and modern cloud infrastructure data center",
+      "focusKeyword": "Data Engineering Pipelines",
+      "metaDescription": "Learn how modern data engineering pipelines ingest, process, and store petabytes of data using Apache Kafka, Apache Spark, Airflow, and Cloud Data Warehouses.",
+      "excerpt": "An architectural breakdown of modern streaming and batch data architectures, explaining the evolution from traditional ETL to ELT, Delta Lakes, and Medallion architecture.",
+      "seoScore": 93,
+      "tags": ["Data Engineering", "Big Data", "Cloud Computing", "Python"],
+      "featured": false,
+      "body": "<h2>The Backbone of Every AI System</h2><p>There is no machine learning or analytics without solid data engineering. Models are only as dependable as the pipelines that ingest, clean, and deliver the underlying data. As data volumes surge in 2026, data engineering has become one of the highest-paying and most secure roles in tech.</p><h3>The Shift from ETL to ELT</h3><p>Traditionally, data teams extracted data from transactional databases, transformed it on dedicated compute servers, and loaded it into a target schema (ETL). Today, the power of modern cloud warehouses (Snowflake, BigQuery, AWS Redshift) enables <strong>ELT</strong>: raw data is ingested directly and transformed in place using SQL frameworks like dbt (data build tool).</p><h3>The Medallion Architecture</h3><p>Leading enterprise lakehouses employ the three-tier Medallion structure:</p><ul><li><strong>Bronze (Raw / Ingestion):</strong> Exact replica of source events without transformations.</li><li><strong>Silver (Cleansed / Conformed):</strong> Deduplicated, validated, and normalized data tables.</li><li><strong>Gold (Curated / Business-Level):</strong> Pre-aggregated reporting marts optimized for Power BI dashboards and predictive ML models.</li></ul><p>Master Apache Spark, Kafka streaming, containerized pipelines, and cloud warehouses with the <strong>NeoNeX MindX Data Engineering Program</strong>.</p>"
+    }
+  ],
+  "redirects": [
+    {
+      "id": "red-1",
+      "from": "/blog/data-science-roadmap",
+      "to": "/blog/complete-roadmap-to-become-data-scientist-2026",
+      "type": "301"
+    },
+    {
+      "id": "red-2",
+      "from": "/blog/top-tools-for-analysts",
+      "to": "/blog/top-high-paying-data-analytics-tools-2026",
+      "type": "301"
+    }
+  ],
+  "media": [
+    {
+      "id": "media-1",
+      "name": "data-science-roadmap.webp",
+      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "type": "image",
+      "alt": "Data Science roadmap and analytics dashboard",
+      "size": "142 KB",
+      "date": "2026-09-18"
+    },
+    {
+      "id": "media-2",
+      "name": "neural-network-ai.webp",
+      "url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
+      "type": "image",
+      "alt": "Abstract neural network and machine learning visualization",
+      "size": "188 KB",
+      "date": "2026-09-12"
+    },
+    {
+      "id": "media-3",
+      "name": "analytics-dashboard.webp",
+      "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "type": "image",
+      "alt": "Data analytics dashboard with KPI visualizations and business charts",
+      "size": "165 KB",
+      "date": "2026-09-07"
+    },
+    {
+      "id": "media-4",
+      "name": "generative-ai-core.webp",
+      "url": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+      "type": "image",
+      "alt": "Futuristic generative artificial intelligence conceptual illustration",
+      "size": "210 KB",
+      "date": "2026-08-29"
+    }
+  ],
+  "users": [
+    {
+      "id": "user-1",
+      "name": "Admin Team",
+      "email": "admin@neonexmindx.com",
+      "role": "Super Admin"
+    },
+    {
+      "id": "user-2",
+      "name": "Content Editor",
+      "email": "editor@neonexmindx.com",
+      "role": "Editor"
+    }
+  ]
+}

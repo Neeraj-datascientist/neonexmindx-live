@@ -1,0 +1,96 @@
+# Netlify Server-Level URL Rewrites & Redirects for NeoNex MindX
+
+# 1. ROOT & CLEAN HOME ROUTES (200 OK)
+/                                        /Neonex%20Mindx%20Home%20Page.html                     200
+/home                                    /Neonex%20Mindx%20Home%20Page.html                     200
+/home/                                   /Neonex%20Mindx%20Home%20Page.html                     200
+/index.html                              /Neonex%20Mindx%20Home%20Page.html                     200
+
+# 2. FORCE 301 REDIRECTS FOR RAW/UGLY URLS (Strip %20 filenames and .html)
+/neonex%20mindx%20home%20page            /home                                                  301!
+/neonex%20mindx%20home%20page/           /home                                                  301!
+/neonex%20mindx%20home%20page.html       /home                                                  301!
+/Neonex%20Mindx%20Home%20Page.html       /home                                                  301!
+
+/neonex%20mindx%20about%20us%20page      /about-us                                              301!
+/Neonex%20Mindx%20About%20us%20page.html /about-us                                              301!
+
+/neonex%20mindx%20contact%20us          /contact-us                                            301!
+/Neonex%20Mindx%20Contact%20Us.html      /contact-us                                            301!
+
+/neonex%20mindx%20trainers%20page       /trainers                                              301!
+/Neonex%20Mindx%20Trainers%20Page.html   /trainers                                              301!
+
+/Neonex%20Mindx%20Data%20Analytics%20Course.html        /courses/data-analytics-course          301!
+/Neonex%20Mindx%20Data%20Science%20Course.html          /courses/data-science-course            301!
+/Neonex%20Mindx%20AI%20ML%20Course.html                 /courses/ai-ml-course                   301!
+/Neonex%20Mindx%20Data%20Engineering%20Course.html     /courses/data-engineering-course        301!
+/Neonex%20Mindx%20Business%20Analytics%20Course.html   /courses/business-analytics-course      301!
+/Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course.html /courses/excel-power-bi-tableau-course 301!
+/Neonex%20Mindx%20Machine%20Learning%20Course.html      /courses/machine-learning-course        301!
+/Neonex%20Mindx%20Python%20Programming%20Course.html   /courses/python-programming-course      301!
+/Neonex%20Mindx%20SQL%20Course.html                     /courses/sql-course                     301!
+
+/Legal%20Page/Neonex%20Mindx%20Placement%20Assistance.html /placement-assistance-disclaimer     301!
+/Legal%20Page/Neonex%20Mindx%20Placement%20Assitance.html  /placement-assistance-disclaimer     301!
+/Legal%20Page/Neonex%20Mindx%20Privacy%20Policy.html       /privacy-policy                      301!
+/Legal%20Page/Neonex%20Mindx%20Refund%20&%20Cancellation.html /refund-and-cancellation-policy   301!
+/Legal%20Page/Neonex%20Mindx%20Terms%20&%20Conditions.html /terms-and-conditions                301!
+
+# 3. CLEAN CANONICAL ROUTES (200 OK Rewrites)
+/about-us                                /Neonex%20Mindx%20About%20us%20page.html               200
+/about-us/                               /Neonex%20Mindx%20About%20us%20page.html               200
+/contact-us                              /Neonex%20Mindx%20Contact%20Us.html                    200
+/contact-us/                             /Neonex%20Mindx%20Contact%20Us.html                    200
+/trainers                                /Neonex%20Mindx%20Trainers%20Page.html                 200
+/trainers/                               /Neonex%20Mindx%20Trainers%20Page.html                 200
+/trainers-and-mentors                    /Neonex%20Mindx%20Trainers%20Page.html                 200
+/trainers-and-mentors/                   /Neonex%20Mindx%20Trainers%20Page.html                 200
+
+/courses/data-analytics-course           /Neonex%20Mindx%20Data%20Analytics%20Course.html       200
+/courses/data-analytics-course/          /Neonex%20Mindx%20Data%20Analytics%20Course.html       200
+/courses/data-science-course             /Neonex%20Mindx%20Data%20Science%20Course.html         200
+/courses/data-science-course/            /Neonex%20Mindx%20Data%20Science%20Course.html         200
+/courses/ai-ml-engineering-course        /Neonex%20Mindx%20AI%20ML%20Course.html                200
+/courses/ai-ml-engineering-course/       /Neonex%20Mindx%20AI%20ML%20Course.html                200
+/courses/ai-ml-course                    /Neonex%20Mindx%20AI%20ML%20Course.html                200
+/courses/ai-ml-course/                   /Neonex%20Mindx%20AI%20ML%20Course.html                200
+/courses/data-engineering-course         /Neonex%20Mindx%20Data%20Engineering%20Course.html     200
+/courses/data-engineering-course/        /Neonex%20Mindx%20Data%20Engineering%20Course.html     200
+/courses/business-analytics-course       /Neonex%20Mindx%20Business%20Analytics%20Course.html   200
+/courses/business-analytics-course/      /Neonex%20Mindx%20Business%20Analytics%20Course.html   200
+/courses/excel-power-bi-tableau-course   /Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course.html 200
+/courses/excel-power-bi-tableau-course/  /Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course.html 200
+/courses/machine-learning-course         /Neonex%20Mindx%20Machine%20Learning%20Course.html     200
+/courses/machine-learning-course/        /Neonex%20Mindx%20Machine%20Learning%20Course.html     200
+/courses/python-programming-course       /Neonex%20Mindx%20Python%20Programming%20Course.html   200
+/courses/python-programming-course/      /Neonex%20Mindx%20Python%20Programming%20Course.html   200
+/courses/sql-course                      /Neonex%20Mindx%20SQL%20Course.html                    200
+/courses/sql-course/                     /Neonex%20Mindx%20SQL%20Course.html                    200
+
+/placement-assistance-disclaimer         /Legal%20Page/Neonex%20Mindx%20Placement%20Assistance.html 200
+/placement-assistance-disclaimer/        /Legal%20Page/Neonex%20Mindx%20Placement%20Assistance.html 200
+/privacy-policy                          /Legal%20Page/Neonex%20Mindx%20Privacy%20Policy.html   200
+/privacy-policy/                         /Legal%20Page/Neonex%20Mindx%20Privacy%20Policy.html   200
+/refund-and-cancellation-policy          /Legal%20Page/Neonex%20Mindx%20Refund%20&%20Cancellation.html 200
+/refund-and-cancellation-policy/         /Legal%20Page/Neonex%20Mindx%20Refund%20&%20Cancellation.html 200
+/terms-and-conditions                    /Legal%20Page/Neonex%20Mindx%20Terms%20&%20Conditions.html 200
+/terms-and-conditions/                   /Legal%20Page/Neonex%20Mindx%20Terms%20&%20Conditions.html 200
+
+# 4. BLOGS & CMS CONTENT MANAGEMENT SYSTEM
+/blogs                                   /blogs.html                                            200
+/blogs/                                  /blogs.html                                            200
+/blog                                    /blogs                                                 301!
+/blog/                                   /blogs                                                 301!
+/blog/:slug                              /blog-post.html?slug=:slug                             200
+/cms                                     /cms/index.html                                        200
+/cms/                                    /cms/index.html                                        200
+/admin                                   /cms/index.html                                        200
+/admin/                                  /cms/index.html                                        200
+
+# 5. SECTION ANCHORS & LEGACY REDIRECTS
+/courses/                                /home#career-programs                                  302
+/short-courses/                          /home#focused-short-courses                            302
+/learner-reviews-and-success-stories/    /home#learner-stories                                  302
+/success-stories/                        /home#learner-stories                                  302
+

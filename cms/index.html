@@ -1,0 +1,2984 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PG57R85H');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeoNeX MindX — Blog Publisher & CMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: "Sora", "DM Sans", sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --primary: #1B5DB7;
+      --primary-hover: #12478E;
+      --primary-tint: #EEF4FC;
+      --accent: #0284C7;
+      --crit: #DC2626;
+      --crit-bg: #FEF2F2;
+      --warn: #EA580C;
+      --warn-bg: #FFF7ED;
+      --pass: #16A34A;
+      --pass-bg: #F0FDF4;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+    html[data-theme="light"] {
+      --base: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-2: #F1F5F9;
+      --border: #E2E8F0;
+      --ink: #0F172A;
+      --ink-soft: #475569;
+      --muted: #64748B;
+      --sidebar-bg: #FFFFFF;
+      --sidebar-border: #E2E8F0;
+      --sidebar-ink: #334155;
+      --sidebar-active: #EEF4FC;
+      --sidebar-active-ink: #1B5DB7;
+      --shadow-sm: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(15,23,42,0.08), 0 2px 4px -2px rgba(15,23,42,0.05);
+    }
+    html[data-theme="dark"] {
+      --base: #0B0F19;
+      --surface: #111827;
+      --surface-2: #1E293B;
+      --border: #334155;
+      --ink: #F8FAFC;
+      --ink-soft: #CBD5E1;
+      --muted: #94A3B8;
+      --sidebar-bg: #0F172A;
+      --sidebar-border: #1E293B;
+      --sidebar-ink: #CBD5E1;
+      --sidebar-active: #1E293B;
+      --sidebar-active-ink: #60A5FA;
+      --primary: #3B82F6;
+      --primary-hover: #2563EB;
+      --primary-tint: #1E293B;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--base);
+      color: var(--ink);
+      height: 100vh;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: 64px 1fr;
+      grid-template-areas: "side top" "side main";
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, select, textarea { font-family: inherit; color: inherit; font-size: inherit; }
+    a { text-decoration: none; color: inherit; }
+
+    /* SIDEBAR */
+    #sidebar {
+      grid-area: side;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--sidebar-border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      z-index: 30;
+      transition: transform 0.2s ease;
+    }
+    .brand-wrap {
+      height: 72px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--sidebar-border);
+      flex-shrink: 0;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      text-decoration: none;
+      gap: 8px;
+    }
+    .brand-logo-container {
+      background: #FFFFFF;
+      padding: 6px 10px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      max-width: 170px;
+    }
+    .brand-logo-img {
+      height: 28px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      display: block;
+    }
+    .brand-pill-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--primary);
+      background: var(--primary-tint);
+      border: 1px solid rgba(27, 93, 183, 0.18);
+      padding: 4px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .nav-body { flex: 1; padding: 16px 12px; overflow-y: auto; }
+    .nav-section-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      padding: 12px 10px 6px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--sidebar-ink);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      margin-bottom: 2px;
+      user-select: none;
+    }
+    .nav-item:hover {
+      background: var(--surface-2);
+      color: var(--ink);
+    }
+    .nav-item.active {
+      background: var(--sidebar-active);
+      color: var(--sidebar-active-ink);
+      font-weight: 600;
+    }
+    .nav-item svg { width: 17px; height: 17px; stroke-width: 2; flex-shrink: 0; opacity: 0.85; }
+    .nav-item.active svg { opacity: 1; stroke: var(--primary); }
+    .nav-badge {
+      margin-left: auto;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 12px;
+    }
+    .nav-item.active .nav-badge {
+      background: var(--primary);
+      color: #fff;
+    }
+    .sidebar-user {
+      padding: 14px 16px;
+      border-top: 1px solid var(--sidebar-border);
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      background: var(--surface);
+    }
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #EEF4FC;
+      color: #1B5DB7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .user-details { flex: 1; min-width: 0; }
+    .user-name { font-size: 12.5px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .user-role { font-size: 11px; color: var(--muted); }
+    .user-logout-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+    }
+    .user-logout-btn:hover { color: var(--crit); background: var(--crit-bg); }
+
+    /* TOPBAR */
+    #topbar {
+      grid-area: top;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 20;
+    }
+    .tb-left { display: flex; align-items: center; gap: 14px; }
+    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--ink); }
+    .tb-breadcrumb { font-size: 13px; font-weight: 500; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    .tb-breadcrumb b { color: var(--ink); font-weight: 600; }
+    .tb-sync-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .tb-sync-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--pass); animation: pulseDot 2s infinite; }
+    @keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+    .tb-actions { display: flex; align-items: center; gap: 10px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--surface-2); }
+    .btn-primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-danger { background: var(--crit); border-color: var(--crit); color: #fff; }
+    .btn-danger:hover { filter: brightness(0.9); }
+    .btn-outline-primary { border-color: var(--primary); color: var(--primary); background: transparent; }
+    .btn-outline-primary:hover { background: var(--primary-tint); }
+    .btn-sm { padding: 5px 10px; font-size: 11.5px; border-radius: 6px; }
+    .theme-toggle-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      cursor: pointer;
+      color: var(--ink-soft);
+    }
+    .theme-toggle-btn:hover { background: var(--surface-2); }
+
+    /* MAIN VIEW CONTAINER */
+    #main-container {
+      grid-area: main;
+      overflow-y: auto;
+      padding: 28px;
+    }
+    .view-wrap { max-width: 1320px; margin: 0 auto; }
+    .view-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .view-title-block h2 { font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+    .view-title-block p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .view-header-actions { display: flex; align-items: center; gap: 8px; }
+
+    /* CARDS & GRIDS */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .kpi-title { font-size: 11.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .kpi-num { font-size: 32px; font-weight: 800; color: var(--ink); margin-top: 8px; line-height: 1; letter-spacing: -0.02em; }
+    .kpi-sub { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .kpi-icon { position: absolute; top: 18px; right: 18px; width: 34px; height: 34px; border-radius: 8px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; color: var(--primary); }
+
+    .quick-action-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .quick-action-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .quick-action-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--primary-tint);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .quick-action-card h3 { font-size: 14.5px; font-weight: 700; color: var(--ink); }
+    .quick-action-card p { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+    /* TABLES */
+    .table-container {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .table-toolbar {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      flex-wrap: wrap;
+    }
+    .search-input-wrap {
+      position: relative;
+      flex: 1;
+      max-width: 340px;
+    }
+    .search-input-wrap svg {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      color: var(--muted);
+    }
+    .search-input-wrap input {
+      width: 100%;
+      padding: 7px 12px 7px 34px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      font-size: 12.5px;
+      outline: none;
+    }
+    .search-input-wrap input:focus { border-color: var(--primary); background: var(--surface); }
+    table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    th {
+      text-align: left;
+      padding: 11px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+    td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+      color: var(--ink-soft);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--surface-2); }
+    .post-title-cell { font-weight: 600; color: var(--ink); }
+    .post-slug-cell { font-size: 11px; color: var(--muted); font-family: var(--font-mono); margin-top: 2px; }
+
+    /* STATUS PILLS */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+    .status-pill.published { background: var(--pass-bg); color: var(--pass); }
+    .status-pill.draft { background: var(--surface-2); color: var(--muted); }
+    .status-pill.scheduled { background: var(--warn-bg); color: var(--warn); }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+    /* SCORE RINGS */
+    .score-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 700;
+      font-size: 11.5px;
+      padding: 2px 7px;
+      border-radius: 6px;
+    }
+    .score-high { background: var(--pass-bg); color: var(--pass); }
+    .score-mid { background: var(--warn-bg); color: var(--warn); }
+    .score-low { background: var(--crit-bg); color: var(--crit); }
+
+    /* PAGINATION */
+    .pagination-bar {
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* FORMS & EDITOR */
+    .editor-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .editor-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .editor-tab-btn {
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .editor-tab-btn.active {
+      background: var(--surface);
+      color: var(--primary);
+      border-color: var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .form-control {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 13px;
+      outline: none;
+    }
+    .form-control:focus { border-color: var(--primary); }
+    .form-hint { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* WYSIWYG TOOLBAR */
+    .rte-shell {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .rte-menu-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 6px 12px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+    .rte-menu-bar span { cursor: pointer; }
+    .rte-menu-bar span:hover { color: var(--primary); }
+    .rte-toolbar {
+      padding: 8px 10px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+    }
+    .rte-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .rte-btn:hover { background: var(--surface-2); border-color: var(--border); }
+    .rte-btn.active { background: var(--primary-tint); color: var(--primary); border-color: var(--primary); }
+    .rte-sep { width: 1px; height: 18px; background: var(--border); margin: 0 4px; }
+    .rte-select {
+      height: 30px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 12px;
+      padding: 0 6px;
+    }
+    .rte-content-area {
+      min-height: 420px;
+      padding: 20px 24px;
+      outline: none;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink);
+      overflow-y: auto;
+    }
+    .rte-content-area:empty:before {
+      content: attr(data-placeholder);
+      color: var(--muted);
+    }
+    .rte-content-area h1, .rte-content-area h2, .rte-content-area h3 { margin: 0.8em 0 0.3em; line-height: 1.3; }
+    .rte-content-area p { margin: 0.6em 0; }
+    .rte-content-area blockquote {
+      border-left: 3px solid var(--primary);
+      margin: 1em 0;
+      padding: 6px 14px;
+      font-style: italic;
+      color: var(--muted);
+      background: var(--surface-2);
+      border-radius: 0 6px 6px 0;
+    }
+    .rte-content-area table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+    .rte-content-area th, .rte-content-area td { border: 1px solid var(--border); padding: 8px 12px; font-size: 13px; }
+    .rte-content-area img { max-width: 100%; border-radius: 8px; margin: 1em 0; }
+    .rte-content-area code { font-family: var(--font-mono); background: var(--surface-2); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+
+    /* EDITOR ASIDE */
+    .editor-aside { position: sticky; top: 0; display: flex; flex-direction: column; gap: 16px; }
+    .seo-score-widget {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .seo-score-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .score-circle-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: conic-gradient(var(--pass) calc(var(--score-pct) * 1%), var(--surface-2) 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .score-circle-inner {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--ink);
+    }
+    .seo-checklist { display: flex; flex-direction: column; gap: 9px; font-size: 12px; }
+    .seo-check-item { display: flex; align-items: center; gap: 8px; color: var(--ink-soft); }
+    .seo-check-icon { width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+    .seo-check-icon.pass { background: var(--pass-bg); color: var(--pass); }
+    .seo-check-icon.fail { background: var(--crit-bg); color: var(--crit); }
+
+    /* MEDIA GRID */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .media-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+    .media-thumb-wrap {
+      height: 140px;
+      background: var(--surface-2);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .media-thumb-wrap img, .media-thumb-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .media-card-body { padding: 12px; flex: 1; display: flex; flex-direction: column; }
+    .media-card-title { font-size: 12px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .media-card-alt { font-size: 11px; color: var(--muted); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .media-card-actions { display: flex; gap: 6px; margin-top: 10px; }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      max-width: 650px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+    }
+    .modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-header h3 { font-size: 16px; font-weight: 700; color: var(--ink); }
+    .modal-close-btn { background: none; border: none; font-size: 18px; cursor: pointer; color: var(--muted); }
+    .modal-body { padding: 20px; }
+    .modal-footer {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      background: var(--surface-2);
+    }
+
+    /* TOAST */
+    .toast-tray {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toast-msg {
+      background: var(--ink);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: slideIn 0.2s ease;
+    }
+    @keyframes slideIn { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .editor-layout { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-areas: "top" "main";
+      }
+      #sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 260px;
+        transform: translateX(-100%);
+      }
+      #sidebar.open { transform: translateX(0); }
+      .mobile-menu-btn { display: block; }
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      #main-container { padding: 16px; }
+    }
+
+    /* AUTH LOGIN SCREEN */
+    #auth-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: linear-gradient(135deg, #0B111E 0%, #111827 50%, #0F172A 100%);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-family: var(--font-body);
+    }
+    #auth-gate.active {
+      display: flex;
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
+      padding: 40px 36px;
+      color: #0F172A;
+      animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalPop {
+      from { opacity: 0; transform: scale(0.95) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .auth-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .auth-logo {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+    .auth-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .auth-sub {
+      font-size: 13.5px;
+      color: #64748B;
+      line-height: 1.5;
+    }
+    .auth-form-group {
+      margin-bottom: 18px;
+    }
+    .auth-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+    .auth-input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1.5px solid #CBD5E1;
+      font-size: 14.5px;
+      outline: none;
+      transition: all 0.2s ease;
+      background: #F8FAFC;
+      color: #0F172A;
+    }
+    .auth-input:focus {
+      border-color: #1B5DB7;
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(27,93,183,0.15);
+    }
+    .auth-error {
+      display: none;
+      background: #FEF2F2;
+      border: 1px solid #FCA5A5;
+      color: #DC2626;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      align-items: center;
+      gap: 6px;
+    }
+    .auth-submit-btn {
+      width: 100%;
+      padding: 13px 18px;
+      background: linear-gradient(135deg, #1B5DB7 0%, #12478E 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(27,93,183,0.25);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .auth-submit-btn:hover {
+      background: #12478E;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(27,93,183,0.35);
+    }
+    .auth-footer-hint {
+      text-align: center;
+      font-size: 12px;
+      color: #94A3B8;
+      margin-top: 22px;
+    }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG57R85H"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+  <!-- AUTH GATE LOGIN SCREEN -->
+  <div id="auth-gate">
+    <div class="auth-card">
+      <div class="auth-header">
+        <img class="auth-logo" src="data:image/webp;base64,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" alt="NeoNeX MindX" />
+        <h2 class="auth-title">CMS Administration</h2>
+        <p class="auth-sub">Enter your security credentials to manage articles, categories, and content for <b>/blogs</b>.</p>
+      </div>
+
+      <div class="auth-error" id="auth-err-msg">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <span>Invalid credentials. Please re-enter your password.</span>
+      </div>
+
+      <form id="auth-login-form" onsubmit="APP.handleLogin(event)">
+        <div class="auth-form-group">
+          <label class="auth-label">Administrator Account</label>
+          <input type="text" id="auth-user" class="auth-input" value="admin@neonexmindx.com" autocomplete="username" />
+        </div>
+        <div class="auth-form-group">
+          <label class="auth-label">Secure Access Password</label>
+          <div style="position:relative; display:flex; align-items:center;">
+            <input type="password" id="auth-pass" class="auth-input" placeholder="Enter administrator password..." autocomplete="current-password" autofocus style="padding-right: 42px;" />
+            <button type="button" onclick="const p = document.getElementById('auth-pass'); p.type = p.type==='password'?'text':'password'; this.textContent = p.type==='password'?'👁️':'🔒';" style="position:absolute; right:10px; background:none; border:none; cursor:pointer; font-size:16px; color:#64748B; padding:4px;" title="Show/Hide Password">👁️</button>
+          </div>
+        </div>
+        <button type="submit" class="auth-submit-btn" id="auth-submit-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Unlock CMS Dashboard</span>
+        </button>
+      </form>
+      <div class="auth-footer-hint">Default Admin Password: <b>Admin123!</b></div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="brand-wrap">
+      <a href="../home" target="_blank" class="brand-link" title="Open NeoNeX MindX Website">
+        <div class="brand-logo-container">
+          <img src="data:image/webp;base64,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" alt="NeoNeX MindX" class="brand-logo-img" />
+        </div>
+        <span class="brand-pill-tag">CMS HUB</span>
+      </a>
+    </div>
+
+    <div class="nav-body">
+      <!-- CONTENT SECTION -->
+      <div class="nav-section-title">Content</div>
+      <div class="nav-item active" data-view="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <span>Dashboard</span>
+      </div>
+      <div class="nav-item" data-view="add-article">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14"></path></svg>
+        <span>Add Article</span>
+      </div>
+      <div class="nav-item" data-view="posts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        <span>Posts</span>
+        <span class="nav-badge" id="sidebar-post-count">6</span>
+      </div>
+      <div class="nav-item" data-view="pages">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        <span>Pages</span>
+      </div>
+      <div class="nav-item" data-view="taxonomy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        <span>Categories &amp; Tags</span>
+      </div>
+      <div class="nav-item" data-view="authors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span>Authors</span>
+      </div>
+      <div class="nav-item" data-view="media">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        <span>Media</span>
+      </div>
+
+      <!-- SEO SECTION -->
+      <div class="nav-section-title">SEO</div>
+      <div class="nav-item" data-view="seo-tools">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span>SEO Tools</span>
+      </div>
+      <div class="nav-item" data-view="redirects">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 14 20 9 15 4"></polyline><path d="M4 20v-7a4 4 0 0 1 4-4h12"></path></svg>
+        <span>301 Redirects</span>
+      </div>
+      <div class="nav-item" data-view="sitemap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        <span>Sitemap</span>
+      </div>
+      <div class="nav-item" data-view="llms">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M10 13l4 4m0-4l-4 4"></path></svg>
+        <span>llms.txt</span>
+      </div>
+
+      <!-- SYSTEM SECTION -->
+      <div class="nav-section-title">System</div>
+      <div class="nav-item" data-view="users">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span>Users &amp; Roles</span>
+      </div>
+      <div class="nav-item" data-view="cache">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <span>Cache &amp; Sync</span>
+      </div>
+      <div class="nav-item" data-view="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <span>Settings</span>
+      </div>
+    </div>
+
+    <!-- SIDEBAR FOOTER -->
+    <div class="sidebar-user">
+      <div class="user-avatar">NX</div>
+      <div class="user-details">
+        <div class="user-name">NeoNeX Admin</div>
+        <div class="user-role">Super Admin</div>
+      </div>
+      <button class="user-logout-btn" title="Sign Out of CMS" onclick="APP.logout()">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- TOPBAR -->
+  <header id="topbar">
+    <div class="tb-left">
+      <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <div class="tb-breadcrumb" id="topbar-breadcrumb">
+        <span>CMS</span> / <b>Dashboard</b>
+      </div>
+      <div class="tb-sync-badge" onclick="APP.notifySync()" title="Real-time synchronized across all tabs">
+        <span class="tb-sync-dot"></span>
+        <span>Live Synced</span>
+      </div>
+    </div>
+    <div class="tb-actions">
+      <a href="../blogs.html" target="_blank" class="btn btn-outline-primary btn-sm">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        <span>View /blogs</span>
+      </a>
+      <button class="theme-toggle-btn" onclick="APP.toggleTheme()" title="Toggle Dark/Light Mode">
+        <svg id="theme-icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+      <button class="btn btn-primary btn-sm" onclick="APP.navigateTo('add-article')">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        <span>Add Article</span>
+      </button>
+      <button class="btn btn-sm btn-danger" onclick="APP.logout()" title="Logout Admin123!">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        <span>Logout</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main id="main-container">
+    <div class="view-wrap" id="view-content">
+      <!-- Dynamic View Rendered Here -->
+    </div>
+  </main>
+
+  <!-- MODAL CONTAINER -->
+  <div class="modal-overlay" id="global-modal-overlay">
+    <div class="modal-card" id="global-modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Modal Title</h3>
+        <button class="modal-close-btn" onclick="APP.closeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-footer" id="modal-footer"></div>
+    </div>
+  </div>
+
+  <!-- TOAST TRAY -->
+  <div class="toast-tray" id="toast-tray"></div>
+
+  <!-- CLIENT-SIDE CMS ENGINE SCRIPT -->
+  <script>
+    const STORAGE_KEY = 'neonex_mindx_cms_v1';
+    const SYNC_CHANNEL = new BroadcastChannel('neonex_cms_sync');
+
+    // Central state
+    let DB = {
+      site: {},
+      categories: [],
+      tags: [],
+      authors: [],
+      posts: [],
+      redirects: [],
+      media: [],
+      users: []
+    };
+
+    let CURRENT_VIEW = 'dashboard';
+    let EDITING_POST_ID = null;
+    let POST_SEARCH_QUERY = '';
+    let POST_STATUS_FILTER = 'all';
+    let POST_CAT_FILTER = 'all';
+
+    const APP = {
+      checkAuth() {
+        const isAuth = sessionStorage.getItem('neonex_cms_auth');
+        const gate = document.getElementById('auth-gate');
+        if (isAuth === 'authenticated') {
+          if (gate) {
+            gate.classList.remove('active');
+            gate.style.display = 'none';
+          }
+        } else {
+          if (gate) {
+            gate.classList.add('active');
+            gate.style.display = 'flex';
+            setTimeout(() => {
+              const passInput = document.getElementById('auth-pass');
+              if (passInput) passInput.focus();
+            }, 100);
+          }
+        }
+      },
+
+      handleLogin(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        const pass = (document.getElementById('auth-pass')?.value || '').trim();
+        const errMsg = document.getElementById('auth-err-msg');
+        
+        if (pass === 'Admin123!') {
+          sessionStorage.setItem('neonex_cms_auth', 'authenticated');
+          if (errMsg) errMsg.style.display = 'none';
+          const gate = document.getElementById('auth-gate');
+          if (gate) {
+            gate.classList.remove('active');
+            gate.style.display = 'none';
+          }
+          const passInput = document.getElementById('auth-pass');
+          if (passInput) passInput.value = '';
+          APP.showToast('Authentication successful! Welcome Admin.');
+        } else {
+          if (errMsg) {
+            errMsg.style.display = 'flex';
+          }
+          const passInput = document.getElementById('auth-pass');
+          if (passInput) {
+            passInput.value = '';
+            passInput.focus();
+          }
+        }
+      },
+
+      logout() {
+        sessionStorage.removeItem('neonex_cms_auth');
+        const gate = document.getElementById('auth-gate');
+        if (gate) {
+          gate.classList.add('active');
+          gate.style.display = 'flex';
+          const passInput = document.getElementById('auth-pass');
+          if (passInput) {
+            passInput.value = '';
+            passInput.focus();
+          }
+        }
+        APP.showToast('You have been logged out.');
+      },
+
+      async init() {
+        // Enforce password auth
+        APP.checkAuth();
+
+        // Load data from localStorage or fallback to blogs.json
+        const local = localStorage.getItem(STORAGE_KEY);
+        if (local) {
+          try {
+            DB = JSON.parse(local);
+          } catch(e) {
+            console.error('Failed to parse localStorage data, refetching seed', e);
+            await APP.loadSeedData();
+          }
+        } else {
+          await APP.loadSeedData();
+        }
+
+        // Setup sync channel
+        SYNC_CHANNEL.onmessage = (e) => {
+          if (e.data && e.data.type === 'DATA_UPDATED') {
+            const fresh = localStorage.getItem(STORAGE_KEY);
+            if (fresh) {
+              DB = JSON.parse(fresh);
+              APP.updateSidebarCounts();
+              APP.renderCurrentView();
+              APP.showToast('Data refreshed via background sync');
+            }
+          }
+        };
+
+        // Attach Nav click handlers
+        document.querySelectorAll('.nav-item').forEach(item => {
+          item.addEventListener('click', () => {
+            const view = item.dataset.view;
+            if (view) APP.navigateTo(view);
+          });
+        });
+
+        // Theme
+        const savedTheme = localStorage.getItem('neonex_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        APP.updateSidebarCounts();
+        APP.navigateTo('dashboard');
+      },
+
+      async loadSeedData() {
+        try {
+          const res = await fetch('../data/blogs.json');
+          if (res.ok) {
+            DB = await res.json();
+            APP.saveToLocalStorage(false);
+          }
+        } catch (err) {
+          console.warn('Could not load ../data/blogs.json directly, initializing empty schema', err);
+        }
+      },
+
+      saveToLocalStorage(broadcast = true) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));
+        if (broadcast) {
+          SYNC_CHANNEL.postMessage({ type: 'DATA_UPDATED', timestamp: Date.now() });
+        }
+        APP.updateSidebarCounts();
+      },
+
+      updateSidebarCounts() {
+        const countEl = document.getElementById('sidebar-post-count');
+        if (countEl) countEl.textContent = DB.posts ? DB.posts.length : 0;
+      },
+
+      toggleTheme() {
+        const cur = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = cur === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('neonex_theme', next);
+        APP.showToast(`Switched to ${next} mode`);
+      },
+
+      navigateTo(view, payload = null) {
+        CURRENT_VIEW = view;
+        EDITING_POST_ID = payload;
+
+        document.querySelectorAll('.nav-item').forEach(n => {
+          n.classList.toggle('active', n.dataset.view === view);
+        });
+
+        const breadcrumb = document.getElementById('topbar-breadcrumb');
+        const viewTitles = {
+          'dashboard': 'Dashboard',
+          'add-article': EDITING_POST_ID ? 'Edit Article' : 'Add Article',
+          'posts': 'Posts',
+          'pages': 'Pages',
+          'taxonomy': 'Categories & Tags',
+          'authors': 'Authors',
+          'media': 'Media Library',
+          'seo-tools': 'SEO Tools',
+          'redirects': '301 Redirects',
+          'sitemap': 'Sitemap',
+          'llms': 'llms.txt',
+          'users': 'Users & Roles',
+          'cache': 'Cache & Sync',
+          'settings': 'Settings'
+        };
+        breadcrumb.innerHTML = `<span>CMS</span> / <b>${viewTitles[view] || view}</b>`;
+
+        // Close mobile drawer if open
+        document.getElementById('sidebar').classList.remove('open');
+
+        APP.renderCurrentView();
+      },
+
+      renderCurrentView() {
+        const root = document.getElementById('view-content');
+        switch (CURRENT_VIEW) {
+          case 'dashboard':
+            root.innerHTML = APP.renderDashboard();
+            break;
+          case 'add-article':
+            root.innerHTML = APP.renderEditor(EDITING_POST_ID);
+            APP.initEditorScript();
+            break;
+          case 'posts':
+            root.innerHTML = APP.renderPosts();
+            break;
+          case 'pages':
+            root.innerHTML = APP.renderPages();
+            break;
+          case 'taxonomy':
+            root.innerHTML = APP.renderTaxonomy();
+            break;
+          case 'authors':
+            root.innerHTML = APP.renderAuthors();
+            break;
+          case 'media':
+            root.innerHTML = APP.renderMedia();
+            break;
+          case 'seo-tools':
+            root.innerHTML = APP.renderSeoTools();
+            break;
+          case 'redirects':
+            root.innerHTML = APP.renderRedirects();
+            break;
+          case 'sitemap':
+            root.innerHTML = APP.renderSitemap();
+            break;
+          case 'llms':
+            root.innerHTML = APP.renderLlms();
+            break;
+          case 'users':
+            root.innerHTML = APP.renderUsers();
+            break;
+          case 'cache':
+            root.innerHTML = APP.renderCache();
+            break;
+          case 'settings':
+            root.innerHTML = APP.renderSettings();
+            break;
+          default:
+            root.innerHTML = APP.renderDashboard();
+        }
+      },
+
+      /* ==================== DASHBOARD VIEW ==================== */
+      renderDashboard() {
+        const posts = DB.posts || [];
+        const published = posts.filter(p => p.status === 'published').length;
+        const drafts = posts.filter(p => p.status === 'draft').length;
+        const scheduled = posts.filter(p => p.status === 'scheduled').length;
+        const seoIssues = posts.filter(p => (p.seoScore || 0) < 80).length;
+
+        const recent = [...posts].reverse().slice(0, 5);
+
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Dashboard</h2>
+              <p>CMS / Overview and quick operations</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="APP.navigateTo('add-article')">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span>Add Article</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid-4">
+            <div class="kpi-card">
+              <span class="kpi-title">PUBLISHED</span>
+              <div class="kpi-num">${published}</div>
+              <div class="kpi-sub">Live public posts</div>
+              <div class="kpi-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-title">DRAFTS</span>
+              <div class="kpi-num">${drafts}</div>
+              <div class="kpi-sub">Pending edits</div>
+              <div class="kpi-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-title">SCHEDULED</span>
+              <div class="kpi-num">${scheduled}</div>
+              <div class="kpi-sub">Upcoming releases</div>
+              <div class="kpi-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-title">SEO CHECKS</span>
+              <div class="kpi-num">${seoIssues}</div>
+              <div class="kpi-sub">Items needing optimization</div>
+              <div class="kpi-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+            </div>
+          </div>
+
+          <div class="grid-3" style="margin-bottom: 24px;">
+            <div class="quick-action-card" onclick="APP.navigateTo('add-article')">
+              <div class="quick-action-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></div>
+              <div>
+                <h3>Add Article</h3>
+                <p>Open full rich text and SEO editor.</p>
+              </div>
+            </div>
+            <div class="quick-action-card" onclick="APP.navigateTo('posts')">
+              <div class="quick-action-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg></div>
+              <div>
+                <h3>Posts</h3>
+                <p>Manage, publish, filter, and organize articles.</p>
+              </div>
+            </div>
+            <div class="quick-action-card" onclick="APP.navigateTo('media')">
+              <div class="quick-action-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle></svg></div>
+              <div>
+                <h3>Media</h3>
+                <p>Upload WebP/PNG images and video assets.</p>
+              </div>
+            </div>
+            <div class="quick-action-card" onclick="APP.navigateTo('seo-tools')">
+              <div class="quick-action-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+              <div>
+                <h3>SEO Tools</h3>
+                <p>Audit meta descriptions, schema, and alt tags.</p>
+              </div>
+            </div>
+            <div class="quick-action-card" onclick="APP.navigateTo('redirects')">
+              <div class="quick-action-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 14 20 9 15 4"></polyline><path d="M4 20v-7a4 4 0 0 1 4-4h12"></path></svg></div>
+              <div>
+                <h3>301 Redirects</h3>
+                <p>Manage legacy paths and generate _redirects.</p>
+              </div>
+            </div>
+            <div class="quick-action-card" onclick="APP.navigateTo('settings')">
+              <div class="quick-action-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+              <div>
+                <h3>Settings</h3>
+                <p>Configure CMS defaults and robots policies.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <div class="table-toolbar">
+              <h3 style="font-size:14px;font-weight:700;">Recent Articles</h3>
+              <button class="btn btn-sm" onclick="APP.navigateTo('posts')">View All Posts &rarr;</button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Post</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th>SEO Score</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${recent.map(p => `
+                  <tr>
+                    <td>
+                      <div class="post-title-cell">${p.title}</div>
+                      <div class="post-slug-cell">/blog/${p.slug}</div>
+                    </td>
+                    <td>${p.category || 'General'}</td>
+                    <td><span class="status-pill ${p.status}"><span class="status-dot"></span>${p.status}</span></td>
+                    <td>
+                      <span class="score-badge ${(p.seoScore||0)>=85?'score-high':(p.seoScore||0)>=60?'score-mid':'score-low'}">
+                        ${p.seoScore || 80}%
+                      </span>
+                    </td>
+                    <td>
+                      <button class="btn btn-sm" onclick="APP.navigateTo('add-article', '${p.id}')">Edit</button>
+                      <button class="btn btn-sm" onclick="window.open('../blog-post.html?slug=${p.slug}','_blank')">View</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      /* ==================== POSTS VIEW ==================== */
+      renderPosts() {
+        let list = [...(DB.posts || [])];
+
+        if (POST_SEARCH_QUERY.trim()) {
+          const q = POST_SEARCH_QUERY.toLowerCase();
+          list = list.filter(p => (p.title || '').toLowerCase().includes(q) || (p.slug || '').toLowerCase().includes(q));
+        }
+
+        if (POST_STATUS_FILTER !== 'all') {
+          list = list.filter(p => p.status === POST_STATUS_FILTER);
+        }
+
+        if (POST_CAT_FILTER !== 'all') {
+          list = list.filter(p => p.category === POST_CAT_FILTER);
+        }
+
+        const categories = (DB.categories || []).map(c => c.name);
+
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Posts</h2>
+              <p>Manage all article entries, live statuses, and SEO compliance.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="APP.navigateTo('add-article')">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span>Add Article</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <div class="table-toolbar">
+              <div class="search-input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Search posts by title or slug..." value="${POST_SEARCH_QUERY}" oninput="POST_SEARCH_QUERY=this.value; APP.renderCurrentView();">
+              </div>
+
+              <div style="display:flex; gap:8px; align-items:center;">
+                <select class="form-control" style="width:auto; padding:6px 10px;" onchange="POST_CAT_FILTER=this.value; APP.renderCurrentView();">
+                  <option value="all">All Categories</option>
+                  ${categories.map(c => `<option value="${c}" ${POST_CAT_FILTER===c?'selected':''}>${c}</option>`).join('')}
+                </select>
+
+                <select class="form-control" style="width:auto; padding:6px 10px;" onchange="POST_STATUS_FILTER=this.value; APP.renderCurrentView();">
+                  <option value="all" ${POST_STATUS_FILTER==='all'?'selected':''}>All Statuses</option>
+                  <option value="published" ${POST_STATUS_FILTER==='published'?'selected':''}>Published</option>
+                  <option value="draft" ${POST_STATUS_FILTER==='draft'?'selected':''}>Draft</option>
+                  <option value="scheduled" ${POST_STATUS_FILTER==='scheduled'?'selected':''}>Scheduled</option>
+                </select>
+              </div>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Post</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th>SEO Score</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${list.length === 0 ? `
+                  <tr><td colspan="5" style="text-align:center; padding:32px; color:var(--muted);">No matching articles found.</td></tr>
+                ` : list.map(p => `
+                  <tr>
+                    <td style="max-width:380px;">
+                      <div class="post-title-cell">${p.title}</div>
+                      <div class="post-slug-cell">/blog/${p.slug}</div>
+                    </td>
+                    <td>${p.category || 'General'}</td>
+                    <td>
+                      <span class="status-pill ${p.status}">
+                        <span class="status-dot"></span>${p.status}
+                      </span>
+                    </td>
+                    <td>
+                      <span class="score-badge ${(p.seoScore||0)>=85?'score-high':(p.seoScore||0)>=60?'score-mid':'score-low'}">
+                        ${p.seoScore || 80}%
+                      </span>
+                    </td>
+                    <td>
+                      <div style="display:flex; gap:6px;">
+                        <button class="btn btn-sm" onclick="APP.navigateTo('add-article', '${p.id}')">Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick="APP.deletePost('${p.id}')">Delete</button>
+                        <button class="btn btn-sm" onclick="window.open('../blog-post.html?slug=${p.slug}','_blank')">View</button>
+                      </div>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+
+            <div class="pagination-bar">
+              <span>Showing ${list.length} of ${DB.posts.length} posts</span>
+              <div style="display:flex; gap:6px;">
+                <button class="btn btn-sm" disabled>Previous</button>
+                <button class="btn btn-sm" disabled>Next</button>
+              </div>
+            </div>
+          </div>
+        `;
+      },
+
+      deletePost(id) {
+        if (!confirm('Are you sure you want to delete this article?')) return;
+        DB.posts = DB.posts.filter(p => p.id !== id);
+        APP.saveToLocalStorage();
+        APP.showToast('Post deleted successfully');
+        APP.renderCurrentView();
+      },
+
+      /* ==================== ADD / EDIT ARTICLE VIEW ==================== */
+      renderEditor(postId) {
+        const post = postId ? DB.posts.find(p => p.id === postId) : {
+          id: 'post-' + Date.now(),
+          title: '',
+          slug: '',
+          category: (DB.categories[0] && DB.categories[0].name) || 'Data Science',
+          author: (DB.authors[0] && DB.authors[0].name) || 'Dr. Rajesh Varma',
+          authorId: (DB.authors[0] && DB.authors[0].id) || 'author-rajesh',
+          status: 'draft',
+          publishDate: new Date().toISOString().split('T')[0],
+          readTime: '5 min read',
+          heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+          heroAlt: '',
+          focusKeyword: '',
+          metaDescription: '',
+          excerpt: '',
+          seoScore: 85,
+          tags: ['Data Science', 'Python'],
+          body: '<h2>Introduction</h2><p>Start writing your in-depth guide or tutorial here...</p>'
+        };
+
+        const categories = DB.categories || [];
+        const authors = DB.authors || [];
+
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>${postId ? 'Edit Article' : 'Add Article'}</h2>
+              <p>CMS / Posts / ${postId ? 'Edit' : 'Add'}</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn" onclick="APP.navigateTo('posts')">Cancel</button>
+              <button class="btn btn-outline-primary" onclick="APP.previewCurrentEditor()">Preview</button>
+              <button class="btn btn-primary" onclick="APP.saveCurrentEditor(false)">Save Draft</button>
+              <button class="btn btn-primary" style="background:#16A34A; border-color:#16A34A;" onclick="APP.saveCurrentEditor(true)">Publish Now</button>
+            </div>
+          </div>
+
+          <div class="editor-layout">
+            <div class="editor-main">
+              <!-- Content Form Card -->
+              <div class="card" style="margin-bottom:20px;">
+                <div class="editor-tabs">
+                  <button class="editor-tab-btn active" onclick="APP.switchEditorTab('content', this)">Content</button>
+                  <button class="editor-tab-btn" onclick="APP.switchEditorTab('seo', this)">SEO &amp; Meta</button>
+                  <button class="editor-tab-btn" onclick="APP.switchEditorTab('media', this)">Media &amp; Cover</button>
+                </div>
+
+                <div id="tab-pane-content">
+                  <div class="form-group">
+                    <label class="form-label">ARTICLE TITLE</label>
+                    <input type="text" id="ed-title" class="form-control" style="font-size:16px; font-weight:600;" value="${APP.escapeHtml(post.title)}" placeholder="Enter compelling article title..." oninput="APP.onTitleChanged(this.value)">
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">SLUG</label>
+                      <input type="text" id="ed-slug" class="form-control" value="${APP.escapeHtml(post.slug)}" placeholder="url-friendly-slug">
+                      <div class="form-hint">Generated from title unless edited. Path: /blog/&lt;slug&gt;</div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">FOCUS KEYWORD</label>
+                      <input type="text" id="ed-keyword" class="form-control" value="${APP.escapeHtml(post.focusKeyword || '')}" placeholder="e.g. Data Scientist Roadmap" oninput="APP.calculateLiveSeo()">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">CATEGORY</label>
+                      <select id="ed-category" class="form-control">
+                        ${categories.map(c => `<option value="${c.name}" ${post.category===c.name?'selected':''}>${c.name}</option>`).join('')}
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">AUTHOR</label>
+                      <select id="ed-author" class="form-control">
+                        ${authors.map(a => `<option value="${a.name}" data-id="${a.id}" ${post.author===a.name?'selected':''}>${a.name} (${a.designation})</option>`).join('')}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">EXCERPT (SHORT SUMMARY)</label>
+                    <textarea id="ed-excerpt" class="form-control" rows="3" placeholder="Brief 1-2 sentence preview for cards and search snippets...">${APP.escapeHtml(post.excerpt || '')}</textarea>
+                  </div>
+                </div>
+
+                <div id="tab-pane-seo" style="display:none;">
+                  <div class="form-group">
+                    <label class="form-label">META DESCRIPTION (RECOMMENDED 130-160 CHARACTERS)</label>
+                    <textarea id="ed-metadesc" class="form-control" rows="3" placeholder="Google snippet description..." oninput="APP.calculateLiveSeo()">${APP.escapeHtml(post.metaDescription || '')}</textarea>
+                    <div class="form-hint" id="metadesc-count">0 / 160 characters</div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">ARTICLE TAGS (COMMA SEPARATED)</label>
+                    <input type="text" id="ed-tags" class="form-control" value="${(post.tags||[]).join(', ')}" placeholder="Python, Machine Learning, Career">
+                  </div>
+                </div>
+
+                <div id="tab-pane-media" style="display:none;">
+                  <div class="form-group">
+                    <label class="form-label">COVER / HERO IMAGE URL</label>
+                    <input type="text" id="ed-heroimage" class="form-control" value="${APP.escapeHtml(post.heroImage || '')}" placeholder="https://..." onchange="document.getElementById('hero-preview').src = this.value">
+                    <div style="margin-top:10px;">
+                      <img id="hero-preview" src="${post.heroImage || 'https://via.placeholder.com/600x300'}" style="max-height:160px; border-radius:8px; border:1px solid var(--border); object-fit:cover; width:100%;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">IMAGE ALT TEXT</label>
+                    <input type="text" id="ed-heroalt" class="form-control" value="${APP.escapeHtml(post.heroAlt || '')}" placeholder="Descriptive ALT text for search crawlers...">
+                  </div>
+                </div>
+              </div>
+
+              <!-- WYSIWYG Editor Card -->
+              <div class="card" style="padding:0; overflow:hidden;">
+                <div class="rte-menu-bar">
+                  <span onclick="document.execCommand('undo')">Undo</span>
+                  <span onclick="document.execCommand('redo')">Redo</span>
+                  <span onclick="APP.insertSampleTable()">Insert Table</span>
+                  <span onclick="APP.openImagePickerModal()">Insert Image</span>
+                  <span onclick="APP.toggleSourceCode()" id="code-toggle-lbl">View Code &lt;/&gt;</span>
+                </div>
+
+                <div class="rte-toolbar" id="rte-toolbar-main">
+                  <button class="rte-btn" onclick="document.execCommand('undo')" title="Undo">↶</button>
+                  <button class="rte-btn" onclick="document.execCommand('redo')" title="Redo">↷</button>
+                  <div class="rte-sep"></div>
+
+                  <select class="rte-select" onchange="document.execCommand('formatBlock', false, this.value)">
+                    <option value="p">Paragraph</option>
+                    <option value="h2">Heading 2</option>
+                    <option value="h3">Heading 3</option>
+                    <option value="h4">Heading 4</option>
+                    <option value="blockquote">Quote Block</option>
+                  </select>
+
+                  <select class="rte-select" onchange="document.execCommand('fontName', false, this.value)">
+                    <option value="Plus Jakarta Sans">Jakarta</option>
+                    <option value="Inter">Inter</option>
+                    <option value="monospace">Mono</option>
+                  </select>
+
+                  <div class="rte-sep"></div>
+                  <button class="rte-btn" onclick="document.execCommand('bold')" title="Bold"><b>B</b></button>
+                  <button class="rte-btn" onclick="document.execCommand('italic')" title="Italic"><i>I</i></button>
+                  <button class="rte-btn" onclick="document.execCommand('underline')" title="Underline"><u>U</u></button>
+                  <button class="rte-btn" onclick="document.execCommand('strikeThrough')" title="Strike"><s>S</s></button>
+                  <div class="rte-sep"></div>
+
+                  <button class="rte-btn" onclick="document.execCommand('insertUnorderedList')" title="Bullet List">• List</button>
+                  <button class="rte-btn" onclick="document.execCommand('insertOrderedList')" title="Numbered List">1. List</button>
+                  <div class="rte-sep"></div>
+
+                  <button class="rte-btn" onclick="document.execCommand('justifyLeft')" title="Left">⇤</button>
+                  <button class="rte-btn" onclick="document.execCommand('justifyCenter')" title="Center">≡</button>
+                  <button class="rte-btn" onclick="document.execCommand('justifyRight')" title="Right">⇥</button>
+                  <div class="rte-sep"></div>
+
+                  <button class="rte-btn" onclick="APP.promptLink()" title="Link">🔗</button>
+                  <button class="rte-btn" onclick="document.execCommand('unlink')" title="Unlink">⦸</button>
+                  <button class="rte-btn" onclick="APP.openImagePickerModal()" title="Insert Image">🖼</button>
+                  <button class="rte-btn" onclick="APP.insertSampleTable()" title="Table">▦</button>
+                  <button class="rte-btn" onclick="document.execCommand('removeFormat')" title="Clear Formatting">✕</button>
+                </div>
+
+                <div class="rte-content-area" id="ed-body" contenteditable="true" data-placeholder="Start writing the blog post body here..." oninput="APP.calculateLiveSeo()">${post.body || ''}</div>
+                <textarea id="ed-body-source" style="display:none; width:100%; min-height:420px; font-family:var(--font-mono); font-size:12.5px; padding:18px; border:none; outline:none; background:var(--surface); color:var(--ink); line-height:1.6;"></textarea>
+
+                <div style="padding:10px 18px; background:var(--surface-2); border-top:1px solid var(--border); display:flex; justify-content:space-between; font-size:11.5px; color:var(--muted);">
+                  <span id="ed-word-count">0 words · 1 min read</span>
+                  <span id="ed-auto-status">Draft autosave ready</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Editor Aside -->
+            <div class="editor-aside">
+              <!-- Publish Card -->
+              <div class="card">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                  <span class="form-label" style="margin:0;">PUBLISH STATUS</span>
+                  <span class="status-pill ${post.status}" id="aside-status-pill">
+                    <span class="status-dot"></span>${post.status}
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">VISIBILITY / STATUS</label>
+                  <select id="ed-status" class="form-control" onchange="document.getElementById('aside-status-pill').className = 'status-pill ' + this.value; document.getElementById('aside-status-pill').innerHTML = '<span class=\\'status-dot\\'></span>' + this.value;">
+                    <option value="draft" ${post.status==='draft'?'selected':''}>Draft</option>
+                    <option value="published" ${post.status==='published'?'selected':''}>Published (Live)</option>
+                    <option value="scheduled" ${post.status==='scheduled'?'selected':''}>Scheduled</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">PUBLISH DATE</label>
+                  <input type="date" id="ed-date" class="form-control" value="${post.publishDate || new Date().toISOString().split('T')[0]}">
+                </div>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:14px;">
+                  <button class="btn btn-primary" onclick="APP.saveCurrentEditor(false)">Save Draft</button>
+                  <button class="btn btn-primary" style="background:#16A34A; border-color:#16A34A;" onclick="APP.saveCurrentEditor(true)">Publish</button>
+                </div>
+                <div style="margin-top:8px;">
+                  <button class="btn" style="width:100%; justify-content:center;" onclick="APP.previewCurrentEditor()">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span>Live Preview</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Live SEO Analyzer Card -->
+              <div class="seo-score-widget">
+                <div class="seo-score-head">
+                  <div class="score-circle-wrap" id="seo-score-wrap" style="--score-pct: 85;">
+                    <div class="score-circle-inner" id="seo-score-num">85%</div>
+                  </div>
+                  <div>
+                    <div style="font-weight:700; font-size:14px;" id="seo-score-label">Good Optimization</div>
+                    <div style="font-size:11px; color:var(--muted);">Live content &amp; keyword checks</div>
+                  </div>
+                </div>
+
+                <div class="seo-checklist" id="seo-checklist">
+                  <!-- Filled via calculateLiveSeo() -->
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      },
+
+      initEditorScript() {
+        APP.calculateLiveSeo();
+      },
+
+      switchEditorTab(tab, btn) {
+        document.querySelectorAll('.editor-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-pane-content').style.display = tab === 'content' ? 'block' : 'none';
+        document.getElementById('tab-pane-seo').style.display = tab === 'seo' ? 'block' : 'none';
+        document.getElementById('tab-pane-media').style.display = tab === 'media' ? 'block' : 'none';
+      },
+
+      onTitleChanged(title) {
+        const slugInput = document.getElementById('ed-slug');
+        if (!EDITING_POST_ID && slugInput) {
+          slugInput.value = title.toLowerCase()
+            .replace(/[^\w\s-]/g, '')
+            .trim()
+            .replace(/\s+/g, '-');
+        }
+        APP.calculateLiveSeo();
+      },
+
+      promptLink() {
+        const url = prompt('Enter destination URL (e.g. https://... or /courses/...):');
+        if (url) document.execCommand('createLink', false, url);
+      },
+
+      insertSampleTable() {
+        const html = `
+          <table>
+            <thead><tr><th>Feature / Concept</th><th>Traditional</th><th>Modern Standard</th></tr></thead>
+            <tbody>
+              <tr><td>Architecture</td><td>Monolithic</td><td>Cloud Microservices</td></tr>
+              <tr><td>Performance</td><td>Moderate</td><td>Real-time In-Memory</td></tr>
+            </tbody>
+          </table>
+        `;
+        document.execCommand('insertHTML', false, html);
+      },
+
+      openImagePickerModal() {
+        const mediaList = DB.media || [];
+        const body = `
+          <div class="media-grid" style="grid-template-columns:repeat(3, 1fr); max-height:400px; overflow-y:auto;">
+            ${mediaList.map(m => `
+              <div class="media-card" style="cursor:pointer;" onclick="APP.insertImageIntoEditor('${m.url}', '${m.alt||''}')">
+                <div class="media-thumb-wrap"><img src="${m.url}"></div>
+                <div style="padding:8px; font-size:11px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${m.name}</div>
+              </div>
+            `).join('')}
+          </div>
+          <div style="margin-top:14px; border-top:1px solid var(--border); padding-top:12px;">
+            <label class="form-label">Or Insert Direct Image URL:</label>
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="direct-img-url" class="form-control" placeholder="https://...">
+              <button class="btn btn-primary" onclick="APP.insertImageIntoEditor(document.getElementById('direct-img-url').value, 'Article illustration')">Insert</button>
+            </div>
+          </div>
+        `;
+        APP.openModal('Insert Image from Media Library', body, '');
+      },
+
+      insertImageIntoEditor(url, alt) {
+        if (!url) return;
+        APP.closeModal();
+        const html = `<figure><img src="${url}" alt="${alt||'Article image'}" style="max-width:100%; border-radius:8px;"><figcaption style="font-size:12px; color:var(--muted); margin-top:4px;">${alt||''}</figcaption></figure>`;
+        const ed = document.getElementById('ed-body');
+        if (ed) {
+          ed.focus();
+          document.execCommand('insertHTML', false, html);
+          APP.calculateLiveSeo();
+        }
+      },
+
+      toggleSourceCode() {
+        const bodyDiv = document.getElementById('ed-body');
+        const sourceTa = document.getElementById('ed-body-source');
+        const lbl = document.getElementById('code-toggle-lbl');
+        if (sourceTa.style.display === 'none') {
+          sourceTa.value = bodyDiv.innerHTML;
+          bodyDiv.style.display = 'none';
+          sourceTa.style.display = 'block';
+          lbl.textContent = 'View Visual Editor 👁';
+        } else {
+          bodyDiv.innerHTML = sourceTa.value;
+          sourceTa.style.display = 'none';
+          bodyDiv.style.display = 'block';
+          lbl.textContent = 'View Code </> ';
+          APP.calculateLiveSeo();
+        }
+      },
+
+      calculateLiveSeo() {
+        const title = (document.getElementById('ed-title')?.value || '').trim();
+        const slug = (document.getElementById('ed-slug')?.value || '').trim();
+        const keyword = (document.getElementById('ed-keyword')?.value || '').trim().toLowerCase();
+        const metadesc = (document.getElementById('ed-metadesc')?.value || '').trim();
+        const bodyEl = document.getElementById('ed-body');
+        const bodyHtml = bodyEl ? bodyEl.innerHTML : '';
+        const bodyText = bodyEl ? bodyEl.innerText : '';
+
+        const words = (bodyText.match(/\b\w+\b/g) || []).length;
+        const readTimeMinutes = Math.max(1, Math.ceil(words / 200));
+
+        const wordCountEl = document.getElementById('ed-word-count');
+        if (wordCountEl) {
+          wordCountEl.textContent = `${words} words · ${readTimeMinutes} min read`;
+        }
+
+        const metaCountEl = document.getElementById('metadesc-count');
+        if (metaCountEl) {
+          metaCountEl.textContent = `${metadesc.length} / 160 characters`;
+        }
+
+        // Checks
+        const checks = [
+          { label: 'Title present (30-70 characters)', pass: title.length >= 25 && title.length <= 80, points: 15 },
+          { label: 'Meta description added (120-160 chars)', pass: metadesc.length >= 100 && metadesc.length <= 170, points: 15 },
+          { label: 'Focus keyword specified', pass: keyword.length > 2, points: 10 },
+          { label: 'Keyword in article title', pass: keyword.length > 2 && title.toLowerCase().includes(keyword), points: 15 },
+          { label: 'Keyword in URL slug', pass: keyword.length > 2 && slug.toLowerCase().includes(keyword.replace(/\s+/g, '-')), points: 10 },
+          { label: 'Keyword in meta description', pass: keyword.length > 2 && metadesc.toLowerCase().includes(keyword), points: 10 },
+          { label: 'Content length 300+ words', pass: words >= 300, points: 15 },
+          { label: 'Subheadings (H2/H3) structured', pass: /<h[23][^>]*>/i.test(bodyHtml), points: 10 }
+        ];
+
+        let totalScore = checks.reduce((sum, c) => sum + (c.pass ? c.points : 0), 0);
+        totalScore = Math.min(100, Math.max(10, totalScore));
+
+        const scoreNum = document.getElementById('seo-score-num');
+        const scoreWrap = document.getElementById('seo-score-wrap');
+        const scoreLabel = document.getElementById('seo-score-label');
+        if (scoreNum && scoreWrap && scoreLabel) {
+          scoreNum.textContent = totalScore + '%';
+          scoreWrap.style.setProperty('--score-pct', totalScore);
+          if (totalScore >= 85) {
+            scoreLabel.textContent = 'Excellent Optimization';
+            scoreLabel.style.color = 'var(--pass)';
+          } else if (totalScore >= 60) {
+            scoreLabel.textContent = 'Good Optimization';
+            scoreLabel.style.color = 'var(--warn)';
+          } else {
+            scoreLabel.textContent = 'Needs Inputs';
+            scoreLabel.style.color = 'var(--crit)';
+          }
+        }
+
+        const checklistEl = document.getElementById('seo-checklist');
+        if (checklistEl) {
+          checklistEl.innerHTML = checks.map(c => `
+            <div class="seo-check-item">
+              <span class="seo-check-icon ${c.pass ? 'pass' : 'fail'}">${c.pass ? '✓' : '✕'}</span>
+              <span>${c.label}</span>
+            </div>
+          `).join('');
+        }
+
+        return totalScore;
+      },
+
+      saveCurrentEditor(publishImmediate = false) {
+        const title = (document.getElementById('ed-title')?.value || '').trim();
+        if (!title) {
+          alert('Please enter an article title.');
+          return;
+        }
+
+        let slug = (document.getElementById('ed-slug')?.value || '').trim();
+        if (!slug) {
+          slug = title.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+        }
+
+        const category = document.getElementById('ed-category')?.value || 'Data Science';
+        const authorSelect = document.getElementById('ed-author');
+        const author = authorSelect?.value || 'Dr. Rajesh Varma';
+        const authorId = authorSelect?.options[authorSelect.selectedIndex]?.dataset?.id || 'author-rajesh';
+
+        const bodyDiv = document.getElementById('ed-body');
+        const sourceTa = document.getElementById('ed-body-source');
+        const body = (sourceTa.style.display === 'block' ? sourceTa.value : bodyDiv.innerHTML) || '';
+
+        const excerpt = document.getElementById('ed-excerpt')?.value || '';
+        const focusKeyword = document.getElementById('ed-keyword')?.value || '';
+        const metaDescription = document.getElementById('ed-metadesc')?.value || '';
+        const tagsRaw = document.getElementById('ed-tags')?.value || '';
+        const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+        const heroImage = document.getElementById('ed-heroimage')?.value || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
+        const heroAlt = document.getElementById('ed-heroalt')?.value || title;
+        const status = publishImmediate ? 'published' : (document.getElementById('ed-status')?.value || 'draft');
+        const publishDate = document.getElementById('ed-date')?.value || new Date().toISOString().split('T')[0];
+
+        const words = (body.replace(/<[^>]*>/g, ' ').match(/\b\w+\b/g) || []).length;
+        const readTime = Math.max(1, Math.ceil(words / 200)) + ' min read';
+        const seoScore = APP.calculateLiveSeo();
+
+        const postRecord = {
+          id: EDITING_POST_ID || ('post-' + Date.now()),
+          title,
+          slug,
+          category,
+          author,
+          authorId,
+          status,
+          publishDate,
+          readTime,
+          heroImage,
+          heroAlt,
+          focusKeyword,
+          metaDescription,
+          excerpt,
+          seoScore,
+          tags,
+          body
+        };
+
+        const existingIdx = DB.posts.findIndex(p => p.id === postRecord.id);
+        if (existingIdx !== -1) {
+          DB.posts[existingIdx] = postRecord;
+        } else {
+          DB.posts.push(postRecord);
+        }
+
+        APP.saveToLocalStorage();
+        APP.showToast(publishImmediate ? 'Article published successfully!' : 'Article draft saved!');
+        APP.navigateTo('posts');
+      },
+
+      previewCurrentEditor() {
+        const title = document.getElementById('ed-title')?.value || 'Sample Title';
+        const body = document.getElementById('ed-body')?.innerHTML || '';
+        const hero = document.getElementById('ed-heroimage')?.value || '';
+
+        const previewHtml = `
+          <div style="font-family:'Plus Jakarta Sans', sans-serif; max-height:70vh; overflow-y:auto; padding:10px;">
+            ${hero ? `<img src="${hero}" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; margin-bottom:18px;">` : ''}
+            <h1 style="font-size:24px; font-weight:800; margin-bottom:12px; line-height:1.3;">${title}</h1>
+            <div style="border-top:1px solid #E2E8F0; padding-top:16px; margin-top:16px; line-height:1.7;">
+              ${body}
+            </div>
+          </div>
+        `;
+        APP.openModal('Live Article Preview', previewHtml, '<button class="btn btn-primary" onclick="APP.closeModal()">Close Preview</button>');
+      },
+
+      /* ==================== PAGES VIEW ==================== */
+      renderPages() {
+        const pages = [
+          { name: 'Blogs Directory (/blogs)', path: '/blogs', status: 'published', lastMod: '2026-09-23', isEditable: true },
+          { name: 'Home', path: '/home', status: 'published', lastMod: '2026-09-20' },
+          { name: 'Data Science Course', path: '/courses/data-science-course', status: 'published', lastMod: '2026-09-18' },
+          { name: 'AI & ML Course', path: '/courses/ai-ml-course', status: 'published', lastMod: '2026-09-18' },
+          { name: 'Data Analytics Course', path: '/courses/data-analytics-course', status: 'published', lastMod: '2026-09-18' },
+          { name: 'About Us', path: '/about-us', status: 'published', lastMod: '2026-09-15' },
+          { name: 'Contact Us', path: '/contact-us', status: 'published', lastMod: '2026-09-15' }
+        ];
+
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Pages &amp; Routing</h2>
+              <p>CMS / Pages — Manage site pages and configure <b>/blogs</b> page content.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="APP.navigateTo('settings')">Configure /blogs Content</button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Page</th>
+                  <th>Path</th>
+                  <th>Status</th>
+                  <th>SEO Health</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${pages.map(pg => `
+                  <tr>
+                    <td><b>${pg.name}</b></td>
+                    <td><code>${pg.path}</code></td>
+                    <td><span class="status-pill published"><span class="status-dot"></span>Published</span></td>
+                    <td><span class="score-badge score-high">100% OK</span></td>
+                    <td>
+                      <div style="display:flex; gap:6px;">
+                        ${pg.isEditable ? `
+                          <button class="btn btn-sm btn-primary" onclick="APP.navigateTo('settings')">Edit Content</button>
+                          <a href="../blogs.html" target="_blank" class="btn btn-sm">Inspect Live</a>
+                        ` : `
+                          <a href="..${pg.path==='/blogs'?'/blogs.html':pg.path+'.html'}" target="_blank" class="btn btn-sm">Inspect</a>
+                        `}
+                      </div>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      /* ==================== CATEGORIES & TAGS ==================== */
+      renderTaxonomy() {
+        const categories = DB.categories || [];
+        const tags = DB.tags || [];
+
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Categories &amp; Tags</h2>
+              <p>CMS / Taxonomy — Add, edit and remove categories and keyword tags.</p>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <!-- Categories Column -->
+            <div class="card">
+              <h3 style="font-size:15px; font-weight:700; margin-bottom:12px;">Categories</h3>
+              <div style="display:flex; gap:8px; margin-bottom:16px;">
+                <input type="text" id="new-cat-name" class="form-control" placeholder="New Category Name...">
+                <button class="btn btn-primary" onclick="APP.addCategory()">Add Category</button>
+              </div>
+
+              <div class="table-container">
+                <table>
+                  <thead><tr><th>Name</th><th>Slug</th><th>Actions</th></tr></thead>
+                  <tbody>
+                    ${categories.map(c => `
+                      <tr>
+                        <td><b>${c.name}</b></td>
+                        <td><code>${c.slug}</code></td>
+                        <td>
+                          <button class="btn btn-sm btn-danger" onclick="APP.deleteCategory('${c.id}')">Delete</button>
+                        </td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tags Column -->
+            <div class="card">
+              <h3 style="font-size:15px; font-weight:700; margin-bottom:12px;">Tags</h3>
+              <div style="display:flex; gap:8px; margin-bottom:16px;">
+                <input type="text" id="new-tag-name" class="form-control" placeholder="New Tag Name...">
+                <button class="btn btn-primary" onclick="APP.addTag()">Add Tag</button>
+              </div>
+
+              <div style="display:flex; flex-wrap:wrap; gap:8px; padding:10px; background:var(--surface-2); border-radius:var(--radius-sm);">
+                ${tags.map(t => `
+                  <span style="display:inline-flex; align-items:center; gap:6px; background:var(--surface); border:1px solid var(--border); padding:4px 10px; border-radius:20px; font-size:12px;">
+                    <span>#${t}</span>
+                    <button style="border:none; background:none; cursor:pointer; color:var(--muted);" onclick="APP.deleteTag('${t}')">&times;</button>
+                  </span>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+      },
+
+      addCategory() {
+        const input = document.getElementById('new-cat-name');
+        const val = (input?.value || '').trim();
+        if (!val) return;
+        const slug = val.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+        DB.categories.push({ id: 'cat-' + Date.now(), name: val, slug, description: val });
+        APP.saveToLocalStorage();
+        APP.showToast('Category added!');
+        APP.renderCurrentView();
+      },
+
+      deleteCategory(id) {
+        if (!confirm('Delete this category?')) return;
+        DB.categories = DB.categories.filter(c => c.id !== id);
+        APP.saveToLocalStorage();
+        APP.showToast('Category removed');
+        APP.renderCurrentView();
+      },
+
+      addTag() {
+        const input = document.getElementById('new-tag-name');
+        const val = (input?.value || '').trim();
+        if (!val) return;
+        if (!DB.tags.includes(val)) {
+          DB.tags.push(val);
+          APP.saveToLocalStorage();
+          APP.showToast('Tag added!');
+          APP.renderCurrentView();
+        }
+      },
+
+      deleteTag(t) {
+        DB.tags = DB.tags.filter(x => x !== t);
+        APP.saveToLocalStorage();
+        APP.showToast('Tag removed');
+        APP.renderCurrentView();
+      },
+
+      /* ==================== AUTHORS VIEW ==================== */
+      renderAuthors() {
+        const authors = DB.authors || [];
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Authors</h2>
+              <p>CMS / Authors — Manage author profiles, photos, bios, and credentials.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="APP.openAddAuthorModal()">Add Author</button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Author</th>
+                  <th>Designation</th>
+                  <th>Email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${authors.map(a => `
+                  <tr>
+                    <td>
+                      <div style="display:flex; align-items:center; gap:12px;">
+                        <img src="${a.avatar}" style="width:38px; height:38px; border-radius:50%; object-fit:cover;">
+                        <div>
+                          <div style="font-weight:700; color:var(--ink);">${a.name}</div>
+                          <div style="font-size:11px; color:var(--muted); max-width:320px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${a.bio}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>${a.designation}</td>
+                    <td><code>${a.email}</code></td>
+                    <td>
+                      <button class="btn btn-sm btn-danger" onclick="APP.deleteAuthor('${a.id}')">Delete</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      openAddAuthorModal() {
+        const body = `
+          <div class="form-group">
+            <label class="form-label">FULL NAME</label>
+            <input type="text" id="modal-auth-name" class="form-control" placeholder="e.g. Sumanth Kumar">
+          </div>
+          <div class="form-group">
+            <label class="form-label">DESIGNATION / ROLE</label>
+            <input type="text" id="modal-auth-desig" class="form-control" placeholder="e.g. Senior ML Architect & Mentor">
+          </div>
+          <div class="form-group">
+            <label class="form-label">EMAIL</label>
+            <input type="email" id="modal-auth-email" class="form-control" placeholder="name@neonexmindx.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">AVATAR URL</label>
+            <input type="text" id="modal-auth-avatar" class="form-control" value="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80">
+          </div>
+          <div class="form-group">
+            <label class="form-label">SHORT BIO</label>
+            <textarea id="modal-auth-bio" class="form-control" rows="3" placeholder="Brief mentor bio and domain expertise..."></textarea>
+          </div>
+        `;
+        const footer = `
+          <button class="btn" onclick="APP.closeModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="APP.saveNewAuthor()">Create Author</button>
+        `;
+        APP.openModal('Add New Author Profile', body, footer);
+      },
+
+      saveNewAuthor() {
+        const name = (document.getElementById('modal-auth-name')?.value || '').trim();
+        const designation = (document.getElementById('modal-auth-desig')?.value || '').trim();
+        const email = (document.getElementById('modal-auth-email')?.value || '').trim();
+        const avatar = (document.getElementById('modal-auth-avatar')?.value || '').trim();
+        const bio = (document.getElementById('modal-auth-bio')?.value || '').trim();
+
+        if (!name) { alert('Please enter author name'); return; }
+
+        DB.authors.push({
+          id: 'author-' + Date.now(),
+          name,
+          designation: designation || 'Mentor',
+          email: email || 'contact@neonexmindx.com',
+          avatar: avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80',
+          bio
+        });
+
+        APP.saveToLocalStorage();
+        APP.closeModal();
+        APP.showToast('Author added successfully!');
+        APP.renderCurrentView();
+      },
+
+      deleteAuthor(id) {
+        if (!confirm('Delete this author profile?')) return;
+        DB.authors = DB.authors.filter(a => a.id !== id);
+        APP.saveToLocalStorage();
+        APP.showToast('Author removed');
+        APP.renderCurrentView();
+      },
+
+      /* ==================== MEDIA VIEW ==================== */
+      renderMedia() {
+        const media = DB.media || [];
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Media</h2>
+              <p>CMS / Media — Upload image or video files, manage descriptive ALT tags.</p>
+            </div>
+            <div class="view-header-actions">
+              <input type="file" id="media-file-input" style="display:none;" onchange="APP.handleFileUpload(this)">
+              <button class="btn btn-primary" onclick="document.getElementById('media-file-input').click()">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>Upload Media</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="media-grid">
+            ${media.map(m => `
+              <div class="media-card">
+                <div class="media-thumb-wrap">
+                  ${m.type === 'video' ? `<video src="${m.url}" controls></video>` : `<img src="${m.url}" alt="${m.alt||''}">`}
+                </div>
+                <div class="media-card-body">
+                  <div class="media-card-title">${m.name}</div>
+                  <div class="media-card-alt">${m.alt ? m.alt : '<em>No alt text</em>'}</div>
+                  <div style="font-size:10px; color:var(--muted); margin-top:4px;">${m.size || 'WebP Image'}</div>
+                  <div class="media-card-actions">
+                    <button class="btn btn-sm" onclick="APP.editMediaAlt('${m.id}')">Edit Alt</button>
+                    <button class="btn btn-sm btn-danger" onclick="APP.deleteMedia('${m.id}')">Delete</button>
+                    <button class="btn btn-sm" onclick="navigator.clipboard.writeText('${m.url}'); APP.showToast('Image URL copied!');">Copy</button>
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      },
+
+      handleFileUpload(input) {
+        if (!input.files || !input.files[0]) return;
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          DB.media.unshift({
+            id: 'media-' + Date.now(),
+            name: file.name,
+            url: e.target.result,
+            type: file.type.includes('video') ? 'video' : 'image',
+            alt: file.name.replace(/\.[^/.]+$/, ''),
+            size: (file.size / 1024).toFixed(1) + ' KB',
+            date: new Date().toISOString().split('T')[0]
+          });
+          APP.saveToLocalStorage();
+          APP.showToast('File uploaded into media library!');
+          APP.renderCurrentView();
+        };
+        reader.readAsDataURL(file);
+      },
+
+      editMediaAlt(id) {
+        const item = DB.media.find(m => m.id === id);
+        if (!item) return;
+        const newAlt = prompt('Enter descriptive ALT text for search crawlers:', item.alt || '');
+        if (newAlt !== null) {
+          item.alt = newAlt;
+          APP.saveToLocalStorage();
+          APP.showToast('Alt text updated!');
+          APP.renderCurrentView();
+        }
+      },
+
+      deleteMedia(id) {
+        if (!confirm('Delete this media asset?')) return;
+        DB.media = DB.media.filter(m => m.id !== id);
+        APP.saveToLocalStorage();
+        APP.showToast('Media removed');
+        APP.renderCurrentView();
+      },
+
+      /* ==================== SEO TOOLS VIEW ==================== */
+      renderSeoTools() {
+        const posts = DB.posts || [];
+        const missingMeta = posts.filter(p => !p.metaDescription || p.metaDescription.length < 80);
+        const missingAlt = posts.filter(p => !p.heroAlt);
+        const lowScore = posts.filter(p => (p.seoScore || 0) < 85);
+
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>SEO Tools</h2>
+              <p>CMS / SEO Tools — Automated site audit and on-page optimization checks.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="APP.showToast('SEO Audit Complete! Scanned all posts.'); APP.renderCurrentView();">Run Audit</button>
+            </div>
+          </div>
+
+          <div class="grid-4">
+            <div class="kpi-card">
+              <span class="kpi-title">MISSING META</span>
+              <div class="kpi-num">${missingMeta.length}</div>
+              <div class="kpi-sub">Articles lacking descriptions</div>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-title">MISSING ALT</span>
+              <div class="kpi-num">${missingAlt.length}</div>
+              <div class="kpi-sub">Images without alt text</div>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-title">SCHEMA GAPS</span>
+              <div class="kpi-num">0</div>
+              <div class="kpi-sub">BlogPosting schema active</div>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-title">ORPHANS</span>
+              <div class="kpi-num">0</div>
+              <div class="kpi-sub">Every post linked in /blogs</div>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <div class="table-toolbar">
+              <h3 style="font-size:14px; font-weight:700;">Audit Recommendations</h3>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Issue</th>
+                  <th>Path</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${lowScore.map(p => `
+                  <tr>
+                    <td><b>SEO Score below target (${p.seoScore}%)</b></td>
+                    <td><code>/blog/${p.slug}</code></td>
+                    <td>
+                      <button class="btn btn-sm btn-primary" onclick="APP.navigateTo('add-article', '${p.id}')">Fix</button>
+                    </td>
+                  </tr>
+                `).join('')}
+                ${missingMeta.map(p => `
+                  <tr>
+                    <td><b>Meta description missing or short</b></td>
+                    <td><code>/blog/${p.slug}</code></td>
+                    <td>
+                      <button class="btn btn-sm btn-primary" onclick="APP.navigateTo('add-article', '${p.id}')">Fix</button>
+                    </td>
+                  </tr>
+                `).join('')}
+                ${lowScore.length === 0 && missingMeta.length === 0 ? `
+                  <tr><td colspan="3" style="text-align:center; padding:24px; color:var(--pass);">✓ All published posts pass high SEO compliance checks!</td></tr>
+                ` : ''}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      /* ==================== REDIRECTS VIEW ==================== */
+      renderRedirects() {
+        const redirects = DB.redirects || [];
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>301 Redirects</h2>
+              <p>CMS / Redirects — Add old URLs and route them to new destinations.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="APP.exportNetlifyRedirects()">Export _redirects</button>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:20px;">
+            <h3 style="font-size:14.5px; font-weight:700; margin-bottom:12px;">Add Redirect Rule</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">OLD URL (FROM)</label>
+                <input type="text" id="new-red-from" class="form-control" placeholder="/blog/old-article-slug">
+              </div>
+              <div class="form-group">
+                <label class="form-label">NEW URL (TO)</label>
+                <input type="text" id="new-red-to" class="form-control" placeholder="/blog/new-article-slug">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">STATUS CODE</label>
+                <select id="new-red-type" class="form-control">
+                  <option value="301">301 (Permanent Redirect)</option>
+                  <option value="302">302 (Temporary Redirect)</option>
+                </select>
+              </div>
+              <div style="display:flex; align-items:flex-end; margin-bottom:16px;">
+                <button class="btn btn-primary" style="height:38px;" onclick="APP.addRedirect()">Add Redirect</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Old URL</th>
+                  <th>New URL</th>
+                  <th>Type</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${redirects.map(r => `
+                  <tr>
+                    <td><code>${r.from}</code></td>
+                    <td><code>${r.to}</code></td>
+                    <td><span class="status-pill published">${r.type}</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-danger" onclick="APP.deleteRedirect('${r.id}')">Delete</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      addRedirect() {
+        const from = (document.getElementById('new-red-from')?.value || '').trim();
+        const to = (document.getElementById('new-red-to')?.value || '').trim();
+        const type = document.getElementById('new-red-type')?.value || '301';
+        if (!from || !to) { alert('Please provide both URLs'); return; }
+
+        DB.redirects.push({ id: 'red-' + Date.now(), from, to, type });
+        APP.saveToLocalStorage();
+        APP.showToast('Redirect rule added!');
+        APP.renderCurrentView();
+      },
+
+      deleteRedirect(id) {
+        DB.redirects = DB.redirects.filter(r => r.id !== id);
+        APP.saveToLocalStorage();
+        APP.showToast('Redirect rule deleted');
+        APP.renderCurrentView();
+      },
+
+      exportNetlifyRedirects() {
+        let content = "# Generated by NeoNeX MindX CMS\n";
+        (DB.redirects || []).forEach(r => {
+          content += `${r.from}  ${r.to}  ${r.type}!\n`;
+        });
+        const blob = new Blob([content], { type: 'text/plain' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = '_redirects_export';
+        a.click();
+        APP.showToast('Redirects exported!');
+      },
+
+      /* ==================== SITEMAP VIEW ==================== */
+      renderSitemap() {
+        const siteUrl = (DB.site && DB.site.siteUrl) || 'https://neonexmindx.com';
+        const posts = (DB.posts || []).filter(p => p.status === 'published');
+        const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${siteUrl}/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>${siteUrl}/blogs</loc>
+    <priority>0.9</priority>
+  </url>
+${posts.map(p => `  <url>
+    <loc>${siteUrl}/blog/${p.slug}</loc>
+    <lastmod>${p.publishDate || '2026-09-23'}</lastmod>
+    <priority>0.8</priority>
+  </url>`).join('\n')}
+</urlset>`;
+
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Sitemap</h2>
+              <p>CMS / Sitemap — XML sitemap generation for search indexing.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="navigator.clipboard.writeText(document.getElementById('sitemap-xml-preview').value); APP.showToast('XML copied to clipboard!');">Copy XML</button>
+              <button class="btn btn-outline-primary" onclick="APP.downloadSitemapXml()">Download XML</button>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:20px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">SITEMAP DOMAIN URL</label>
+                <input type="text" class="form-control" value="${siteUrl}" id="sitemap-url-input" onchange="DB.site.siteUrl=this.value; APP.saveToLocalStorage(); APP.renderCurrentView();">
+              </div>
+              <div class="form-group">
+                <label class="form-label">INDEXED ARTICLES COUNT</label>
+                <div style="font-size:16px; font-weight:700; margin-top:8px;">${posts.length} published URLs</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <label class="form-label">XML OUTPUT PREVIEW (/sitemap.xml)</label>
+            <textarea id="sitemap-xml-preview" class="form-control" rows="14" readonly style="font-family:var(--font-mono); font-size:11.5px; line-height:1.5;">${APP.escapeHtml(xml)}</textarea>
+          </div>
+        `;
+      },
+
+      downloadSitemapXml() {
+        const xml = document.getElementById('sitemap-xml-preview')?.value || '';
+        const blob = new Blob([xml], { type: 'application/xml' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'sitemap.xml';
+        a.click();
+        APP.showToast('Downloaded sitemap.xml');
+      },
+
+      /* ==================== LLMS.TXT VIEW ==================== */
+      renderLlms() {
+        const posts = (DB.posts || []).filter(p => p.status === 'published');
+        const llmsTxt = `# NeoNeX MindX
+> Pioneer in Applied AI, Data Science & Analytics Training
+
+## Core Site Pages
+- https://neonexmindx.com/ : Official Homepage
+- https://neonexmindx.com/courses/data-science-course : Data Science Master Program
+- https://neonexmindx.com/courses/ai-ml-course : AI & Machine Learning Engineering
+- https://neonexmindx.com/courses/data-analytics-course : Power BI, SQL & Analytics
+- https://neonexmindx.com/blogs : Tech & Career Knowledge Hub
+
+## Published Articles & Tech Roadmaps
+${posts.map(p => `- https://neonexmindx.com/blog/${p.slug} : ${p.title}`).join('\n')}
+`;
+
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>llms.txt</h2>
+              <p>CMS / llms.txt — AI search crawler indexing specification (OpenAI, Gemini, Perplexity).</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="navigator.clipboard.writeText(document.getElementById('llms-preview').value); APP.showToast('llms.txt copied!');">Copy</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <textarea id="llms-preview" class="form-control" rows="16" style="font-family:var(--font-mono); font-size:12px; line-height:1.6;">${llmsTxt}</textarea>
+          </div>
+        `;
+      },
+
+      /* ==================== USERS & ROLES ==================== */
+      renderUsers() {
+        const users = DB.users || [];
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Users &amp; Roles</h2>
+              <p>CMS / Users — Control access privileges and team permissions.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="APP.addNewUserPrompt()">Add User</button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Role</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${users.map(u => `
+                  <tr>
+                    <td>
+                      <div style="font-weight:700; color:var(--ink);">${u.name}</div>
+                      <div style="font-size:11px; color:var(--muted);">${u.email}</div>
+                    </td>
+                    <td>
+                      <select class="form-control" style="width:auto; padding:4px 8px;" onchange="u.role=this.value; APP.saveToLocalStorage(); APP.showToast('Role updated');">
+                        <option value="Super Admin" ${u.role==='Super Admin'?'selected':''}>Super Admin</option>
+                        <option value="Editor" ${u.role==='Editor'?'selected':''}>Editor</option>
+                        <option value="Author" ${u.role==='Author'?'selected':''}>Author</option>
+                      </select>
+                    </td>
+                    <td>
+                      <button class="btn btn-sm btn-danger" onclick="APP.deleteUser('${u.id}')">Delete</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      addNewUserPrompt() {
+        const name = prompt('Enter user name:');
+        if (!name) return;
+        const email = prompt('Enter user email:');
+        if (!email) return;
+        DB.users.push({ id: 'user-' + Date.now(), name, email, role: 'Editor' });
+        APP.saveToLocalStorage();
+        APP.showToast('User added');
+        APP.renderCurrentView();
+      },
+
+      deleteUser(id) {
+        DB.users = DB.users.filter(u => u.id !== id);
+        APP.saveToLocalStorage();
+        APP.showToast('User removed');
+        APP.renderCurrentView();
+      },
+
+      /* ==================== CACHE & SYNC ==================== */
+      renderCache() {
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Cache &amp; Sync</h2>
+              <p>CMS / Cache — Re-index database, export full JSON, and synchronize live with /blogs.</p>
+            </div>
+          </div>
+
+          <div class="grid-3" style="margin-bottom:24px;">
+            <div class="card" style="text-align:center;">
+              <h3 style="font-size:15px; font-weight:700;">Broadcast Sync</h3>
+              <p style="font-size:12px; color:var(--muted); margin:8px 0 14px;">Instant multi-tab synchronization with /blogs using BroadcastChannel.</p>
+              <button class="btn btn-primary" onclick="APP.notifySync()">Trigger Sync Pulse</button>
+            </div>
+
+            <div class="card" style="text-align:center;">
+              <h3 style="font-size:15px; font-weight:700;">Export JSON Database</h3>
+              <p style="font-size:12px; color:var(--muted); margin:8px 0 14px;">Download complete blogs.json for version control or deployment.</p>
+              <button class="btn btn-outline-primary" onclick="APP.exportJsonDatabase()">Download blogs.json</button>
+            </div>
+
+            <div class="card" style="text-align:center;">
+              <h3 style="font-size:15px; font-weight:700;">Reset Defaults</h3>
+              <p style="font-size:12px; color:var(--muted); margin:8px 0 14px;">Revert to the original official NeoNeX MindX articles.</p>
+              <button class="btn btn-danger" onclick="APP.resetToSeedData()">Reset To Seed</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:14.5px; font-weight:700; margin-bottom:12px;">Import External JSON Database</h3>
+            <input type="file" id="import-json-file" accept=".json" class="form-control" onchange="APP.importJsonDatabase(this)">
+          </div>
+        `;
+      },
+
+      notifySync() {
+        SYNC_CHANNEL.postMessage({ type: 'DATA_UPDATED', timestamp: Date.now() });
+        APP.showToast('Sync signal broadcasted to all open /blogs tabs!');
+      },
+
+      exportJsonDatabase() {
+        const json = JSON.stringify(DB, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'blogs.json';
+        a.click();
+        APP.showToast('blogs.json downloaded!');
+      },
+
+      importJsonDatabase(input) {
+        if (!input.files || !input.files[0]) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          try {
+            const data = JSON.parse(e.target.result);
+            if (data.posts) {
+              DB = data;
+              APP.saveToLocalStorage();
+              APP.showToast('Import successful!');
+              APP.renderCurrentView();
+            } else {
+              alert('Invalid database format. Missing "posts" array.');
+            }
+          } catch(err) {
+            alert('Failed to parse JSON file.');
+          }
+        };
+        reader.readAsText(input.files[0]);
+      },
+
+      async resetToSeedData() {
+        if (!confirm('Revert all changes to default seed articles?')) return;
+        localStorage.removeItem(STORAGE_KEY);
+        await APP.loadSeedData();
+        APP.showToast('Database reset to official default articles!');
+        APP.renderCurrentView();
+      },
+
+      /* ==================== SETTINGS VIEW ==================== */
+      renderSettings() {
+        const site = DB.site || {};
+        const bp = site.blogsPage || {
+          badge: 'OUR KNOWLEDGE HUB',
+          heroTitle: 'Insights, Tutorials & Industry Analysis',
+          heroSubtitle: 'Deep dives into Data Science, Generative AI, MLOps, and career roadmaps crafted by senior industry practitioners.'
+        };
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Settings &amp; Content Controls</h2>
+              <p>CMS / Settings — Configure global brand, indexing options, and <b>/blogs</b> page header content.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="APP.saveSettings()">Save All Settings</button>
+            </div>
+          </div>
+
+          <!-- /blogs Page Header Content Card -->
+          <div class="card" style="margin-bottom: 24px; border-left: 4px solid var(--primary);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <div>
+                <h3 style="font-size:16px; font-weight:700; color:var(--ink);">/blogs Page Hero Content</h3>
+                <p style="font-size:13px; color:var(--muted); margin-top:2px;">Edit the public banner text displayed at the top of the main /blogs page in real-time.</p>
+              </div>
+              <a href="../blogs.html" target="_blank" class="btn btn-sm" style="display:flex; align-items:center; gap:6px;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                <span>View /blogs Page</span>
+              </a>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">HERO BADGE TEXT</label>
+              <input type="text" id="set-bp-badge" class="form-control" value="${APP.escapeHtml(bp.badge || 'OUR KNOWLEDGE HUB')}" placeholder="e.g. OUR KNOWLEDGE HUB">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">HERO MAIN TITLE (H1)</label>
+              <input type="text" id="set-bp-title" class="form-control" value="${APP.escapeHtml(bp.heroTitle || 'Insights, Tutorials & Industry Analysis')}" placeholder="e.g. Insights, Tutorials & Industry Analysis">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">HERO SUBTITLE / DESCRIPTION</label>
+              <textarea id="set-bp-subtitle" class="form-control" rows="3" placeholder="Description shown below main heading...">${APP.escapeHtml(bp.heroSubtitle || 'Deep dives into Data Science, Generative AI, MLOps, and career roadmaps crafted by senior industry practitioners.')}</textarea>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:16px; font-weight:700; color:var(--ink); margin-bottom:16px;">Global Brand &amp; SEO Defaults</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">SITE NAME</label>
+                <input type="text" id="set-sitename" class="form-control" value="${site.siteName || 'NeoNeX MindX'}">
+              </div>
+              <div class="form-group">
+                <label class="form-label">TIMEZONE</label>
+                <select id="set-timezone" class="form-control">
+                  <option value="Asia/Kolkata" selected>Asia/Kolkata (IST)</option>
+                  <option value="UTC">UTC</option>
+                  <option value="America/New_York">America/New_York (EST)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">DEFAULT ROBOTS DIRECTIVE</label>
+                <select id="set-robots" class="form-control">
+                  <option value="index, follow" selected>index, follow (Standard)</option>
+                  <option value="noindex, follow">noindex, follow</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">DEFAULT OG SHARE IMAGE</label>
+                <input type="text" id="set-ogimage" class="form-control" value="${site.defaultOgImage || ''}">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">SUPPORT &amp; INQUIRY EMAIL</label>
+              <input type="email" id="set-email" class="form-control" value="${site.contactEmail || 'contact@neonexmindx.com'}">
+            </div>
+          </div>
+        `;
+      },
+
+      saveSettings() {
+        DB.site = DB.site || {};
+        DB.site.siteName = document.getElementById('set-sitename')?.value || 'NeoNeX MindX';
+        DB.site.timezone = document.getElementById('set-timezone')?.value || 'Asia/Kolkata';
+        DB.site.defaultRobots = document.getElementById('set-robots')?.value || 'index, follow';
+        DB.site.defaultOgImage = document.getElementById('set-ogimage')?.value || '';
+        DB.site.contactEmail = document.getElementById('set-email')?.value || 'contact@neonexmindx.com';
+        
+        // Save blogs page hero settings
+        DB.site.blogsPage = {
+          badge: document.getElementById('set-bp-badge')?.value || 'OUR KNOWLEDGE HUB',
+          heroTitle: document.getElementById('set-bp-title')?.value || 'Insights, Tutorials & Industry Analysis',
+          heroSubtitle: document.getElementById('set-bp-subtitle')?.value || 'Deep dives into Data Science, Generative AI, MLOps, and career roadmaps crafted by senior industry practitioners.'
+        };
+
+        APP.saveToLocalStorage();
+        APP.showToast('All settings and /blogs page content saved!');
+      },
+
+      /* ==================== MODAL & TOAST HELPERS ==================== */
+      openModal(title, bodyHtml, footerHtml) {
+        document.getElementById('modal-title').textContent = title;
+        document.getElementById('modal-body').innerHTML = bodyHtml;
+        document.getElementById('modal-footer').innerHTML = footerHtml || `<button class="btn btn-primary" onclick="APP.closeModal()">Close</button>`;
+        document.getElementById('global-modal-overlay').classList.add('active');
+      },
+
+      closeModal() {
+        document.getElementById('global-modal-overlay').classList.remove('active');
+      },
+
+      showToast(msg) {
+        const tray = document.getElementById('toast-tray');
+        const toast = document.createElement('div');
+        toast.className = 'toast-msg';
+        toast.innerHTML = `<span>✓</span><span>${msg}</span>`;
+        tray.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(10px)';
+          toast.style.transition = 'all 0.3s ease';
+          setTimeout(() => toast.remove(), 300);
+        }, 2800);
+      },
+
+      escapeHtml(str) {
+        return (str || '').replace(/[&<>"']/g, m => ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        })[m]);
+      }
+    };
+
+    window.addEventListener('DOMContentLoaded', () => APP.init());
+  </script>
+</body>
+</html>
