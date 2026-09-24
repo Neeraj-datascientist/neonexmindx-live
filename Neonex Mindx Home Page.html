@@ -2986,6 +2986,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         status.style.color = '#1B5DB7';
       }
 
+      // GTM / GA4 Event Dispatch & Central API Gateway Lead Ingestion
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'generate_lead',
+          'lead_program': candidateProgram,
+          'lead_source': window.location.pathname
+        });
+        fetch('https://api.neonexmindx.com/v1/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: candidateName,
+            phone: candidatePhone,
+            email: candidateEmail,
+            program: candidateProgram,
+            batch: candidateBatch,
+            goal: candidateGoal,
+            source_page: window.location.pathname
+          })
+        }).catch(function() {});
+      } catch(e) {}
+
       // 1. Asynchronous Email Dispatch via FormSubmit AJAX (Free, zero-config)
       try {
         fetch('https://formsubmit.co/ajax/neonexminds@gmail.com', {
@@ -3196,7 +3219,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           status.style.color = '#1B5DB7';
         }
 
-        // 1. Asynchronous Email Dispatch via FormSubmit AJAX
+        // GTM / GA4 Event Dispatch & Central API Gateway Lead Ingestion
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'generate_lead',
+          'lead_program': candidateProgram,
+          'lead_source': window.location.pathname
+        });
+        fetch('https://api.neonexmindx.com/v1/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: candidateName,
+            phone: candidatePhone,
+            email: candidateEmail,
+            program: candidateProgram,
+            batch: candidateBatch,
+            goal: candidateGoal,
+            source_page: window.location.pathname
+          })
+        }).catch(function() {});
+      } catch(e) {}
+
+      // 1. Asynchronous Email Dispatch via FormSubmit AJAX
         try {
           fetch('https://formsubmit.co/ajax/neonexminds@gmail.com', {
             method: 'POST',
