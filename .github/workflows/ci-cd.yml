@@ -1,0 +1,56 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - qa
+  pull_request:
+    branches:
+      - main
+      - qa
+
+jobs:
+  validate-and-test:
+    name: Validate Website & CMS Assets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify Key Deployment Files
+        run: |
+          echo "Checking essential production files..."
+          test -f "index.html" || { echo "index.html missing!"; exit 1; }
+          test -f "cms.html" || { echo "cms.html missing!"; exit 1; }
+          test -f "_redirects" || { echo "_redirects missing!"; exit 1; }
+          test -f "neonex-logo.webp" || { echo "Brand logo missing!"; exit 1; }
+          echo "All essential core assets present."
+
+      - name: Validate GTM Integration
+        run: |
+          echo "Verifying GTM container snippet presence..."
+          grep -q "GTM-PG57R85H" index.html || { echo "GTM container missing from index.html!"; exit 1; }
+          echo "GTM container verified successfully."
+
+  deploy:
+    name: Deploy to Production / Staging
+    needs: validate-and-test
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/qa'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Template deployment steps: can be adapted to GitHub Pages, Cloudflare Pages, Netlify, or Vercel
+      - name: Deploy to GitHub Pages (Staging Preview)
+        if: github.ref == 'refs/heads/qa'
+        run: |
+          echo "Ready for QA preview deployment."
+          echo "Branch: ${{ github.ref }}"
+          echo "Commit: ${{ github.sha }}"
