@@ -28,6 +28,8 @@ jobs:
           echo "Checking essential production files..."
           test -f "index.html" || { echo "index.html missing!"; exit 1; }
           test -f "cms.html" || { echo "cms.html missing!"; exit 1; }
+          test -f "crm.html" || { echo "crm.html missing!"; exit 1; }
+          test -f "crm/index.html" || { echo "crm/index.html missing!"; exit 1; }
           test -f "thank-you.html" || { echo "thank-you.html missing!"; exit 1; }
           test -f "_redirects" || { echo "_redirects missing!"; exit 1; }
           test -f "neonex-logo.webp" || { echo "Brand logo missing!"; exit 1; }

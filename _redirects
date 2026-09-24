@@ -87,6 +87,9 @@
 /cms/                                    /cms/index.html                                        200
 /admin                                   /cms/index.html                                        200
 /admin/                                  /cms/index.html                                        200
+/crm                                     /crm/index.html                                        200
+/crm/                                    /crm/index.html                                        200
+
 
 # 5. THANK YOU CONVERSION ROUTE
 /thank-you                               /thank-you.html                                        200

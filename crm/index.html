@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PG57R85H');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeoNeX MindX — CRM & Admissions Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: "Sora", "DM Sans", sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --primary: #1B5DB7;
+      --primary-hover: #12478E;
+      --primary-tint: #EEF4FC;
+      --accent: #0284C7;
+      --crit: #DC2626;
+      --crit-bg: #FEF2F2;
+      --warn: #EA580C;
+      --warn-bg: #FFF7ED;
+      --pass: #16A34A;
+      --pass-bg: #F0FDF4;
+      --purple: #7C3AED;
+      --purple-bg: #F5F3FF;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+    html[data-theme="light"] {
+      --base: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-2: #F1F5F9;
+      --border: #E2E8F0;
+      --ink: #0F172A;
+      --ink-soft: #475569;
+      --muted: #64748B;
+      --sidebar-bg: #FFFFFF;
+      --sidebar-border: #E2E8F0;
+      --sidebar-ink: #334155;
+      --sidebar-active: #EEF4FC;
+      --sidebar-active-ink: #1B5DB7;
+      --shadow-sm: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(15,23,42,0.08), 0 2px 4px -2px rgba(15,23,42,0.05);
+    }
+    html[data-theme="dark"] {
+      --base: #0B0F19;
+      --surface: #111827;
+      --surface-2: #1E293B;
+      --border: #334155;
+      --ink: #F8FAFC;
+      --ink-soft: #CBD5E1;
+      --muted: #94A3B8;
+      --sidebar-bg: #0F172A;
+      --sidebar-border: #1E293B;
+      --sidebar-ink: #CBD5E1;
+      --sidebar-active: #1E293B;
+      --sidebar-active-ink: #60A5FA;
+      --primary: #3B82F6;
+      --primary-hover: #2563EB;
+      --primary-tint: #1E293B;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--base);
+      color: var(--ink);
+      height: 100vh;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: 64px 1fr;
+      grid-template-areas: "side top" "side main";
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, select, textarea { font-family: inherit; color: inherit; font-size: inherit; }
+    a { text-decoration: none; color: inherit; }
+
+    /* SIDEBAR */
+    #sidebar {
+      grid-area: side;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--sidebar-border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      z-index: 30;
+      transition: transform 0.2s ease;
+    }
+    .brand-wrap {
+      height: 76px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--sidebar-border);
+      background: #FFFFFF;
+      flex-shrink: 0;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      text-decoration: none;
+      gap: 10px;
+    }
+    .brand-logo-container {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+    }
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+      max-width: 165px;
+      object-fit: contain;
+      display: block;
+    }
+    .brand-pill-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: #0284C7;
+      background: #E0F2FE;
+      border: 1px solid rgba(2, 132, 199, 0.2);
+      padding: 4px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .nav-body { flex: 1; padding: 16px 12px; overflow-y: auto; }
+    .nav-section-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      padding: 12px 10px 6px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--sidebar-ink);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      margin-bottom: 2px;
+      user-select: none;
+    }
+    .nav-item:hover {
+      background: var(--surface-2);
+      color: var(--ink);
+    }
+    .nav-item.active {
+      background: var(--sidebar-active);
+      color: var(--sidebar-active-ink);
+      font-weight: 600;
+    }
+    .nav-item svg { width: 17px; height: 17px; stroke-width: 2; flex-shrink: 0; opacity: 0.85; }
+    .nav-item.active svg { opacity: 1; stroke: var(--primary); }
+    .nav-badge {
+      margin-left: auto;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 12px;
+    }
+    .nav-item.active .nav-badge {
+      background: var(--primary);
+      color: #fff;
+    }
+    .sidebar-user {
+      padding: 14px 16px;
+      border-top: 1px solid var(--sidebar-border);
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      background: var(--surface);
+    }
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #E0F2FE;
+      color: #0284C7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .user-details { flex: 1; min-width: 0; }
+    .user-name { font-size: 12.5px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .user-role { font-size: 11px; color: var(--muted); }
+    .user-logout-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+    }
+    .user-logout-btn:hover { color: var(--crit); background: var(--crit-bg); }
+
+    /* TOPBAR */
+    #topbar {
+      grid-area: top;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 20;
+    }
+    .tb-left { display: flex; align-items: center; gap: 14px; }
+    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--ink); }
+    .tb-breadcrumb { font-size: 13px; font-weight: 500; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    .tb-breadcrumb b { color: var(--ink); font-weight: 600; }
+    .tb-sync-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .tb-sync-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pass); }
+    .tb-actions { display: flex; align-items: center; gap: 10px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-outline-primary { background: transparent; border-color: var(--primary); color: var(--primary); }
+    .btn-outline-primary:hover { background: var(--primary-tint); }
+    .btn-outline-secondary { background: transparent; border-color: var(--border); color: var(--ink-soft); }
+    .btn-outline-secondary:hover { background: var(--surface-2); color: var(--ink); }
+    .btn-danger { background: var(--crit-bg); color: var(--crit); border-color: rgba(220,38,38,0.2); }
+    .btn-danger:hover { background: var(--crit); color: #fff; }
+    .btn-sm { padding: 6px 11px; font-size: 12px; }
+    .theme-toggle-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* MAIN VIEW */
+    #main-container {
+      grid-area: main;
+      overflow-y: auto;
+      padding: 24px;
+      background: var(--base);
+    }
+    .view-wrap { max-width: 1280px; margin: 0 auto; }
+    .view-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .view-title-block h2 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .view-title-block p { font-size: 13px; color: var(--muted); margin-top: 3px; }
+
+    /* CARDS & GRIDS */
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+    .kpi-num { font-size: 30px; font-weight: 800; font-family: var(--font-display); margin: 6px 0 2px; color: var(--ink); }
+    .kpi-sub { font-size: 12px; color: var(--muted); }
+    .kpi-icon {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-2);
+      color: var(--primary);
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    /* TABLES & CONTROLS */
+    .table-container {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .table-toolbar {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      flex-wrap: wrap;
+    }
+    .search-input-wrap {
+      position: relative;
+      flex: 1;
+      max-width: 340px;
+    }
+    .search-input-wrap svg {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      color: var(--muted);
+    }
+    .search-input-wrap input {
+      width: 100%;
+      padding: 7px 12px 7px 34px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      font-size: 12.5px;
+      outline: none;
+    }
+    .search-input-wrap input:focus { border-color: var(--primary); background: var(--surface); }
+    table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    th {
+      text-align: left;
+      padding: 11px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+    td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+      color: var(--ink-soft);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--surface-2); }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+    .status-pill.new { background: #EEF4FC; color: #1B5DB7; }
+    .status-pill.contacted { background: #FFF7ED; color: #EA580C; }
+    .status-pill.enrolled { background: #F0FDF4; color: #16A34A; }
+    .status-pill.lost { background: #FEF2F2; color: #DC2626; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+    /* FORMS */
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 6px; }
+    .form-control {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 13.5px;
+      outline: none;
+    }
+    .form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(27,93,183,0.1); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* TOAST */
+    .toast-tray { position: fixed; bottom: 24px; right: 24px; z-index: 300; display: flex; flex-direction: column; gap: 8px; }
+    .toast-msg {
+      background: var(--ink);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: slideIn 0.2s ease;
+    }
+    @keyframes slideIn { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 580px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-header h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
+    .modal-close-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--muted); }
+    .modal-body { padding: 20px; max-height: 70vh; overflow-y: auto; }
+    .modal-footer { padding: 14px 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; background: var(--surface-2); }
+
+    /* AUTH GATE */
+    #auth-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: linear-gradient(135deg, #0B111E 0%, #111827 50%, #0F172A 100%);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    #auth-gate.active { display: flex; }
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
+      padding: 40px 36px;
+      color: #0F172A;
+    }
+    .auth-header { text-align: center; margin-bottom: 28px; }
+    .auth-logo { height: 42px; margin: 0 auto 16px; display: block; }
+    .auth-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .auth-sub { font-size: 13px; color: #64748B; line-height: 1.5; }
+    .auth-error {
+      display: none;
+      background: #FEF2F2;
+      border: 1px solid #FCA5A5;
+      color: #DC2626;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      align-items: center;
+      gap: 6px;
+    }
+    .auth-submit-btn {
+      width: 100%;
+      padding: 13px 18px;
+      background: linear-gradient(135deg, #1B5DB7 0%, #12478E 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(27,93,183,0.25);
+      margin-top: 10px;
+    }
+    .auth-footer-hint { text-align: center; font-size: 12px; color: #94A3B8; margin-top: 22px; }
+
+    @media (max-width: 768px) {
+      body { grid-template-columns: 1fr; grid-template-areas: "top" "main"; }
+      #sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 260px; transform: translateX(-100%); }
+      #sidebar.open { transform: translateX(0); }
+      .mobile-menu-btn { display: block; }
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      #main-container { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG57R85H"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <!-- AUTH GATE LOGIN SCREEN -->
+  <div id="auth-gate">
+    <div class="auth-card">
+      <div class="auth-header">
+        <img class="auth-logo" src="neonex-logo.webp" alt="NeoNeX MindX" onerror="this.onerror=null;this.src='../neonex-logo.webp';" />
+        <h2 class="auth-title">CRM &amp; Admissions Portal</h2>
+        <p class="auth-sub">Enter your credentials to access student admissions, counselling inquiries, and batch enrollments.</p>
+      </div>
+
+      <div class="auth-error" id="auth-err-msg">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <span>Invalid credentials. Please re-enter your password.</span>
+      </div>
+
+      <form id="auth-login-form" onsubmit="CRM.handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label">Counselor / Admin Email</label>
+          <input type="text" id="auth-user" class="form-control" value="admin@admin.com" autocomplete="username" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Access Password</label>
+          <div style="position:relative; display:flex; align-items:center;">
+            <input type="password" id="auth-pass" class="form-control" placeholder="Enter password..." autocomplete="current-password" autofocus style="padding-right: 42px;" />
+            <button type="button" onclick="const p = document.getElementById('auth-pass'); p.type = p.type==='password'?'text':'password'; this.textContent = p.type==='password'?'👁️':'🔒';" style="position:absolute; right:10px; background:none; border:none; cursor:pointer; font-size:16px; color:#64748B; padding:4px;">👁️</button>
+          </div>
+        </div>
+        <button type="submit" class="auth-submit-btn" id="auth-submit-btn">Unlock CRM Portal</button>
+      </form>
+      <div class="auth-footer-hint">Default Access Password: <b>Admin123!</b> or <b>admin123</b></div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="brand-wrap">
+      <a href="../home" target="_blank" class="brand-link" title="Open NeoNeX MindX Website">
+        <div class="brand-logo-container"><img src="neonex-logo.webp" alt="NeoNeX MindX" class="brand-logo-img" onerror="this.onerror=null;this.src='../neonex-logo.webp';" /></div>
+        <span class="brand-pill-tag">CRM HUB</span>
+      </a>
+    </div>
+
+    <div class="nav-body">
+      <!-- ADMISSIONS SECTION -->
+      <div class="nav-section-title">Admissions &amp; Leads</div>
+      <div class="nav-item active" data-view="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <span>Overview</span>
+      </div>
+      <div class="nav-item" data-view="leads">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+        <span>Website Inquiries</span>
+        <span class="nav-badge" id="sidebar-lead-count">0</span>
+      </div>
+      <div class="nav-item" data-view="students">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+        <span>Enrolled Students</span>
+      </div>
+
+      <!-- ACADEMICS SECTION -->
+      <div class="nav-section-title">Academics &amp; Batches</div>
+      <div class="nav-item" data-view="batches">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <span>Active Batches</span>
+      </div>
+      <div class="nav-item" data-view="counselors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span>Counselors &amp; Tutors</span>
+      </div>
+
+      <!-- OPERATIONS SECTION -->
+      <div class="nav-section-title">Platform</div>
+      <a class="nav-item" href="../cms/index.html" style="color:#1B5DB7;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        <span>CMS Publisher</span>
+        <span class="nav-badge" style="background:#EEF4FC;color:#1B5DB7;">CMS</span>
+      </a>
+      <div class="nav-item" data-view="export">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>Export Data (CSV/JSON)</span>
+      </div>
+    </div>
+
+    <!-- SIDEBAR FOOTER -->
+    <div class="sidebar-user">
+      <div class="user-avatar">NX</div>
+      <div class="user-details">
+        <div class="user-name">Admissions Desk</div>
+        <div class="user-role">NeoNeX Team</div>
+      </div>
+      <button class="user-logout-btn" title="Sign Out of CRM" onclick="CRM.logout()">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- TOPBAR -->
+  <header id="topbar">
+    <div class="tb-left">
+      <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <div class="tb-breadcrumb" id="topbar-breadcrumb">
+        <span>CRM</span> / <b>Overview</b>
+      </div>
+      <div class="tb-sync-badge" onclick="CRM.syncPulse()" title="Synced with website admissions and contact forms">
+        <span class="tb-sync-dot"></span>
+        <span>Live Admissions Sync</span>
+      </div>
+    </div>
+    <div class="tb-actions">
+      <a href="../index.html" target="_blank" class="btn btn-outline-primary btn-sm">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+        <span>View Live Site</span>
+      </a>
+      <button class="theme-toggle-btn" onclick="CRM.toggleTheme()" title="Toggle Dark/Light Mode">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+      <button class="btn btn-primary btn-sm" onclick="CRM.openNewLeadModal()">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        <span>Add Inquiry</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main id="main-container">
+    <div class="view-wrap" id="crm-view-content"></div>
+  </main>
+
+  <!-- MODAL CONTAINER -->
+  <div class="modal-overlay" id="crm-modal-overlay">
+    <div class="modal-card" id="crm-modal-card">
+      <div class="modal-header">
+        <h3 id="crm-modal-title">Modal Title</h3>
+        <button class="modal-close-btn" onclick="CRM.closeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="crm-modal-body"></div>
+      <div class="modal-footer" id="crm-modal-footer"></div>
+    </div>
+  </div>
+
+  <!-- TOAST TRAY -->
+  <div class="toast-tray" id="toast-tray"></div>
+
+  <!-- CRM LOGIC ENGINE -->
+  <script>
+    const CRM_STORAGE_KEY = 'neonex_crm_leads';
+    const CRM_STUDENTS_KEY = 'neonex_crm_students';
+    const CRM_BATCHES_KEY = 'neonex_crm_batches';
+
+    let LEADS = [];
+    let STUDENTS = [];
+    let BATCHES = [];
+    let CURRENT_CRM_VIEW = 'dashboard';
+    let SEARCH_QUERY = '';
+
+    const DEFAULT_BATCHES = [
+      { id: 'b1', name: 'Data Science & AI Master - Oct Weekend', course: 'Data Science Master Program', start: '2026-10-10', mode: 'Live Online', time: 'Sat-Sun 10:00 AM - 1:00 PM', capacity: 25, enrolled: 18 },
+      { id: 'b2', name: 'Data Analytics & Power BI - Weekday Evening', course: 'Data Analytics Master Program', start: '2026-10-15', mode: 'Live Online', time: 'Mon-Thu 8:00 PM - 9:30 PM', capacity: 30, enrolled: 22 },
+      { id: 'b3', name: 'AI & Machine Learning Engineering - Fastrack', course: 'AI & ML Engineering Course', start: '2026-10-20', mode: 'Live Online', time: 'Sat-Sun 2:00 PM - 5:00 PM', capacity: 20, enrolled: 14 }
+    ];
+
+    const DEFAULT_LEADS = [
+      { id: 'ld-1', name: 'Rahul Sharma', phone: '+91 98451 22341', email: 'rahul.s@gmail.com', program: 'Data Science Master Program', role: 'Software Engineer', batch: 'Weekend', status: 'Contacted', date: '2026-09-24T10:15:00Z', notes: 'Interested in AI/ML curriculum, demo session scheduled' },
+      { id: 'ld-2', name: 'Priya Venkatesh', phone: '+91 87654 32109', email: 'priya.v@outlook.com', program: 'Data Analytics Course', role: 'Business Analyst', batch: 'Weekday Evening', status: 'New', date: '2026-09-24T12:30:00Z', notes: 'Enquired via Contact Us form for Power BI & SQL' },
+      { id: 'ld-3', name: 'Ankit Verma', phone: '+91 99887 66554', email: 'ankit.v@gmail.com', program: 'AI & Machine Learning Course', role: 'Final Year B.Tech', batch: 'Weekend', status: 'Enrolled', date: '2026-09-23T16:45:00Z', notes: 'Converted from course counseling, batch confirmed' }
+    ];
+
+    const CRM = {
+      init() {
+        CRM.checkAuth();
+        CRM.loadData();
+        
+        // Listen to navigation clicks
+        document.querySelectorAll('.nav-item').forEach(item => {
+          item.addEventListener('click', () => {
+            const v = item.dataset.view;
+            if (v) CRM.navigateTo(v);
+          });
+        });
+
+        // Theme restoration
+        const savedTheme = localStorage.getItem('neonex_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        CRM.updateCounts();
+        CRM.navigateTo('dashboard');
+      },
+
+      checkAuth() {
+        const isAuth = sessionStorage.getItem('neonex_crm_auth');
+        const gate = document.getElementById('auth-gate');
+        if (isAuth === 'authenticated') {
+          if (gate) gate.style.display = 'none';
+        } else {
+          if (gate) {
+            gate.classList.add('active');
+            gate.style.display = 'flex';
+          }
+        }
+      },
+
+      handleLogin(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        const pass = (document.getElementById('auth-pass')?.value || '').trim();
+        const errMsg = document.getElementById('auth-err-msg');
+        
+        if (pass === 'Admin123!' || pass === 'admin123') {
+          sessionStorage.setItem('neonex_crm_auth', 'authenticated');
+          if (errMsg) errMsg.style.display = 'none';
+          document.getElementById('auth-gate').style.display = 'none';
+          CRM.showToast('Welcome to NeoNeX MindX CRM Portal!');
+        } else {
+          if (errMsg) errMsg.style.display = 'flex';
+        }
+      },
+
+      logout() {
+        sessionStorage.removeItem('neonex_crm_auth');
+        location.reload();
+      },
+
+      loadData() {
+        try {
+          const l = localStorage.getItem(CRM_STORAGE_KEY);
+          LEADS = l ? JSON.parse(l) : DEFAULT_LEADS;
+          
+          const s = localStorage.getItem(CRM_STUDENTS_KEY);
+          STUDENTS = s ? JSON.parse(s) : [
+            { id: 'st-1', name: 'Ankit Verma', phone: '+91 99887 66554', email: 'ankit.v@gmail.com', course: 'AI & Machine Learning Course', batch: 'Oct Weekend Batch', paid: '₹35,000', total: '₹35,000', status: 'Active' }
+          ];
+
+          const b = localStorage.getItem(CRM_BATCHES_KEY);
+          BATCHES = b ? JSON.parse(b) : DEFAULT_BATCHES;
+        } catch(e) {
+          LEADS = DEFAULT_LEADS;
+          STUDENTS = [];
+          BATCHES = DEFAULT_BATCHES;
+        }
+      },
+
+      saveData() {
+        localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(LEADS));
+        localStorage.setItem(CRM_STUDENTS_KEY, JSON.stringify(STUDENTS));
+        localStorage.setItem(CRM_BATCHES_KEY, JSON.stringify(BATCHES));
+        CRM.updateCounts();
+      },
+
+      updateCounts() {
+        const c = document.getElementById('sidebar-lead-count');
+        if (c) c.textContent = LEADS.length;
+      },
+
+      toggleTheme() {
+        const cur = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = cur === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('neonex_theme', next);
+        CRM.showToast(`Switched to ${next} mode`);
+      },
+
+      syncPulse() {
+        CRM.loadData();
+        CRM.updateCounts();
+        CRM.renderCurrentView();
+        CRM.showToast('CRM data refreshed and synchronized with live leads!');
+      },
+
+      navigateTo(view) {
+        CURRENT_CRM_VIEW = view;
+        document.querySelectorAll('.nav-item').forEach(n => {
+          n.classList.toggle('active', n.dataset.view === view);
+        });
+
+        const breadcrumb = document.getElementById('topbar-breadcrumb');
+        const titles = {
+          'dashboard': 'Overview',
+          'leads': 'Website Inquiries & Counseling',
+          'students': 'Enrolled Students',
+          'batches': 'Course Batches',
+          'counselors': 'Counselors & Faculty',
+          'export': 'Export Center'
+        };
+        if (breadcrumb) {
+          breadcrumb.innerHTML = `<span>CRM</span> / <b>${titles[view] || view}</b>`;
+        }
+
+        document.getElementById('sidebar').classList.remove('open');
+        CRM.renderCurrentView();
+      },
+
+      renderCurrentView() {
+        const root = document.getElementById('crm-view-content');
+        switch (CURRENT_CRM_VIEW) {
+          case 'dashboard':
+            root.innerHTML = CRM.renderDashboard();
+            break;
+          case 'leads':
+            root.innerHTML = CRM.renderLeads();
+            break;
+          case 'students':
+            root.innerHTML = CRM.renderStudents();
+            break;
+          case 'batches':
+            root.innerHTML = CRM.renderBatches();
+            break;
+          case 'counselors':
+            root.innerHTML = CRM.renderCounselors();
+            break;
+          case 'export':
+            root.innerHTML = CRM.renderExport();
+            break;
+          default:
+            root.innerHTML = CRM.renderDashboard();
+        }
+      },
+
+      /* DASHBOARD VIEW */
+      renderDashboard() {
+        const total = LEADS.length;
+        const newLeads = LEADS.filter(l => l.status === 'New').length;
+        const contacted = LEADS.filter(l => l.status === 'Contacted').length;
+        const enrolled = LEADS.filter(l => l.status === 'Enrolled').length;
+
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Admissions &amp; Lead Overview</h2>
+              <p>Real-time intake tracking from NeoNeX MindX website forms, popups &amp; counseling queries</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="CRM.openNewLeadModal()">+ Add New Inquiry</button>
+            </div>
+          </div>
+
+          <div class="grid-4">
+            <div class="kpi-card">
+              <span class="kpi-title">TOTAL LEADS</span>
+              <div class="kpi-num">${total}</div>
+              <div class="kpi-sub">Total inbound inquiries</div>
+              <div class="kpi-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-title">NEW INQUIRIES</span>
+              <div class="kpi-num" style="color:#1B5DB7;">${newLeads}</div>
+              <div class="kpi-sub">Pending initial call</div>
+              <div class="kpi-icon" style="background:#EEF4FC;color:#1B5DB7;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></div>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-title">COUNSELING STAGE</span>
+              <div class="kpi-num" style="color:#EA580C;">${contacted}</div>
+              <div class="kpi-sub">Demo / Syllabus review</div>
+              <div class="kpi-icon" style="background:#FFF7ED;color:#EA580C;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-title">ENROLLED STUDENTS</span>
+              <div class="kpi-num" style="color:#16A34A;">${enrolled}</div>
+              <div class="kpi-sub">Admissions completed</div>
+              <div class="kpi-icon" style="background:#F0FDF4;color:#16A34A;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <div class="table-toolbar">
+              <h3 style="font-size:14px;font-weight:700;">Recent Website Inquiries</h3>
+              <button class="btn btn-sm btn-outline-primary" onclick="CRM.navigateTo('leads')">View All Leads &rarr;</button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Candidate</th>
+                  <th>Contact</th>
+                  <th>Program</th>
+                  <th>Status</th>
+                  <th>Inquiry Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${LEADS.slice(0, 5).map(lead => `
+                  <tr>
+                    <td>
+                      <div style="font-weight:700;color:var(--ink);">${CRM.escapeHtml(lead.name)}</div>
+                      <div style="font-size:11px;color:var(--muted);">${CRM.escapeHtml(lead.role || 'Prospective Student')}</div>
+                    </td>
+                    <td>
+                      <div><b>${CRM.escapeHtml(lead.phone || '-')}</b></div>
+                      <div style="font-size:11px;color:var(--muted);">${CRM.escapeHtml(lead.email || '-')}</div>
+                    </td>
+                    <td><span style="font-weight:600;color:#1B5DB7;">${CRM.escapeHtml(lead.program || 'General Inquiry')}</span></td>
+                    <td><span class="status-pill ${lead.status.toLowerCase()}"><span class="status-dot"></span>${lead.status}</span></td>
+                    <td style="font-size:11.5px;color:var(--muted);">${lead.date ? new Date(lead.date).toLocaleDateString() : 'Today'}</td>
+                    <td>
+                      <a href="https://wa.me/${(lead.phone||'').replace(/[^0-9]/g,'')}?text=Hi%20${encodeURIComponent(lead.name||'Student')}%2C%20reaching%20out%20from%20NeoNeX%20MindX%20regarding%20your%20inquiry%20for%20${encodeURIComponent(lead.program||'our%20courses')}." target="_blank" class="btn btn-sm btn-outline-primary" style="padding:4px 8px;font-size:11px;">WhatsApp</a>
+                      <button class="btn btn-sm btn-outline-secondary" style="padding:4px 8px;font-size:11px;" onclick="CRM.editLead('${lead.id}')">Update</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      /* LEADS VIEW */
+      renderLeads() {
+        const filtered = LEADS.filter(l => {
+          if (!SEARCH_QUERY) return true;
+          const q = SEARCH_QUERY.toLowerCase();
+          return (l.name || '').toLowerCase().includes(q) ||
+                 (l.phone || '').toLowerCase().includes(q) ||
+                 (l.email || '').toLowerCase().includes(q) ||
+                 (l.program || '').toLowerCase().includes(q);
+        });
+
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Website Inquiries &amp; Counseling</h2>
+              <p>Manage and track all students who submitted course enquiry forms on neonexmindx.com</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="CRM.openNewLeadModal()">+ Add New Inquiry</button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <div class="table-toolbar">
+              <div class="search-input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Search by candidate name, phone, course..." value="${CRM.escapeHtml(SEARCH_QUERY)}" oninput="SEARCH_QUERY=this.value; CRM.renderCurrentView();">
+              </div>
+              <div>
+                <button class="btn btn-sm btn-outline-secondary" onclick="CRM.syncPulse()">Refresh</button>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Candidate</th>
+                  <th>Contact Info</th>
+                  <th>Program / Batch</th>
+                  <th>Status</th>
+                  <th>Notes</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${filtered.length ? filtered.map(l => `
+                  <tr>
+                    <td>
+                      <div style="font-weight:700;color:var(--ink);">${CRM.escapeHtml(l.name)}</div>
+                      <div style="font-size:11px;color:var(--muted);">${CRM.escapeHtml(l.role || 'Prospective Student')}</div>
+                    </td>
+                    <td>
+                      <div style="font-weight:600;">${CRM.escapeHtml(l.phone || '-')}</div>
+                      <div style="font-size:11px;color:var(--muted);">${CRM.escapeHtml(l.email || '-')}</div>
+                    </td>
+                    <td>
+                      <div style="font-weight:600;color:#1B5DB7;">${CRM.escapeHtml(l.program || 'Course Inquiry')}</div>
+                      <div style="font-size:11px;color:var(--muted);">${CRM.escapeHtml(l.batch || 'Flexible')}</div>
+                    </td>
+                    <td>
+                      <select class="form-control" style="width:auto;padding:3px 8px;font-size:11.5px;" onchange="CRM.updateLeadStatus('${l.id}', this.value)">
+                        <option value="New" ${l.status==='New'?'selected':''}>New</option>
+                        <option value="Contacted" ${l.status==='Contacted'?'selected':''}>Contacted</option>
+                        <option value="Enrolled" ${l.status==='Enrolled'?'selected':''}>Enrolled</option>
+                        <option value="Lost" ${l.status==='Lost'?'selected':''}>Lost</option>
+                      </select>
+                    </td>
+                    <td style="max-width:200px;font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                      ${CRM.escapeHtml(l.notes || l.goal || 'No notes added')}
+                    </td>
+                    <td>
+                      <a href="https://wa.me/${(l.phone||'').replace(/[^0-9]/g,'')}?text=Hi%20${encodeURIComponent(l.name||'Student')}%2C%20thank%20you%20for%20contacting%20NeoNeX%20MindX." target="_blank" class="btn btn-sm btn-outline-primary" style="padding:4px 8px;font-size:11px;">WhatsApp</a>
+                      <button class="btn btn-sm btn-danger" style="padding:4px 8px;font-size:11px;" onclick="CRM.deleteLead('${l.id}')">Delete</button>
+                    </td>
+                  </tr>
+                `).join('') : `<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--muted);">No matching inquiries found.</td></tr>`}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      /* STUDENTS VIEW */
+      renderStudents() {
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Enrolled Students</h2>
+              <p>Active learners enrolled in data science, analytics, and AI career tracks</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-primary" onclick="CRM.openNewStudentModal()">+ Enroll Student</button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Contact</th>
+                  <th>Course &amp; Batch</th>
+                  <th>Fees Status</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${STUDENTS.map(s => `
+                  <tr>
+                    <td><b>${CRM.escapeHtml(s.name)}</b></td>
+                    <td>
+                      <div>${CRM.escapeHtml(s.phone)}</div>
+                      <div style="font-size:11px;color:var(--muted);">${CRM.escapeHtml(s.email)}</div>
+                    </td>
+                    <td>
+                      <div style="font-weight:600;color:#1B5DB7;">${CRM.escapeHtml(s.course)}</div>
+                      <div style="font-size:11px;color:var(--muted);">${CRM.escapeHtml(s.batch)}</div>
+                    </td>
+                    <td>
+                      <span style="font-weight:700;color:#16A34A;">${s.paid}</span> / <span style="color:var(--muted);">${s.total}</span>
+                    </td>
+                    <td><span class="status-pill enrolled"><span class="status-dot"></span>${s.status}</span></td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      /* BATCHES VIEW */
+      renderBatches() {
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Active &amp; Upcoming Batches</h2>
+              <p>Manage scheduled cohorts for NeoNeX MindX training programs</p>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            ${BATCHES.map(b => `
+              <div class="card">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                  <span class="status-pill new">${b.mode}</span>
+                  <span style="font-size:12px;font-weight:700;color:#16A34A;">${b.enrolled} / ${b.capacity} Seats</span>
+                </div>
+                <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">${CRM.escapeHtml(b.name)}</h3>
+                <p style="font-size:13px;color:var(--primary);font-weight:600;margin-bottom:12px;">${CRM.escapeHtml(b.course)}</p>
+                <div style="font-size:12px;color:var(--muted);margin-bottom:6px;"><b>Start Date:</b> ${b.start}</div>
+                <div style="font-size:12px;color:var(--muted);"><b>Timings:</b> ${b.time}</div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      },
+
+      /* COUNSELORS VIEW */
+      renderCounselors() {
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Counselors &amp; Faculty</h2>
+              <p>Team members managing lead assignments and mentorship</p>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="card" style="text-align:center;">
+              <div class="user-avatar" style="width:52px;height:52px;margin:0 auto 12px;font-size:18px;">AD</div>
+              <h3 style="font-size:16px;font-weight:700;">Admissions Desk</h3>
+              <p style="font-size:12px;color:var(--muted);margin:4px 0 12px;">Primary Admissions &amp; Inquiries</p>
+              <span class="status-pill new">Active</span>
+            </div>
+            <div class="card" style="text-align:center;">
+              <div class="user-avatar" style="width:52px;height:52px;margin:0 auto 12px;font-size:18px;background:#FEF3C7;color:#D97706;">NX</div>
+              <h3 style="font-size:16px;font-weight:700;">Course Advisors</h3>
+              <p style="font-size:12px;color:var(--muted);margin:4px 0 12px;">Technical Counseling &amp; Demos</p>
+              <span class="status-pill contacted">Active</span>
+            </div>
+          </div>
+        `;
+      },
+
+      /* EXPORT VIEW */
+      renderExport() {
+        return `
+          <div class="view-header">
+            <div class="view-title-block">
+              <h2>Export &amp; Data Center</h2>
+              <p>Download candidate leads, inquiries, and enrolled student data</p>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Export All Inquiries (JSON)</h3>
+              <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Download structured inquiries dataset for database backup or reporting.</p>
+              <button class="btn btn-primary" onclick="CRM.exportJson()">Download inquiries.json</button>
+            </div>
+            <div class="card">
+              <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Export CSV Format</h3>
+              <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Export candidate list formatted for Microsoft Excel or Google Sheets.</p>
+              <button class="btn btn-outline-primary" onclick="CRM.exportCsv()">Download inquiries.csv</button>
+            </div>
+          </div>
+        `;
+      },
+
+      exportJson() {
+        const blob = new Blob([JSON.stringify(LEADS, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'neonex_inquiries.json';
+        a.click();
+        CRM.showToast('Downloaded neonex_inquiries.json');
+      },
+
+      exportCsv() {
+        let csv = 'Name,Phone,Email,Program,Batch,Status,Date,Notes\n';
+        LEADS.forEach(l => {
+          csv += `"${l.name||''}","${l.phone||''}","${l.email||''}","${l.program||''}","${l.batch||''}","${l.status||''}","${l.date||''}","${(l.notes||'').replace(/"/g,'""')}"\n`;
+        });
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'neonex_inquiries.csv';
+        a.click();
+        CRM.showToast('Downloaded neonex_inquiries.csv');
+      },
+
+      updateLeadStatus(id, newStatus) {
+        const lead = LEADS.find(l => l.id === id);
+        if (lead) {
+          lead.status = newStatus;
+          CRM.saveData();
+          CRM.showToast(`Status updated to ${newStatus}`);
+        }
+      },
+
+      deleteLead(id) {
+        if (!confirm('Are you sure you want to remove this lead record?')) return;
+        LEADS = LEADS.filter(l => l.id !== id);
+        CRM.saveData();
+        CRM.showToast('Lead deleted');
+        CRM.renderCurrentView();
+      },
+
+      openNewLeadModal() {
+        const html = `
+          <div class="form-group">
+            <label class="form-label">Candidate Full Name *</label>
+            <input type="text" id="nl-name" class="form-control" placeholder="Candidate full name">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Phone / WhatsApp *</label>
+              <input type="text" id="nl-phone" class="form-control" placeholder="+91 98451 22341">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" id="nl-email" class="form-control" placeholder="candidate@example.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Program of Interest</label>
+              <select id="nl-program" class="form-control">
+                <option value="Data Science Master Program">Data Science Master Program</option>
+                <option value="Data Analytics Master Program">Data Analytics Master Program</option>
+                <option value="AI & ML Engineering Course">AI & ML Engineering Course</option>
+                <option value="Data Engineering Course">Data Engineering Course</option>
+                <option value="Business Analytics Course">Business Analytics Course</option>
+                <option value="SQL & Power BI Track">SQL & Power BI Track</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Status</label>
+              <select id="nl-status" class="form-control">
+                <option value="New">New</option>
+                <option value="Contacted">Contacted</option>
+                <option value="Enrolled">Enrolled</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Counseling Notes</label>
+            <textarea id="nl-notes" class="form-control" rows="3" placeholder="Candidate background, preferred timings, syllabus shared..."></textarea>
+          </div>
+        `;
+        const footer = `
+          <button class="btn btn-outline-secondary" onclick="CRM.closeModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="CRM.saveNewLead()">Save Inquiry</button>
+        `;
+        CRM.openModal('Add Inbound Lead', html, footer);
+      },
+
+      saveNewLead() {
+        const name = (document.getElementById('nl-name')?.value || '').trim();
+        const phone = (document.getElementById('nl-phone')?.value || '').trim();
+        const email = (document.getElementById('nl-email')?.value || '').trim();
+        const program = document.getElementById('nl-program')?.value || 'Data Science Master Program';
+        const status = document.getElementById('nl-status')?.value || 'New';
+        const notes = (document.getElementById('nl-notes')?.value || '').trim();
+
+        if (!name || !phone) {
+          alert('Please enter candidate name and phone number');
+          return;
+        }
+
+        LEADS.unshift({
+          id: 'lead-' + Date.now(),
+          name, phone, email, program, status, notes,
+          date: new Date().toISOString()
+        });
+
+        CRM.saveData();
+        CRM.closeModal();
+        CRM.showToast('New inquiry recorded successfully!');
+        CRM.renderCurrentView();
+      },
+
+      openModal(title, body, footer) {
+        document.getElementById('crm-modal-title').textContent = title;
+        document.getElementById('crm-modal-body').innerHTML = body;
+        document.getElementById('crm-modal-footer').innerHTML = footer;
+        document.getElementById('crm-modal-overlay').classList.add('active');
+      },
+
+      closeModal() {
+        document.getElementById('crm-modal-overlay').classList.remove('active');
+      },
+
+      showToast(msg) {
+        const tray = document.getElementById('toast-tray');
+        const toast = document.createElement('div');
+        toast.className = 'toast-msg';
+        toast.innerHTML = `<span>✓</span><span>${msg}</span>`;
+        tray.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(10px)';
+          toast.style.transition = 'all 0.3s ease';
+          setTimeout(() => toast.remove(), 300);
+        }, 2800);
+      },
+
+      escapeHtml(str) {
+        return (str || '').replace(/[&<>"']/g, m => ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        })[m]);
+      }
+    };
+
+    window.addEventListener('DOMContentLoaded', () => CRM.init());
+  </script>
+</body>
+</html>

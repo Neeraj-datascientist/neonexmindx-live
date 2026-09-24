@@ -1538,6 +1538,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             source_page: window.location.pathname
           })
         }).catch(function() {});
+        const crmLeads = JSON.parse(localStorage.getItem('neonex_crm_leads') || '[]');
+        crmLeads.unshift({
+          id: 'lead-' + Date.now(),
+          name: candidateName,
+          phone: candidatePhone,
+          email: candidateEmail,
+          program: candidateProgram,
+          role: typeof candidateRole !== 'undefined' ? candidateRole : '',
+          batch: candidateBatch,
+          goal: candidateGoal,
+          source: window.location.pathname,
+          status: 'New',
+          date: new Date().toISOString()
+        });
+        localStorage.setItem('neonex_crm_leads', JSON.stringify(crmLeads.slice(0, 500)));
       } catch(e) {}
 
       // 1. Asynchronous Email Dispatch via FormSubmit AJAX (Free, zero-config)
@@ -1781,6 +1796,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             source_page: window.location.pathname
           })
         }).catch(function() {});
+        const crmLeads = JSON.parse(localStorage.getItem('neonex_crm_leads') || '[]');
+        crmLeads.unshift({
+          id: 'lead-' + Date.now(),
+          name: candidateName,
+          phone: candidatePhone,
+          email: candidateEmail,
+          program: candidateProgram,
+          role: typeof candidateRole !== 'undefined' ? candidateRole : '',
+          batch: candidateBatch,
+          goal: candidateGoal,
+          source: window.location.pathname,
+          status: 'New',
+          date: new Date().toISOString()
+        });
+        localStorage.setItem('neonex_crm_leads', JSON.stringify(crmLeads.slice(0, 500)));
       } catch(e) {}
 
       // 1. Asynchronous Email Dispatch via FormSubmit AJAX
