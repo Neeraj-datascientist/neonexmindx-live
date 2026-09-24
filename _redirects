@@ -88,9 +88,14 @@
 /admin                                   /cms/index.html                                        200
 /admin/                                  /cms/index.html                                        200
 
-# 5. SECTION ANCHORS & LEGACY REDIRECTS
+# 5. THANK YOU CONVERSION ROUTE
+/thank-you                               /thank-you.html                                        200
+/thank-you/                              /thank-you.html                                        200
+
+# 6. SECTION ANCHORS & LEGACY REDIRECTS
 /courses/                                /home#career-programs                                  302
 /short-courses/                          /home#focused-short-courses                            302
 /learner-reviews-and-success-stories/    /home#learner-stories                                  302
 /success-stories/                        /home#learner-stories                                  302
+
 

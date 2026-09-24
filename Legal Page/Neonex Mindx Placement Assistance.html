@@ -1413,7 +1413,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     "/placement-assistance-disclaimer": "Legal%20Page/Neonex%20Mindx%20Placement%20Assistance.html",
     "/privacy-policy": "Legal%20Page/Neonex%20Mindx%20Privacy%20Policy.html",
     "/refund-and-cancellation-policy": "Legal%20Page/Neonex%20Mindx%20Refund%20&%20Cancellation.html",
-    "/terms-and-conditions": "Legal%20Page/Neonex%20Mindx%20Terms%20&%20Conditions.html"
+    "/terms-and-conditions": "Legal%20Page/Neonex%20Mindx%20Terms%20&%20Conditions.html",
+    "/thank-you": "thank-you.html"
   };
 
   document.addEventListener('click', (e) => {
@@ -1537,9 +1538,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       window.open(waUrl, '_blank', 'noopener,noreferrer');
 
       if (status) {
-        status.textContent = 'Enquiry sent to admissions (neonexminds@gmail.com) and WhatsApp opened!';
+        status.textContent = 'Enquiry sent! Redirecting to confirmation...';
         status.style.color = '#16A34A';
       }
+
+      setTimeout(() => {
+        const qParams = new URLSearchParams({
+          name: candidateName,
+          program: candidateProgram,
+          phone: candidatePhone
+        });
+        const targetUrl = window.location.protocol === 'file:' ? 'thank-you.html?' + qParams.toString() : '/thank-you?' + qParams.toString();
+        window.location.href = targetUrl;
+      }, 1200);
     }, { capture: true });
   });
 
@@ -1769,13 +1780,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         window.open(waUrl, '_blank', 'noopener,noreferrer');
 
         if (status) {
-          status.textContent = 'Enquiry sent! Opening WhatsApp...';
+          status.textContent = 'Enquiry sent! Redirecting to confirmation...';
           status.style.color = '#16A34A';
         }
 
         setTimeout(() => {
           closeEnquireModal();
-        }, 1800);
+          const qParams = new URLSearchParams({
+            name: candidateName,
+            program: candidateProgram,
+            phone: candidatePhone
+          });
+          const targetUrl = window.location.protocol === 'file:' ? 'thank-you.html?' + qParams.toString() : '/thank-you?' + qParams.toString();
+          window.location.href = targetUrl;
+        }, 1200);
       }, { capture: true });
     }
 
