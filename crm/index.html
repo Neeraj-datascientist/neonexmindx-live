@@ -634,6 +634,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- OPERATIONS SECTION -->
       <div class="nav-section-title">Platform</div>
+      <a class="nav-item" href="https://neonex-edutech-crm.vercel.app/" target="_blank" style="color:#0284C7;text-decoration:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        <span>Cloud ERP / CRM</span>
+        <span class="nav-badge" style="background:#E0F2FE;color:#0284C7;font-weight:700;">LIVE</span>
+      </a>
       <a class="nav-item" href="../cms/index.html" style="color:#1B5DB7;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
         <span>CMS Publisher</span>
@@ -669,10 +674,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="tb-sync-badge" onclick="CRM.syncPulse()" title="Synced with website admissions and contact forms">
         <span class="tb-sync-dot"></span>
-        <span>Live Admissions Sync</span>
+        <span id="sync-status-text">Live Admissions Sync</span>
       </div>
     </div>
     <div class="tb-actions">
+      <a href="https://neonex-edutech-crm.vercel.app/" target="_blank" class="btn btn-outline-primary btn-sm" style="color:#0284C7;border-color:#BAE6FD;background:#F0F9FF;">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        <span>Cloud ERP (Vercel)</span>
+      </a>
       <a href="../index.html" target="_blank" class="btn btn-outline-primary btn-sm">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
         <span>View Live Site</span>
@@ -802,6 +811,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           STUDENTS = [];
           BATCHES = DEFAULT_BATCHES;
         }
+        CRM.fetchCloudLeads();
+      },
+
+      async fetchCloudLeads() {
+        const syncStatus = document.getElementById('sync-status-text');
+        if (syncStatus) syncStatus.textContent = 'Syncing...';
+        try {
+          const res = await fetch('https://neonex-edutech-crm.vercel.app/api/public/leads', { signal: AbortSignal.timeout(4000) });
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.success && Array.isArray(data.result)) {
+              const cloudLeads = data.result.map(c => {
+                let program = 'Website Inquiry';
+                let role = 'Student';
+                let batch = 'Flexible';
+                let notes = c.address || 'Inquiry from neonexmindx.com';
+                if (c.address) {
+                  const parts = c.address.split('|');
+                  parts.forEach(p => {
+                    const kv = p.trim();
+                    if (kv.startsWith('Course:')) program = kv.replace('Course:', '').trim();
+                    if (kv.startsWith('Role:')) role = kv.replace('Role:', '').trim();
+                    if (kv.startsWith('Batch:')) batch = kv.replace('Batch:', '').trim();
+                  });
+                }
+                return {
+                  id: c._id || ('c-' + Date.now()),
+                  name: c.name,
+                  phone: c.phone,
+                  email: c.email,
+                  program,
+                  role,
+                  batch,
+                  status: c.enabled ? 'New' : 'Contacted',
+                  date: c.created || new Date().toISOString(),
+                  notes
+                };
+              });
+
+              const existingPhones = new Set(LEADS.map(x => (x.phone || '').replace(/[^0-9]/g, '')));
+              let newCount = 0;
+              cloudLeads.forEach(cl => {
+                const p = (cl.phone || '').replace(/[^0-9]/g, '');
+                if (p && !existingPhones.has(p)) {
+                  LEADS.unshift(cl);
+                  existingPhones.add(p);
+                  newCount++;
+                }
+              });
+
+              if (newCount > 0) {
+                CRM.saveData();
+                CRM.renderCurrentView();
+              }
+              if (syncStatus) syncStatus.textContent = 'Cloud Synced (Live)';
+              return;
+            }
+          }
+        } catch(err) {}
+        if (syncStatus) syncStatus.textContent = 'Live Admissions Sync';
       },
 
       saveData() {
@@ -824,8 +893,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         CRM.showToast(`Switched to ${next} mode`);
       },
 
-      syncPulse() {
+      async syncPulse() {
         CRM.loadData();
+        await CRM.fetchCloudLeads();
         CRM.updateCounts();
         CRM.renderCurrentView();
         CRM.showToast('CRM data refreshed and synchronized with live leads!');
@@ -1276,16 +1346,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           return;
         }
 
-        LEADS.unshift({
+        const newLead = {
           id: 'lead-' + Date.now(),
           name, phone, email, program, status, notes,
           date: new Date().toISOString()
-        });
+        };
 
+        LEADS.unshift(newLead);
         CRM.saveData();
         CRM.closeModal();
         CRM.showToast('New inquiry recorded successfully!');
         CRM.renderCurrentView();
+
+        // Forward to Cloud CRM in background
+        try {
+          fetch('https://neonex-edutech-crm.vercel.app/api/public/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name, phone, email, program, status, goal: notes, source: 'CRM Manual Entry'
+            })
+          }).catch(() => {});
+        } catch(e) {}
       },
 
       openModal(title, body, footer) {
