@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -9,12 +11,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PG57R85H');</script>
 <!-- End Google Tag Manager -->
 
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeoNeX MindX — Blog Publisher & CMS</title>
+  <title>NeoNeX MindX &mdash; Blog Publisher & CMS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -516,88 +517,152 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .form-hint { font-size: 11px; color: var(--muted); margin-top: 4px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
-    /* WYSIWYG TOOLBAR */
-    .rte-shell {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+    
+    /* STICKY WYSIWYG TOOLBAR */
+    .rte-card-sticky-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       background: var(--surface);
-      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
     }
     .rte-menu-bar {
       display: flex;
       align-items: center;
       gap: 16px;
-      padding: 6px 12px;
+      padding: 7px 14px;
       background: var(--surface-2);
       border-bottom: 1px solid var(--border);
       font-size: 12px;
       font-weight: 600;
       color: var(--ink-soft);
     }
-    .rte-menu-bar span { cursor: pointer; }
+    .rte-menu-bar span { cursor: pointer; transition: color 0.15s; }
     .rte-menu-bar span:hover { color: var(--primary); }
     .rte-toolbar {
-      padding: 8px 10px;
+      padding: 8px 12px;
       background: var(--surface);
-      border-bottom: 1px solid var(--border);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 4px;
     }
     .rte-btn {
-      width: 30px;
+      min-width: 30px;
       height: 30px;
+      padding: 0 6px;
       border-radius: 6px;
       border: 1px solid transparent;
       background: transparent;
       color: var(--ink);
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       font-size: 13px;
       font-weight: 600;
+      transition: all 0.15s ease;
     }
     .rte-btn:hover { background: var(--surface-2); border-color: var(--border); }
     .rte-btn.active { background: var(--primary-tint); color: var(--primary); border-color: var(--primary); }
-    .rte-sep { width: 1px; height: 18px; background: var(--border); margin: 0 4px; }
+    .rte-sep { width: 1px; height: 20px; background: var(--border); margin: 0 4px; }
     .rte-select {
       height: 30px;
       border-radius: 6px;
       border: 1px solid var(--border);
       background: var(--surface);
-      font-size: 12px;
-      padding: 0 6px;
-    }
-    .rte-content-area {
-      min-height: 420px;
-      padding: 20px 24px;
-      outline: none;
-      font-size: 15px;
-      line-height: 1.7;
       color: var(--ink);
-      overflow-y: auto;
+      font-size: 12px;
+      padding: 0 8px;
+      cursor: pointer;
+      outline: none;
+    }
+    .rte-select:focus { border-color: var(--primary); }
+    .rte-content-area {
+      min-height: 480px;
+      padding: 24px 28px;
+      outline: none;
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--surface);
     }
     .rte-content-area:empty:before {
       content: attr(data-placeholder);
       color: var(--muted);
     }
-    .rte-content-area h1, .rte-content-area h2, .rte-content-area h3 { margin: 0.8em 0 0.3em; line-height: 1.3; }
+    .rte-content-area h1 { font-size: 28px; font-weight: 800; margin: 1em 0 0.4em; line-height: 1.25; color: var(--ink); }
+    .rte-content-area h2 { font-size: 22px; font-weight: 700; margin: 0.9em 0 0.35em; line-height: 1.3; color: var(--ink); }
+    .rte-content-area h3 { font-size: 18px; font-weight: 700; margin: 0.8em 0 0.3em; line-height: 1.35; color: var(--ink); }
+    .rte-content-area h4 { font-size: 16px; font-weight: 600; margin: 0.7em 0 0.25em; color: var(--ink); }
+    .rte-content-area h5 { font-size: 14px; font-weight: 600; margin: 0.6em 0 0.2em; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); }
+    .rte-content-area h6 { font-size: 13px; font-weight: 600; margin: 0.5em 0 0.2em; color: var(--muted); }
     .rte-content-area p { margin: 0.6em 0; }
+    .rte-content-area a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
     .rte-content-area blockquote {
-      border-left: 3px solid var(--primary);
-      margin: 1em 0;
-      padding: 6px 14px;
+      border-left: 3.5px solid var(--primary);
+      margin: 1.2em 0;
+      padding: 10px 18px;
       font-style: italic;
-      color: var(--muted);
+      color: var(--ink-soft);
       background: var(--surface-2);
-      border-radius: 0 6px 6px 0;
+      border-radius: 0 8px 8px 0;
     }
-    .rte-content-area table { width: 100%; border-collapse: collapse; margin: 1em 0; }
-    .rte-content-area th, .rte-content-area td { border: 1px solid var(--border); padding: 8px 12px; font-size: 13px; }
-    .rte-content-area img { max-width: 100%; border-radius: 8px; margin: 1em 0; }
+    .rte-content-area table { width: 100%; border-collapse: collapse; margin: 1.2em 0; }
+    .rte-content-area th, .rte-content-area td { border: 1px solid var(--border); padding: 9px 13px; font-size: 13.5px; }
+    .rte-content-area th { background: var(--surface-2); font-weight: 700; }
+    .rte-content-area img { max-width: 100%; border-radius: 8px; margin: 1.2em 0; }
     .rte-content-area code { font-family: var(--font-mono); background: var(--surface-2); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+
+    /* SCHEMA MARKUP WIDGET */
+    .schema-widget-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .schema-type-tab-btn {
+      flex: 1;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+    }
+    .schema-type-tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .faq-builder-item {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+    .schema-code-box {
+      background: #0B0F19;
+      color: #E2E8F0;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.45;
+      padding: 14px;
+      border-radius: 8px;
+      max-height: 260px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      border: 1px solid #1E293B;
+      position: relative;
+    }
 
     /* EDITOR ASIDE */
     .editor-aside { position: sticky; top: 0; display: flex; flex-direction: column; gap: 16px; }
@@ -1603,11 +1668,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           excerpt: '',
           seoScore: 85,
           tags: ['Data Science', 'Python'],
-          body: '<h2>Introduction</h2><p>Start writing your in-depth guide or tutorial here...</p>'
+          body: '<h2>Introduction</h2><p>Start writing your in-depth guide or tutorial here...</p>',
+          faqs: [
+            { q: 'What career prerequisites are required to start this program?', a: 'Basic mathematics and introductory logic concepts are helpful. Our mentors guide you from fundamentals to advanced industry projects.' },
+            { q: 'Will I work on live real-world portfolio projects?', a: 'Yes, every module incorporates end-to-end production datasets, model deployments, and real-time dashboard implementations.' }
+          ]
         };
 
         const categories = DB.categories || [];
         const authors = DB.authors || [];
+        window.CURRENT_POST_FAQS = (post.faqs && post.faqs.length) ? JSON.parse(JSON.stringify(post.faqs)) : [
+          { q: 'What career prerequisites are required to start this program?', a: 'Basic mathematics and introductory logic concepts are helpful. Our mentors guide you from fundamentals to advanced industry projects.' }
+        ];
 
         return `
           <div class="view-header">
@@ -1631,6 +1703,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <button class="editor-tab-btn active" onclick="APP.switchEditorTab('content', this)">Content</button>
                   <button class="editor-tab-btn" onclick="APP.switchEditorTab('seo', this)">SEO &amp; Meta</button>
                   <button class="editor-tab-btn" onclick="APP.switchEditorTab('media', this)">Media &amp; Cover</button>
+                  <button class="editor-tab-btn" onclick="APP.switchEditorTab('faqs', this)">FAQ Builder (Schema)</button>
                 </div>
 
                 <div id="tab-pane-content">
@@ -1642,7 +1715,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="form-row">
                     <div class="form-group">
                       <label class="form-label">SLUG</label>
-                      <input type="text" id="ed-slug" class="form-control" value="${APP.escapeHtml(post.slug)}" placeholder="url-friendly-slug">
+                      <input type="text" id="ed-slug" class="form-control" value="${APP.escapeHtml(post.slug)}" placeholder="url-friendly-slug" oninput="APP.updateLiveSchemas()">
                       <div class="form-hint">Generated from title unless edited. Path: /blog/&lt;slug&gt;</div>
                     </div>
                     <div class="form-group">
@@ -1654,13 +1727,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="form-row">
                     <div class="form-group">
                       <label class="form-label">CATEGORY</label>
-                      <select id="ed-category" class="form-control">
+                      <select id="ed-category" class="form-control" onchange="APP.updateLiveSchemas()">
                         ${categories.map(c => `<option value="${c.name}" ${post.category===c.name?'selected':''}>${c.name}</option>`).join('')}
                       </select>
                     </div>
                     <div class="form-group">
                       <label class="form-label">AUTHOR</label>
-                      <select id="ed-author" class="form-control">
+                      <select id="ed-author" class="form-control" onchange="APP.updateLiveSchemas()">
                         ${authors.map(a => `<option value="${a.name}" data-id="${a.id}" ${post.author===a.name?'selected':''}>${a.name} (${a.designation})</option>`).join('')}
                       </select>
                     </div>
@@ -1668,94 +1741,133 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                   <div class="form-group">
                     <label class="form-label">EXCERPT (SHORT SUMMARY)</label>
-                    <textarea id="ed-excerpt" class="form-control" rows="3" placeholder="Brief 1-2 sentence preview for cards and search snippets...">${APP.escapeHtml(post.excerpt || '')}</textarea>
+                    <textarea id="ed-excerpt" class="form-control" rows="3" placeholder="Brief 1-2 sentence preview for cards and search snippets..." oninput="APP.updateLiveSchemas()">${APP.escapeHtml(post.excerpt || '')}</textarea>
                   </div>
                 </div>
 
                 <div id="tab-pane-seo" style="display:none;">
                   <div class="form-group">
                     <label class="form-label">META DESCRIPTION (RECOMMENDED 130-160 CHARACTERS)</label>
-                    <textarea id="ed-metadesc" class="form-control" rows="3" placeholder="Google snippet description..." oninput="APP.calculateLiveSeo()">${APP.escapeHtml(post.metaDescription || '')}</textarea>
+                    <textarea id="ed-metadesc" class="form-control" rows="3" placeholder="Google snippet description..." oninput="APP.calculateLiveSeo(); APP.updateLiveSchemas();">${APP.escapeHtml(post.metaDescription || '')}</textarea>
                     <div class="form-hint" id="metadesc-count">0 / 160 characters</div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">ARTICLE TAGS (COMMA SEPARATED)</label>
-                    <input type="text" id="ed-tags" class="form-control" value="${(post.tags||[]).join(', ')}" placeholder="Python, Machine Learning, Career">
+                    <input type="text" id="ed-tags" class="form-control" value="${(post.tags||[]).join(', ')}" placeholder="Python, Machine Learning, Career" oninput="APP.updateLiveSchemas()">
                   </div>
                 </div>
 
                 <div id="tab-pane-media" style="display:none;">
                   <div class="form-group">
                     <label class="form-label">COVER / HERO IMAGE URL</label>
-                    <input type="text" id="ed-heroimage" class="form-control" value="${APP.escapeHtml(post.heroImage || '')}" placeholder="https://..." onchange="document.getElementById('hero-preview').src = this.value">
+                    <input type="text" id="ed-heroimage" class="form-control" value="${APP.escapeHtml(post.heroImage || '')}" placeholder="https://..." oninput="document.getElementById('hero-preview').src = this.value; APP.updateLiveSchemas();">
                     <div style="margin-top:10px;">
                       <img id="hero-preview" src="${post.heroImage || 'https://via.placeholder.com/600x300'}" style="max-height:160px; border-radius:8px; border:1px solid var(--border); object-fit:cover; width:100%;">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">IMAGE ALT TEXT</label>
-                    <input type="text" id="ed-heroalt" class="form-control" value="${APP.escapeHtml(post.heroAlt || '')}" placeholder="Descriptive ALT text for search crawlers...">
+                    <input type="text" id="ed-heroalt" class="form-control" value="${APP.escapeHtml(post.heroAlt || '')}" placeholder="Descriptive ALT text for search crawlers..." oninput="APP.calculateLiveSeo()">
+                  </div>
+                </div>
+
+                <div id="tab-pane-faqs" style="display:none;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <div>
+                      <h4 style="font-size:14px; font-weight:700;">FAQ Question &amp; Answer Pairs</h4>
+                      <p style="font-size:12px; color:var(--muted);">These questions generate instant Google-compliant FAQPage JSON-LD Schema markup.</p>
+                    </div>
+                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="APP.addFaqRow()">+ Add FAQ</button>
+                  </div>
+                  <div id="faq-builder-container">
+                    ${(window.CURRENT_POST_FAQS || []).map((faq, idx) => `
+                      <div class="faq-builder-item" data-faq-idx="${idx}">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                          <label class="form-label" style="margin:0; font-size:11px;">QUESTION #${idx+1}</label>
+                          <button type="button" class="btn btn-sm btn-danger" style="padding:2px 6px; font-size:10px;" onclick="APP.removeFaqRow(${idx})">&times; Remove</button>
+                        </div>
+                        <input type="text" class="form-control faq-q-input" value="${APP.escapeHtml(faq.q)}" placeholder="e.g. What skills are covered in this course?" oninput="APP.syncFaqsFromInputs()" style="margin-bottom:8px;">
+                        <label class="form-label" style="margin:0 0 4px; font-size:11px;">ANSWER</label>
+                        <textarea class="form-control faq-a-input" rows="2" placeholder="Clear, direct answer explaining the topic..." oninput="APP.syncFaqsFromInputs()">${APP.escapeHtml(faq.a)}</textarea>
+                      </div>
+                    `).join('')}
                   </div>
                 </div>
               </div>
 
-              <!-- WYSIWYG Editor Card -->
-              <div class="card" style="padding:0; overflow:hidden;">
-                <div class="rte-menu-bar">
-                  <span onclick="document.execCommand('undo')">Undo</span>
-                  <span onclick="document.execCommand('redo')">Redo</span>
-                  <span onclick="APP.insertSampleTable()">Insert Table</span>
-                  <span onclick="APP.openImagePickerModal()">Insert Image</span>
-                  <span onclick="APP.toggleSourceCode()" id="code-toggle-lbl">View Code &lt;/&gt;</span>
+              <!-- WYSIWYG Editor Card with Sticky Header -->
+              <div class="card" style="padding:0; overflow:visible; position:relative;">
+                <div class="rte-card-sticky-wrap">
+                  <div class="rte-menu-bar">
+                    <span onclick="document.execCommand('undo')">Undo</span>
+                    <span onclick="document.execCommand('redo')">Redo</span>
+                    <span onclick="APP.insertSampleTable()">Insert Table</span>
+                    <span onclick="APP.openImagePickerModal()">Insert Image</span>
+                    <span onclick="APP.openLinkModal()">Insert Link</span>
+                    <span onclick="APP.toggleSourceCode()" id="code-toggle-lbl">View Code &lt;/&gt;</span>
+                  </div>
+
+                  <div class="rte-toolbar" id="rte-toolbar-main">
+                    <button class="rte-btn" onclick="document.execCommand('undo')" title="Undo">↶</button>
+                    <button class="rte-btn" onclick="document.execCommand('redo')" title="Redo">↷</button>
+                    <div class="rte-sep"></div>
+
+                    <!-- All 6 Heading Levels -->
+                    <select class="rte-select" onchange="APP.applyHeading(this.value)" title="Typography Format">
+                      <option value="p">Paragraph</option>
+                      <option value="h1">Heading 1 (H1)</option>
+                      <option value="h2">Heading 2 (H2)</option>
+                      <option value="h3">Heading 3 (H3)</option>
+                      <option value="h4">Heading 4 (H4)</option>
+                      <option value="h5">Heading 5 (H5)</option>
+                      <option value="h6">Heading 6 (H6)</option>
+                      <option value="blockquote">Quote Block</option>
+                    </select>
+
+                    <!-- Expanded Font Family List -->
+                    <select class="rte-select" onchange="APP.applyFontFamily(this.value)" title="Font Family">
+                      <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
+                      <option value="Inter">Inter</option>
+                      <option value="Outfit">Outfit</option>
+                      <option value="DM Sans">DM Sans</option>
+                      <option value="Sora">Sora</option>
+                      <option value="Roboto">Roboto</option>
+                      <option value="Calibri, sans-serif">Calibri</option>
+                      <option value="Arial, sans-serif">Arial</option>
+                      <option value="Georgia, serif">Georgia</option>
+                      <option value="Times New Roman, serif">Times New Roman</option>
+                      <option value="JetBrains Mono, monospace">Monospace</option>
+                    </select>
+
+                    <div class="rte-sep"></div>
+                    <button class="rte-btn" onclick="document.execCommand('bold')" title="Bold"><b>B</b></button>
+                    <button class="rte-btn" onclick="document.execCommand('italic')" title="Italic"><i>I</i></button>
+                    <button class="rte-btn" onclick="document.execCommand('underline')" title="Underline"><u>U</u></button>
+                    <button class="rte-btn" onclick="document.execCommand('strikeThrough')" title="Strike"><s>S</s></button>
+                    <div class="rte-sep"></div>
+
+                    <button class="rte-btn" onclick="document.execCommand('insertUnorderedList')" title="Bullet List">\u2022 List</button>
+                    <button class="rte-btn" onclick="document.execCommand('insertOrderedList')" title="Numbered List">1. List</button>
+                    <div class="rte-sep"></div>
+
+                    <button class="rte-btn" onclick="document.execCommand('justifyLeft')" title="Left">⇤</button>
+                    <button class="rte-btn" onclick="document.execCommand('justifyCenter')" title="Center">≡</button>
+                    <button class="rte-btn" onclick="document.execCommand('justifyRight')" title="Right">⇥</button>
+                    <div class="rte-sep"></div>
+
+                    <button class="rte-btn" onclick="APP.openLinkModal()" title="Insert or Edit Link">🔗</button>
+                    <button class="rte-btn" onclick="document.execCommand('unlink')" title="Remove Link">⦸</button>
+                    <button class="rte-btn" onclick="APP.openImagePickerModal()" title="Insert Image">🖼</button>
+                    <button class="rte-btn" onclick="APP.insertSampleTable()" title="Insert Table">▦</button>
+                    <button class="rte-btn" onclick="document.execCommand('removeFormat')" title="Clear Formatting">✕</button>
+                  </div>
                 </div>
 
-                <div class="rte-toolbar" id="rte-toolbar-main">
-                  <button class="rte-btn" onclick="document.execCommand('undo')" title="Undo">↶</button>
-                  <button class="rte-btn" onclick="document.execCommand('redo')" title="Redo">↷</button>
-                  <div class="rte-sep"></div>
-
-                  <select class="rte-select" onchange="document.execCommand('formatBlock', false, this.value)">
-                    <option value="p">Paragraph</option>
-                    <option value="h2">Heading 2</option>
-                    <option value="h3">Heading 3</option>
-                    <option value="h4">Heading 4</option>
-                    <option value="blockquote">Quote Block</option>
-                  </select>
-
-                  <select class="rte-select" onchange="document.execCommand('fontName', false, this.value)">
-                    <option value="Plus Jakarta Sans">Jakarta</option>
-                    <option value="Inter">Inter</option>
-                    <option value="monospace">Mono</option>
-                  </select>
-
-                  <div class="rte-sep"></div>
-                  <button class="rte-btn" onclick="document.execCommand('bold')" title="Bold"><b>B</b></button>
-                  <button class="rte-btn" onclick="document.execCommand('italic')" title="Italic"><i>I</i></button>
-                  <button class="rte-btn" onclick="document.execCommand('underline')" title="Underline"><u>U</u></button>
-                  <button class="rte-btn" onclick="document.execCommand('strikeThrough')" title="Strike"><s>S</s></button>
-                  <div class="rte-sep"></div>
-
-                  <button class="rte-btn" onclick="document.execCommand('insertUnorderedList')" title="Bullet List">• List</button>
-                  <button class="rte-btn" onclick="document.execCommand('insertOrderedList')" title="Numbered List">1. List</button>
-                  <div class="rte-sep"></div>
-
-                  <button class="rte-btn" onclick="document.execCommand('justifyLeft')" title="Left">⇤</button>
-                  <button class="rte-btn" onclick="document.execCommand('justifyCenter')" title="Center">≡</button>
-                  <button class="rte-btn" onclick="document.execCommand('justifyRight')" title="Right">⇥</button>
-                  <div class="rte-sep"></div>
-
-                  <button class="rte-btn" onclick="APP.promptLink()" title="Link">🔗</button>
-                  <button class="rte-btn" onclick="document.execCommand('unlink')" title="Unlink">⦸</button>
-                  <button class="rte-btn" onclick="APP.openImagePickerModal()" title="Insert Image">🖼</button>
-                  <button class="rte-btn" onclick="APP.insertSampleTable()" title="Table">▦</button>
-                  <button class="rte-btn" onclick="document.execCommand('removeFormat')" title="Clear Formatting">✕</button>
-                </div>
-
-                <div class="rte-content-area" id="ed-body" contenteditable="true" data-placeholder="Start writing the blog post body here..." oninput="APP.calculateLiveSeo()">${post.body || ''}</div>
-                <textarea id="ed-body-source" style="display:none; width:100%; min-height:420px; font-family:var(--font-mono); font-size:12.5px; padding:18px; border:none; outline:none; background:var(--surface); color:var(--ink); line-height:1.6;"></textarea>
+                <div class="rte-content-area" id="ed-body" contenteditable="true" data-placeholder="Start writing the blog post body here..." oninput="APP.calculateLiveSeo(); APP.updateLiveSchemas();">${post.body || ''}</div>
+                <textarea id="ed-body-source" style="display:none; width:100%; min-height:480px; font-family:var(--font-mono); font-size:12.5px; padding:18px; border:none; outline:none; background:var(--surface); color:var(--ink); line-height:1.6;"></textarea>
 
                 <div style="padding:10px 18px; background:var(--surface-2); border-top:1px solid var(--border); display:flex; justify-content:space-between; font-size:11.5px; color:var(--muted);">
-                  <span id="ed-word-count">0 words · 1 min read</span>
+                  <span id="ed-word-count">0 words \u00b7 1 min read</span>
                   <span id="ed-auto-status">Draft autosave ready</span>
                 </div>
               </div>
@@ -1774,7 +1886,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div class="form-group">
                   <label class="form-label">VISIBILITY / STATUS</label>
-                  <select id="ed-status" class="form-control" onchange="document.getElementById('aside-status-pill').className = 'status-pill ' + this.value; document.getElementById('aside-status-pill').innerHTML = '<span class=\\'status-dot\\'></span>' + this.value;">
+                  <select id="ed-status" class="form-control" onchange="document.getElementById('aside-status-pill').className = 'status-pill ' + this.value; document.getElementById('aside-status-pill').innerHTML = '<span class=\'status-dot\'></span>' + this.value;">
                     <option value="draft" ${post.status==='draft'?'selected':''}>Draft</option>
                     <option value="published" ${post.status==='published'?'selected':''}>Published (Live)</option>
                     <option value="scheduled" ${post.status==='scheduled'?'selected':''}>Scheduled</option>
@@ -1783,7 +1895,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div class="form-group">
                   <label class="form-label">PUBLISH DATE</label>
-                  <input type="date" id="ed-date" class="form-control" value="${post.publishDate || new Date().toISOString().split('T')[0]}">
+                  <input type="date" id="ed-date" class="form-control" value="${post.publishDate || new Date().toISOString().split('T')[0]}" onchange="APP.updateLiveSchemas()">
                 </div>
 
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:14px;">
@@ -1814,6 +1926,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <!-- Filled via calculateLiveSeo() -->
                 </div>
               </div>
+
+              <!-- Live Schema Generator Widget -->
+              <div class="schema-widget-card">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                  <div>
+                    <div style="font-weight:700; font-size:14px; color:var(--ink);">Schema Markup</div>
+                    <div style="font-size:11px; color:var(--muted);">JSON-LD structured data for Google</div>
+                  </div>
+                  <button class="btn btn-sm" onclick="APP.copyActiveSchema()" title="Copy active schema JSON-LD">Copy</button>
+                </div>
+
+                <div style="display:flex; gap:6px; margin-bottom:10px;">
+                  <button type="button" class="schema-type-tab-btn active" id="btn-schema-article" onclick="APP.switchSchemaView('article')">Article</button>
+                  <button type="button" class="schema-type-tab-btn" id="btn-schema-faq" onclick="APP.switchSchemaView('faq')">FAQ</button>
+                  <button type="button" class="schema-type-tab-btn" id="btn-schema-both" onclick="APP.switchSchemaView('both')">Combined</button>
+                </div>
+
+                <div class="schema-code-box" id="schema-json-preview">
+                  &lt;!-- Schema generating... --&gt;
+                </div>
+              </div>
             </div>
           </div>
         `;
@@ -1821,6 +1954,240 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       initEditorScript() {
         APP.calculateLiveSeo();
+        APP.updateLiveSchemas();
+      },
+
+      applyHeading(tag) {
+        if (!tag) return;
+        if (tag === 'p' || tag === 'blockquote') {
+          document.execCommand('formatBlock', false, tag);
+        } else {
+          document.execCommand('formatBlock', false, '<' + tag + '>');
+        }
+        const ed = document.getElementById('ed-body');
+        if (ed) ed.focus();
+        APP.calculateLiveSeo();
+      },
+
+      applyFontFamily(font) {
+        if (!font) return;
+        document.execCommand('fontName', false, font);
+        const ed = document.getElementById('ed-body');
+        if (ed) ed.focus();
+      },
+
+      /* Link Insertion Modal & Range Preservation */
+      openLinkModal() {
+        const sel = window.getSelection();
+        let selectedText = '';
+        if (sel && sel.rangeCount > 0) {
+          window._savedRange = sel.getRangeAt(0).cloneRange();
+          selectedText = sel.toString().trim();
+        }
+
+        const body = `
+          <div class="form-group">
+            <label class="form-label">DESTINATION URL *</label>
+            <input type="url" id="link-modal-url" class="form-control" placeholder="https://neonexmindx.com/courses/... or /courses/..." value="">
+          </div>
+          <div class="form-group">
+            <label class="form-label">LINK TEXT</label>
+            <input type="text" id="link-modal-text" class="form-control" placeholder="Anchor text..." value="${APP.escapeHtml(selectedText)}">
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:14px; padding:12px; background:var(--surface-2); border-radius:8px;">
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer; font-weight:600;">
+              <input type="checkbox" id="link-modal-newtab" checked>
+              <span>Open link in new tab (<code>target="_blank"</code>)</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer; font-weight:600;">
+              <input type="checkbox" id="link-modal-nofollow">
+              <span>Add nofollow attribute (<code>rel="nofollow"</code>)</span>
+            </label>
+          </div>
+        `;
+        const footer = `
+          <button class="btn" onclick="APP.closeModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="APP.insertLinkFromModal()">Insert Link</button>
+        `;
+        APP.openModal('Insert / Edit Hyperlink', body, footer);
+        setTimeout(() => {
+          const u = document.getElementById('link-modal-url');
+          if (u) u.focus();
+        }, 100);
+      },
+
+      insertLinkFromModal() {
+        const url = (document.getElementById('link-modal-url')?.value || '').trim();
+        const text = (document.getElementById('link-modal-text')?.value || '').trim();
+        const isNewTab = document.getElementById('link-modal-newtab')?.checked;
+        const isNoFollow = document.getElementById('link-modal-nofollow')?.checked;
+
+        if (!url) {
+          alert('Please enter a destination URL');
+          return;
+        }
+
+        APP.closeModal();
+
+        const ed = document.getElementById('ed-body');
+        if (!ed) return;
+        ed.focus();
+
+        if (window._savedRange) {
+          try {
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(window._savedRange);
+          } catch(e) {
+            console.warn('Could not restore selection range', e);
+          }
+        }
+
+        let rels = [];
+        if (isNewTab) rels.push('noopener', 'noreferrer');
+        if (isNoFollow) rels.push('nofollow');
+        const relAttr = rels.length ? ` rel="${rels.join(' ')}"` : '';
+        const targetAttr = isNewTab ? ' target="_blank"' : '';
+        const linkDisplay = text || url;
+
+        const linkHtml = `<a href="${APP.escapeHtml(url)}"${targetAttr}${relAttr}>${APP.escapeHtml(linkDisplay)}</a>`;
+        document.execCommand('insertHTML', false, linkHtml);
+        APP.calculateLiveSeo();
+      },
+
+      /* FAQ Builder Methods */
+      addFaqRow() {
+        window.CURRENT_POST_FAQS = window.CURRENT_POST_FAQS || [];
+        window.CURRENT_POST_FAQS.push({ q: '', a: '' });
+        APP.renderFaqRows();
+        APP.updateLiveSchemas();
+      },
+
+      removeFaqRow(idx) {
+        window.CURRENT_POST_FAQS = window.CURRENT_POST_FAQS || [];
+        window.CURRENT_POST_FAQS.splice(idx, 1);
+        APP.renderFaqRows();
+        APP.updateLiveSchemas();
+      },
+
+      syncFaqsFromInputs() {
+        const container = document.getElementById('faq-builder-container');
+        if (!container) return;
+        const items = container.querySelectorAll('.faq-builder-item');
+        const list = [];
+        items.forEach(item => {
+          const q = item.querySelector('.faq-q-input')?.value || '';
+          const a = item.querySelector('.faq-a-input')?.value || '';
+          list.push({ q, a });
+        });
+        window.CURRENT_POST_FAQS = list;
+        APP.updateLiveSchemas();
+      },
+
+      renderFaqRows() {
+        const container = document.getElementById('faq-builder-container');
+        if (!container) return;
+        container.innerHTML = (window.CURRENT_POST_FAQS || []).map((faq, idx) => `
+          <div class="faq-builder-item" data-faq-idx="${idx}">
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <label class="form-label" style="margin:0; font-size:11px;">QUESTION #${idx+1}</label>
+              <button type="button" class="btn btn-sm btn-danger" style="padding:2px 6px; font-size:10px;" onclick="APP.removeFaqRow(${idx})">&times; Remove</button>
+            </div>
+            <input type="text" class="form-control faq-q-input" value="${APP.escapeHtml(faq.q)}" placeholder="e.g. What skills are covered in this course?" oninput="APP.syncFaqsFromInputs()" style="margin-bottom:8px;">
+            <label class="form-label" style="margin:0 0 4px; font-size:11px;">ANSWER</label>
+            <textarea class="form-control faq-a-input" rows="2" placeholder="Clear, direct answer explaining the topic..." oninput="APP.syncFaqsFromInputs()">${APP.escapeHtml(faq.a)}</textarea>
+          </div>
+        `).join('');
+      },
+
+      /* Schema Switcher & Live Generator */
+      _activeSchemaTab: 'article',
+
+      switchSchemaView(tab) {
+        APP._activeSchemaTab = tab;
+        document.querySelectorAll('.schema-type-tab-btn').forEach(b => b.classList.remove('active'));
+        const activeBtn = document.getElementById('btn-schema-' + tab);
+        if (activeBtn) activeBtn.classList.add('active');
+        APP.updateLiveSchemas();
+      },
+
+      updateLiveSchemas() {
+        const title = (document.getElementById('ed-title')?.value || '').trim() || 'Untitled Article';
+        const slug = (document.getElementById('ed-slug')?.value || '').trim() || 'article-slug';
+        const authorName = document.getElementById('ed-author')?.value || 'Dr. Rajesh Varma';
+        const authorObj = (DB.authors || []).find(a => a.name === authorName) || { name: authorName, linkedin: 'https://neonexmindx.com' };
+        const metaDesc = (document.getElementById('ed-metadesc')?.value || '').trim() || (document.getElementById('ed-excerpt')?.value || '').trim();
+        const heroImg = (document.getElementById('ed-heroimage')?.value || '').trim() || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
+        const pubDate = document.getElementById('ed-date')?.value || new Date().toISOString().split('T')[0];
+        const tagsRaw = (document.getElementById('ed-tags')?.value || '').trim();
+        const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+        const category = document.getElementById('ed-category')?.value || 'Data Science';
+
+        const articleSchema = {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://neonexmindx.com/blog/" + slug
+          },
+          "headline": title,
+          "description": metaDesc,
+          "image": heroImg,
+          "author": {
+            "@type": "Person",
+            "name": authorName,
+            "url": authorObj.linkedin || "https://neonexmindx.com"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "NeoNex MindX",
+            "url": "https://neonexmindx.com",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://neonexmindx.com/assets/images/logo.png"
+            }
+          },
+          "datePublished": pubDate + "T09:00:00+05:30",
+          "dateModified": pubDate + "T09:00:00+05:30",
+          "articleSection": category,
+          "keywords": tags.join(', ')
+        };
+
+        const faqs = (window.CURRENT_POST_FAQS || []).filter(f => f.q && f.a);
+        const faqSchema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(f => ({
+            "@type": "Question",
+            "name": f.q,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": f.a
+            }
+          }))
+        };
+
+        let output = '';
+        if (APP._activeSchemaTab === 'article') {
+          output = '<script type="application/ld+json">\n' + JSON.stringify(articleSchema, null, 2) + '\n</' + 'script>';
+        } else if (APP._activeSchemaTab === 'faq') {
+          output = '<script type="application/ld+json">\n' + JSON.stringify(faqSchema, null, 2) + '\n</' + 'script>';
+        } else {
+          output = '<script type="application/ld+json">\n' + JSON.stringify(articleSchema, null, 2) + '\n</' + 'script>\n\n<script type="application/ld+json">\n' + JSON.stringify(faqSchema, null, 2) + '\n</' + 'script>';
+        }
+
+        const previewEl = document.getElementById('schema-json-preview');
+        if (previewEl) {
+          previewEl.textContent = output;
+        }
+      },
+
+      copyActiveSchema() {
+        const previewEl = document.getElementById('schema-json-preview');
+        if (previewEl) {
+          navigator.clipboard.writeText(previewEl.textContent);
+          APP.showToast('JSON-LD Schema copied to clipboard!');
+        }
       },
 
       switchEditorTab(tab, btn) {
@@ -1829,6 +2196,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         document.getElementById('tab-pane-content').style.display = tab === 'content' ? 'block' : 'none';
         document.getElementById('tab-pane-seo').style.display = tab === 'seo' ? 'block' : 'none';
         document.getElementById('tab-pane-media').style.display = tab === 'media' ? 'block' : 'none';
+        const faqPane = document.getElementById('tab-pane-faqs');
+        if (faqPane) faqPane.style.display = tab === 'faqs' ? 'block' : 'none';
       },
 
       onTitleChanged(title) {
@@ -1840,11 +2209,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             .replace(/\s+/g, '-');
         }
         APP.calculateLiveSeo();
+        APP.updateLiveSchemas();
       },
 
       promptLink() {
-        const url = prompt('Enter destination URL (e.g. https://... or /courses/...):');
-        if (url) document.execCommand('createLink', false, url);
+        APP.openLinkModal();
       },
 
       insertSampleTable() {
@@ -1926,7 +2295,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         const wordCountEl = document.getElementById('ed-word-count');
         if (wordCountEl) {
-          wordCountEl.textContent = `${words} words · ${readTimeMinutes} min read`;
+          wordCountEl.textContent = `${words} words \u00b7 ${readTimeMinutes} min read`;
         }
 
         const metaCountEl = document.getElementById('metadesc-count');
@@ -1943,7 +2312,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           { label: 'Keyword in URL slug', pass: keyword.length > 2 && slug.toLowerCase().includes(keyword.replace(/\s+/g, '-')), points: 10 },
           { label: 'Keyword in meta description', pass: keyword.length > 2 && metadesc.toLowerCase().includes(keyword), points: 10 },
           { label: 'Content length 300+ words', pass: words >= 300, points: 15 },
-          { label: 'Subheadings (H2/H3) structured', pass: /<h[23][^>]*>/i.test(bodyHtml), points: 10 }
+          { label: 'Subheadings (H1-H6) structured', pass: /<h[1-6][^>]*>/i.test(bodyHtml), points: 10 }
         ];
 
         let totalScore = checks.reduce((sum, c) => sum + (c.pass ? c.points : 0), 0);
@@ -1971,7 +2340,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (checklistEl) {
           checklistEl.innerHTML = checks.map(c => `
             <div class="seo-check-item">
-              <span class="seo-check-icon ${c.pass ? 'pass' : 'fail'}">${c.pass ? '✓' : '✕'}</span>
+              <span class="seo-check-icon ${c.pass ? 'pass' : 'fail'}">${c.pass ? '\u2713' : '✕'}</span>
               <span>${c.label}</span>
             </div>
           `).join('');
@@ -2032,7 +2401,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           excerpt,
           seoScore,
           tags,
-          body
+          body,
+          faqs: window.CURRENT_POST_FAQS || []
         };
 
         const existingIdx = DB.posts.findIndex(p => p.id === postRecord.id);
@@ -2080,7 +2450,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="view-header">
             <div class="view-title-block">
               <h2>Pages &amp; Routing</h2>
-              <p>CMS / Pages — Manage site pages and configure <b>/blogs</b> page content.</p>
+              <p>CMS / Pages \u2014 Manage site pages and configure <b>/blogs</b> page content.</p>
             </div>
             <div class="view-header-actions">
               <button class="btn btn-primary" onclick="APP.navigateTo('settings')">Configure /blogs Content</button>
@@ -2132,7 +2502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="view-header">
             <div class="view-title-block">
               <h2>Categories &amp; Tags</h2>
-              <p>CMS / Taxonomy — Add, edit and remove categories and keyword tags.</p>
+              <p>CMS / Taxonomy \u2014 Add, edit and remove categories and keyword tags.</p>
             </div>
           </div>
 
@@ -2229,10 +2599,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="view-header">
             <div class="view-title-block">
               <h2>Authors</h2>
-              <p>CMS / Authors — Manage author profiles, photos, bios, and credentials.</p>
+              <p>CMS / Authors \u2014 Manage author profiles, photos, bios, LinkedIn links, and credentials.</p>
             </div>
             <div class="view-header-actions">
-              <button class="btn btn-primary" onclick="APP.openAddAuthorModal()">Add Author</button>
+              <button class="btn btn-primary" onclick="APP.openAddAuthorModal()">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add Author
+              </button>
             </div>
           </div>
 
@@ -2243,6 +2616,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <th>Author</th>
                   <th>Designation</th>
                   <th>Email</th>
+                  <th>LinkedIn</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -2251,15 +2625,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <tr>
                     <td>
                       <div style="display:flex; align-items:center; gap:12px;">
-                        <img src="${a.avatar}" style="width:38px; height:38px; border-radius:50%; object-fit:cover;">
+                        <img src="${a.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80'}" style="width:42px; height:42px; border-radius:50%; object-fit:cover; border:1px solid var(--border); flex-shrink:0;">
                         <div>
                           <div style="font-weight:700; color:var(--ink);">${a.name}</div>
-                          <div style="font-size:11px; color:var(--muted); max-width:320px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${a.bio}</div>
+                          <div style="font-size:11px; color:var(--muted); max-width:320px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${a.bio || 'Author / Mentor'}</div>
                         </div>
                       </div>
                     </td>
-                    <td>${a.designation}</td>
-                    <td><code>${a.email}</code></td>
+                    <td>${a.designation || 'Mentor'}</td>
+                    <td><code>${a.email || '-'}</code></td>
+                    <td>
+                      ${a.linkedin ? `<a href="${a.linkedin}" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600; display:inline-flex; align-items:center; gap:4px;"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> Profile</a>` : '<span style="color:var(--muted); font-size:11px;">Not set</span>'}
+                    </td>
                     <td>
                       <button class="btn btn-sm btn-danger" onclick="APP.deleteAuthor('${a.id}')">Delete</button>
                     </td>
@@ -2274,7 +2651,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       openAddAuthorModal() {
         const body = `
           <div class="form-group">
-            <label class="form-label">FULL NAME</label>
+            <label class="form-label">FULL NAME *</label>
             <input type="text" id="modal-auth-name" class="form-control" placeholder="e.g. Sumanth Kumar">
           </div>
           <div class="form-group">
@@ -2286,8 +2663,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <input type="email" id="modal-auth-email" class="form-control" placeholder="name@neonexmindx.com">
           </div>
           <div class="form-group">
-            <label class="form-label">AVATAR URL</label>
-            <input type="text" id="modal-auth-avatar" class="form-control" value="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80">
+            <label class="form-label">LINKEDIN URL *</label>
+            <input type="url" id="modal-auth-linkedin" class="form-control" placeholder="https://www.linkedin.com/in/username">
+            <div class="form-hint">Required professional social verification link.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">AUTHOR PICTURE (UPLOAD FILE OR ENTER URL)</label>
+            <div style="display:flex; gap:12px; align-items:flex-start; margin-bottom:10px;">
+              <img id="modal-auth-preview" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80" style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid var(--border); flex-shrink:0;">
+              <div style="flex:1;">
+                <input type="file" id="modal-auth-file" accept="image/*" style="display:none;" onchange="APP.handleAuthorPhotoUpload(this)">
+                <div style="display:flex; gap:8px; margin-bottom:6px;">
+                  <button type="button" class="btn btn-sm btn-outline-primary" onclick="document.getElementById('modal-auth-file').click()">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    Upload Picture
+                  </button>
+                  <button type="button" class="btn btn-sm" onclick="document.getElementById('modal-auth-avatar').value=''; document.getElementById('modal-auth-preview').src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80';">Clear</button>
+                </div>
+                <input type="text" id="modal-auth-avatar" class="form-control" value="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80" placeholder="https://... or uploaded image data" oninput="document.getElementById('modal-auth-preview').src = this.value">
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <label class="form-label">SHORT BIO</label>
@@ -2301,10 +2696,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         APP.openModal('Add New Author Profile', body, footer);
       },
 
+      handleAuthorPhotoUpload(input) {
+        if (!input.files || !input.files[0]) return;
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const dataUrl = e.target.result;
+          const preview = document.getElementById('modal-auth-preview');
+          const avatarInput = document.getElementById('modal-auth-avatar');
+          if (preview) preview.src = dataUrl;
+          if (avatarInput) avatarInput.value = dataUrl;
+        };
+        reader.readAsDataURL(file);
+      },
+
       saveNewAuthor() {
         const name = (document.getElementById('modal-auth-name')?.value || '').trim();
         const designation = (document.getElementById('modal-auth-desig')?.value || '').trim();
         const email = (document.getElementById('modal-auth-email')?.value || '').trim();
+        const linkedin = (document.getElementById('modal-auth-linkedin')?.value || '').trim();
         const avatar = (document.getElementById('modal-auth-avatar')?.value || '').trim();
         const bio = (document.getElementById('modal-auth-bio')?.value || '').trim();
 
@@ -2313,15 +2723,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         DB.authors.push({
           id: 'author-' + Date.now(),
           name,
-          designation: designation || 'Mentor',
+          designation: designation || 'Mentor & Trainer',
           email: email || 'contact@neonexmindx.com',
+          linkedin: linkedin || '',
           avatar: avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80',
           bio
         });
 
         APP.saveToLocalStorage();
         APP.closeModal();
-        APP.showToast('Author added successfully!');
+        APP.showToast('Author added successfully with LinkedIn & photo!');
         APP.renderCurrentView();
       },
 
@@ -2340,7 +2751,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="view-header">
             <div class="view-title-block">
               <h2>Media</h2>
-              <p>CMS / Media — Upload image or video files, manage descriptive ALT tags.</p>
+              <p>CMS / Media \u2014 Upload image or video files, manage descriptive ALT tags.</p>
             </div>
             <div class="view-header-actions">
               <input type="file" id="media-file-input" style="display:none;" onchange="APP.handleFileUpload(this)">
@@ -2425,7 +2836,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="view-header">
             <div class="view-title-block">
               <h2>SEO Tools</h2>
-              <p>CMS / SEO Tools — Automated site audit and on-page optimization checks.</p>
+              <p>CMS / SEO Tools \u2014 Automated site audit and on-page optimization checks.</p>
             </div>
             <div class="view-header-actions">
               <button class="btn btn-primary" onclick="APP.showToast('SEO Audit Complete! Scanned all posts.'); APP.renderCurrentView();">Run Audit</button>
@@ -2487,7 +2898,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </tr>
                 `).join('')}
                 ${lowScore.length === 0 && missingMeta.length === 0 ? `
-                  <tr><td colspan="3" style="text-align:center; padding:24px; color:var(--pass);">✓ All published posts pass high SEO compliance checks!</td></tr>
+                  <tr><td colspan="3" style="text-align:center; padding:24px; color:var(--pass);">\u2713 All published posts pass high SEO compliance checks!</td></tr>
                 ` : ''}
               </tbody>
             </table>
@@ -2502,7 +2913,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="view-header">
             <div class="view-title-block">
               <h2>301 Redirects</h2>
-              <p>CMS / Redirects — Add old URLs and route them to new destinations.</p>
+              <p>CMS / Redirects \u2014 Add old URLs and route them to new destinations.</p>
             </div>
             <div class="view-header-actions">
               <button class="btn btn-primary" onclick="APP.exportNetlifyRedirects()">Export _redirects</button>
@@ -2619,7 +3030,7 @@ ${posts.map(p => `  <url>
           <div class="view-header">
             <div class="view-title-block">
               <h2>Sitemap</h2>
-              <p>CMS / Sitemap — XML sitemap generation for search indexing.</p>
+              <p>CMS / Sitemap \u2014 XML sitemap generation for search indexing.</p>
             </div>
             <div class="view-header-actions">
               <button class="btn btn-primary" onclick="navigator.clipboard.writeText(document.getElementById('sitemap-xml-preview').value); APP.showToast('XML copied to clipboard!');">Copy XML</button>
@@ -2678,7 +3089,7 @@ ${posts.map(p => `- https://neonexmindx.com/blog/${p.slug} : ${p.title}`).join('
           <div class="view-header">
             <div class="view-title-block">
               <h2>llms.txt</h2>
-              <p>CMS / llms.txt — AI search crawler indexing specification (OpenAI, Gemini, Perplexity).</p>
+              <p>CMS / llms.txt \u2014 AI search crawler indexing specification (OpenAI, Gemini, Perplexity).</p>
             </div>
             <div class="view-header-actions">
               <button class="btn btn-primary" onclick="navigator.clipboard.writeText(document.getElementById('llms-preview').value); APP.showToast('llms.txt copied!');">Copy</button>
@@ -2698,7 +3109,7 @@ ${posts.map(p => `- https://neonexmindx.com/blog/${p.slug} : ${p.title}`).join('
           <div class="view-header">
             <div class="view-title-block">
               <h2>Users &amp; Roles</h2>
-              <p>CMS / Users — Control access privileges and team permissions.</p>
+              <p>CMS / Users \u2014 Control access privileges and team permissions.</p>
             </div>
             <div class="view-header-actions">
               <button class="btn btn-primary" onclick="APP.addNewUserPrompt()">Add User</button>
@@ -2763,7 +3174,7 @@ ${posts.map(p => `- https://neonexmindx.com/blog/${p.slug} : ${p.title}`).join('
           <div class="view-header">
             <div class="view-title-block">
               <h2>Cache &amp; Sync</h2>
-              <p>CMS / Cache — Re-index database, export full JSON, and synchronize live with /blogs.</p>
+              <p>CMS / Cache \u2014 Re-index database, export full JSON, and synchronize live with /blogs.</p>
             </div>
           </div>
 
@@ -2850,7 +3261,7 @@ ${posts.map(p => `- https://neonexmindx.com/blog/${p.slug} : ${p.title}`).join('
           <div class="view-header">
             <div class="view-title-block">
               <h2>Settings &amp; Content Controls</h2>
-              <p>CMS / Settings — Configure global brand, indexing options, and <b>/blogs</b> page header content.</p>
+              <p>CMS / Settings \u2014 Configure global brand, indexing options, and <b>/blogs</b> page header content.</p>
             </div>
             <div class="view-header-actions">
               <button class="btn btn-primary" onclick="APP.saveSettings()">Save All Settings</button>
@@ -2960,7 +3371,7 @@ ${posts.map(p => `- https://neonexmindx.com/blog/${p.slug} : ${p.title}`).join('
         const tray = document.getElementById('toast-tray');
         const toast = document.createElement('div');
         toast.className = 'toast-msg';
-        toast.innerHTML = `<span>✓</span><span>${msg}</span>`;
+        toast.innerHTML = `<span>\u2713</span><span>${msg}</span>`;
         tray.appendChild(toast);
         setTimeout(() => {
           toast.style.opacity = '0';

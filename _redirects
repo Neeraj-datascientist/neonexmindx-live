@@ -102,3 +102,12 @@
 /success-stories/                        /home#learner-stories                                  302
 
 
+
+# ASSETS REWRITE FOR CLEAN SUBDIRECTORIES
+/courses/*.webp  /:splat.webp  200
+/courses/*.jpg   /:splat.jpg   200
+/courses/*.png   /:splat.png   200
+/courses/*.svg   /:splat.svg   200
+
+# 7. CUSTOM 404 CATCH-ALL ROUTE
+/*                                       /index.html                                            404

@@ -1,0 +1,47 @@
+# robots.txt for NeoNex MindX
+# https://neonexmindx.com
+
+# 1. Major Web Search Engines
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+Allow: /
+Disallow: /cms/
+Disallow: /crm/
+Disallow: /admin/
+Disallow: /thank-you
+Disallow: /thank-you/
+
+# 2. AI Crawlers & Answer Engines (AEO / GEO Optimization)
+# Allow search indexation and answer citations for AI/LLM models
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: Amazonbot
+User-agent: Applebot
+User-agent: meta-externalagent
+User-agent: Bytespider
+User-agent: CCBot
+Allow: /
+Disallow: /cms/
+Disallow: /crm/
+Disallow: /admin/
+Disallow: /thank-you
+
+# 3. Default Rule for All Other Crawlers
+User-agent: *
+Allow: /
+Disallow: /cms/
+Disallow: /crm/
+Disallow: /admin/
+Disallow: /thank-you
+Disallow: /thank-you/
+
+# Sitemaps & LLM Context
+Sitemap: https://neonexmindx.com/sitemap.xml

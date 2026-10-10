@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -9,7 +11,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PG57R85H');</script>
 <!-- End Google Tag Manager -->
 
-  <meta charset="utf-8" />
   <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport" />
   <title id="page-title">Blog Article | NeoNeX MindX</title>
   <meta name="description" id="meta-desc" content="Read industry insights, tutorials, and career roadmaps from NeoNeX MindX." />
@@ -1902,29 +1903,31 @@ id="site-unified-nav-footer-script">
       return '';
     }
 
-    // 2. Fetch all posts
-    async function getPostsData() {
+    // 2. Fetch all posts & authors
+    async function getCmsData() {
       const local = localStorage.getItem(STORAGE_KEY);
       if (local) {
         try {
           const parsed = JSON.parse(local);
-          if (parsed && Array.isArray(parsed.posts)) return parsed.posts;
+          if (parsed && Array.isArray(parsed.posts)) return parsed;
         } catch(e) {}
       }
       try {
         const res = await fetch('./data/blogs.json');
         if (res.ok) {
           const data = await res.json();
-          if (data && Array.isArray(data.posts)) return data.posts;
+          if (data && Array.isArray(data.posts)) return data;
         }
       } catch (err) {}
-      return [];
+      return { posts: [], authors: [] };
     }
 
     // 3. Render Post
     async function renderPost() {
       const slug = resolveSlug();
-      const posts = await getPostsData();
+      const db = await getCmsData();
+      const posts = db.posts || [];
+      const authors = db.authors || [];
       const container = document.getElementById('article-content-container');
       const bcTitle = document.getElementById('bc-article-title');
 
@@ -1940,6 +1943,15 @@ id="site-unified-nav-footer-script">
         return;
       }
 
+      // Match Author
+      const authorObj = authors.find(a => a.name === post.author || a.id === post.authorId) || {
+        name: post.author || 'NeoNeX Mentor',
+        designation: 'Senior AI Mentor & Data Science Consultant',
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80',
+        bio: 'Passionate about democratizing machine learning, cloud pipelines, and empowering non-tech learners to build impactful careers in tech.',
+        linkedin: ''
+      };
+
       // Update meta & title
       document.title = `${post.title} | NeoNeX MindX`;
       bcTitle.textContent = post.title;
@@ -1948,29 +1960,61 @@ id="site-unified-nav-footer-script">
       document.getElementById('og-desc')?.setAttribute('content', post.metaDescription || post.excerpt || '');
       if (post.heroImage) document.getElementById('og-image')?.setAttribute('content', post.heroImage);
 
-      // JSON-LD
-      const jsonLd = {
+      // JSON-LD Schemas (Article + FAQPage if faqs exist)
+      const schemas = [];
+      const articleSchema = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://neonexmindx.com/blog/${post.slug}`
+        },
         "headline": post.title,
         "description": post.metaDescription || post.excerpt,
         "image": post.heroImage,
         "author": {
           "@type": "Person",
-          "name": post.author || "NeoNeX MindX"
+          "name": authorObj.name,
+          "url": authorObj.linkedin || "https://neonexmindx.com"
         },
         "publisher": {
           "@type": "Organization",
           "name": "NeoNeX MindX",
+          "url": "https://neonexmindx.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://neonexmindx.com/logo.webp"
+            "url": "https://neonexmindx.com/assets/images/logo.png"
           }
         },
-        "datePublished": post.publishDate || "2026-09-23"
+        "datePublished": `${post.publishDate || '2026-09-23'}T09:00:00+05:30`,
+        "dateModified": `${post.publishDate || '2026-09-23'}T09:00:00+05:30`,
+        "articleSection": post.category || "Data Science",
+        "keywords": (post.tags || []).join(', ')
       };
+      schemas.push(articleSchema);
+
+      if (post.faqs && post.faqs.length) {
+        const validFaqs = post.faqs.filter(f => f.q && f.a);
+        if (validFaqs.length) {
+          schemas.push({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": validFaqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": f.a
+              }
+            }))
+          });
+        }
+      }
+
       const jsonLdEl = document.getElementById('article-json-ld');
-      if (jsonLdEl) jsonLdEl.textContent = JSON.stringify(jsonLd);
+      if (jsonLdEl) {
+        jsonLdEl.textContent = JSON.stringify(schemas.length === 1 ? schemas[0] : schemas, null, 2);
+      }
 
       // Current URL for sharing
       const currentUrl = encodeURIComponent(window.location.href);
@@ -1982,9 +2026,12 @@ id="site-unified-nav-footer-script">
           <h1>${post.title}</h1>
           <div class="article-meta-row">
             <div class="article-author-info">
-              <img class="article-author-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80" alt="${post.author}">
+              <img class="article-author-avatar" src="${authorObj.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80'}" alt="${authorObj.name}">
               <div>
-                <div class="article-author-name">${post.author || 'NeoNeX Mentor'}</div>
+                <div class="article-author-name">
+                  ${authorObj.name}
+                  ${authorObj.linkedin ? `<a href="${authorObj.linkedin}" target="_blank" rel="noopener noreferrer" style="margin-left:6px; vertical-align:middle; color:var(--sn-blue); font-size:12px;" title="View LinkedIn Profile"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>` : ''}
+                </div>
                 <div class="article-sub-meta">Published on ${post.publishDate || 'Recent'} · ${post.readTime || '5 min read'}</div>
               </div>
             </div>
@@ -2013,6 +2060,20 @@ id="site-unified-nav-footer-script">
           <div class="article-body" id="article-body-content">
             ${post.body || '<p>Content in progress...</p>'}
 
+            ${(post.faqs && post.faqs.filter(f => f.q && f.a).length) ? `
+              <div class="article-faqs-section" style="margin:36px 0 28px; padding-top:24px; border-top:1px solid var(--sn-border);">
+                <h3 style="font-size:20px; font-weight:700; margin-bottom:16px;">Frequently Asked Questions</h3>
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                  ${post.faqs.filter(f => f.q && f.a).map((faq, fIdx) => `
+                    <details style="background:var(--sn-blue-soft); border-radius:10px; padding:14px 18px; border:1px solid #DCE6F5; cursor:pointer;" ${fIdx===0?'open':''}>
+                      <summary style="font-weight:700; color:var(--sn-dark); font-size:15px; outline:none;">${faq.q}</summary>
+                      <p style="margin-top:10px; font-size:14px; line-height:1.65; color:var(--sn-text);">${faq.a}</p>
+                    </details>
+                  `).join('')}
+                </div>
+              </div>
+            ` : ''}
+
             <!-- In-Article Career CTA -->
             <div class="in-article-banner">
               <div>
@@ -2024,11 +2085,14 @@ id="site-unified-nav-footer-script">
 
             <!-- Author Card -->
             <div class="article-author-card">
-              <img class="author-card-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80" alt="${post.author}">
+              <img class="author-card-avatar" src="${authorObj.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80'}" alt="${authorObj.name}">
               <div class="author-card-body">
-                <h4>Written by ${post.author || 'NeoNeX Mentor'}</h4>
-                <div class="author-card-role">Senior AI Mentor &amp; Data Science Consultant</div>
-                <p class="author-card-bio">Passionate about democratizing machine learning, cloud pipelines, and empowering non-tech learners to build impactful careers in tech.</p>
+                <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                  <h4 style="margin:0;">Written by ${authorObj.name}</h4>
+                  ${authorObj.linkedin ? `<a href="${authorObj.linkedin}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:4px; font-size:12px; font-weight:700; color:var(--sn-blue);" title="Connect on LinkedIn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> LinkedIn Profile</a>` : ''}
+                </div>
+                <div class="author-card-role">${authorObj.designation || 'Senior AI Mentor & Data Science Consultant'}</div>
+                <p class="author-card-bio">${authorObj.bio || 'Passionate about democratizing machine learning, cloud pipelines, and empowering non-tech learners to build impactful careers in tech.'}</p>
               </div>
             </div>
           </div>
@@ -2055,8 +2119,7 @@ id="site-unified-nav-footer-script">
 
       buildTableOfContents();
     }
-
-    function renderDefaultOrNotFound(fallbackPost) {
+function renderDefaultOrNotFound(fallbackPost) {
       if (fallbackPost) {
         // Redirect or load fallback article
         window.history.replaceState(null, '', `?slug=${fallbackPost.slug}`);

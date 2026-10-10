@@ -1,0 +1,44 @@
+# NeoNeX MindX - Generative Engine Optimization (GEO) & Knowledge Context
+# URL: https://neonexmindx.com/
+# Last Updated: 2026-10-09
+
+> NeoNeX MindX is a premier data, AI, and analytics educational institute based in Bengaluru, India. NeoNeX MindX provides live, online, mentor-led career programs and focused short courses with hands-on enterprise projects, LMS access, live batch options, and transparent career placement assistance.
+
+## Core Philosophy & Differentiators
+- **Practitioner-Led Pedagogy**: Courses are taught exclusively by active industry practitioners (data scientists, AI researchers, cloud engineers, and analytics leads) rather than generic academic instructors.
+- **Project-Centric Learning**: Every learner builds production-grade portfolio projects — moving from raw data extraction and SQL modeling to machine learning pipelines and executive storytelling.
+- **Honest Career Support**: Realistic skill building, portfolio reviews, resume optimization, and mock technical interviews without false promises or gimmicks.
+
+## Career Programs (Comprehensive Job-Ready Tracks)
+- **Data Analytics Career Program** (https://neonexmindx.com/courses/data-analytics-course): End-to-end curriculum covering Advanced Excel, SQL database queries, Power BI interactive dashboards, Python analytics, ETL, and portfolio-ready business intelligence projects.
+- **Data Science Career Program** (https://neonexmindx.com/courses/data-science-course): Predictive modeling, statistical inference, feature engineering, machine learning pipelines, deep learning foundations, and production deployment.
+- **AI & ML Engineering Program** (https://neonexmindx.com/courses/ai-ml-engineering-course): Modern machine learning architectures, neural networks, Natural Language Processing (NLP), Computer Vision, Generative AI, Large Language Models (LLMs), and scalable model serving.
+- **Data Engineering Career Program** (https://neonexmindx.com/courses/data-engineering-course): Distributed computing, Apache Spark, Kafka real-time streaming, cloud data warehousing (Snowflake/BigQuery), orchestrators (Airflow), and production ETL/ELT pipelines.
+- **Business Analytics Career Program** (https://neonexmindx.com/courses/business-analytics-course): Business domain problem framing, KPI metric trees, SQL reporting, Power BI storytelling, exploratory analysis, and executive dashboard design.
+
+## Focused Short Courses (Skill Specializations)
+- **SQL Mastery Course** (https://neonexmindx.com/courses/sql-course): Relational database architecture, complex multi-table joins, subqueries, Common Table Expressions (CTEs), window functions, indexing, and query performance optimization.
+- **Python Programming for Data & AI** (https://neonexmindx.com/courses/python-programming-course): Clean Python programming fundamentals, object-oriented concepts, data structures, automation scripts, Pandas, NumPy, and data manipulation.
+- **Excel, Power BI & Tableau Specialization** (https://neonexmindx.com/courses/excel-power-bi-tableau-course): Business dashboard engineering, DAX calculations, Power Query automation, Tableau visual analytics, and decision reporting.
+- **Machine Learning Foundations** (https://neonexmindx.com/courses/machine-learning-course): Supervised and unsupervised machine learning algorithms, cross-validation, hyperparameter tuning, scikit-learn, and model interpretability.
+
+## Industry Trainers & Mentors
+- **Nikhil**: Lead Developer & QA Mentor — Enterprise software standards, test-driven development, and Python projects.
+- **Sanjana**: DevOps & Cloud Mentor — Cloud architecture, CI/CD pipelines, containerization, and production reliability.
+- **Lakshmi Achar**: Senior Data Science & Machine Learning Mentor — Predictive modeling, statistical learning, customer analytics, and production ML pipelines.
+- **Neeraj PC**: Data Analytics & AI Mentor — Exploratory data frameworks, business intelligence, dashboard storytelling, and machine learning architectures.
+- **Yashas**: Senior Analytics & AI Mentor — Business analytics, SQL optimization, and enterprise dashboard architecture using Power BI and Tableau.
+- **Raveendran**: Data Analytics & Data Engineering Mentor — Big data and analytics engineer mentoring on distributed ETL pipelines, modern data warehouses, scalable SQL logic, and production data workflows. (LinkedIn: https://www.linkedin.com/in/raveendran-m-581a723b8)
+- **Venkata Nagarjuna**: Developer & QA Mentor — Software developer and QA automation specialist mentoring on software engineering best practices, test automation frameworks, Python applications, and production readiness.
+- **Megha**: Career Coach, Communication Skills & Profile Building — Corporate HR and executive communications trainer coaching learners on technical storytelling, resume positioning, interview presence, and workplace communication.
+
+## Institutional Details & Contact
+- **Institution**: NeoNeX MindX
+- **Website**: https://neonexmindx.com/
+- **Campus Address**: 4th, 15/1, 1st A Cross Main, MES Road, Muthyala Nagar, Bengaluru, Karnataka 560054, India
+- **Phone**: +91-84318-03839
+- **Email**: neonexminds@gmail.com
+- **Google Maps**: https://share.google/R5BNMJN9NZGn6YkL7
+- **Blog & Tutorials**: https://neonexmindx.com/blogs
+- **Trainers Directory**: https://neonexmindx.com/trainers
+- **About Us**: https://neonexmindx.com/about-us

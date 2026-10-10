@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -9,7 +11,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PG57R85H');</script>
 <!-- End Google Tag Manager -->
 
-  <meta charset="utf-8" />
   <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport" />
   <title>Tech &amp; Career Insights Blog | NeoNeX MindX</title>
   <meta name="description" content="Explore expert articles, career transition roadmaps, and step-by-step tutorials on Data Science, AI &amp; Machine Learning, Power BI, Python, and Data Engineering from NeoNeX MindX." />
@@ -1960,14 +1961,7 @@ id="site-unified-nav-footer-script">
     const SYNC_CHANNEL = new BroadcastChannel('neonex_cms_sync');
 
     let allPosts = [];
-    let currentCategory = 'all';
-    let searchQuery = '';
-
-    const spotlightContainer = document.getElementById('spotlight-post-container');
-    const cardsContainer = document.getElementById('blog-cards-container');
-    const countLabel = document.getElementById('posts-count-label');
-    const searchInput = document.getElementById('blog-search-input');
-    const categoryPills = document.querySelectorAll('.cat-pill');
+    let allAuthors = [];
 
     // 1. Fetch data
     async function loadBlogData() {
@@ -1979,6 +1973,7 @@ id="site-unified-nav-footer-script">
           if (parsed && Array.isArray(parsed.posts)) {
             applySiteConfig(parsed);
             allPosts = parsed.posts.filter(p => p.status === 'published');
+            allAuthors = parsed.authors || [];
             renderUI();
             return;
           }
@@ -1993,6 +1988,7 @@ id="site-unified-nav-footer-script">
           if (data && Array.isArray(data.posts)) {
             applySiteConfig(data);
             allPosts = data.posts.filter(p => p.status === 'published');
+            allAuthors = data.authors || [];
             localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
             renderUI();
           }
@@ -2012,6 +2008,16 @@ id="site-unified-nav-footer-script">
         if (bTitle && bp.heroTitle) bTitle.textContent = bp.heroTitle;
         if (bSub && bp.heroSubtitle) bSub.textContent = bp.heroSubtitle;
       }
+    }
+
+    function getAuthorInfo(post) {
+      const author = allAuthors.find(a => a.name === post.author || a.id === post.authorId);
+      if (author) return author;
+      return {
+        name: post.author || 'NeoNeX Mentor',
+        role: 'Mentor & Domain Lead',
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80'
+      };
     }
 
     // 2. Render UI
@@ -2055,10 +2061,10 @@ id="site-unified-nav-footer-script">
               <h2><a href="/blog-post.html?slug=${featured.slug}">${featured.title}</a></h2>
               <p class="featured-excerpt">${featured.excerpt || ''}</p>
               <div class="author-lockup">
-                <img class="author-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80" alt="${featured.author}">
+                <img class="author-avatar" src="${getAuthorInfo(featured).avatar}" alt="${featured.author}">
                 <div>
                   <div class="author-name">${featured.author || 'NeoNeX Mentor'}</div>
-                  <div class="author-role">Mentor &amp; Domain Lead</div>
+                  <div class="author-role">${getAuthorInfo(featured).designation || 'Mentor & Domain Lead'}</div>
                 </div>
               </div>
             </div>
@@ -2100,7 +2106,7 @@ id="site-unified-nav-footer-script">
               <p class="card-excerpt">${post.excerpt || ''}</p>
               <div class="card-footer">
                 <div class="card-author-inline">
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80" alt="${post.author}">
+                  <img src="${getAuthorInfo(post).avatar}" alt="${post.author}">
                   <span>${post.author || 'NeoNeX Mentor'}</span>
                 </div>
                 <a href="${postUrl}" class="read-more-link">Read &rarr;</a>
