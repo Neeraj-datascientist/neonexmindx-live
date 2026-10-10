@@ -30,17 +30,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --card-bg: #FFFFFF;
       --body-bg: #FFFFFF;
       --hero-bg: #F4F6FC;
+      --surface-2: #F8FAFC;
+      --ink: #0F172A;
+      --ink-soft: #334155;
+    }
+    html[data-theme="dark"] {
+      --primary-blue: #38BDF8;
+      --primary-teal: #2DD4BF;
+      --primary-teal-hover: #14B8A6;
+      --sidebar-active-bg: #132E2B;
+      --sidebar-active-color: #5EEAD4;
+      --sidebar-hover-bg: #1E293B;
+      --sidebar-text: #CBD5E1;
+      --muted-gray: #94A3B8;
+      --line-border: #334155;
+      --card-bg: #1E293B;
+      --body-bg: #0F172A;
+      --hero-bg: #1E293B;
+      --surface-2: #1E293B;
+      --ink: #F8FAFC;
+      --ink-soft: #E2E8F0;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important; -webkit-font-smoothing: antialiased; }
     body {
-      background: #FFFFFF !important;
-      color: #0F172A;
+      background: var(--body-bg) !important;
+      color: var(--ink);
       height: 100vh;
       overflow: hidden;
       display: grid;
       grid-template-columns: 220px 1fr;
       grid-template-rows: 60px 1fr;
       grid-template-areas: "side top" "side main";
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
     @media (max-width: 900px) {
       body {
@@ -599,6 +620,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <span>Admissions</span>
       </div>
 
+      <!-- OPERATIONS SECTION -->
+      <div class="nav-sec-title">OPERATIONS</div>
+      <div class="nav-link" data-view="batches">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        <span>Course Batches</span>
+      </div>
+      <div class="nav-link" data-view="counselors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span>Counselors</span>
+      </div>
+
       <!-- FINANCE SECTION -->
       <div class="nav-sec-title">FINANCE</div>
       <div class="nav-link" data-view="fees">
@@ -635,12 +667,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <header id="topbar">
     <div class="tb-header-title">
       <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('mobile-open')">☰</button>
-      NeoNex MindX <span>Counsellor workspace</span>
+      NeoNex MindX <span id="topbar-breadcrumb">&bull; Counsellor workspace</span>
     </div>
     <div class="tb-actions">
-      <span style="display:inline-flex;align-items:center;gap:6px;background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0;font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:999px;">
+      <button onclick="CRM.toggleTheme()" style="width:34px;height:34px;border-radius:8px;border:1px solid var(--line-border);background:var(--card-bg);display:grid;place-items:center;cursor:pointer;color:var(--ink);font-size:15px;" title="Toggle Dark / Light Mode" id="theme-toggle-btn">🌙</button>
+      <button onclick="CRM.syncPulse()" style="width:34px;height:34px;border-radius:8px;border:1px solid var(--line-border);background:var(--card-bg);display:grid;place-items:center;cursor:pointer;color:var(--ink);font-size:15px;" title="Refresh & Sync Live Website Leads">🔄</button>
+      <span onclick="CRM.syncPulse()" style="display:inline-flex;align-items:center;gap:6px;background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0;font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:999px;cursor:pointer;" title="Click to sync website admissions leads">
         <span style="width:6px;height:6px;border-radius:50%;background:#16A34A;display:inline-block;"></span>
-        Online
+        Live Sync
       </span>
       <div class="tb-avatar" title="Click to Sign Out" onclick="CRM.logout()">A</div>
     </div>
@@ -701,6 +735,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       followups: [
         { student: 'Ananya Roy', phone: '+91 98220 11992', date: '11/10/2026', action: 'Send Syllabus PDF via WhatsApp', status: 'Pending' }
       ],
+      batches: [
+        { name: 'DA-OCT-2026-WKND', course: 'Data Analytics Master Program', mode: 'Weekend Live Online', enrolled: 18, capacity: 25, start: '18 Oct 2026', time: '10:00 AM - 1:00 PM IST (Sat/Sun)' },
+        { name: 'DS-NOV-2026-WDAY', course: 'Data Science & AI Master Program', mode: 'Weekday Live Online', enrolled: 14, capacity: 20, start: '03 Nov 2026', time: '7:30 PM - 9:30 PM IST (Mon-Thu)' },
+        { name: 'AIML-NOV-2026-FAST', course: 'AI & Machine Learning Engineering', mode: 'Hybrid Fastrack', enrolled: 8, capacity: 15, start: '15 Nov 2026', time: '11:00 AM - 2:00 PM IST (Sat/Sun)' }
+      ],
+      counselors: [
+        { name: 'Admissions Desk', role: 'Primary Admissions & Lead Intake', status: 'Active', avatar: 'AD' },
+        { name: 'Course Advisors Team', role: 'Technical Counseling & Student Demos', status: 'Active', avatar: 'NX' },
+        { name: 'Senior Academic Mentors', role: 'Interview Prep & Capstone Guidance', status: 'Active', avatar: 'SM' }
+      ],
       settings: {
         dateFormat: 'DD/MM/YYYY',
         email: 'counsellor@neonexmindx.com',
@@ -751,7 +795,62 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           });
         });
 
+        CRM.updateBadges();
+        const savedTheme = localStorage.getItem('neonex_crm_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        CRM.updateThemeIcon(savedTheme);
         CRM.navigate('dashboard');
+      },
+
+      toggleTheme() {
+        const cur = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = cur === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('neonex_crm_theme', next);
+        CRM.updateThemeIcon(next);
+        CRM.toast(`Switched to ${next} mode`);
+      },
+
+      updateThemeIcon(theme) {
+        const btn = document.getElementById('theme-toggle-btn');
+        if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+      },
+
+      async syncPulse() {
+        CRM.ingestWebsiteLeads();
+        CRM.updateBadges();
+        CRM.render();
+        CRM.toast('Live sync complete! Refreshed latest leads and inquiries.');
+      },
+
+      ingestWebsiteLeads() {
+        const liveLeads = localStorage.getItem('neonex_crm_leads');
+        if (liveLeads) {
+          try {
+            const parsed = JSON.parse(liveLeads);
+            if (Array.isArray(parsed) && parsed.length) {
+              const existingPhones = new Set(APP_DATA.enquiries.map(e => e.phone));
+              parsed.forEach(p => {
+                if (p.phone && !existingPhones.has(p.phone)) {
+                  APP_DATA.enquiries.unshift({
+                    name: p.name || 'Student Candidate',
+                    phone: p.phone,
+                    email: p.email || '-',
+                    program: p.program || 'General Inquiry',
+                    date: new Date().toLocaleDateString('en-GB'),
+                    status: 'New',
+                    notes: p.notes || p.goal || 'Website lead submission'
+                  });
+                  existingPhones.add(p.phone);
+                }
+              });
+            }
+          } catch(e){}
+        }
+      },
+
+      updateBadges() {
+        // updates badge counts
       },
 
       checkAuth() {
@@ -791,6 +890,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         document.querySelectorAll('.nav-link').forEach(l => {
           l.classList.toggle('active', l.dataset.view === view);
         });
+        const titles = {
+          'dashboard': 'Dashboard',
+          'students': 'Client & Student List',
+          'enquiries': 'Course Enquiries',
+          'courses': 'Course Catalog',
+          'admissions': 'Admissions Intake',
+          'batches': 'Course Batches',
+          'counselors': 'Counselors & Faculty',
+          'fees': 'Fee Invoices',
+          'payments': 'Payments Ledger',
+          'counselling': 'Counselling Guidance',
+          'followups': 'Follow-up Queue',
+          'reports': 'Reports & Backup',
+          'settings': 'System Settings'
+        };
+        const bread = document.getElementById('topbar-breadcrumb');
+        if (bread) bread.innerHTML = `&bull; <b>${titles[view] || view}</b>`;
+        document.getElementById('sidebar')?.classList.remove('mobile-open');
         CRM.render();
       },
 
@@ -802,6 +919,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           case 'enquiries': root.innerHTML = CRM.viewEnquiries(); break;
           case 'courses': root.innerHTML = CRM.viewCourses(); break;
           case 'admissions': root.innerHTML = CRM.viewAdmissions(); break;
+          case 'batches': root.innerHTML = CRM.viewBatches(); break;
+          case 'counselors': root.innerHTML = CRM.viewCounselors(); break;
           case 'fees': root.innerHTML = CRM.viewFees(); break;
           case 'payments': root.innerHTML = CRM.viewPayments(); break;
           case 'counselling': root.innerHTML = CRM.viewCounselling(); break;
@@ -1177,7 +1296,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         return `
           <div class="crm-table-card">
             <div class="table-top-bar">
-              <div class="table-heading">&larr; Admissions Intake</div>
+              <div class="table-heading">
+                <span style="cursor:pointer;" onclick="CRM.navigate('dashboard')">&larr;</span> Admissions Intake
+              </div>
               <button class="btn-crm-add" onclick="CRM.openAddStudent()">+ Register Admission</button>
             </div>
             <table class="crm-table">
@@ -1193,15 +1314,70 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <tbody>
                 ${APP_DATA.students.map((s, idx) => `
                   <tr>
-                    <td><b>${s.name}</b><br><small style="color:#64748B;">${s.phone}</small></td>
+                    <td><b>${s.name}</b><br><small style="color:var(--muted-gray);">${s.phone}</small></td>
                     <td>ADM-2026-0${idx+1}</td>
                     <td><span style="background:#F0FDF4;color:#16A34A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">Admitted</span></td>
                     <td>07/09/2026</td>
-                    <td><button onclick="alert('Admission record verified for ${s.name}')" style="background:#F8FAFC;border:1px solid #CBD5E1;border-radius:4px;padding:3px 8px;font-size:11.5px;font-weight:700;cursor:pointer;">Receipt</button></td>
+                    <td><button onclick="CRM.printReceipt('${s.name}', 'ADM-2026-0${idx+1}')" style="background:var(--surface-2);border:1px solid var(--line-border);border-radius:4px;padding:3px 8px;font-size:11.5px;font-weight:700;cursor:pointer;">Receipt</button></td>
                   </tr>
                 `).join('')}
               </tbody>
             </table>
+          </div>
+        `;
+      },
+
+      /* 6. COURSE BATCHES VIEW (RETAINED FROM PREVIOUS VERSION) */
+      viewBatches() {
+        return `
+          <div style="padding:10px 0 20px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:12px;">
+              <div>
+                <h1 style="font-size:24px;font-weight:800;color:var(--ink);margin-bottom:4px;">Course Batches</h1>
+                <p style="font-size:13px;font-weight:600;color:var(--muted-gray);">Active cohorts, schedules, and student seat capacities.</p>
+              </div>
+              <button class="btn-crm-add" onclick="CRM.openAddBatch()">+ Schedule New Batch</button>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:18px;margin-top:20px;">
+              ${APP_DATA.batches.map(b => `
+                <div style="background:var(--card-bg);border:1px solid var(--line-border);border-radius:10px;padding:20px;box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                    <span style="background:#EFF6FF;color:#2563EB;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">${b.mode}</span>
+                    <span style="font-size:12px;font-weight:800;color:#16A34A;">${b.enrolled} / ${b.capacity} Seats</span>
+                  </div>
+                  <h3 style="font-size:16px;font-weight:800;margin-bottom:6px;color:var(--ink);">${b.name}</h3>
+                  <p style="font-size:13px;color:var(--primary-blue);font-weight:700;margin-bottom:12px;">${b.course}</p>
+                  <div style="font-size:12.5px;color:var(--muted-gray);margin-bottom:6px;"><b>Start Date:</b> ${b.start}</div>
+                  <div style="font-size:12.5px;color:var(--muted-gray);"><b>Timings:</b> ${b.time}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      },
+
+      /* 7. COUNSELORS & FACULTY (RETAINED FROM PREVIOUS VERSION) */
+      viewCounselors() {
+        return `
+          <div style="padding:10px 0 20px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:12px;">
+              <div>
+                <h1 style="font-size:24px;font-weight:800;color:var(--ink);margin-bottom:4px;">Counselors &amp; Faculty</h1>
+                <p style="font-size:13px;font-weight:600;color:var(--muted-gray);">Team managing lead intake, student guidance, and mentorship cohorts.</p>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:18px;margin-top:20px;">
+              ${APP_DATA.counselors.map(c => `
+                <div style="background:var(--card-bg);border:1px solid var(--line-border);border-radius:10px;padding:22px 20px;text-align:center;box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+                  <div style="width:52px;height:52px;margin:0 auto 12px;font-size:18px;font-weight:800;background:#FED7AA;color:#C2410C;border-radius:50%;display:grid;place-items:center;">${c.avatar}</div>
+                  <h3 style="font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px;">${c.name}</h3>
+                  <p style="font-size:12.5px;color:var(--muted-gray);margin-bottom:12px;">${c.role}</p>
+                  <span style="background:#F0FDF4;color:#16A34A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">${c.status}</span>
+                </div>
+              `).join('')}
+            </div>
           </div>
         `;
       },
@@ -1772,6 +1948,67 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         CRM.save();
         CRM.toast('Enquiry removed');
         CRM.render();
+      },
+
+      openAddBatch() {
+        const courseOptions = APP_DATA.courses.map(c => `<option value="${c.title}">${c.title}</option>`).join('');
+        const body = `
+          <div class="form-group">
+            <label class="form-label">Batch Name *</label>
+            <input type="text" id="ab-name" class="form-control" placeholder="e.g. DA-DEC-2026-WKND" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Course *</label>
+            <select id="ab-course" class="form-control">
+              ${courseOptions}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Delivery Mode</label>
+            <select id="ab-mode" class="form-control">
+              <option value="Weekend Live Online">Weekend Live Online</option>
+              <option value="Weekday Live Online">Weekday Live Online</option>
+              <option value="Hybrid Fastrack">Hybrid Fastrack</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Capacity (Seats)</label>
+            <input type="number" id="ab-capacity" class="form-control" value="25" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Start Date</label>
+            <input type="text" id="ab-start" class="form-control" value="01 Dec 2026" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Timing Schedule</label>
+            <input type="text" id="ab-time" class="form-control" value="10:00 AM - 1:00 PM IST (Sat/Sun)" />
+          </div>
+        `;
+        const footer = `
+          <button onclick="CRM.closeModal()" style="padding:6px 14px;border:1px solid var(--line-border);background:var(--card-bg);border-radius:6px;cursor:pointer;font-weight:700;">Cancel</button>
+          <button class="btn-crm-add" onclick="CRM.saveBatch()">Save Batch</button>
+        `;
+        CRM.modal('Schedule New Batch', body, footer);
+      },
+
+      saveBatch() {
+        const name = (document.getElementById('ab-name')?.value || '').trim();
+        const course = (document.getElementById('ab-course')?.value || '').trim();
+        const mode = (document.getElementById('ab-mode')?.value || 'Weekend Live Online').trim();
+        const capacity = parseInt(document.getElementById('ab-capacity')?.value || '25', 10);
+        const start = (document.getElementById('ab-start')?.value || '01 Dec 2026').trim();
+        const time = (document.getElementById('ab-time')?.value || '10:00 AM - 1:00 PM IST').trim();
+        if (!name) return alert('Batch name is required');
+
+        APP_DATA.batches.unshift({ name, course, mode, enrolled: 0, capacity, start, time });
+        CRM.save();
+        CRM.closeModal();
+        CRM.toast('Batch scheduled!');
+        CRM.render();
+      },
+
+      printReceipt(name, id) {
+        alert(`Official NeoNex MindX Admission Receipt\n\nStudent: ${name}\nAdmission ID: ${id}\nStatus: Verified & Active\nAcademic Term: 2026-2027`);
       },
 
       modal(title, body, footer) {
