@@ -42,6 +42,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       grid-template-rows: 60px 1fr;
       grid-template-areas: "side top" "side main";
     }
+    @media (max-width: 900px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 1fr;
+        grid-template-areas: "top" "main";
+      }
+      #sidebar {
+        position: fixed;
+        left: -240px;
+        top: 0;
+        bottom: 0;
+        width: 230px;
+        transition: left 0.25s ease;
+        z-index: 90;
+      }
+      #sidebar.mobile-open { left: 0; }
+      .mobile-menu-btn { display: inline-flex !important; }
+    }
+    .mobile-menu-btn { display: none; align-items: center; justify-content: center; background: none; border: none; font-size: 20px; cursor: pointer; color: #334155; margin-right: 12px; }
     button, input, select, textarea { font-family: inherit; font-size: inherit; }
     a { text-decoration: none; color: inherit; }
 
@@ -615,15 +634,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- TOPBAR -->
   <header id="topbar">
     <div class="tb-header-title">
+      <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('mobile-open')">☰</button>
       NeoNex MindX <span>Counsellor workspace</span>
     </div>
     <div class="tb-actions">
-      <div class="tb-avatar" title="Counsellor Profile" onclick="CRM.logout()">A</div>
+      <span style="display:inline-flex;align-items:center;gap:6px;background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0;font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:999px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#16A34A;display:inline-block;"></span>
+        Online
+      </span>
+      <div class="tb-avatar" title="Click to Sign Out" onclick="CRM.logout()">A</div>
     </div>
   </header>
 
   <!-- MAIN WORKSPACE CONTAINER -->
-  <main id="main-content">
+  <main id="main-content" onclick="document.getElementById('sidebar').classList.remove('mobile-open')">
     <div class="workspace-wrapper" id="view-root"></div>
   </main>
 
@@ -671,11 +695,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         { title: 'Data Science & AI Master Program', duration: '16-20 Weeks', fee: '$ 53,100.00', batches: '2 Active' },
         { title: 'AI & Machine Learning Engineering', duration: '16 Weeks', fee: '$ 70,800.00', batches: '1 Active' }
       ],
-      counselling: [],
-      followups: [],
+      counselling: [
+        { student: 'Aarav Sharma', phone: '+91 98451 22341', date: '12/10/2026', mode: 'Google Meet', status: 'Scheduled', notes: 'Discuss curriculum pace and mentor matching' }
+      ],
+      followups: [
+        { student: 'Ananya Roy', phone: '+91 98220 11992', date: '11/10/2026', action: 'Send Syllabus PDF via WhatsApp', status: 'Pending' }
+      ],
       settings: {
         dateFormat: 'DD/MM/YYYY',
-        email: ''
+        email: 'counsellor@neonexmindx.com',
+        activeSettingsTab: 'general'
       }
     };
 
@@ -783,12 +812,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
       },
 
-      /* 1. DASHBOARD VIEW (Screenshot 1 & 2 exact reproduction) */
+      /* 1. DASHBOARD VIEW (Screenshot 1 & 2 exact reproduction + dynamic live updates) */
       viewDashboard() {
+        const todayStr = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+        const enquiriesCount = APP_DATA.enquiries.length;
+        const counsellingCount = APP_DATA.counselling.length;
+        const admissionsCount = APP_DATA.students.length;
+        const followupsCount = APP_DATA.followups.length;
+
+        let totalFees = 0;
+        let totalPaid = 0;
+        APP_DATA.invoices.forEach(inv => {
+          totalFees += parseFloat((inv.total || '0').replace(/[^0-9.]/g, '')) || 0;
+          totalPaid += parseFloat((inv.paid || '0').replace(/[^0-9.]/g, '')) || 0;
+        });
+        const formattedFees = totalFees > 0 ? totalFees.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) : '207,200';
+        const formattedPaid = totalPaid > 0 ? totalPaid.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) : '35,400';
+
         return `
           <!-- HERO -->
           <div class="counsellor-hero">
-            <div class="c-date">Saturday, October 10</div>
+            <div class="c-date">${todayStr}</div>
             <h1 class="c-greeting">Good day, counsellor</h1>
             <p class="c-sub">Here is what needs your attention today.</p>
             <div class="c-action-bar">
@@ -800,9 +844,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span style="font-size:15px;line-height:1;">+</span>
                 <span>Add enquiry</span>
               </button>
-              <button class="btn-action-white" onclick="CRM.openRecordFee()">
+              <button class="btn-action-white" onclick="CRM.openAddInvoice()">
                 <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12"></path></svg>
                 <span>Record fee</span>
+              </button>
+              <button class="btn-action-white" onclick="CRM.openAddFollowup()">
+                <span style="font-size:14px;">🔔</span>
+                <span>Quick follow-up</span>
               </button>
             </div>
           </div>
@@ -822,7 +870,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="m-title">Fees raised</div>
               <div class="m-value-row">
                 <span class="m-icon" style="color:#D97706;">💰</span>
-                <span>207,200</span>
+                <span>${formattedFees}</span>
               </div>
               <div class="m-link" onclick="CRM.navigate('fees')">View details &rarr;</div>
             </div>
@@ -831,7 +879,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="m-title">Payments received</div>
               <div class="m-value-row">
                 <span class="m-icon" style="color:#16A34A;">✔</span>
-                <span>35,400</span>
+                <span>${formattedPaid}</span>
               </div>
               <div class="m-link" onclick="CRM.navigate('payments')">View details &rarr;</div>
             </div>
@@ -840,7 +888,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="m-title">Follow-ups due</div>
               <div class="m-value-row">
                 <span class="m-icon" style="color:#7C3AED;">📞</span>
-                <span>&mdash;</span>
+                <span>${followupsCount > 0 ? followupsCount : '&mdash;'}</span>
               </div>
               <div class="m-link" onclick="CRM.navigate('followups')">View details &rarr;</div>
             </div>
@@ -856,23 +904,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="funnel-list">
                 <div class="funnel-item">
                   <span>New enquiries</span>
-                  <div class="funnel-track"><div class="funnel-fill" style="width:0%;"></div></div>
-                  <span class="funnel-val">0</span>
+                  <div class="funnel-track"><div class="funnel-fill" style="width:${Math.min(100, enquiriesCount * 25)}%;"></div></div>
+                  <span class="funnel-val">${enquiriesCount}</span>
                 </div>
                 <div class="funnel-item">
                   <span>Counselling</span>
-                  <div class="funnel-track"><div class="funnel-fill" style="width:0%;"></div></div>
-                  <span class="funnel-val">0</span>
+                  <div class="funnel-track"><div class="funnel-fill" style="width:${Math.min(100, counsellingCount * 33)}%;"></div></div>
+                  <span class="funnel-val">${counsellingCount}</span>
                 </div>
                 <div class="funnel-item">
                   <span>Applications</span>
-                  <div class="funnel-track"><div class="funnel-fill" style="width:0%;"></div></div>
-                  <span class="funnel-val">0</span>
+                  <div class="funnel-track"><div class="funnel-fill" style="width:${Math.min(100, APP_DATA.invoices.length * 20)}%;"></div></div>
+                  <span class="funnel-val">${APP_DATA.invoices.length}</span>
                 </div>
                 <div class="funnel-item">
                   <span>Admissions</span>
-                  <div class="funnel-track"><div class="funnel-fill" style="width:0%;"></div></div>
-                  <span class="funnel-val">0</span>
+                  <div class="funnel-track"><div class="funnel-fill" style="width:${Math.min(100, admissionsCount * 25)}%;"></div></div>
+                  <span class="funnel-val">${admissionsCount}</span>
                 </div>
               </div>
               <p style="font-size:12px;color:#94A3B8;margin-top:24px;font-weight:600;">Your admission trend will appear as enquiries and applications are added.</p>
@@ -885,15 +933,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="p-list">
                 <div class="p-item" onclick="CRM.openAddStudent()">
                   <div class="p-box" style="background:#EFF6FF;color:#2563EB;">1</div>
-                  <span>Add your first student record</span>
+                  <span>Add or verify student admissions</span>
                 </div>
                 <div class="p-item" onclick="CRM.navigate('enquiries')">
                   <div class="p-box" style="background:#F5F3FF;color:#7C3AED;">2</div>
-                  <span>Follow up on new course enquiries</span>
+                  <span>Follow up on new course enquiries (${enquiriesCount} active)</span>
                 </div>
                 <div class="p-item" onclick="CRM.navigate('fees')">
                   <div class="p-box" style="background:#FDF2F8;color:#DB2777;">3</div>
                   <span>Check fee payments awaiting confirmation</span>
+                </div>
+                <div class="p-item" onclick="CRM.openAddFollowup()">
+                  <div class="p-box" style="background:#FEF3C7;color:#D97706;">4</div>
+                  <span>Schedule student mentorship &amp; counselling session</span>
                 </div>
               </div>
             </div>
@@ -906,10 +958,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span class="dash-box-title">Recent enquiries</span>
                 <span class="m-link" onclick="CRM.navigate('enquiries')">View all</span>
               </div>
-              <div class="empty-state-box">
-                <div class="empty-icon">📥</div>
-                <div>No recent enquiries yet</div>
-              </div>
+              ${APP_DATA.enquiries.length === 0 ? `
+                <div class="empty-state-box">
+                  <div class="empty-icon">📥</div>
+                  <div>No recent enquiries yet</div>
+                </div>
+              ` : `
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                  ${APP_DATA.enquiries.slice(0, 3).map(e => `
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:#F8FAFC;border-radius:6px;border:1px solid #EEF2F6;">
+                      <div>
+                        <div style="font-weight:800;font-size:13px;color:#0F172A;">${e.name}</div>
+                        <div style="font-size:11.5px;color:#64748B;">${e.program} &bull; ${e.phone}</div>
+                      </div>
+                      <a href="https://wa.me/${e.phone.replace(/[^0-9]/g,'')}?text=Hello%20${encodeURIComponent(e.name)}%2C%20counsellor%20calling%20from%20NeoNex%20MindX." target="_blank" style="color:#0284C7;font-size:12px;font-weight:800;">Connect</a>
+                    </div>
+                  `).join('')}
+                </div>
+              `}
             </div>
 
             <div class="dash-box">
@@ -917,10 +983,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span class="dash-box-title">Upcoming follow-ups</span>
                 <span class="m-link" onclick="CRM.navigate('followups')">Manage follow-ups</span>
               </div>
-              <div class="empty-state-box">
-                <div class="empty-icon">📥</div>
-                <div>No follow-ups scheduled</div>
-              </div>
+              ${APP_DATA.followups.length === 0 ? `
+                <div class="empty-state-box">
+                  <div class="empty-icon">📥</div>
+                  <div>No follow-ups scheduled</div>
+                </div>
+              ` : `
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                  ${APP_DATA.followups.slice(0, 3).map(f => `
+                    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:#F8FAFC;border-radius:6px;border:1px solid #EEF2F6;">
+                      <div>
+                        <div style="font-weight:800;font-size:13px;color:#0F172A;">${f.student}</div>
+                        <div style="font-size:11.5px;color:#64748B;">${f.action} &bull; Due: ${f.date}</div>
+                      </div>
+                      <span style="font-size:11px;font-weight:800;color:#D97706;background:#FFFBEB;padding:2px 8px;border-radius:4px;">${f.status}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              `}
             </div>
           </div>
         `;
@@ -987,32 +1067,107 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         `;
       },
 
-      /* 3. ENQUIRIES VIEW (Screenshot 4 exact reproduction) */
+      /* 3. ENQUIRIES VIEW (Screenshot 4 exact reproduction + active table listing) */
       viewEnquiries() {
         return `
           <div style="padding:10px 0 20px;">
-            <h1 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:6px;">Enquiries</h1>
-            <p style="font-size:13px;font-weight:600;color:#64748B;margin-bottom:40px;">Track prospective student enquiries and their next steps.</p>
-            <div style="text-align:center;padding:60px 20px;max-width:500px;margin:0 auto;">
-              <div style="width:64px;height:64px;background:#F1F5F9;border-radius:12px;display:grid;place-items:center;font-size:28px;margin:0 auto 16px;">💬</div>
-              <div style="font-size:14px;font-weight:700;color:#334155;margin-bottom:18px;">Enquiries management will appear here as records are added.</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:12px;">
+              <div>
+                <h1 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:4px;">Enquiries</h1>
+                <p style="font-size:13px;font-weight:600;color:#64748B;">Track prospective student enquiries and their next steps.</p>
+              </div>
               <button class="btn-crm-add" onclick="CRM.openAddEnquiry()">+ Add New Enquiry</button>
             </div>
+
+            ${APP_DATA.enquiries.length === 0 ? `
+              <div style="text-align:center;padding:60px 20px;max-width:500px;margin:30px auto;">
+                <div style="width:64px;height:64px;background:#F1F5F9;border-radius:12px;display:grid;place-items:center;font-size:28px;margin:0 auto 16px;">💬</div>
+                <div style="font-size:14px;font-weight:700;color:#334155;margin-bottom:18px;">Enquiries management will appear here as records are added.</div>
+                <button class="btn-crm-add" onclick="CRM.openAddEnquiry()">+ Add New Enquiry</button>
+              </div>
+            ` : `
+              <div class="crm-table-card" style="margin-top:20px;">
+                <table class="crm-table">
+                  <thead>
+                    <tr>
+                      <th>Candidate</th>
+                      <th>Program</th>
+                      <th>Date</th>
+                      <th>Phone</th>
+                      <th>Status</th>
+                      <th>Notes</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${APP_DATA.enquiries.map(e => `
+                      <tr>
+                        <td><b>${e.name}</b><br><small style="color:#64748B;">${e.email}</small></td>
+                        <td>${e.program}</td>
+                        <td>${e.date}</td>
+                        <td>${e.phone}</td>
+                        <td><span style="background:#EFF6FF;color:#2563EB;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">${e.status}</span></td>
+                        <td><span style="font-size:12px;color:#64748B;">${e.notes || '-'}</span></td>
+                        <td>
+                          <a href="https://wa.me/${e.phone.replace(/[^0-9]/g,'')}?text=Hi%20${encodeURIComponent(e.name)}%2C%20counsellor%20calling%20from%20NeoNex%20MindX%20regarding%20${encodeURIComponent(e.program)}." target="_blank" style="color:#0284C7;font-weight:700;margin-right:8px;">WhatsApp</a>
+                          <button onclick="CRM.deleteEnquiry('${e.phone}')" style="background:none;border:none;color:#DC2626;cursor:pointer;font-weight:800;">&times;</button>
+                        </td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            `}
           </div>
         `;
       },
 
-      /* 4. COURSES VIEW (Screenshot 4 exact reproduction) */
+      /* 4. COURSES VIEW (Screenshot 4 exact reproduction + active table listing) */
       viewCourses() {
         return `
           <div style="padding:10px 0 20px;">
-            <h1 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:6px;">Courses</h1>
-            <p style="font-size:13px;font-weight:600;color:#64748B;margin-bottom:40px;">Create and organise the courses offered by your institute.</p>
-            <div style="text-align:center;padding:60px 20px;max-width:500px;margin:0 auto;">
-              <div style="width:64px;height:64px;background:#F1F5F9;border-radius:12px;display:grid;place-items:center;font-size:28px;margin:0 auto 16px;">📚</div>
-              <div style="font-size:14px;font-weight:700;color:#334155;margin-bottom:18px;">Courses management will appear here as records are added.</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:12px;">
+              <div>
+                <h1 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:4px;">Courses</h1>
+                <p style="font-size:13px;font-weight:600;color:#64748B;">Create and organise the courses offered by your institute.</p>
+              </div>
               <button class="btn-crm-add" onclick="CRM.openAddCourse()">+ Create New Course</button>
             </div>
+
+            ${APP_DATA.courses.length === 0 ? `
+              <div style="text-align:center;padding:60px 20px;max-width:500px;margin:30px auto;">
+                <div style="width:64px;height:64px;background:#F1F5F9;border-radius:12px;display:grid;place-items:center;font-size:28px;margin:0 auto 16px;">📚</div>
+                <div style="font-size:14px;font-weight:700;color:#334155;margin-bottom:18px;">Courses management will appear here as records are added.</div>
+                <button class="btn-crm-add" onclick="CRM.openAddCourse()">+ Create New Course</button>
+              </div>
+            ` : `
+              <div class="crm-table-card" style="margin-top:20px;">
+                <table class="crm-table">
+                  <thead>
+                    <tr>
+                      <th>Course Title</th>
+                      <th>Duration</th>
+                      <th>Standard Fee</th>
+                      <th>Active Batches</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${APP_DATA.courses.map((c, idx) => `
+                      <tr>
+                        <td><b>${c.title}</b></td>
+                        <td>${c.duration}</td>
+                        <td><b>${c.fee}</b></td>
+                        <td><span style="background:#F0FDF4;color:#16A34A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">${c.batches}</span></td>
+                        <td>
+                          <button onclick="CRM.deleteCourse(${idx})" style="background:none;border:none;color:#DC2626;cursor:pointer;font-weight:800;">&times;</button>
+                        </td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            `}
           </div>
         `;
       },
@@ -1160,32 +1315,105 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         `;
       },
 
-      /* 8. COUNSELLING VIEW (Screenshot 7 exact reproduction) */
+      /* 8. COUNSELLING VIEW (Screenshot 7 exact reproduction + active session listing) */
       viewCounselling() {
         return `
           <div style="padding:10px 0 20px;">
-            <h1 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:6px;">Counselling</h1>
-            <p style="font-size:13px;font-weight:600;color:#64748B;margin-bottom:40px;">Manage counselling sessions and student guidance.</p>
-            <div style="text-align:center;padding:60px 20px;max-width:500px;margin:0 auto;">
-              <div style="width:64px;height:64px;background:#F1F5F9;border-radius:12px;display:grid;place-items:center;font-size:28px;margin:0 auto 16px;">📋</div>
-              <div style="font-size:14px;font-weight:700;color:#334155;margin-bottom:18px;">Counselling management will appear here as records are added.</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:12px;">
+              <div>
+                <h1 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:4px;">Counselling</h1>
+                <p style="font-size:13px;font-weight:600;color:#64748B;">Manage counselling sessions and student guidance.</p>
+              </div>
               <button class="btn-crm-add" onclick="CRM.openBookCounselling()">+ Book Counselling Session</button>
             </div>
+
+            ${APP_DATA.counselling.length === 0 ? `
+              <div style="text-align:center;padding:60px 20px;max-width:500px;margin:30px auto;">
+                <div style="width:64px;height:64px;background:#F1F5F9;border-radius:12px;display:grid;place-items:center;font-size:28px;margin:0 auto 16px;">📋</div>
+                <div style="font-size:14px;font-weight:700;color:#334155;margin-bottom:18px;">Counselling management will appear here as records are added.</div>
+                <button class="btn-crm-add" onclick="CRM.openBookCounselling()">+ Book Counselling Session</button>
+              </div>
+            ` : `
+              <div class="crm-table-card" style="margin-top:20px;">
+                <table class="crm-table">
+                  <thead>
+                    <tr>
+                      <th>Student</th>
+                      <th>Session Date</th>
+                      <th>Mode</th>
+                      <th>Status</th>
+                      <th>Notes</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${APP_DATA.counselling.map((c, idx) => `
+                      <tr>
+                        <td><b>${c.student}</b><br><small style="color:#64748B;">${c.phone || '-'}</small></td>
+                        <td>${c.date}</td>
+                        <td><span style="background:#EFF6FF;color:#2563EB;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">${c.mode}</span></td>
+                        <td><span style="background:#F0FDF4;color:#16A34A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">${c.status}</span></td>
+                        <td>${c.notes || '-'}</td>
+                        <td>
+                          <button onclick="CRM.deleteCounselling(${idx})" style="background:none;border:none;color:#DC2626;cursor:pointer;font-weight:800;">&times;</button>
+                        </td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            `}
           </div>
         `;
       },
 
-      /* 9. FOLLOW-UPS VIEW (Screenshot 8 exact reproduction) */
+      /* 9. FOLLOW-UPS VIEW (Screenshot 8 exact reproduction + active task listing) */
       viewFollowups() {
         return `
           <div style="padding:10px 0 20px;">
-            <h1 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:6px;">Follow-ups</h1>
-            <p style="font-size:13px;font-weight:600;color:#64748B;margin-bottom:40px;">Keep track of follow-ups due for enquiries and admissions.</p>
-            <div style="text-align:center;padding:60px 20px;max-width:500px;margin:0 auto;">
-              <div style="width:64px;height:64px;background:#F1F5F9;border-radius:12px;display:grid;place-items:center;font-size:28px;margin:0 auto 16px;">🔔</div>
-              <div style="font-size:14px;font-weight:700;color:#334155;margin-bottom:18px;">Follow-ups management will appear here as records are added.</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:12px;">
+              <div>
+                <h1 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:4px;">Follow-ups</h1>
+                <p style="font-size:13px;font-weight:600;color:#64748B;">Keep track of follow-ups due for enquiries and admissions.</p>
+              </div>
               <button class="btn-crm-add" onclick="CRM.openAddFollowup()">+ Add Follow-up Task</button>
             </div>
+
+            ${APP_DATA.followups.length === 0 ? `
+              <div style="text-align:center;padding:60px 20px;max-width:500px;margin:30px auto;">
+                <div style="width:64px;height:64px;background:#F1F5F9;border-radius:12px;display:grid;place-items:center;font-size:28px;margin:0 auto 16px;">🔔</div>
+                <div style="font-size:14px;font-weight:700;color:#334155;margin-bottom:18px;">Follow-ups management will appear here as records are added.</div>
+                <button class="btn-crm-add" onclick="CRM.openAddFollowup()">+ Add Follow-up Task</button>
+              </div>
+            ` : `
+              <div class="crm-table-card" style="margin-top:20px;">
+                <table class="crm-table">
+                  <thead>
+                    <tr>
+                      <th>Student</th>
+                      <th>Follow-up Action</th>
+                      <th>Due Date</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${APP_DATA.followups.map((f, idx) => `
+                      <tr>
+                        <td><b>${f.student}</b><br><small style="color:#64748B;">${f.phone || '-'}</small></td>
+                        <td>${f.action}</td>
+                        <td>${f.date}</td>
+                        <td><span style="background:#FFFBEB;color:#D97706;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">${f.status}</span></td>
+                        <td>
+                          <a href="https://wa.me/${(f.phone||'').replace(/[^0-9]/g,'')}?text=Hi%20${encodeURIComponent(f.student)}%2C%20following%20up%20from%20NeoNex%20MindX." target="_blank" style="color:#0284C7;font-weight:700;margin-right:8px;">WhatsApp</a>
+                          <button onclick="CRM.deleteFollowup(${idx})" style="background:none;border:none;color:#DC2626;cursor:pointer;font-weight:800;">&times;</button>
+                        </td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            `}
           </div>
         `;
       },
@@ -1193,12 +1421,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       /* 10. REPORTS VIEW */
       viewReports() {
         return `
-          <div class="crm-table-card" style="padding:24px 28px;">
-            <h2 style="font-size:18px;font-weight:800;margin-bottom:12px;">Analytics &amp; Performance Reports</h2>
-            <p style="font-size:13px;color:#64748B;margin-bottom:24px;">Export and view intake analytics across academic batches.</p>
-            <div style="display:flex;gap:12px;">
-              <button class="btn-crm-add" onclick="CRM.exportData('csv')">Download Inquiries (CSV)</button>
-              <button class="btn-crm-refresh" onclick="CRM.exportData('json')">Download Complete Backup (JSON)</button>
+          <div class="crm-table-card" style="padding:28px 32px;">
+            <h2 style="font-size:20px;font-weight:800;margin-bottom:8px;">Analytics &amp; Performance Reports</h2>
+            <p style="font-size:13px;color:#64748B;margin-bottom:28px;">Export student data, lead records, and financial transaction records directly.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <button class="btn-crm-add" onclick="CRM.exportData('clients')">Download Clients (CSV)</button>
+              <button class="btn-crm-add" onclick="CRM.exportData('enquiries')">Download Inquiries (CSV)</button>
+              <button class="btn-crm-refresh" onclick="CRM.exportData('json')">Download Full System Backup (JSON)</button>
             </div>
           </div>
         `;
@@ -1383,6 +1612,168 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         CRM.render();
       },
 
+      openAddCourse() {
+        const body = `
+          <div class="form-group">
+            <label class="form-label">Course Title *</label>
+            <input type="text" id="ac-title" class="form-control" placeholder="e.g. GenAI & LLM Master Program" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Duration</label>
+            <input type="text" id="ac-duration" class="form-control" value="12-16 Weeks" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Standard Fee</label>
+            <input type="text" id="ac-fee" class="form-control" value="$ 45,000.00" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Active Batches</label>
+            <input type="text" id="ac-batches" class="form-control" value="1 Active" />
+          </div>
+        `;
+        const footer = `
+          <button onclick="CRM.closeModal()" style="padding:6px 14px;border:1px solid #CBD5E1;background:#FFF;border-radius:6px;cursor:pointer;font-weight:700;">Cancel</button>
+          <button class="btn-crm-add" onclick="CRM.saveCourse()">Create Course</button>
+        `;
+        CRM.modal('Create New Course', body, footer);
+      },
+
+      saveCourse() {
+        const title = (document.getElementById('ac-title')?.value || '').trim();
+        const duration = (document.getElementById('ac-duration')?.value || '12-16 Weeks').trim();
+        const fee = (document.getElementById('ac-fee')?.value || '$ 45,000.00').trim();
+        const batches = (document.getElementById('ac-batches')?.value || '1 Active').trim();
+        if (!title) return alert('Course title is required');
+
+        APP_DATA.courses.unshift({ title, duration, fee, batches });
+        CRM.save();
+        CRM.closeModal();
+        CRM.toast('Course created successfully!');
+        CRM.render();
+      },
+
+      deleteCourse(idx) {
+        if (!confirm('Remove this course?')) return;
+        APP_DATA.courses.splice(idx, 1);
+        CRM.save();
+        CRM.toast('Course removed');
+        CRM.render();
+      },
+
+      openBookCounselling() {
+        const studentOptions = APP_DATA.students.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
+        const body = `
+          <div class="form-group">
+            <label class="form-label">Student / Candidate *</label>
+            <select id="bc-student" class="form-control">
+              ${studentOptions || '<option value="Aarav Sharma">Aarav Sharma</option>'}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Session Date</label>
+            <input type="text" id="bc-date" class="form-control" value="${new Date().toLocaleDateString('en-GB')}" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Guidance Mode</label>
+            <select id="bc-mode" class="form-control">
+              <option value="Google Meet">Google Meet</option>
+              <option value="Phone Call">Phone Call</option>
+              <option value="In-Person Centre">In-Person Centre</option>
+              <option value="Zoom">Zoom</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Guidance Notes</label>
+            <textarea id="bc-notes" class="form-control" placeholder="Discuss course fit, batch timing, fee scholarships..."></textarea>
+          </div>
+        `;
+        const footer = `
+          <button onclick="CRM.closeModal()" style="padding:6px 14px;border:1px solid #CBD5E1;background:#FFF;border-radius:6px;cursor:pointer;font-weight:700;">Cancel</button>
+          <button class="btn-crm-add" onclick="CRM.saveCounselling()">Book Session</button>
+        `;
+        CRM.modal('Book Counselling Session', body, footer);
+      },
+
+      saveCounselling() {
+        const student = (document.getElementById('bc-student')?.value || 'Student Candidate').trim();
+        const date = (document.getElementById('bc-date')?.value || new Date().toLocaleDateString('en-GB')).trim();
+        const mode = (document.getElementById('bc-mode')?.value || 'Google Meet').trim();
+        const notes = (document.getElementById('bc-notes')?.value || '').trim();
+
+        const studentRec = APP_DATA.students.find(s => s.name === student);
+        const phone = studentRec ? studentRec.phone : '+91 98765 43210';
+
+        APP_DATA.counselling.unshift({ student, phone, date, mode, status: 'Scheduled', notes });
+        CRM.save();
+        CRM.closeModal();
+        CRM.toast('Counselling session booked!');
+        CRM.render();
+      },
+
+      deleteCounselling(idx) {
+        if (!confirm('Remove this session?')) return;
+        APP_DATA.counselling.splice(idx, 1);
+        CRM.save();
+        CRM.toast('Session removed');
+        CRM.render();
+      },
+
+      openAddFollowup() {
+        const body = `
+          <div class="form-group">
+            <label class="form-label">Student Name *</label>
+            <input type="text" id="af-student" class="form-control" placeholder="Full name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="text" id="af-phone" class="form-control" placeholder="+91 98765 43210" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Follow-up Task *</label>
+            <input type="text" id="af-action" class="form-control" placeholder="e.g. Send demo invite & syllabus brochure" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Due Date</label>
+            <input type="text" id="af-date" class="form-control" value="${new Date().toLocaleDateString('en-GB')}" />
+          </div>
+        `;
+        const footer = `
+          <button onclick="CRM.closeModal()" style="padding:6px 14px;border:1px solid #CBD5E1;background:#FFF;border-radius:6px;cursor:pointer;font-weight:700;">Cancel</button>
+          <button class="btn-crm-add" onclick="CRM.saveFollowup()">Add Task</button>
+        `;
+        CRM.modal('Add Follow-up Task', body, footer);
+      },
+
+      saveFollowup() {
+        const student = (document.getElementById('af-student')?.value || '').trim();
+        const phone = (document.getElementById('af-phone')?.value || '').trim();
+        const action = (document.getElementById('af-action')?.value || '').trim();
+        const date = (document.getElementById('af-date')?.value || new Date().toLocaleDateString('en-GB')).trim();
+        if (!student || !action) return alert('Student and Task are required');
+
+        APP_DATA.followups.unshift({ student, phone, action, date, status: 'Pending' });
+        CRM.save();
+        CRM.closeModal();
+        CRM.toast('Follow-up task created!');
+        CRM.render();
+      },
+
+      deleteFollowup(idx) {
+        if (!confirm('Remove this follow-up?')) return;
+        APP_DATA.followups.splice(idx, 1);
+        CRM.save();
+        CRM.toast('Follow-up removed');
+        CRM.render();
+      },
+
+      deleteEnquiry(phone) {
+        if (!confirm('Remove this enquiry?')) return;
+        APP_DATA.enquiries = APP_DATA.enquiries.filter(e => e.phone !== phone);
+        CRM.save();
+        CRM.toast('Enquiry removed');
+        CRM.render();
+      },
+
       modal(title, body, footer) {
         document.getElementById('modal-title').textContent = title;
         document.getElementById('modal-body').innerHTML = body;
@@ -1407,8 +1798,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         let content, filename, mime;
         if (type === 'json') {
           content = JSON.stringify(APP_DATA, null, 2);
-          filename = 'counsellor_crm_backup.json';
+          filename = 'counsellor_crm_full_backup.json';
           mime = 'application/json';
+        } else if (type === 'enquiries') {
+          content = 'Candidate,Phone,Email,Program,Date,Status,Notes\n' + APP_DATA.enquiries.map(e => `"${e.name}","${e.phone}","${e.email}","${e.program}","${e.date}","${e.status}","${e.notes}"`).join('\n');
+          filename = 'enquiries_export.csv';
+          mime = 'text/csv';
         } else {
           content = 'Name,Country,Address,Phone,Email\n' + APP_DATA.students.map(s => `"${s.name}","${s.country}","${s.address}","${s.phone}","${s.email}"`).join('\n');
           filename = 'clients_list.csv';
