@@ -58,3 +58,13 @@
 /llms.txt
   Cache-Control: public, max-age=86400
   Content-Type: text/plain; charset=utf-8
+
+# 6. Internal Hubs Security & Confidentiality Directives
+/cms/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/crm/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/digital-marketing/*
+  X-Robots-Tag: noindex, nofollow, noarchive

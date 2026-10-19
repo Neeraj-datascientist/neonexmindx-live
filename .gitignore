@@ -18,3 +18,11 @@ desktop.ini
 .idea/
 *.swp
 *.swo
+
+# Confidential Marketing & Analytics
+digital_marketing/
+Digital Marketing/
+analytics/
+service_account.json
+credentials.json
+token.json

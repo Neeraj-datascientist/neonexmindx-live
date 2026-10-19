@@ -12,6 +12,8 @@ Allow: /
 Disallow: /cms/
 Disallow: /crm/
 Disallow: /admin/
+Disallow: /digital-marketing/
+Disallow: /digital-marketing-dashboard/
 Disallow: /thank-you
 Disallow: /thank-you/
 
@@ -32,6 +34,8 @@ Allow: /
 Disallow: /cms/
 Disallow: /crm/
 Disallow: /admin/
+Disallow: /digital-marketing/
+Disallow: /digital-marketing-dashboard/
 Disallow: /thank-you
 
 # 3. Default Rule for All Other Crawlers
@@ -40,6 +44,8 @@ Allow: /
 Disallow: /cms/
 Disallow: /crm/
 Disallow: /admin/
+Disallow: /digital-marketing/
+Disallow: /digital-marketing-dashboard/
 Disallow: /thank-you
 Disallow: /thank-you/
 

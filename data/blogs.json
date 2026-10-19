@@ -45,116 +45,6 @@
       "description": "ETL pipelines, big data systems, cloud data warehouses, Apache Spark, and database design."
     }
   ],
-  "tags": [
-    "Python",
-    "Machine Learning",
-    "Deep Learning",
-    "Data Science",
-    "Power BI",
-    "SQL",
-    "Generative AI",
-    "LLM",
-    "Career Roadmap",
-    "Big Data",
-    "Cloud Computing",
-    "Tableau"
-  ],
-  "authors": [
-    {
-      "id": "author-rajesh",
-      "name": "Dr. Rajesh Varma",
-      "designation": "Head of AI & Lead Mentor",
-      "email": "rajesh.varma@neonexmindx.com",
-      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80",
-      "bio": "Dr. Rajesh Varma is a Senior AI Specialist and mentor at NeoNeX MindX with 14+ years of industry experience across NLP, predictive modeling, and enterprise AI transformation.",
-      "linkedin": "https://linkedin.com",
-      "twitter": "https://twitter.com"
-    },
-    {
-      "id": "author-ananya",
-      "name": "Ananya Sen",
-      "designation": "Principal Analytics Mentor & BI Consultant",
-      "email": "ananya.sen@neonexmindx.com",
-      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=240&h=240&q=80",
-      "bio": "Ananya Sen leads Business Intelligence & Analytics curriculum at NeoNeX MindX. She has trained 3,500+ professionals in Power BI, SQL, and enterprise data storytelling.",
-      "linkedin": "https://linkedin.com",
-      "twitter": "https://twitter.com"
-    },
-    {
-      "id": "author-vikram",
-      "name": "Vikramaditya Rao",
-      "designation": "Chief Data Architect & Engineering Lead",
-      "email": "vikram.rao@neonexmindx.com",
-      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=240&h=240&q=80",
-      "bio": "Vikramaditya Rao specializes in scalable cloud pipelines, distributed computing with Spark & Kafka, and modern warehouse architecture at NeoNeX MindX.",
-      "linkedin": "https://linkedin.com",
-      "twitter": "https://twitter.com"
-    },
-    {
-      "id": "author-raveendran",
-      "name": "Raveendran",
-      "designation": "Lead Data Engineer & Analytics Mentor",
-      "avatar": "raveendran.webp",
-      "linkedin": "https://www.linkedin.com/in/raveendran-m-581a723b8",
-      "bio": "Experienced Data Engineer specializing in PySpark, Apache Spark, Airflow, Kafka, dbt, Snowflake, AWS, and Azure Databricks."
-    },
-    {
-      "id": "author-venkat",
-      "name": "Venkata Nagarjuna",
-      "designation": "Developer & QA Mentor",
-      "avatar": "trainer-venkat.webp",
-      "linkedin": "https://www.linkedin.com/",
-      "bio": "Software developer and QA automation specialist mentoring learners on practical code quality, test frameworks, Python applications, and production readiness."
-    },
-    {
-      "id": "author-nikhil",
-      "name": "Nikhil",
-      "designation": "Lead Developer & QA Mentor",
-      "avatar": "trainer-nikhil.webp",
-      "linkedin": "https://www.linkedin.com/",
-      "bio": "Software developer and QA automation specialist mentoring learners on practical code quality, test frameworks, Python applications, and production readiness."
-    },
-    {
-      "id": "author-sanjana",
-      "name": "Sanjana",
-      "designation": "DevOps & Cloud Mentor",
-      "avatar": "trainer-sanjana.webp",
-      "linkedin": "https://www.linkedin.com/",
-      "bio": "DevOps engineer specializing in CI/CD pipelines, container orchestration, cloud deployment architectures, and production reliability engineering."
-    },
-    {
-      "id": "author-yashas",
-      "name": "Yashas",
-      "designation": "Senior Analytics & AI Mentor",
-      "avatar": "trainer-yashas.webp",
-      "linkedin": "https://www.linkedin.com/",
-      "bio": "Specialist in business analytics, exploratory data frameworks, SQL optimization, and enterprise dashboard architecture using Power BI and Tableau."
-    },
-    {
-      "id": "author-neeraj",
-      "name": "Neeraj PC",
-      "designation": "Data Analytics & AI Mentor",
-      "avatar": "trainer-neeraj.webp",
-      "linkedin": "https://www.linkedin.com/",
-      "bio": "Analytics consultant mentoring students across exploratory data analysis, business intelligence, dashboard storytelling, and machine learning architectures."
-    },
-    {
-      "id": "author-lakshmi",
-      "name": "Lakshmi M. Achar",
-      "designation": "Senior Data Science & Machine Learning Mentor",
-      "avatar": "trainer-lakshmi.webp",
-      "linkedin": "https://www.linkedin.com/",
-      "bio": "Data scientist with expertise in predictive modeling, statistical learning, customer analytics, and production ML pipelines."
-    },
-    {
-      "id": "author-megha",
-      "name": "Megha",
-      "designation": "Career Coach & Profile Building Mentor",
-      "avatar": "trainer-megha.webp",
-      "linkedin": "https://www.linkedin.com/",
-      "bio": "Corporate HR and executive communications trainer coaching learners on technical storytelling, resume positioning, interview presence, and workplace communication."
-    }
-  ],
   "posts": [
     {
       "id": "post-ds-roadmap-2026",
@@ -304,72 +194,166 @@
       ],
       "featured": false,
       "body": "<h2>The Backbone of Every AI System</h2><p>There is no machine learning or analytics without solid data engineering. Models are only as dependable as the pipelines that ingest, clean, and deliver the underlying data. As data volumes surge in 2026, data engineering has become one of the highest-paying and most secure roles in tech.</p><h3>The Shift from ETL to ELT</h3><p>Traditionally, data teams extracted data from transactional databases, transformed it on dedicated compute servers, and loaded it into a target schema (ETL). Today, the power of modern cloud warehouses (Snowflake, BigQuery, AWS Redshift) enables <strong>ELT</strong>: raw data is ingested directly and transformed in place using SQL frameworks like dbt (data build tool).</p><h3>The Medallion Architecture</h3><p>Leading enterprise lakehouses employ the three-tier Medallion structure:</p><ul><li><strong>Bronze (Raw / Ingestion):</strong> Exact replica of source events without transformations.</li><li><strong>Silver (Cleansed / Conformed):</strong> Deduplicated, validated, and normalized data tables.</li><li><strong>Gold (Curated / Business-Level):</strong> Pre-aggregated reporting marts optimized for Power BI dashboards and predictive ML models.</li></ul><p>Master Apache Spark, Kafka streaming, containerized pipelines, and cloud warehouses with the <strong>NeoNeX MindX Data Engineering Program</strong>.</p>"
+    },
+    {
+      "id": "post-1791919107930",
+      "title": "2026 Breakthroughs in AI Agents & LLMs",
+      "slug": "2026-breakthroughs-in-ai-agents-llms",
+      "category": "AI & Machine Learning",
+      "author": "Dr. Rajesh Varma",
+      "authorId": "author-rajesh",
+      "status": "published",
+      "publishDate": "2026-10-13",
+      "readTime": "1 min read",
+      "heroImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "heroAlt": "2026 Breakthroughs in AI Agents & LLMs",
+      "focusKeyword": "",
+      "metaDescription": "",
+      "excerpt": "An in-depth analysis of autonomous agent architectures and enterprise deployment.",
+      "seoScore": 25,
+      "tags": [
+        "Data Science",
+        "Python"
+      ],
+      "body": "<h2>Introduction</h2><p>An in-depth analysis of autonomous agent architectures and enterprise deployment in 2026.</p>",
+      "faqs": [
+        {
+          "q": "What career prerequisites are required to start this program?",
+          "a": "Basic mathematics and introductory logic concepts are helpful. Our mentors guide you from fundamentals to advanced industry projects."
+        },
+        {
+          "q": "Will I work on live real-world portfolio projects?",
+          "a": "Yes, every module incorporates end-to-end production datasets, model deployments, and real-time dashboard implementations."
+        }
+      ]
+    },
+    {
+      "id": "post-1791978284506",
+      "title": "Distributed Data Pipelines with Apache Spark & Iceberg",
+      "slug": "distributed-data-pipelines-with-apache-spark-iceberg",
+      "category": "Data Engineering",
+      "author": "Dr. Rajesh Varma",
+      "authorId": "author-rajesh",
+      "status": "published",
+      "publishDate": "2026-10-14",
+      "readTime": "1 min read",
+      "heroImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "heroAlt": "Distributed Data Pipelines with Apache Spark & Iceberg",
+      "focusKeyword": "",
+      "metaDescription": "",
+      "excerpt": "A hands-on architectural deep dive into building enterprise lakehouses with Apache Iceberg.",
+      "seoScore": 25,
+      "tags": [
+        "Data Science",
+        "Python"
+      ],
+      "body": "<h2>Introduction</h2><p>Start writing your in-depth guide or tutorial here...</p>",
+      "faqs": [
+        {
+          "q": "What career prerequisites are required to start this program?",
+          "a": "Basic mathematics and introductory logic concepts are helpful. Our mentors guide you from fundamentals to advanced industry projects."
+        },
+        {
+          "q": "Will I work on live real-world portfolio projects?",
+          "a": "Yes, every module incorporates end-to-end production datasets, model deployments, and real-time dashboard implementations."
+        }
+      ]
     }
   ],
-  "redirects": [
+  "authors": [
     {
-      "id": "red-1",
-      "from": "/blog/data-science-roadmap",
-      "to": "/blog/complete-roadmap-to-become-data-scientist-2026",
-      "type": "301"
+      "id": "author-rajesh",
+      "name": "Dr. Rajesh Varma",
+      "designation": "Head of AI & Lead Mentor",
+      "email": "rajesh.varma@neonexmindx.com",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80",
+      "bio": "Dr. Rajesh Varma is a Senior AI Specialist and mentor at NeoNeX MindX with 14+ years of industry experience across NLP, predictive modeling, and enterprise AI transformation.",
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://twitter.com"
     },
     {
-      "id": "red-2",
-      "from": "/blog/top-tools-for-analysts",
-      "to": "/blog/top-high-paying-data-analytics-tools-2026",
-      "type": "301"
-    }
-  ],
-  "media": [
-    {
-      "id": "media-1",
-      "name": "data-science-roadmap.webp",
-      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-      "type": "image",
-      "alt": "Data Science roadmap and analytics dashboard",
-      "size": "142 KB",
-      "date": "2026-09-18"
+      "id": "author-ananya",
+      "name": "Ananya Sen",
+      "designation": "Principal Analytics Mentor & BI Consultant",
+      "email": "ananya.sen@neonexmindx.com",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=240&h=240&q=80",
+      "bio": "Ananya Sen leads Business Intelligence & Analytics curriculum at NeoNeX MindX. She has trained 3,500+ professionals in Power BI, SQL, and enterprise data storytelling.",
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://twitter.com"
     },
     {
-      "id": "media-2",
-      "name": "neural-network-ai.webp",
-      "url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
-      "type": "image",
-      "alt": "Abstract neural network and machine learning visualization",
-      "size": "188 KB",
-      "date": "2026-09-12"
+      "id": "author-vikram",
+      "name": "Vikramaditya Rao",
+      "designation": "Chief Data Architect & Engineering Lead",
+      "email": "vikram.rao@neonexmindx.com",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=240&h=240&q=80",
+      "bio": "Vikramaditya Rao specializes in scalable cloud pipelines, distributed computing with Spark & Kafka, and modern warehouse architecture at NeoNeX MindX.",
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://twitter.com"
     },
     {
-      "id": "media-3",
-      "name": "analytics-dashboard.webp",
-      "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-      "type": "image",
-      "alt": "Data analytics dashboard with KPI visualizations and business charts",
-      "size": "165 KB",
-      "date": "2026-09-07"
+      "id": "author-raveendran",
+      "name": "Raveendran",
+      "designation": "Lead Data Engineer & Analytics Mentor",
+      "avatar": "raveendran.webp",
+      "linkedin": "https://www.linkedin.com/in/raveendran-m-581a723b8",
+      "bio": "Experienced Data Engineer specializing in PySpark, Apache Spark, Airflow, Kafka, dbt, Snowflake, AWS, and Azure Databricks."
     },
     {
-      "id": "media-4",
-      "name": "generative-ai-core.webp",
-      "url": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
-      "type": "image",
-      "alt": "Futuristic generative artificial intelligence conceptual illustration",
-      "size": "210 KB",
-      "date": "2026-08-29"
-    }
-  ],
-  "users": [
-    {
-      "id": "user-1",
-      "name": "Admin Team",
-      "email": "admin@neonexmindx.com",
-      "role": "Super Admin"
+      "id": "author-venkat",
+      "name": "Venkat Nagarjun",
+      "designation": "Developer & QA Mentor",
+      "avatar": "trainer-venkat.webp",
+      "linkedin": "https://www.linkedin.com/",
+      "bio": "Software developer and QA automation specialist mentoring learners on practical code quality, test frameworks, Python applications, and production readiness."
     },
     {
-      "id": "user-2",
-      "name": "Content Editor",
-      "email": "editor@neonexmindx.com",
-      "role": "Editor"
+      "id": "author-nikhil",
+      "name": "Nikhil",
+      "designation": "Lead Developer & QA Mentor",
+      "avatar": "trainer-nikhil.webp",
+      "linkedin": "https://www.linkedin.com/",
+      "bio": "Software developer and QA automation specialist mentoring learners on practical code quality, test frameworks, Python applications, and production readiness."
+    },
+    {
+      "id": "author-sanjana",
+      "name": "Sanjana",
+      "designation": "DevOps & Cloud Mentor",
+      "avatar": "trainer-sanjana.webp",
+      "linkedin": "https://www.linkedin.com/",
+      "bio": "DevOps engineer specializing in CI/CD pipelines, container orchestration, cloud deployment architectures, and production reliability engineering."
+    },
+    {
+      "id": "author-yashas",
+      "name": "Yashas",
+      "designation": "Senior Analytics & AI Mentor",
+      "avatar": "trainer-yashas.webp",
+      "linkedin": "https://www.linkedin.com/",
+      "bio": "Specialist in business analytics, exploratory data frameworks, SQL optimization, and enterprise dashboard architecture using Power BI and Tableau."
+    },
+    {
+      "id": "author-neeraj",
+      "name": "Neeraj PC",
+      "designation": "Data Analytics & AI Mentor",
+      "avatar": "trainer-neeraj.webp",
+      "linkedin": "https://www.linkedin.com/",
+      "bio": "Analytics consultant mentoring students across exploratory data analysis, business intelligence, dashboard storytelling, and machine learning architectures."
+    },
+    {
+      "id": "author-lakshmi",
+      "name": "Lakshmi M. Achar",
+      "designation": "Senior Data Science & Machine Learning Mentor",
+      "avatar": "trainer-lakshmi.webp",
+      "linkedin": "https://www.linkedin.com/",
+      "bio": "Data scientist with expertise in predictive modeling, statistical learning, customer analytics, and production ML pipelines."
+    },
+    {
+      "id": "author-megha",
+      "name": "Megha",
+      "designation": "Career Coach & Profile Building Mentor",
+      "avatar": "trainer-megha.webp",
+      "linkedin": "https://www.linkedin.com/",
+      "bio": "Corporate HR and executive communications trainer coaching learners on technical storytelling, resume positioning, interview presence, and workplace communication."
     }
   ]
 }

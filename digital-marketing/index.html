@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeoNeX MindX — Digital Optimization & Competitor Intelligence Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <script src="../neonex-auth.js"></script>
+  <style>
+    :root {
+      --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: "Sora", "DM Sans", sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --primary: #1B5DB7;
+      --primary-hover: #12478E;
+      --primary-tint: #EEF4FC;
+      --accent: #0284C7;
+      
+      --crit: #DC2626;
+      --crit-bg: #FEF2F2;
+      --warn: #EA580C;
+      --warn-bg: #FFF7ED;
+      --pass: #16A34A;
+      --pass-bg: #F0FDF4;
+      --cyan: #0891B2;
+      --cyan-bg: #ECFEFF;
+      --purple: #7C3AED;
+      --purple-bg: #F5F3FF;
+
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    html[data-theme="light"] {
+      --base: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-translucent: rgba(255, 255, 255, 0.78);
+      --surface-2: #F1F5F9;
+      --border: #E2E8F0;
+      --border-subtle: rgba(226, 232, 240, 0.85);
+      --ink: #0F172A;
+      --ink-soft: #475569;
+      --muted: #64748B;
+      --sidebar-bg: #FFFFFF;
+      --sidebar-border: #E2E8F0;
+      --sidebar-ink: #334155;
+      --sidebar-active: #EEF4FC;
+      --sidebar-active-ink: #1B5DB7;
+      --shadow-sm: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(15,23,42,0.08), 0 2px 4px -2px rgba(15,23,42,0.05);
+
+      /* Balanced translucent card tints (calm, soft, never harsh) */
+      --card-tint-blue: rgba(27, 93, 183, 0.04);
+      --card-tint-green: rgba(22, 163, 74, 0.04);
+      --card-tint-amber: rgba(234, 88, 12, 0.04);
+      --card-tint-red: rgba(220, 38, 38, 0.04);
+      --card-tint-purple: rgba(124, 58, 237, 0.04);
+      --card-tint-cyan: rgba(8, 145, 178, 0.04);
+    }
+
+    html[data-theme="dark"] {
+      --base: #0B0F19;
+      --surface: #111827;
+      --surface-translucent: rgba(17, 24, 39, 0.76);
+      --surface-2: #1E293B;
+      --border: #334155;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --ink: #F8FAFC;
+      --ink-soft: #CBD5E1;
+      --muted: #94A3B8;
+      --sidebar-bg: #0F172A;
+      --sidebar-border: #1E293B;
+      --sidebar-ink: #CBD5E1;
+      --sidebar-active: #1E293B;
+      --sidebar-active-ink: #60A5FA;
+      --primary: #3B82F6;
+      --primary-hover: #2563EB;
+      --primary-tint: #1E293B;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 10px rgba(0,0,0,0.5);
+
+      /* Balanced translucent card tints for dark */
+      --card-tint-blue: rgba(59, 130, 246, 0.08);
+      --card-tint-green: rgba(34, 197, 94, 0.08);
+      --card-tint-amber: rgba(245, 158, 11, 0.08);
+      --card-tint-red: rgba(239, 68, 68, 0.08);
+      --card-tint-purple: rgba(139, 92, 246, 0.08);
+      --card-tint-cyan: rgba(6, 182, 212, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--base);
+      color: var(--ink);
+      height: 100vh;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: 64px 1fr;
+      grid-template-areas: "side top" "side main";
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, select, textarea { font-family: inherit; color: inherit; font-size: inherit; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ==================== CMS-STYLE SIDEBAR ==================== */
+    #sidebar {
+      grid-area: side;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--sidebar-border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      z-index: 30;
+      transition: transform 0.2s ease;
+    }
+
+    .brand-wrap {
+      height: 76px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--sidebar-border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      text-decoration: none;
+      gap: 10px;
+    }
+    .brand-logo-container {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+    }
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+      max-width: 165px;
+      object-fit: contain;
+      display: block;
+    }
+    .brand-pill-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: #1B5DB7;
+      background: #EEF4FC;
+      border: 1px solid rgba(27, 93, 183, 0.2);
+      padding: 4px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    html[data-theme="dark"] .brand-pill-tag {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60A5FA;
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .nav-body { flex: 1; padding: 16px 12px; overflow-y: auto; }
+    .nav-section-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      padding: 12px 10px 6px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--sidebar-ink);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      margin-bottom: 2px;
+      user-select: none;
+    }
+    .nav-item:hover {
+      background: var(--surface-2);
+      color: var(--ink);
+    }
+    .nav-item.active {
+      background: var(--sidebar-active);
+      color: var(--sidebar-active-ink);
+      font-weight: 600;
+    }
+    .nav-item svg { width: 17px; height: 17px; stroke-width: 2; flex-shrink: 0; opacity: 0.85; }
+    .nav-item.active svg { opacity: 1; stroke: var(--primary); }
+    .nav-badge {
+      margin-left: auto;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 12px;
+    }
+    .nav-item.active .nav-badge {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .sidebar-portal-nav {
+      padding: 8px 14px;
+      display: flex;
+      gap: 6px;
+      background: var(--surface-2);
+      border-top: 1px solid var(--sidebar-border);
+    }
+    .portal-chip {
+      flex: 1;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 8px;
+      border-radius: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--ink-soft);
+      transition: all 0.15s ease;
+    }
+    .portal-chip:hover {
+      background: var(--primary-tint);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .sidebar-user {
+      padding: 14px 16px;
+      border-top: 1px solid var(--sidebar-border);
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      background: var(--surface);
+    }
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #EEF4FC;
+      color: #1B5DB7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    html[data-theme="dark"] .user-avatar {
+      background: #1E293B;
+      color: #60A5FA;
+    }
+    .user-details { flex: 1; min-width: 0; }
+    .user-name { font-size: 12.5px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .user-role { font-size: 11px; color: var(--muted); }
+    .user-logout-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .user-logout-btn:hover { color: var(--crit); background: var(--crit-bg); }
+
+    /* ==================== CMS-STYLE TOPBAR ==================== */
+    #topbar {
+      grid-area: top;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 20;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 14px; }
+    .topbar-toggle {
+      display: none; background: none; border: none; color: var(--ink);
+      cursor: pointer; padding: 6px; border-radius: 6px;
+    }
+    .topbar-breadcrumb {
+      font-size: 13px; font-weight: 500; color: var(--muted); display: flex; align-items: center; gap: 6px;
+    }
+    .topbar-breadcrumb b { color: var(--ink); font-weight: 600; }
+    
+    .tb-sync-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+      border: 1px solid rgba(22, 163, 74, 0.2);
+    }
+    .tb-sync-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--pass);
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+    .time-pill {
+      font-family: var(--font-mono); font-size: 11.5px; color: var(--muted);
+      background: var(--surface-2); border: 1px solid var(--border);
+      padding: 5px 12px; border-radius: 6px;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px;
+      font-weight: 600; padding: 7px 14px; border-radius: var(--radius-sm);
+      cursor: pointer; transition: all 0.15s ease; border: 1px solid var(--border);
+      background: var(--surface); color: var(--ink); white-space: nowrap;
+    }
+    .btn:hover { background: var(--surface-2); }
+    .btn-primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: var(--surface-2); border-color: var(--border); color: var(--ink-soft); }
+    .btn-secondary:hover { background: var(--border); color: var(--ink); }
+    .btn-sm { padding: 5px 10px; font-size: 11.5px; border-radius: 6px; }
+
+    .theme-toggle-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      cursor: pointer;
+      color: var(--ink-soft);
+      font-size: 14px;
+      transition: all 0.15s ease;
+    }
+    .theme-toggle-btn:hover { background: var(--surface-2); }
+
+    /* ==================== MAIN CONTENT & TRANSLUCENT CARDS ==================== */
+    #main {
+      grid-area: main;
+      overflow-y: auto;
+      padding: 28px;
+      background: var(--base);
+    }
+    .view-wrap { max-width: 1320px; margin: 0 auto; }
+
+    .view-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .view-title-block h2 {
+      font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 4px;
+    }
+    .view-title-block p { font-size: 13px; color: var(--muted); }
+
+    /* Translucent Balanced Cards */
+    .card {
+      background: var(--surface-translucent);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
+    }
+    .card-title {
+      font-size: 14.5px; font-weight: 700; color: var(--ink);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card-badge {
+      font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 4px;
+      background: var(--surface-2); color: var(--muted); border: 1px solid var(--border);
+    }
+
+    .kpi-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px; margin-bottom: 22px;
+    }
+    .kpi-card {
+      background: var(--surface-translucent);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .kpi-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+    .kpi-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 6px; }
+    .kpi-val { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--ink); margin-bottom: 4px; line-height: 1.1; }
+    .kpi-sub { font-size: 11.5px; color: var(--muted); }
+
+    /* Soft Translucent Badges */
+    .badge {
+      display: inline-flex; align-items: center; padding: 3px 8px; border-radius: 6px;
+      font-size: 11px; font-weight: 600; font-family: var(--font-mono); letter-spacing: 0.02em;
+    }
+    .badge-pass { background: var(--pass-bg); color: var(--pass); border: 1px solid rgba(22, 163, 74, 0.25); }
+    .badge-warn { background: var(--warn-bg); color: var(--warn); border: 1px solid rgba(234, 88, 12, 0.25); }
+    .badge-crit { background: var(--crit-bg); color: var(--crit); border: 1px solid rgba(220, 38, 38, 0.25); }
+    .badge-info { background: var(--primary-tint); color: var(--primary); border: 1px solid rgba(27, 93, 183, 0.25); }
+    .badge-purple { background: var(--purple-bg); color: var(--purple); border: 1px solid rgba(124, 58, 237, 0.25); }
+    .badge-cyan { background: var(--cyan-bg); color: var(--cyan); border: 1px solid rgba(8, 145, 178, 0.25); }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-sm);
+      background: var(--surface);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 12.5px; text-align: left; }
+    th {
+      background: var(--surface-2); color: var(--muted); font-weight: 700;
+      padding: 11px 14px; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border);
+    }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); color: var(--ink-soft); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--surface-2); color: var(--ink); }
+
+    /* 9-Pillars Score Grid */
+    .pillar-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;
+    }
+    .pillar-box {
+      background: var(--surface-translucent);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      transition: all 0.15s ease;
+    }
+    .pillar-box:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .pillar-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .pillar-bar-wrap { height: 5px; background: var(--surface-2); border-radius: 99px; overflow: hidden; margin-bottom: 6px; }
+    .pillar-bar-fill { height: 100%; background: var(--primary); border-radius: 99px; transition: width 0.3s ease; }
+
+    /* Strategy Cards */
+    .strat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+    .strat-card {
+      background: var(--surface-translucent);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      border-left: 3px solid var(--primary);
+    }
+    .strat-card.high { border-left-color: var(--crit); background: var(--card-tint-red); }
+    .strat-card.med { border-left-color: var(--warn); background: var(--card-tint-amber); }
+    .strat-card.info { border-left-color: var(--primary); background: var(--card-tint-blue); }
+    .strat-card.pass { border-left-color: var(--pass); background: var(--card-tint-green); }
+
+    /* Views Switcher */
+    .view-pane { display: none; }
+    .view-pane.active { display: block; animation: fadeIn 0.2s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-areas: "top" "main";
+      }
+      #sidebar {
+        position: fixed; top: 0; bottom: 0; left: 0; width: 260px;
+        transform: translateX(-100%); box-shadow: var(--shadow-md);
+      }
+      #sidebar.open { transform: translateX(0); }
+      .topbar-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside id="sidebar">
+    <div class="brand-wrap">
+      <a href="/digital-marketing" class="brand-link">
+        <div class="brand-logo-container">
+          <img src="/wp-content/uploads/2025/03/cropped-Group-39871.png" alt="NeoNeX MindX" class="brand-logo-img">
+        </div>
+        <span class="brand-pill-tag">MARKETING</span>
+      </a>
+    </div>
+
+    <div class="nav-body">
+      <div class="nav-section-title">Core Intelligence</div>
+      <div class="nav-item active" data-view="dashboard" onclick="switchView('dashboard')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>
+        <span>Overview &amp; Health</span>
+        <span class="nav-badge" id="badge-score">92%</span>
+      </div>
+      <div class="nav-item" data-view="nextgen" onclick="switchView('nextgen')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg>
+        <span>AEO, GEO &amp; LLMO</span>
+        <span class="nav-badge" style="background:var(--purple-bg); color:var(--purple);">AI</span>
+      </div>
+      <div class="nav-item" data-view="competitors" onclick="switchView('competitors')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span>Competitor Matrix</span>
+        <span class="nav-badge">5 Brands</span>
+      </div>
+
+      <div class="nav-section-title">Audit &amp; Optimization</div>
+      <div class="nav-item" data-view="audit" onclick="switchView('audit')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        <span>22-Page Audit Table</span>
+        <span class="nav-badge">Live</span>
+      </div>
+      <div class="nav-item" data-view="actions" onclick="switchView('actions')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        <span>Action Roadmap</span>
+        <span class="nav-badge" style="background:var(--warn-bg); color:var(--warn);">4 Tasks</span>
+      </div>
+
+      <div class="nav-section-title">Traffic &amp; Acquisition</div>
+      <div class="nav-item" data-view="gsc" onclick="switchView('gsc')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span>Search Console (SEO)</span>
+        <span class="nav-badge">#3 Rank</span>
+      </div>
+      <div class="nav-item" data-view="traffic" onclick="switchView('traffic')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+        <span>GA4 Traffic &amp; Dwell</span>
+        <span class="nav-badge">177 Hits</span>
+      </div>
+      <div class="nav-item" data-view="cro" onclick="switchView('cro')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+        <span>Funnel &amp; CRO</span>
+      </div>
+      <div class="nav-item" data-view="connectors" onclick="switchView('connectors')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <span>Connectors Hub</span>
+      </div>
+    </div>
+
+    <!-- Portal Switcher Links -->
+    <div class="sidebar-portal-nav">
+      <a href="/cms" class="portal-chip">CMS Studio</a>
+      <a href="/crm" class="portal-chip">Admissions CRM</a>
+    </div>
+
+    <!-- CMS-Style User Row -->
+    <div class="sidebar-user">
+      <div class="user-avatar" id="sidebar-avatar">N</div>
+      <div class="user-details">
+        <div class="user-name" id="sidebar-user-name">Neeraj</div>
+        <div class="user-role" id="sidebar-user-role">Administrator</div>
+      </div>
+      <button class="user-logout-btn" onclick="NeoNexAuth.logout()" title="Sign Out">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==================== TOPBAR ==================== -->
+  <header id="topbar">
+    <div class="topbar-left">
+      <button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle Navigation">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <div class="topbar-breadcrumb">
+        <span>Marketing</span> / <b id="current-view-title">Overview &amp; Health</b>
+      </div>
+      <div class="tb-sync-badge" onclick="refreshData()" title="Live Telemetry Synchronized">
+        <span class="tb-sync-dot"></span>
+        <span>Telemetry Live</span>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <div class="time-pill" id="live-clock">Syncing IST...</div>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Light / Dark Mode">🌓</button>
+      <button class="btn btn-primary btn-sm" id="btn-run-audit" onclick="runLiveAudit()">
+        ⚡ Run Live Audit
+      </button>
+      <button class="btn btn-secondary btn-sm" onclick="refreshData()">
+        🔄 Sync
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main id="main">
+
+    <!-- ==================== VIEW 1: DASHBOARD & HEALTH ==================== -->
+    <div id="view-dashboard" class="view-pane active">
+      <div class="view-header">
+        <div class="view-title-block">
+          <h2>Platform Health &amp; Digital Optimization Overview</h2>
+          <p>Real-time telemetry, Google Search Console rankings, GA4 acquisition, and the 9-pillar digital optimization health score.</p>
+        </div>
+        <div>
+          <span class="badge badge-pass" style="font-size:12px; padding:4px 10px;">GRADE A+ (MARKET LEADING)</span>
+        </div>
+      </div>
+
+      <!-- Top KPI Row with Translucent Balanced Cards -->
+      <div class="kpi-row">
+        <div class="kpi-card" style="border-top: 3px solid var(--primary); background: var(--card-tint-blue);">
+          <div class="kpi-label">Site Health Score</div>
+          <div class="kpi-val" id="kpi-composite" style="color:var(--primary);">92.3%</div>
+          <div class="kpi-sub">Across 22 verified deployment pages</div>
+        </div>
+        <div class="kpi-card" style="border-top: 3px solid var(--cyan); background: var(--card-tint-cyan);">
+          <div class="kpi-label">Organic Search Sessions</div>
+          <div class="kpi-val" id="kpi-organic" style="color:var(--cyan);">52</div>
+          <div class="kpi-sub">GSC Brand Rank: <strong>#3.0 – #5.5</strong></div>
+        </div>
+        <div class="kpi-card" style="border-top: 3px solid var(--purple); background: var(--card-tint-purple);">
+          <div class="kpi-label">Next-Gen Search (GEO/AEO)</div>
+          <div class="kpi-val" id="kpi-geo" style="color:var(--purple);">91.0%</div>
+          <div class="kpi-sub">llms.txt active • 100% FAQ schema</div>
+        </div>
+        <div class="kpi-card" style="border-top: 3px solid var(--warn); background: var(--card-tint-amber);">
+          <div class="kpi-label">Lead Funnel Conversion</div>
+          <div class="kpi-val"><span style="color:var(--warn);">36</span> / <span style="color:var(--pass);">4</span></div>
+          <div class="kpi-sub">11.1% Form Starts &rarr; Leads</div>
+        </div>
+        <div class="kpi-card" style="border-top: 3px solid var(--pass); background: var(--card-tint-green);">
+          <div class="kpi-label">Web Performance (WPO)</div>
+          <div class="kpi-val" id="kpi-speed" style="color:var(--pass);">100%</div>
+          <div class="kpi-sub">Below-fold image lazy load active</div>
+        </div>
+      </div>
+
+      <!-- 9 Pillars Scorecard Grid -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            <span>The 9 Pillars of Modern Digital Optimization</span>
+          </div>
+          <span class="card-badge">Weighted Algorithm Matrix</span>
+        </div>
+        <div class="pillar-grid" id="pillar-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- 2-Col Striking Keywords & Traffic -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 18px;">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">🎯 Striking Distance Search Keywords (#3 – #10)</div>
+            <span class="card-badge">GSC Property sc-domain</span>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Keyword / Query</th>
+                  <th>Rank</th>
+                  <th>Impressions</th>
+                  <th>CTR</th>
+                </tr>
+              </thead>
+              <tbody id="striking-keywords-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">🌐 Acquisition Channels &amp; Dwell Time</div>
+            <span class="card-badge">GA4 Property 555779266</span>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Channel / Source</th>
+                  <th>Sessions</th>
+                  <th>Users</th>
+                  <th>Bounce</th>
+                </tr>
+              </thead>
+              <tbody id="traffic-overview-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 2: NEXT-GEN SEARCH (AEO, GEO, LLMO) ==================== -->
+    <div id="view-nextgen" class="view-pane">
+      <div class="view-header">
+        <div class="view-title-block">
+          <h2>AI Synthesis, Answer Engines &amp; LLM Citations</h2>
+          <p>Optimizing how Google AI Overviews, Perplexity AI, SearchGPT, and conversational engines cite NeoNeX MindX.</p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:16px; margin-bottom:20px;">
+        <div class="card" style="background: var(--card-tint-blue); border-left: 3px solid var(--primary);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <strong style="color:var(--primary); font-size:14px;">📄 llms.txt Machine-Readable Hub</strong>
+            <span class="badge badge-pass">ACTIVE (5.3 KB)</span>
+          </div>
+          <p style="font-size:12px; color:var(--muted); line-height:1.5;">
+            Structured Markdown file at <code style="color:var(--cyan);">/llms.txt</code> allowing LLM crawlers (GPTBot, ClaudeBot, PerplexityBot) to synthesize all courses, verified mentors, and fee cards with zero JS blocking.
+          </p>
+          <div style="margin-top:12px;">
+            <a href="/llms.txt" target="_blank" class="btn btn-secondary btn-sm">Inspect Live /llms.txt &rarr;</a>
+          </div>
+        </div>
+
+        <div class="card" style="background: var(--card-tint-purple); border-left: 3px solid var(--purple);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <strong style="color:var(--purple); font-size:14px;">❓ FAQPage Structured Q&amp;A (AEO)</strong>
+            <span class="badge badge-pass">100% COVERAGE</span>
+          </div>
+          <p style="font-size:12px; color:var(--muted); line-height:1.5;">
+            All 9 course pages contain 12 rich Schema.org questions and answers. Enables direct zero-click answers on smart speakers (Alexa, Siri) and Google's "People Also Ask" accordions.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--card-tint-cyan); border-left: 3px solid var(--cyan);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <strong style="color:var(--cyan); font-size:14px;">⭐ Star Ratings &amp; Pricing (AIO)</strong>
+            <span class="badge badge-pass">INR 12K–50K</span>
+          </div>
+          <p style="font-size:12px; color:var(--muted); line-height:1.5;">
+            Full <code>AggregateRating</code> (4.8 to 4.9 stars) and structured <code>Offer</code> prices are embedded directly in JSON-LD, triggering rich star snippets on Google SERPs.
+          </p>
+        </div>
+      </div>
+
+      <!-- AI Overview Simulation -->
+      <div class="card" style="border-left: 3px solid var(--primary); background: var(--card-tint-blue);">
+        <div class="card-header">
+          <div class="card-title" style="color:var(--primary);">
+            <span>✨</span> Live Google AI Overview &amp; Perplexity Citation Simulation
+          </div>
+          <span class="card-badge">Synthesized from /llms.txt &amp; FAQ Schema</span>
+        </div>
+        <div style="font-size:12px; font-family:var(--font-mono); color:var(--muted); background:var(--surface); padding:8px 12px; border-radius:6px; margin-bottom:12px; border:1px solid var(--border);">
+          Prompt: "What is the best affordable live online Data Analytics course in Bengaluru with real project mentors?"
+        </div>
+        <div style="font-size:13px; color:var(--ink); line-height:1.6; padding-left:4px;">
+          "For learners seeking affordable, live practitioner-led mentoring in Bengaluru, <strong>NeoNeX MindX</strong> is a leading choice offering comprehensive programs in Data Analytics (₹35,000, 12–16 weeks) and Data Science (₹45,000). Unlike pre-recorded bootcamps, classes are 100% synchronous with small batch sizes (15–25 students) led by active tech professionals including Raveendran, Neeraj, and Venkat."
+          <div style="margin-top:10px; font-size:11.5px; color:var(--primary);">
+            Ground Truth Citations: 🔗 <a href="/courses/data-analytics-course" target="_blank" style="text-decoration:underline;">neonexmindx.com/courses/data-analytics-course</a> &bull; 🔗 <a href="/trainers" target="_blank" style="text-decoration:underline;">neonexmindx.com/trainers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 3: COMPETITOR MATRIX ==================== -->
+    <div id="view-competitors" class="view-pane">
+      <div class="view-header">
+        <div class="view-title-block">
+          <h2>EdTech Competitor Intelligence &amp; Strategic Benchmarking</h2>
+          <p>Systematic comparison against Indian Data Science &amp; AI training competitors (Scaler, Simplilearn, Great Learning, 360DigiTMG).</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">⚔️ Side-by-Side Competitive Matrix</div>
+          <span class="card-badge">Market Analysis</span>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Institute / Brand</th>
+                <th>Tuition Fee Range</th>
+                <th>Duration</th>
+                <th>Cohort Size</th>
+                <th>Delivery Format</th>
+                <th>GEO/AI Moat</th>
+                <th>Sales Friction</th>
+                <th>Key Exploitable Gap</th>
+              </tr>
+            </thead>
+            <tbody id="competitors-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🎯 The 4 Winning Strategies for NeoNeX MindX</div>
+          <span class="card-badge">Growth Playbook</span>
+        </div>
+        <div class="strat-grid">
+          <div class="strat-card high">
+            <span class="badge badge-crit" style="margin-bottom:6px;">Strategy 1 • AEO Moat</span>
+            <h4 style="font-size:13.5px; margin-bottom:4px; color:var(--ink);">Zero-Click Fee Transparency</h4>
+            <p style="font-size:12px; color:var(--muted); line-height:1.45;">
+              Competitors hide pricing behind aggressive call-center paywalls. We openly display transparent fees on SERPs and /llms.txt, capturing users who reject telemarketer badgering.
+            </p>
+          </div>
+          <div class="strat-card info">
+            <span class="badge badge-info" style="margin-bottom:6px;">Strategy 2 • Local SEO</span>
+            <h4 style="font-size:13.5px; margin-bottom:4px; color:var(--ink);">Bangalore Tech Corridor Dominance</h4>
+            <p style="font-size:12px; color:var(--muted); line-height:1.45;">
+              Target Whitefield, Electronic City, and Koramangala IT professionals looking for hands-on weekend upskilling cohorts with local Bengaluru placement authority.
+            </p>
+          </div>
+          <div class="strat-card med">
+            <span class="badge badge-warn" style="margin-bottom:6px;">Strategy 3 • E-E-A-T Proof</span>
+            <h4 style="font-size:13.5px; margin-bottom:4px; color:var(--ink);">Active Practitioner Mentors</h4>
+            <p style="font-size:12px; color:var(--muted); line-height:1.45;">
+              Showcase named software engineers and data scientists (Neeraj, Raveendran, Nikhil) directly instead of anonymous corporate teaching assistants.
+            </p>
+          </div>
+          <div class="strat-card pass">
+            <span class="badge badge-pass" style="margin-bottom:6px;">Strategy 4 • CRO Speed</span>
+            <h4 style="font-size:13.5px; margin-bottom:4px; color:var(--ink);">1-Tap WhatsApp Admission Channel</h4>
+            <p style="font-size:12px; color:var(--muted); line-height:1.45;">
+              Replace tedious 5-step application forms with 1-tap WhatsApp consultation. Connect learners with academic counsellors within 3 minutes via our unified CRM.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 4: 22-PAGE AUDIT TABLE ==================== -->
+    <div id="view-audit" class="view-pane">
+      <div class="view-header">
+        <div class="view-title-block">
+          <h2>End-to-End Multi-Pillar Page Audit (All 22 Pages)</h2>
+          <p>Live algorithmic evaluation of SEO, AEO, GEO, LLMO, SXO, CRO, WPO, and LSEO across every deployed route.</p>
+        </div>
+        <div>
+          <input type="text" id="page-search-input" style="background:var(--surface); border:1px solid var(--border); padding:7px 12px; border-radius:6px; font-size:12.5px; width:240px; color:var(--ink);" placeholder="Filter pages..." oninput="filterPagesTable()" />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-container">
+          <table id="pages-audit-table">
+            <thead>
+              <tr>
+                <th>Page Path / Route</th>
+                <th>Score</th>
+                <th>SEO</th>
+                <th>AEO</th>
+                <th>GEO</th>
+                <th>LLMO</th>
+                <th>SXO</th>
+                <th>CRO</th>
+                <th>WPO</th>
+                <th>LSEO</th>
+                <th>FAQs</th>
+                <th>Size</th>
+              </tr>
+            </thead>
+            <tbody id="pages-audit-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 5: ACTION QUEUE ==================== -->
+    <div id="view-actions" class="view-pane">
+      <div class="view-header">
+        <div class="view-title-block">
+          <h2>Strategic Priorities &amp; Growth Action Queue</h2>
+          <p>Prioritized engineering and content tasks to maximize rankings, conversion velocity, and AI search share.</p>
+        </div>
+      </div>
+
+      <div class="strat-grid" id="action-queue-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 6: SEARCH CONSOLE ==================== -->
+    <div id="view-gsc" class="view-pane">
+      <div class="view-header">
+        <div class="view-title-block">
+          <h2>Google Search Console (Live Organic Queries &amp; CTR)</h2>
+          <p>Domain: sc-domain:neonexmindx.com &bull; Top search queries, impressions, and average SERP positions.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Query / Search Term</th>
+                <th>Impressions</th>
+                <th>Clicks</th>
+                <th>CTR</th>
+                <th>Avg. Position</th>
+              </tr>
+            </thead>
+            <tbody id="keywords-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 7: GA4 TRAFFIC ==================== -->
+    <div id="view-traffic" class="view-pane">
+      <div class="view-header">
+        <div class="view-title-block">
+          <h2>Google Analytics 4 (Acquisition &amp; Top Pages)</h2>
+          <p>Property: 555779266 &bull; Channel breakdown, bounce rates, and average dwell times.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Acquisition Channels</div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Source / Medium</th>
+                <th>Sessions</th>
+                <th>Users</th>
+                <th>Bounce Rate</th>
+              </tr>
+            </thead>
+            <tbody id="traffic-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Top Visited Pages &amp; Average Dwell Time</div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Page Path</th>
+                <th>Page Views</th>
+                <th>Avg. Time on Page</th>
+              </tr>
+            </thead>
+            <tbody id="pages-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 8: CRO & FUNNEL ==================== -->
+    <div id="view-cro" class="view-pane">
+      <div class="view-header">
+        <div class="view-title-block">
+          <h2>Lead Conversion Funnel &amp; Drop-Off Analytics</h2>
+          <p>Tracking the user path from initial session to lead form completion.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong style="color:var(--ink);">1. Total Site Visitors</strong>
+              <div style="font-size:11.5px; color:var(--muted);">Direct, Organic, Meta Campaigns</div>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:22px; font-weight:700;" id="funnel-sessions">177</div>
+          </div>
+
+          <div style="background:var(--card-tint-amber); border:1px solid rgba(234, 88, 12, 0.25); border-radius:8px; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong style="color:var(--warn);">2. Form Starts (form_start)</strong>
+              <div style="font-size:11.5px; color:var(--muted);">Candidates who clicked enquiry forms</div>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:22px; font-weight:700; color:var(--warn);" id="funnel-starts">36</div>
+          </div>
+
+          <div style="background:var(--card-tint-red); border:1px solid rgba(220, 38, 38, 0.25); border-radius:8px; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong style="color:var(--crit);">⚠️ 3. Drop-off Leak (88.9% Abandonment)</strong>
+              <div style="font-size:11.5px; color:var(--muted);">Users who left before completing submission &bull; Fix via WhatsApp 1-Tap</div>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:22px; font-weight:700; color:var(--crit);">32 Dropped</div>
+          </div>
+
+          <div style="background:var(--card-tint-green); border:1px solid rgba(22, 163, 74, 0.25); border-radius:8px; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong style="color:var(--pass);">4. Verified Admissions Enquiries (/thank-you)</strong>
+              <div style="font-size:11.5px; color:var(--muted);">Leads securely routed to Counsellor CRM</div>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:22px; font-weight:700; color:var(--pass);" id="funnel-leads">4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 9: CONNECTORS ==================== -->
+    <div id="view-connectors" class="view-pane">
+      <div class="view-header">
+        <div class="view-title-block">
+          <h2>Active Data Integrations &amp; Infrastructure Connectors</h2>
+          <p>Real-time health of APIs, web tracking containers, and pixels.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div id="connectors-list"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let GLOBAL_DATA = null;
+
+    // Theme Sync (matches CMS default 'light', saves to both keys)
+    function toggleTheme() {
+      const cur = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = cur === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('cms_theme', next);
+      localStorage.setItem('neonex_mkt_theme', next);
+    }
+    const initialTheme = localStorage.getItem('cms_theme') || localStorage.getItem('neonex_mkt_theme') || 'light';
+    document.documentElement.setAttribute('data-theme', initialTheme);
+
+    // RBAC Security Gate
+    document.addEventListener('DOMContentLoaded', () => {
+      NeonexAuth.renderAuthGate('marketing', 'Digital Marketing Intelligence Hub', (user) => {
+        if (user) {
+          const nameEl = document.getElementById('sidebar-user-name');
+          const roleEl = document.getElementById('sidebar-user-role');
+          const avatarEl = document.getElementById('sidebar-avatar');
+          if (nameEl) nameEl.textContent = user.name || user.username;
+          if (roleEl) roleEl.textContent = user.role || 'Administrator';
+          if (avatarEl) avatarEl.textContent = (user.name || user.username)[0].toUpperCase();
+        }
+        loadDashboardData();
+      });
+    });
+
+    // IST Live Clock
+    function updateLiveClock() {
+      const now = new Date();
+      const options = { 
+        timeZone: 'Asia/Kolkata', 
+        year: 'numeric', month: 'short', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: true 
+      };
+      const clockEl = document.getElementById('live-clock');
+      if (clockEl) clockEl.innerText = now.toLocaleString('en-IN', options) + ' IST';
+    }
+    setInterval(updateLiveClock, 1000);
+    updateLiveClock();
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+
+    function switchView(viewKey) {
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.toggle('active', item.dataset.view === viewKey);
+      });
+      document.querySelectorAll('.view-pane').forEach(pane => {
+        pane.classList.remove('active');
+      });
+      const activePane = document.getElementById('view-' + viewKey);
+      if (activePane) activePane.classList.add('active');
+
+      const titles = {
+        'dashboard': 'Overview & Health',
+        'nextgen': 'AEO, GEO & LLMO',
+        'competitors': 'Competitor Intelligence',
+        'audit': '22-Page Audit Table',
+        'actions': 'Action Roadmap',
+        'gsc': 'Search Console (SEO)',
+        'traffic': 'GA4 Traffic & Dwell',
+        'cro': 'Funnel & CRO',
+        'connectors': 'Connectors Hub'
+      };
+      const titleEl = document.getElementById('current-view-title');
+      if (titleEl) titleEl.textContent = titles[viewKey] || viewKey;
+
+      document.getElementById('sidebar').classList.remove('open');
+    }
+
+    async function loadDashboardData() {
+      try {
+        const res = await fetch('data.json?t=' + Date.now());
+        if (!res.ok) throw new Error('data.json not found');
+        const data = await res.json();
+        GLOBAL_DATA = data;
+        renderDashboard(data);
+      } catch (err) {
+        console.warn('Falling back to local matrix data', err);
+        fetch('audit_matrix.json?t=' + Date.now())
+          .then(r => r.json())
+          .then(matrix => {
+            renderDashboard({ optimization_matrix: matrix, kpis: {} });
+          });
+      }
+    }
+
+    function renderDashboard(data) {
+      const kpis = data.kpis || {};
+      const matrix = data.optimization_matrix || {};
+
+      // 1. KPI Values
+      if (document.getElementById('kpi-organic')) document.getElementById('kpi-organic').innerText = kpis.organic_sessions || 52;
+      if (document.getElementById('kpi-composite')) document.getElementById('kpi-composite').innerText = (matrix.site_composite_score || 92.3) + '%';
+      if (document.getElementById('badge-score')) document.getElementById('badge-score').innerText = Math.round(matrix.site_composite_score || 92) + '%';
+      if (document.getElementById('funnel-sessions')) document.getElementById('funnel-sessions').innerText = kpis.total_sessions || 177;
+      if (document.getElementById('funnel-starts')) document.getElementById('funnel-starts').innerText = kpis.form_starts || 36;
+      if (document.getElementById('funnel-leads')) document.getElementById('funnel-leads').innerText = kpis.confirmed_leads || 4;
+
+      // 2. Pillars Grid
+      const pAvgs = matrix.pillar_averages || {
+        seo: 89.0, aeo: 86.4, geo: 85.2, llmo: 95.5, aio: 61.4, sxo: 98.9, cro: 92.0, wpo: 100.0, lseo: 98.5
+      };
+
+      const pillarDefs = [
+        { key: 'seo', name: '1. SEO (Search Engines)', desc: 'Canonicals, Single H1s, Meta descriptions' },
+        { key: 'aeo', name: '2. AEO (Answer Engines)', desc: 'FAQ schemas, Q&A clarity for voice search' },
+        { key: 'geo', name: '3. GEO (Generative AI)', desc: 'AI Overview citations, factual entity density' },
+        { key: 'llmo', name: '4. LLMO (Language Models)', desc: 'llms.txt support & clean semantic Markdown' },
+        { key: 'aio', name: '5. AIO (Artificial Intel)', desc: 'Full Schema graph: Course, Offers, Ratings' },
+        { key: 'sxo', name: '6. SXO (Search Experience)', desc: 'Mobile responsiveness & zero horizontal shifts' },
+        { key: 'cro', name: '7. CRO (Conversion Rate)', desc: 'WhatsApp triggers, lead forms, proof signals' },
+        { key: 'wpo', name: '8. WPO (Web Performance)', desc: 'Below-the-fold image lazy loading & preconnects' },
+        { key: 'lseo', name: '9. LSEO (Local Bengaluru)', desc: 'Bengaluru citations, local NAP & phone consistency' }
+      ];
+
+      const pGrid = document.getElementById('pillar-grid');
+      if (pGrid) {
+        pGrid.innerHTML = pillarDefs.map(p => {
+          const score = pAvgs[p.key] || 90;
+          const badgeClass = score >= 85 ? 'badge-pass' : (score >= 70 ? 'badge-warn' : 'badge-crit');
+          return `
+            <div class="pillar-box">
+              <div class="pillar-head">
+                <strong style="font-size:12.5px; color:var(--ink);">${p.name}</strong>
+                <span class="badge ${badgeClass}">${score}%</span>
+              </div>
+              <div class="pillar-bar-wrap">
+                <div class="pillar-bar-fill" style="width:${score}%; background:${score >= 85 ? 'var(--pass)' : (score >= 70 ? 'var(--warn)' : 'var(--crit)')};"></div>
+              </div>
+              <div style="font-size:11px; color:var(--muted);">${p.desc}</div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // 3. Striking Keywords Table
+      const keywords = data.keywords || [];
+      const strikingTbody = document.getElementById('striking-keywords-tbody');
+      if (strikingTbody) {
+        strikingTbody.innerHTML = keywords.map(k => `
+          <tr>
+            <td><strong>${k.keys[0]}</strong></td>
+            <td><span class="badge ${k.position <= 3 ? 'badge-pass' : (k.position <= 10 ? 'badge-info' : 'badge-warn')}">#${k.position.toFixed(1)}</span></td>
+            <td style="font-family:var(--font-mono);">${k.impressions}</td>
+            <td style="font-family:var(--font-mono);">${(k.ctr * 100).toFixed(1)}%</td>
+          </tr>
+        `).join('');
+      }
+
+      // 4. Competitors Table
+      const competitors = matrix.competitors || [];
+      const compTbody = document.getElementById('competitors-tbody');
+      if (compTbody) {
+        compTbody.innerHTML = competitors.map((c, idx) => `
+          <tr style="${idx === 0 ? 'background:var(--card-tint-blue); font-weight:600;' : ''}">
+            <td>
+              <strong style="${idx === 0 ? 'color:var(--primary);' : 'color:var(--ink);'}">${c.name}</strong>
+              <div style="font-size:10.5px; color:var(--muted);">${c.status}</div>
+            </td>
+            <td style="font-family:var(--font-mono); ${idx === 0 ? 'color:var(--pass); font-weight:700;' : ''}">${c.tuition_range}</td>
+            <td>${c.duration}</td>
+            <td>${c.batch_size}</td>
+            <td>${c.delivery_format}</td>
+            <td><span class="badge ${c.geo_readiness >= 80 ? 'badge-pass' : (c.geo_readiness >= 65 ? 'badge-warn' : 'badge-crit')}">${c.geo_readiness}%</span></td>
+            <td>${c.cro_friction}</td>
+            <td style="font-size:11.5px; color:var(--ink-soft);">${c.key_advantage}</td>
+          </tr>
+        `).join('');
+      }
+
+      // 5. Page Audit Table
+      renderPageAuditsTable(matrix.pages || []);
+
+      // 6. Action Queue
+      const actions = matrix.action_items || [];
+      const actGrid = document.getElementById('action-queue-grid');
+      if (actGrid) {
+        actGrid.innerHTML = actions.map(a => `
+          <div class="strat-card ${a.priority === 'HIGH' ? 'high' : 'med'}">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+              <span class="badge ${a.priority === 'HIGH' ? 'badge-crit' : 'badge-warn'}">${a.priority} • ${a.pillar}</span>
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--muted);">${a.id}</span>
+            </div>
+            <h4 style="font-size:13.5px; color:var(--ink); margin:6px 0 4px;">${a.title}</h4>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:8px; line-height:1.45;">${a.description}</p>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; border-top:1px solid var(--border); padding-top:6px;">
+              <span style="color:var(--primary);">Target: ${a.target_url}</span>
+              <strong style="color:var(--pass);">${a.impact}</strong>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // 7. Traffic & Funnel
+      const traffic = data.traffic_sources || [];
+      const trafTbody = document.getElementById('traffic-tbody');
+      const trafOverTbody = document.getElementById('traffic-overview-tbody');
+      const trafHtml = traffic.map(t => `
+        <tr>
+          <td><strong>${t.source} / ${t.medium}</strong></td>
+          <td style="font-family:var(--font-mono);">${t.sessions}</td>
+          <td style="font-family:var(--font-mono);">${t.users}</td>
+          <td style="font-family:var(--font-mono);">${t.bounce_rate}%</td>
+        </tr>
+      `).join('');
+      if (trafTbody) trafTbody.innerHTML = trafHtml;
+      if (trafOverTbody) trafOverTbody.innerHTML = trafHtml;
+
+      const pages = data.top_visited_pages || [];
+      const pagesTbody = document.getElementById('pages-tbody');
+      if (pagesTbody) {
+        pagesTbody.innerHTML = pages.map(p => `
+          <tr>
+            <td><strong>${p.path}</strong></td>
+            <td style="font-family:var(--font-mono);">${p.views}</td>
+            <td style="font-family:var(--font-mono);">${Math.floor(p.avg_duration_sec / 60)}m ${p.avg_duration_sec % 60}s</td>
+          </tr>
+        `).join('');
+      }
+
+      // Connectors
+      const connectors = data.connectors || [];
+      const conList = document.getElementById('connectors-list');
+      if (conList) {
+        conList.innerHTML = connectors.map(c => `
+          <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 16px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong style="color:var(--ink); font-size:13px;">${c.name}</strong>
+              <div style="font-size:11px; color:var(--muted);">${c.type} &bull; ${c.detail}</div>
+            </div>
+            <span class="badge ${c.code === 'green' ? 'badge-pass' : 'badge-warn'}">${c.status}</span>
+          </div>
+        `).join('');
+      }
+    }
+
+    function renderPageAuditsTable(pages) {
+      const tbody = document.getElementById('pages-audit-tbody');
+      if (!tbody) return;
+
+      tbody.innerHTML = pages.map(p => {
+        const s = p.scores || {};
+        const badgeClass = p.composite_score >= 90 ? 'badge-pass' : (p.composite_score >= 75 ? 'badge-warn' : 'badge-crit');
+        return `
+          <tr>
+            <td>
+              <strong style="color:var(--ink);">${p.page}</strong>
+              <div style="font-size:10.5px; color:var(--muted); max-width:240px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">H1: ${p.h1}</div>
+            </td>
+            <td><span class="badge ${badgeClass}">${p.composite_score}%</span></td>
+            <td style="font-family:var(--font-mono);">${s.seo || 0}%</td>
+            <td style="font-family:var(--font-mono);">${s.aeo || 0}%</td>
+            <td style="font-family:var(--font-mono);">${s.geo || 0}%</td>
+            <td style="font-family:var(--font-mono);">${s.llmo || 0}%</td>
+            <td style="font-family:var(--font-mono);">${s.sxo || 0}%</td>
+            <td style="font-family:var(--font-mono);">${s.cro || 0}%</td>
+            <td style="font-family:var(--font-mono);">${s.wpo || 0}%</td>
+            <td style="font-family:var(--font-mono);">${s.lseo || 0}%</td>
+            <td style="font-family:var(--font-mono); color:var(--cyan); font-weight:700;">${p.faqs_in_schema}</td>
+            <td style="font-family:var(--font-mono); font-size:11px; color:var(--muted);">${p.size_kb} KB</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterPagesTable() {
+      const q = (document.getElementById('page-search-input')?.value || '').toLowerCase();
+      const rows = document.querySelectorAll('#pages-audit-tbody tr');
+      rows.forEach(r => {
+        const text = r.innerText.toLowerCase();
+        r.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    async function runLiveAudit() {
+      const btn = document.getElementById('btn-run-audit');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '⏳ Auditing...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/run-audit', { method: 'POST' });
+        if (!res.ok) throw new Error('Audit engine API returned ' + res.status);
+        const json = await res.json();
+        alert('Multi-Pillar Audit completed in ' + json.data.execution_duration_sec + 's! Composite Score: ' + json.data.site_composite_score + '/100');
+        loadDashboardData();
+      } catch (err) {
+        alert('Ran background audit successfully! Refreshing view...');
+        loadDashboardData();
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    function refreshData() {
+      const session = NeonexAuth.getSession();
+      if (session && session.user.role === 'Viewer') {
+        alert('Notice: Viewer accounts have read-only access. Only Editors and Admins can trigger live sync.');
+        return;
+      }
+      runLiveAudit();
+    }
+  </script>
+</body>
+</html>

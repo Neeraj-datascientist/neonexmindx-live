@@ -20,6 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="../neonex-auth.js"></script>
   <style>
     :root {
       --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -613,9 +614,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--surface-2);
       border-radius: 0 8px 8px 0;
     }
-    .rte-content-area table { width: 100%; border-collapse: collapse; margin: 1.2em 0; }
-    .rte-content-area th, .rte-content-area td { border: 1px solid var(--border); padding: 9px 13px; font-size: 13.5px; }
+    .rte-content-area table { width: 100%; border-collapse: collapse; margin: 1.2em 0; position: relative; }
+    .rte-content-area th, .rte-content-area td { border: 1px solid var(--border); padding: 9px 13px; font-size: 13.5px; min-width: 50px; }
     .rte-content-area th { background: var(--surface-2); font-weight: 700; }
+    .rte-content-area td:focus, .rte-content-area th:focus { outline: 2px solid var(--primary); outline-offset: -1px; background: rgba(27, 93, 183, 0.05); }
+    .table-tools-floating {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.12);
+      margin: 6px 0 10px;
+    }
+    .table-tool-btn {
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .table-tool-btn:hover { background: var(--primary-tint); color: var(--primary); border-color: var(--primary); }
+    .table-tool-btn.danger:hover { background: var(--crit-bg); color: var(--crit); border-color: var(--crit); }
     .rte-content-area img { max-width: 100%; border-radius: 8px; margin: 1.2em 0; }
     .rte-content-area code { font-family: var(--font-mono); background: var(--surface-2); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
 
@@ -982,7 +1008,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <form id="auth-login-form" onsubmit="APP.handleLogin(event)">
         <div class="auth-form-group">
           <label class="auth-label">Administrator Account</label>
-          <input type="text" id="auth-user" class="auth-input" value="admin@neonexmindx.com" autocomplete="username" />
+          <input type="text" id="auth-user" class="auth-input" placeholder="Enter username or email" autocomplete="username" />
         </div>
         <div class="auth-form-group">
           <label class="auth-label">Secure Access Password</label>
@@ -996,7 +1022,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span>Unlock CMS Dashboard</span>
         </button>
       </form>
-      <div class="auth-footer-hint">Default Admin Password: <b>Admin123!</b></div>
+      <div class="auth-footer-hint" style="color:var(--muted); font-size:12px; margin-top:20px; text-align:center;">Authorised administrator access only.</div>
     </div>
   </div>
 
@@ -1121,7 +1147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
         <span>Add Article</span>
       </button>
-      <button class="btn btn-sm btn-danger" onclick="APP.logout()" title="Logout Admin123!">
+      <button class="btn btn-sm btn-danger" onclick="APP.logout()" title="Logout">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
         <span>Logout</span>
       </button>
@@ -1175,66 +1201,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     const APP = {
       checkAuth() {
-        const isAuth = sessionStorage.getItem('neonex_cms_auth');
         const gate = document.getElementById('auth-gate');
-        if (isAuth === 'authenticated') {
-          if (gate) {
-            gate.classList.remove('active');
-            gate.style.display = 'none';
-          }
-        } else {
-          if (gate) {
-            gate.classList.add('active');
-            gate.style.display = 'flex';
-            setTimeout(() => {
-              const passInput = document.getElementById('auth-pass');
-              if (passInput) passInput.focus();
-            }, 100);
-          }
+        if (gate) gate.style.display = 'none';
+        if (window.NeonexAuth) {
+          NeonexAuth.renderAuthGate('cms', 'Blog Publisher & CMS Administration', (user) => {
+            sessionStorage.setItem('neonex_cms_auth', 'authenticated');
+            APP.showToast('Welcome back, ' + (user.name || user.username) + ' (' + user.role + ')');
+          });
         }
       },
 
       handleLogin(e) {
         if (e && e.preventDefault) e.preventDefault();
-        const pass = (document.getElementById('auth-pass')?.value || '').trim();
-        const errMsg = document.getElementById('auth-err-msg');
-        
-        if (pass === 'Admin123!') {
-          sessionStorage.setItem('neonex_cms_auth', 'authenticated');
-          if (errMsg) errMsg.style.display = 'none';
-          const gate = document.getElementById('auth-gate');
-          if (gate) {
-            gate.classList.remove('active');
-            gate.style.display = 'none';
-          }
-          const passInput = document.getElementById('auth-pass');
-          if (passInput) passInput.value = '';
-          APP.showToast('Authentication successful! Welcome Admin.');
-        } else {
-          if (errMsg) {
-            errMsg.style.display = 'flex';
-          }
-          const passInput = document.getElementById('auth-pass');
-          if (passInput) {
-            passInput.value = '';
-            passInput.focus();
-          }
-        }
+        this.checkAuth();
       },
 
       logout() {
-        sessionStorage.removeItem('neonex_cms_auth');
-        const gate = document.getElementById('auth-gate');
-        if (gate) {
-          gate.classList.add('active');
-          gate.style.display = 'flex';
-          const passInput = document.getElementById('auth-pass');
-          if (passInput) {
-            passInput.value = '';
-            passInput.focus();
-          }
+        if (window.NeonexAuth) {
+          NeonexAuth.logout();
+        } else {
+          sessionStorage.removeItem('neonex_cms_auth');
+          location.reload();
         }
-        APP.showToast('You have been logged out.');
       },
 
       async init() {
@@ -1295,12 +1283,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       },
 
-      saveToLocalStorage(broadcast = true) {
+      async saveToLocalStorage(broadcast = true) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));
         if (broadcast) {
           SYNC_CHANNEL.postMessage({ type: 'DATA_UPDATED', timestamp: Date.now() });
         }
         APP.updateSidebarCounts();
+
+        // Also persist directly to server disk API
+        try {
+          fetch('/api/save-blogs', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(DB)
+          }).catch(() => {});
+        } catch(e) {}
       },
 
       updateSidebarCounts() {
@@ -1527,7 +1524,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </td>
                     <td>
                       <button class="btn btn-sm" onclick="APP.navigateTo('add-article', '${p.id}')">Edit</button>
-                      <button class="btn btn-sm" onclick="window.open('../blog-post.html?slug=${p.slug}','_blank')">View</button>
+                      <button class="btn btn-sm" onclick="window.open('/blog/${p.slug}','_blank')">View</button>
                     </td>
                   </tr>
                 `).join('')}
@@ -1626,7 +1623,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div style="display:flex; gap:6px;">
                         <button class="btn btn-sm" onclick="APP.navigateTo('add-article', '${p.id}')">Edit</button>
                         <button class="btn btn-sm btn-danger" onclick="APP.deletePost('${p.id}')">Delete</button>
-                        <button class="btn btn-sm" onclick="window.open('../blog-post.html?slug=${p.slug}','_blank')">View</button>
+                        <button class="btn btn-sm" onclick="window.open('/blog/${p.slug}','_blank')">View</button>
                       </div>
                     </td>
                   </tr>
@@ -1747,6 +1744,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <label class="form-label">EXCERPT (SHORT SUMMARY)</label>
                     <textarea id="ed-excerpt" class="form-control" rows="3" placeholder="Brief 1-2 sentence preview for cards and search snippets..." oninput="APP.updateLiveSchemas()">${APP.escapeHtml(post.excerpt || '')}</textarea>
                   </div>
+
+                  <div class="form-group" style="margin-top: 18px;">
+                    <label class="form-label" style="display:flex; justify-content:space-between; align-items:center;">
+                      <span>Upload Article Content or Media</span>
+                      <span style="font-size:11px; font-weight:600; color:var(--muted); text-transform:none;">Local Document (.html, .md, .txt) &bull; Cover Image (.webp, .png, .jpg)</span>
+                    </label>
+
+                    <div class="local-upload-card" id="local-upload-dropzone" style="border: 1.5px dashed var(--border); background: var(--surface-2); border-radius: 12px; padding: 18px 20px; transition: all 0.2s ease;">
+                      <input type="file" id="ed-local-file-input" style="display: none;" accept=".html,.htm,.md,.markdown,.txt,.json,.png,.jpg,.jpeg,.webp,.svg" onchange="APP.handleLocalFileUpload(event)" />
+                      
+                      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
+                        <div style="display: flex; align-items: center; gap: 14px; text-align: left;">
+                          <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(27, 93, 183, 0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                          </div>
+                          <div>
+                            <div style="font-size: 13.5px; font-weight: 700; color: var(--ink);">Upload from Local System</div>
+                            <div style="font-size: 11.5px; color: var(--muted); margin-top: 2px;">Import text, Markdown, or HTML directly into the editor, or upload local cover media.</div>
+                          </div>
+                        </div>
+
+                        <button type="button" class="btn btn-sm btn-primary" onclick="document.getElementById('ed-local-file-input').click()" style="display: inline-flex; align-items: center; gap: 7px; padding: 9px 16px; font-weight: 700; cursor: pointer;">
+                          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                          <span>Upload from Local System</span>
+                        </button>
+                      </div>
+
+                      <div id="local-upload-feedback" style="display:none; margin-top: 12px; padding: 10px 14px; border-radius: 8px; background: rgba(22, 163, 74, 0.08); border: 1px solid rgba(22, 163, 74, 0.25); text-align: left; font-size: 12px; color: #166534; justify-content: space-between; align-items: center;">
+                        <span id="local-upload-feedback-text"></span>
+                        <button type="button" onclick="this.parentElement.style.display='none'" style="background:none; border:none; color:#166534; font-weight:700; cursor:pointer; font-size:16px; line-height:1;">&times;</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div id="tab-pane-seo" style="display:none;">
@@ -1816,8 +1846,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <button class="rte-btn" onclick="document.execCommand('redo')" title="Redo">↷</button>
                     <div class="rte-sep"></div>
 
-                    <!-- All 6 Heading Levels -->
-                    <select class="rte-select" onchange="APP.applyHeading(this.value)" title="Typography Format">
+                    <!-- Quick Heading Buttons -->
+                    <button class="rte-btn" onclick="APP.applyHeading('h1')" title="Apply Heading 1 (H1)" style="font-weight:800; font-size:12px;">H1</button>
+                    <button class="rte-btn" onclick="APP.applyHeading('h2')" title="Apply Heading 2 (H2)" style="font-weight:800; font-size:12px;">H2</button>
+                    <button class="rte-btn" onclick="APP.applyHeading('h3')" title="Apply Heading 3 (H3)" style="font-weight:800; font-size:12px;">H3</button>
+
+                    <!-- All Heading Levels Dropdown -->
+                    <select class="rte-select" id="rte-format-select" onchange="APP.applyHeading(this.value)" title="Typography Format">
                       <option value="p">Paragraph</option>
                       <option value="h1">Heading 1 (H1)</option>
                       <option value="h2">Heading 2 (H2)</option>
@@ -1850,19 +1885,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <button class="rte-btn" onclick="document.execCommand('strikeThrough')" title="Strike"><s>S</s></button>
                     <div class="rte-sep"></div>
 
-                    <button class="rte-btn" onclick="document.execCommand('insertUnorderedList')" title="Bullet List">\u2022 List</button>
-                    <button class="rte-btn" onclick="document.execCommand('insertOrderedList')" title="Numbered List">1. List</button>
+                    <!-- Text Alignment -->
+                    <button class="rte-btn" onclick="APP.applyAlignment('left')" title="Align Left">⇤ Left</button>
+                    <button class="rte-btn" onclick="APP.applyAlignment('center')" title="Align Center">≡ Center</button>
+                    <button class="rte-btn" onclick="APP.applyAlignment('right')" title="Align Right">⇥ Right</button>
+                    <button class="rte-btn" onclick="APP.applyAlignment('justify')" title="Justify">⇿ Justify</button>
                     <div class="rte-sep"></div>
 
-                    <button class="rte-btn" onclick="document.execCommand('justifyLeft')" title="Left">⇤</button>
-                    <button class="rte-btn" onclick="document.execCommand('justifyCenter')" title="Center">≡</button>
-                    <button class="rte-btn" onclick="document.execCommand('justifyRight')" title="Right">⇥</button>
+                    <button class="rte-btn" onclick="document.execCommand('insertUnorderedList')" title="Bullet List">• List</button>
+                    <button class="rte-btn" onclick="document.execCommand('insertOrderedList')" title="Numbered List">1. List</button>
                     <div class="rte-sep"></div>
 
                     <button class="rte-btn" onclick="APP.openLinkModal()" title="Insert or Edit Link">🔗</button>
                     <button class="rte-btn" onclick="document.execCommand('unlink')" title="Remove Link">⦸</button>
                     <button class="rte-btn" onclick="APP.openImagePickerModal()" title="Insert Image">🖼</button>
-                    <button class="rte-btn" onclick="APP.insertSampleTable()" title="Insert Table">▦</button>
+
+                    <!-- Table Operations -->
+                    <button class="rte-btn" onclick="APP.openTableModal()" title="Insert Custom Table">▦ Table</button>
+                    <button class="rte-btn" onclick="APP.addTableRow()" title="Insert Row below current cell">+Row</button>
+                    <button class="rte-btn" onclick="APP.getTableColumn()" title="Insert Column right of current cell">+Col</button>
+                    <button class="rte-btn" onclick="APP.deleteTableRow()" title="Delete Current Row" style="color:var(--crit);">-Row</button>
+                    <button class="rte-btn" onclick="APP.deleteTableColumn()" title="Delete Current Column" style="color:var(--crit);">-Col</button>
+
                     <button class="rte-btn" onclick="document.execCommand('removeFormat')" title="Clear Formatting">✕</button>
                   </div>
                 </div>
@@ -1963,13 +2007,245 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       applyHeading(tag) {
         if (!tag) return;
-        if (tag === 'p' || tag === 'blockquote') {
-          document.execCommand('formatBlock', false, tag);
-        } else {
-          document.execCommand('formatBlock', false, '<' + tag + '>');
-        }
         const ed = document.getElementById('ed-body');
-        if (ed) ed.focus();
+        if (!ed) return;
+        ed.focus();
+
+        const sel = window.getSelection();
+        if (!sel || !sel.rangeCount) {
+          document.execCommand('formatBlock', false, tag === 'p' || tag === 'blockquote' ? tag : '<' + tag + '>');
+          APP.calculateLiveSeo();
+          return;
+        }
+
+        // Check if cursor/selection is inside an existing block element
+        let node = sel.anchorNode;
+        if (node && node.nodeType === 3) node = node.parentNode;
+
+        // Traverse upwards until ed-body or direct block child
+        while (node && node.parentNode && node.parentNode !== ed && !/^(H[1-6]|P|BLOCKQUOTE|DIV)$/i.test(node.tagName)) {
+          node = node.parentNode;
+        }
+
+        if (node && node !== ed && /^(H[1-6]|P|BLOCKQUOTE|DIV)$/i.test(node.tagName)) {
+          // Replace tag cleanly
+          const targetTag = tag.toLowerCase();
+          if (node.tagName.toLowerCase() !== targetTag) {
+            const newElem = document.createElement(targetTag);
+            newElem.innerHTML = node.innerHTML;
+            if (node.style.textAlign) newElem.style.textAlign = node.style.textAlign;
+            node.parentNode.replaceChild(newElem, node);
+
+            // Restore selection in new element
+            const range = document.createRange();
+            range.selectNodeContents(newElem);
+            range.collapse(false);
+            sel.removeAllRanges();
+            sel.addRange(range);
+          }
+        } else {
+          document.execCommand('formatBlock', false, tag === 'p' || tag === 'blockquote' ? tag : '<' + tag + '>');
+        }
+
+        ed.focus();
+        APP.calculateLiveSeo();
+      },
+
+      applyAlignment(alignment) {
+        const ed = document.getElementById('ed-body');
+        if (!ed) return;
+        ed.focus();
+
+        const sel = window.getSelection();
+        if (sel && sel.rangeCount) {
+          let node = sel.anchorNode;
+          if (node && node.nodeType === 3) node = node.parentNode;
+          while (node && node !== ed && !/^(H[1-6]|P|BLOCKQUOTE|DIV|TH|TD)$/i.test(node.tagName)) {
+            node = node.parentNode;
+          }
+          if (node && node !== ed) {
+            node.style.textAlign = alignment;
+            APP.calculateLiveSeo();
+            return;
+          }
+        }
+
+        // Fallback to browser execCommand
+        if (alignment === 'center') document.execCommand('justifyCenter');
+        else if (alignment === 'right') document.execCommand('justifyRight');
+        else if (alignment === 'justify') document.execCommand('justifyFull');
+        else document.execCommand('justifyLeft');
+        APP.calculateLiveSeo();
+      },
+
+      /* Table Cell and Structure Management */
+      getActiveTableCell() {
+        const sel = window.getSelection();
+        if (!sel || !sel.rangeCount) return null;
+        let node = sel.anchorNode;
+        if (node && node.nodeType === 3) node = node.parentNode;
+        while (node && node.id !== 'ed-body') {
+          if (node.tagName === 'TD' || node.tagName === 'TH') return node;
+          node = node.parentNode;
+        }
+        return null;
+      },
+
+      openTableModal() {
+        const body = `
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">ROWS COUNT</label>
+              <input type="number" id="tbl-rows" class="form-control" value="3" min="1" max="50">
+            </div>
+            <div class="form-group">
+              <label class="form-label">COLUMNS COUNT</label>
+              <input type="number" id="tbl-cols" class="form-control" value="3" min="1" max="20">
+            </div>
+          </div>
+          <div class="form-group">
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; cursor:pointer;">
+              <input type="checkbox" id="tbl-has-header" checked>
+              <span>Include Header Row (&lt;thead&gt;&lt;th&gt;)</span>
+            </label>
+          </div>
+        `;
+        const footer = `
+          <button class="btn" onclick="APP.closeModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="APP.insertCustomTable()">Insert Table</button>
+        `;
+        APP.openModal('Insert Custom Table', body, footer);
+      },
+
+      insertCustomTable() {
+        const rows = parseInt(document.getElementById('tbl-rows')?.value || 3, 10);
+        const cols = parseInt(document.getElementById('tbl-cols')?.value || 3, 10);
+        const hasHeader = document.getElementById('tbl-has-header')?.checked ?? true;
+
+        APP.closeModal();
+
+        let tableHtml = '<table>';
+        if (hasHeader) {
+          tableHtml += '<thead><tr>';
+          for (let c = 1; c <= cols; c++) {
+            tableHtml += `<th>Header ${c}</th>`;
+          }
+          tableHtml += '</tr></thead>';
+        }
+        tableHtml += '<tbody>';
+        for (let r = 1; r <= rows; r++) {
+          tableHtml += '<tr>';
+          for (let c = 1; c <= cols; c++) {
+            tableHtml += `<td>Data (${r}, ${c})</td>`;
+          }
+          tableHtml += '</tr>';
+        }
+        tableHtml += '</tbody></table><p><br></p>';
+
+        const ed = document.getElementById('ed-body');
+        if (ed) {
+          ed.focus();
+          document.execCommand('insertHTML', false, tableHtml);
+          APP.calculateLiveSeo();
+          APP.showToast('Table inserted! Click any cell to add/remove rows or columns.');
+        }
+      },
+
+      addTableRow() {
+        const cell = APP.getActiveTableCell();
+        if (!cell) {
+          alert('Click inside a table cell where you want to insert a new row.');
+          return;
+        }
+        const row = cell.closest('tr');
+        const table = cell.closest('table');
+        if (!row || !table) return;
+
+        const colCount = row.children.length;
+        const newRow = document.createElement('tr');
+        for (let i = 0; i < colCount; i++) {
+          const newCell = document.createElement('td');
+          newCell.innerHTML = '&nbsp;';
+          newRow.appendChild(newCell);
+        }
+
+        row.parentNode.insertBefore(newRow, row.nextSibling);
+        APP.calculateLiveSeo();
+        APP.showToast('Row added below current row.');
+      },
+
+      getTableColumn() {
+        const cell = APP.getActiveTableCell();
+        if (!cell) {
+          alert('Click inside a table cell where you want to insert a new column.');
+          return;
+        }
+        const row = cell.closest('tr');
+        const table = cell.closest('table');
+        if (!row || !table) return;
+
+        const cellIndex = Array.from(row.children).indexOf(cell);
+        const rows = table.querySelectorAll('tr');
+
+        rows.forEach(r => {
+          const isHeader = r.parentElement.tagName === 'THEAD' || r.querySelector('th');
+          const newCell = document.createElement(isHeader ? 'th' : 'td');
+          newCell.innerHTML = isHeader ? 'New Header' : '&nbsp;';
+          if (cellIndex >= 0 && cellIndex < r.children.length) {
+            r.children[cellIndex].after(newCell);
+          } else {
+            r.appendChild(newCell);
+          }
+        });
+
+        APP.calculateLiveSeo();
+        APP.showToast('Column added next to current column.');
+      },
+
+      deleteTableRow() {
+        const cell = APP.getActiveTableCell();
+        if (!cell) {
+          alert('Click inside a table cell belonging to the row you wish to delete.');
+          return;
+        }
+        const row = cell.closest('tr');
+        const table = cell.closest('table');
+        if (!row || !table) return;
+
+        if (table.querySelectorAll('tr').length <= 1) {
+          table.remove();
+          APP.showToast('Table deleted.');
+        } else {
+          row.remove();
+          APP.showToast('Row deleted.');
+        }
+        APP.calculateLiveSeo();
+      },
+
+      deleteTableColumn() {
+        const cell = APP.getActiveTableCell();
+        if (!cell) {
+          alert('Click inside a table cell belonging to the column you wish to delete.');
+          return;
+        }
+        const row = cell.closest('tr');
+        const table = cell.closest('table');
+        if (!row || !table) return;
+
+        const cellIndex = Array.from(row.children).indexOf(cell);
+        const rows = table.querySelectorAll('tr');
+
+        if (row.children.length <= 1) {
+          table.remove();
+          APP.showToast('Table deleted.');
+        } else {
+          rows.forEach(r => {
+            if (r.children[cellIndex]) {
+              r.children[cellIndex].remove();
+            }
+          });
+          APP.showToast('Column deleted.');
+        }
         APP.calculateLiveSeo();
       },
 
@@ -2192,6 +2468,144 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           navigator.clipboard.writeText(previewEl.textContent);
           APP.showToast('JSON-LD Schema copied to clipboard!');
         }
+      },
+
+            handleLocalFileUpload(event) {
+        const file = event.target.files && event.target.files[0];
+        if (!file) return;
+
+        const fileName = file.name;
+        const fileExt = fileName.split('.').pop().toLowerCase();
+        const feedbackEl = document.getElementById('local-upload-feedback');
+        const feedbackText = document.getElementById('local-upload-feedback-text');
+
+        // Case A: Image upload (.png, .jpg, .jpeg, .webp, .svg)
+        if (file.type.startsWith('image/') || ['png', 'jpg', 'jpeg', 'webp', 'svg'].includes(fileExt)) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const dataUrl = e.target.result;
+            const heroInput = document.getElementById('ed-heroimage');
+            const heroPreview = document.getElementById('hero-preview');
+            if (heroInput) heroInput.value = dataUrl;
+            if (heroPreview) heroPreview.src = dataUrl;
+
+            // Also add to local media library
+            DB.media = DB.media || [];
+            DB.media.unshift({
+              id: 'med-' + Date.now(),
+              url: dataUrl,
+              name: fileName,
+              alt: fileName.replace(/\.[^/.]+$/, ""),
+              size: (file.size / 1024).toFixed(1) + ' KB',
+              date: new Date().toLocaleDateString('en-GB')
+            });
+            APP.saveToLocalStorage();
+
+            if (feedbackEl && feedbackText) {
+              feedbackText.innerHTML = `<strong>Uploaded image:</strong> ${APP.escapeHtml(fileName)} (${(file.size / 1024).toFixed(1)} KB) &bull; Set as Cover Image & added to Media Library.`;
+              feedbackEl.style.display = 'flex';
+            }
+            APP.showToast(`Image "${fileName}" set as cover image!`);
+            APP.updateLiveSchemas();
+          };
+          reader.readAsDataURL(file);
+          event.target.value = '';
+          return;
+        }
+
+        // Case B: Document / Text upload (.html, .htm, .md, .markdown, .txt, .json)
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          let text = e.target.result || '';
+          let bodyHtml = '';
+          let extractedTitle = '';
+          let extractedExcerpt = '';
+
+          if (fileExt === 'json') {
+            try {
+              const parsed = JSON.parse(text);
+              if (parsed.title) extractedTitle = parsed.title;
+              if (parsed.excerpt) extractedExcerpt = parsed.excerpt;
+              bodyHtml = parsed.body || parsed.content || JSON.stringify(parsed, null, 2);
+            } catch(err) {
+              bodyHtml = `<pre><code>${APP.escapeHtml(text)}</code></pre>`;
+            }
+          } else if (fileExt === 'md' || fileExt === 'markdown') {
+            const lines = text.split('\n');
+            const parsedLines = [];
+            for (let line of lines) {
+              if (!extractedTitle && line.startsWith('# ')) {
+                extractedTitle = line.replace(/^#\s+/, '').trim();
+                continue;
+              }
+              if (line.startsWith('### ')) {
+                parsedLines.push(`<h3>${line.replace(/^###\s+/, '')}</h3>`);
+              } else if (line.startsWith('## ')) {
+                parsedLines.push(`<h2>${line.replace(/^##\s+/, '')}</h2>`);
+              } else if (line.startsWith('# ')) {
+                parsedLines.push(`<h1>${line.replace(/^#\s+/, '')}</h1>`);
+              } else if (line.startsWith('- ') || line.startsWith('* ')) {
+                parsedLines.push(`<li>${line.substring(2)}</li>`);
+              } else if (line.trim().length > 0) {
+                let formatted = line
+                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                  .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                  .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
+                parsedLines.push(`<p>${formatted}</p>`);
+                if (!extractedExcerpt && line.trim().length > 20) {
+                  extractedExcerpt = line.trim().substring(0, 160);
+                }
+              }
+            }
+            bodyHtml = parsedLines.join('\n');
+          } else if (fileExt === 'html' || fileExt === 'htm') {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+            const h1 = doc.querySelector('h1');
+            if (h1 && !extractedTitle) extractedTitle = h1.innerText.trim();
+            const firstP = doc.querySelector('p');
+            if (firstP && !extractedExcerpt) extractedExcerpt = firstP.innerText.trim().substring(0, 160);
+            bodyHtml = doc.body ? doc.body.innerHTML : text;
+          } else {
+            const paragraphs = text.split(/\n\s*\n/);
+            const pTags = paragraphs.map(p => `<p>${APP.escapeHtml(p.trim()).replace(/\n/g, '<br>')}</p>`);
+            bodyHtml = pTags.join('\n');
+            if (!extractedTitle && paragraphs[0]) {
+              extractedTitle = paragraphs[0].split('\n')[0].substring(0, 80);
+            }
+            if (!extractedExcerpt && paragraphs[0]) {
+              extractedExcerpt = paragraphs[0].substring(0, 160);
+            }
+          }
+
+          const bodyEditor = document.getElementById('ed-body');
+          const titleInput = document.getElementById('ed-title');
+          const excerptInput = document.getElementById('ed-excerpt');
+
+          if (bodyEditor) {
+            bodyEditor.innerHTML = bodyHtml;
+          }
+          if (titleInput && (!titleInput.value || titleInput.value === 'New Article Draft')) {
+            if (extractedTitle) {
+              titleInput.value = extractedTitle;
+              APP.onTitleChanged(extractedTitle);
+            }
+          }
+          if (excerptInput && !excerptInput.value && extractedExcerpt) {
+            excerptInput.value = extractedExcerpt;
+          }
+
+          APP.calculateLiveSeo();
+          APP.updateLiveSchemas();
+
+          if (feedbackEl && feedbackText) {
+            feedbackText.innerHTML = `<strong>Uploaded file:</strong> ${APP.escapeHtml(fileName)} (${(file.size / 1024).toFixed(1)} KB) &bull; Article content imported directly into the editor!`;
+            feedbackEl.style.display = 'flex';
+          }
+          APP.showToast(`Imported "${fileName}" into editor!`);
+        };
+        reader.readAsText(file);
+        event.target.value = '';
       },
 
       switchEditorTab(tab, btn) {
@@ -3013,28 +3427,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       renderSitemap() {
         const siteUrl = (DB.site && DB.site.siteUrl) || 'https://neonexmindx.com';
         const posts = (DB.posts || []).filter(p => p.status === 'published');
+        DB.customSitemapUrls = DB.customSitemapUrls || [
+          { loc: '/', priority: '1.0', changefreq: 'weekly', lastmod: '2026-10-09' },
+          { loc: '/about-us', priority: '0.8', changefreq: 'monthly', lastmod: '2026-10-09' },
+          { loc: '/trainers', priority: '0.8', changefreq: 'monthly', lastmod: '2026-10-09' },
+          { loc: '/contact-us', priority: '0.8', changefreq: 'monthly', lastmod: '2026-10-09' },
+          { loc: '/courses/data-analytics-course', priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-09' },
+          { loc: '/courses/data-science-course', priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-09' },
+          { loc: '/courses/ai-ml-engineering-course', priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-09' },
+          { loc: '/courses/data-engineering-course', priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-09' },
+          { loc: '/courses/business-analytics-course', priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-09' },
+          { loc: '/courses/excel-power-bi-tableau-course', priority: '0.8', changefreq: 'weekly', lastmod: '2026-10-09' },
+          { loc: '/courses/sql-course', priority: '0.8', changefreq: 'weekly', lastmod: '2026-10-09' },
+          { loc: '/courses/python-programming-course', priority: '0.8', changefreq: 'weekly', lastmod: '2026-10-09' },
+          { loc: '/courses/machine-learning-course', priority: '0.8', changefreq: 'weekly', lastmod: '2026-10-09' },
+          { loc: '/blogs', priority: '0.9', changefreq: 'daily', lastmod: '2026-10-09' }
+        ];
+
+        const allUrls = [];
+        // Add custom URLs
+        DB.customSitemapUrls.forEach(u => {
+          const fullLoc = u.loc.startsWith('http') ? u.loc : (siteUrl + (u.loc.startsWith('/') ? u.loc : '/' + u.loc));
+          allUrls.push({
+            loc: fullLoc,
+            priority: u.priority || '0.8',
+            changefreq: u.changefreq || 'weekly',
+            lastmod: u.lastmod || new Date().toISOString().split('T')[0]
+          });
+        });
+
+        // Add published posts (if not already listed)
+        posts.forEach(p => {
+          const postLoc = `${siteUrl}/blog/${p.slug}`;
+          if (!allUrls.some(u => u.loc === postLoc)) {
+            allUrls.push({
+              loc: postLoc,
+              priority: '0.8',
+              changefreq: 'monthly',
+              lastmod: p.publishDate || '2026-09-23'
+            });
+          }
+        });
+
         const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${siteUrl}/</loc>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>${siteUrl}/blogs</loc>
-    <priority>0.9</priority>
-  </url>
-${posts.map(p => `  <url>
-    <loc>${siteUrl}/blog/${p.slug}</loc>
-    <lastmod>${p.publishDate || '2026-09-23'}</lastmod>
-    <priority>0.8</priority>
+${allUrls.map(u => `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${u.lastmod}</lastmod>
+    <changefreq>${u.changefreq}</changefreq>
+    <priority>${u.priority}</priority>
   </url>`).join('\n')}
 </urlset>`;
 
         return `
           <div class="view-header">
             <div class="view-title-block">
-              <h2>Sitemap</h2>
-              <p>CMS / Sitemap \u2014 XML sitemap generation for search indexing.</p>
+              <h2>Sitemap Management</h2>
+              <p>CMS / Sitemap — Add custom URLs, manage crawl priorities, and sync XML for search indexing.</p>
             </div>
             <div class="view-header-actions">
               <button class="btn btn-primary" onclick="navigator.clipboard.writeText(document.getElementById('sitemap-xml-preview').value); APP.showToast('XML copied to clipboard!');">Copy XML</button>
@@ -3049,17 +3498,117 @@ ${posts.map(p => `  <url>
                 <input type="text" class="form-control" value="${siteUrl}" id="sitemap-url-input" onchange="DB.site.siteUrl=this.value; APP.saveToLocalStorage(); APP.renderCurrentView();">
               </div>
               <div class="form-group">
-                <label class="form-label">INDEXED ARTICLES COUNT</label>
-                <div style="font-size:16px; font-weight:700; margin-top:8px;">${posts.length} published URLs</div>
+                <label class="form-label">TOTAL INDEXED URLS COUNT</label>
+                <div style="font-size:16px; font-weight:700; margin-top:8px;">${allUrls.length} total URLs (${posts.length} articles, ${DB.customSitemapUrls.length} site pages)</div>
               </div>
             </div>
           </div>
 
+          <!-- Add New URL Form -->
+          <div class="card" style="margin-bottom:20px;">
+            <h3 style="font-size:14px; font-weight:700; margin-bottom:12px;">Add New URL to Sitemap</h3>
+            <div class="form-row" style="grid-template-columns: 2fr 1fr 1fr auto; align-items:flex-end;">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">URL Path or Full Link</label>
+                <input type="text" id="new-sitemap-loc" class="form-control" placeholder="/new-page or https://neonexmindx.com/new-guide">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Priority</label>
+                <select id="new-sitemap-prio" class="form-control">
+                  <option value="1.0">1.0 (Home)</option>
+                  <option value="0.9">0.9 (Key Landing/Course)</option>
+                  <option value="0.8" selected>0.8 (Standard / Blog)</option>
+                  <option value="0.7">0.7 (Sub-page)</option>
+                  <option value="0.5">0.5 (General)</option>
+                  <option value="0.3">0.3 (Legal)</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Frequency</label>
+                <select id="new-sitemap-freq" class="form-control">
+                  <option value="daily">Daily</option>
+                  <option value="weekly" selected>Weekly</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" onclick="APP.addSitemapUrl()" style="height:38px;">+ Add URL</button>
+            </div>
+          </div>
+
+          <!-- Custom URLs List Table -->
+          <div class="table-container" style="margin-bottom:20px;">
+            <div class="table-toolbar">
+              <h3 style="font-size:14px; font-weight:700;">Configured Site URLs (${DB.customSitemapUrls.length})</h3>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>URL Path</th>
+                  <th>Priority</th>
+                  <th>Change Frequency</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${DB.customSitemapUrls.map((u, i) => `
+                  <tr>
+                    <td><code>${u.loc}</code></td>
+                    <td><span class="score-badge score-mid">${u.priority}</span></td>
+                    <td>${u.changefreq}</td>
+                    <td>
+                      <button class="btn btn-sm btn-danger" onclick="APP.removeSitemapUrl(${i})">&times; Remove</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+
           <div class="card">
-            <label class="form-label">XML OUTPUT PREVIEW (/sitemap.xml)</label>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <label class="form-label" style="margin:0;">XML OUTPUT PREVIEW (/sitemap.xml)</label>
+              <button class="btn btn-sm btn-outline-primary" onclick="APP.downloadSitemapXml()">Download sitemap.xml</button>
+            </div>
             <textarea id="sitemap-xml-preview" class="form-control" rows="14" readonly style="font-family:var(--font-mono); font-size:11.5px; line-height:1.5;">${APP.escapeHtml(xml)}</textarea>
           </div>
         `;
+      },
+
+      addSitemapUrl() {
+        const loc = (document.getElementById('new-sitemap-loc')?.value || '').trim();
+        const priority = document.getElementById('new-sitemap-prio')?.value || '0.8';
+        const changefreq = document.getElementById('new-sitemap-freq')?.value || 'weekly';
+
+        if (!loc) {
+          alert('Please enter a valid URL path (e.g. /my-new-course or /new-page)');
+          return;
+        }
+
+        DB.customSitemapUrls = DB.customSitemapUrls || [];
+        if (DB.customSitemapUrls.some(u => u.loc === loc)) {
+          alert('This URL is already in the sitemap.');
+          return;
+        }
+
+        DB.customSitemapUrls.push({
+          loc,
+          priority,
+          changefreq,
+          lastmod: new Date().toISOString().split('T')[0]
+        });
+
+        APP.saveToLocalStorage();
+        APP.showToast('URL added to sitemap!');
+        APP.renderCurrentView();
+      },
+
+      removeSitemapUrl(idx) {
+        if (!confirm('Remove this URL from the sitemap?')) return;
+        DB.customSitemapUrls.splice(idx, 1);
+        APP.saveToLocalStorage();
+        APP.showToast('URL removed from sitemap.');
+        APP.renderCurrentView();
       },
 
       downloadSitemapXml() {

@@ -29,7 +29,7 @@
 - **Neeraj PC**: Data Analytics & AI Mentor — Exploratory data frameworks, business intelligence, dashboard storytelling, and machine learning architectures.
 - **Yashas**: Senior Analytics & AI Mentor — Business analytics, SQL optimization, and enterprise dashboard architecture using Power BI and Tableau.
 - **Raveendran**: Data Analytics & Data Engineering Mentor — Big data and analytics engineer mentoring on distributed ETL pipelines, modern data warehouses, scalable SQL logic, and production data workflows. (LinkedIn: https://www.linkedin.com/in/raveendran-m-581a723b8)
-- **Venkata Nagarjuna**: Developer & QA Mentor — Software developer and QA automation specialist mentoring on software engineering best practices, test automation frameworks, Python applications, and production readiness.
+- **Venkat Nagarjun**: Developer & QA Mentor — Software developer and QA automation specialist mentoring on software engineering best practices, test automation frameworks, Python applications, and production readiness.
 - **Megha**: Career Coach, Communication Skills & Profile Building — Corporate HR and executive communications trainer coaching learners on technical storytelling, resume positioning, interview presence, and workplace communication.
 
 ## Institutional Details & Contact
@@ -38,7 +38,7 @@
 - **Campus Address**: 4th, 15/1, 1st A Cross Main, MES Road, Muthyala Nagar, Bengaluru, Karnataka 560054, India
 - **Phone**: +91-84318-03839
 - **Email**: neonexminds@gmail.com
-- **Google Maps**: https://share.google/R5BNMJN9NZGn6YkL7
+- **Google Maps**: https://maps.app.goo.gl/MnxCtkmMZF4Nq79n8
 - **Blog & Tutorials**: https://neonexmindx.com/blogs
 - **Trainers Directory**: https://neonexmindx.com/trainers
 - **About Us**: https://neonexmindx.com/about-us

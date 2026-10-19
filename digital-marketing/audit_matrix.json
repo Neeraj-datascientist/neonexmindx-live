@@ -1,0 +1,610 @@
+{
+  "timestamp": "2026-10-19T23:06:50+05:30",
+  "total_pages_audited": 22,
+  "llms_txt_active": true,
+  "llms_txt_size_kb": 5.3,
+  "site_composite_score": 92.3,
+  "pillar_averages": {
+    "seo": 89.0,
+    "aeo": 86.4,
+    "geo": 85.2,
+    "llmo": 95.5,
+    "aio": 61.4,
+    "sxo": 98.9,
+    "cro": 92.0,
+    "wpo": 100.0,
+    "lseo": 98.5
+  },
+  "pages": [
+    {
+      "page": "Neonex Mindx AI ML Course.html",
+      "composite_score": 96.5,
+      "size_kb": 914.53,
+      "h1": "A Prompt Is Not a Product.Learn to Engineer AI Systems That Ship.",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 100.0,
+        "geo": 75.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 12,
+      "images": {
+        "total": 16,
+        "lazy": 13
+      }
+    },
+    {
+      "page": "Neonex Mindx About us page.html",
+      "composite_score": 96.5,
+      "size_kb": 644.21,
+      "h1": "We Turn “I Watched a Tutorial” Into“I Can Build This.”",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 100.0,
+        "geo": 100.0,
+        "llmo": 100.0,
+        "aio": 100.0,
+        "sxo": 100.0,
+        "cro": 75.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 11,
+      "images": {
+        "total": 16,
+        "lazy": 13
+      }
+    },
+    {
+      "page": "Neonex Mindx Business Analytics Course.html",
+      "composite_score": 96.5,
+      "size_kb": 853.91,
+      "h1": "Dashboards Do Not Run Businesses.Decisions Do.",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 100.0,
+        "geo": 75.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 12,
+      "images": {
+        "total": 16,
+        "lazy": 13
+      }
+    },
+    {
+      "page": "Neonex Mindx Contact Us.html",
+      "composite_score": 84.2,
+      "size_kb": 149.33,
+      "h1": "Speak with a Course Advisor and Choose the Right Learning Path",
+      "scores": {
+        "seo": 85.7,
+        "aeo": 75.0,
+        "geo": 75.0,
+        "llmo": 75.0,
+        "aio": 100.0,
+        "sxo": 100.0,
+        "cro": 75.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 0,
+      "images": {
+        "total": 3,
+        "lazy": 1
+      }
+    },
+    {
+      "page": "Neonex Mindx Data Analytics Course.html",
+      "composite_score": 96.5,
+      "size_kb": 811.18,
+      "h1": "Stop Watching Dashboards.Start Building Ones People Act On.",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 100.0,
+        "geo": 75.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 12,
+      "images": {
+        "total": 16,
+        "lazy": 13
+      }
+    },
+    {
+      "page": "Neonex Mindx Data Engineering Course.html",
+      "composite_score": 96.5,
+      "size_kb": 821.74,
+      "h1": "Data Does Not Move Itself.Learn to Build the Pipelines That Do.",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 100.0,
+        "geo": 75.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 12,
+      "images": {
+        "total": 16,
+        "lazy": 13
+      }
+    },
+    {
+      "page": "Neonex Mindx Data Science Course.html",
+      "composite_score": 100.0,
+      "size_kb": 911.77,
+      "h1": "Stop Memorising Algorithms.Start Building Models You Can Defend.",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 100.0,
+        "geo": 100.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 12,
+      "images": {
+        "total": 16,
+        "lazy": 13
+      }
+    },
+    {
+      "page": "Neonex Mindx Excel PowerBI Tableau Course.html",
+      "composite_score": 96.5,
+      "size_kb": 661.08,
+      "h1": "Your Dashboard Should Answer a Business Question, Not Just Look Good.",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 100.0,
+        "geo": 75.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 12,
+      "images": {
+        "total": 15,
+        "lazy": 13
+      }
+    },
+    {
+      "page": "Neonex Mindx Home Page.html",
+      "composite_score": 97.7,
+      "size_kb": 772.24,
+      "h1": "Stop Watching Tutorials.Start Building a Career You Can Explain.",
+      "scores": {
+        "seo": 85.7,
+        "aeo": 100.0,
+        "geo": 100.0,
+        "llmo": 100.0,
+        "aio": 100.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 16,
+      "images": {
+        "total": 19,
+        "lazy": 16
+      }
+    },
+    {
+      "page": "Neonex Mindx Machine Learning Course.html",
+      "composite_score": 96.5,
+      "size_kb": 681.42,
+      "h1": "Do Not Just Train a Model. Learn When to Trust It.",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 100.0,
+        "geo": 75.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 12,
+      "images": {
+        "total": 15,
+        "lazy": 13
+      }
+    },
+    {
+      "page": "Neonex Mindx Python Programming Course.html",
+      "composite_score": 96.5,
+      "size_kb": 704.86,
+      "h1": "Stop Saving Python Tutorials. Start Writing Python.",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 100.0,
+        "geo": 75.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 12,
+      "images": {
+        "total": 15,
+        "lazy": 13
+      }
+    },
+    {
+      "page": "Neonex Mindx SQL Course.html",
+      "composite_score": 96.5,
+      "size_kb": 703.85,
+      "h1": "Stop Guessing What the Data Says.Query It.",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 100.0,
+        "geo": 75.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 12,
+      "images": {
+        "total": 18,
+        "lazy": 15
+      }
+    },
+    {
+      "page": "Neonex Mindx Trainers Page.html",
+      "composite_score": 96.5,
+      "size_kb": 431.37,
+      "h1": "A Syllabus Tells You What Is Covered.The Trainer Decides Whether You Learn It.",
+      "scores": {
+        "seo": 100.0,
+        "aeo": 75.0,
+        "geo": 100.0,
+        "llmo": 100.0,
+        "aio": 100.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 0,
+      "images": {
+        "total": 15,
+        "lazy": 13
+      }
+    },
+    {
+      "page": "blog-post.html",
+      "composite_score": 77.2,
+      "size_kb": 116.69,
+      "h1": "None",
+      "scores": {
+        "seo": 85.7,
+        "aeo": 50.0,
+        "geo": 75.0,
+        "llmo": 75.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 50.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 0,
+      "images": {
+        "total": 2,
+        "lazy": 0
+      }
+    },
+    {
+      "page": "blogs.html",
+      "composite_score": 80.7,
+      "size_kb": 114.1,
+      "h1": "Tech & Career Insights for Future Leaders",
+      "scores": {
+        "seo": 85.7,
+        "aeo": 50.0,
+        "geo": 75.0,
+        "llmo": 75.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 75.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 0,
+      "images": {
+        "total": 2,
+        "lazy": 0
+      }
+    },
+    {
+      "page": "index.html",
+      "composite_score": 97.7,
+      "size_kb": 772.59,
+      "h1": "Stop Watching Tutorials.Start Building a Career You Can Explain.",
+      "scores": {
+        "seo": 85.7,
+        "aeo": 100.0,
+        "geo": 100.0,
+        "llmo": 100.0,
+        "aio": 100.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 16,
+      "images": {
+        "total": 19,
+        "lazy": 16
+      }
+    },
+    {
+      "page": "thank-you.html",
+      "composite_score": 66.5,
+      "size_kb": 31.51,
+      "h1": "Thank You!",
+      "scores": {
+        "seo": 57.1,
+        "aeo": 75.0,
+        "geo": 50.0,
+        "llmo": 75.0,
+        "aio": 50.0,
+        "sxo": 75.0,
+        "cro": 50.0,
+        "wpo": 100.0,
+        "lseo": 66.7
+      },
+      "faqs_in_schema": 0,
+      "images": {
+        "total": 1,
+        "lazy": 0
+      }
+    },
+    {
+      "page": "Legal Page/Neonex Mindx Placement Assistance.html",
+      "composite_score": 91.9,
+      "size_kb": 125.25,
+      "h1": "Placement Assistance Disclaimer",
+      "scores": {
+        "seo": 71.4,
+        "aeo": 75.0,
+        "geo": 100.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 0,
+      "images": {
+        "total": 3,
+        "lazy": 1
+      }
+    },
+    {
+      "page": "Legal Page/Neonex Mindx Placement Assitance.html",
+      "composite_score": 91.9,
+      "size_kb": 125.25,
+      "h1": "Placement Assistance Disclaimer",
+      "scores": {
+        "seo": 71.4,
+        "aeo": 75.0,
+        "geo": 100.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 0,
+      "images": {
+        "total": 3,
+        "lazy": 1
+      }
+    },
+    {
+      "page": "Legal Page/Neonex Mindx Privacy Policy.html",
+      "composite_score": 94.2,
+      "size_kb": 125.1,
+      "h1": "Privacy Policy",
+      "scores": {
+        "seo": 85.7,
+        "aeo": 75.0,
+        "geo": 100.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 0,
+      "images": {
+        "total": 3,
+        "lazy": 1
+      }
+    },
+    {
+      "page": "Legal Page/Neonex Mindx Refund & Cancellation.html",
+      "composite_score": 91.9,
+      "size_kb": 123.17,
+      "h1": "Refund and Cancellation Policy",
+      "scores": {
+        "seo": 71.4,
+        "aeo": 75.0,
+        "geo": 100.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 0,
+      "images": {
+        "total": 3,
+        "lazy": 1
+      }
+    },
+    {
+      "page": "Legal Page/Neonex Mindx Terms & Conditions.html",
+      "composite_score": 91.9,
+      "size_kb": 127.04,
+      "h1": "Terms and Conditions",
+      "scores": {
+        "seo": 71.4,
+        "aeo": 75.0,
+        "geo": 100.0,
+        "llmo": 100.0,
+        "aio": 50.0,
+        "sxo": 100.0,
+        "cro": 100.0,
+        "wpo": 100.0,
+        "lseo": 100.0
+      },
+      "faqs_in_schema": 0,
+      "images": {
+        "total": 3,
+        "lazy": 1
+      }
+    }
+  ],
+  "competitors": [
+    {
+      "name": "NeoNeX MindX",
+      "status": "Current Platform (You)",
+      "tuition_range": "₹12,000 – ₹50,000",
+      "duration": "6 – 16 Weeks",
+      "batch_size": "15 – 25 Seats",
+      "delivery_format": "100% Live Practitioner Mentorship",
+      "geo_readiness": 94,
+      "aeo_score": 95,
+      "cro_friction": "Low (Instant WhatsApp)",
+      "wpo_speed": 88,
+      "key_advantage": "Transparent pricing, small cohorts, active software engineers as mentors, llms.txt enabled."
+    },
+    {
+      "name": "Scaler Academy",
+      "status": "Tier-1 High-Cost Competitor",
+      "tuition_range": "₹2,50,000 – ₹3,50,000",
+      "duration": "9 – 11 Months",
+      "batch_size": "200 – 500 Seats",
+      "delivery_format": "Live Lectures + Teaching Assistants",
+      "geo_readiness": 78,
+      "aeo_score": 72,
+      "cro_friction": "High (Mandatory Sales Call Lock)",
+      "wpo_speed": 74,
+      "key_advantage": "Massive venture capital brand awareness, college campus reach."
+    },
+    {
+      "name": "Simplilearn",
+      "status": "Corporate University Co-Brander",
+      "tuition_range": "₹1,20,000 – ₹1,80,000",
+      "duration": "6 – 12 Months",
+      "batch_size": "100 – 300 Seats",
+      "delivery_format": "Pre-Recorded Videos + Periodic Live",
+      "geo_readiness": 65,
+      "aeo_score": 68,
+      "cro_friction": "Medium (Automated Paywalls)",
+      "wpo_speed": 71,
+      "key_advantage": "Purdue / Caltech university logo partnerships."
+    },
+    {
+      "name": "Great Learning",
+      "status": "Executive Degree Focus",
+      "tuition_range": "₹1,50,000 – ₹2,50,000",
+      "duration": "8 – 12 Months",
+      "batch_size": "150 – 400 Seats",
+      "delivery_format": "Blended University Slide Sessions",
+      "geo_readiness": 69,
+      "aeo_score": 64,
+      "cro_friction": "High (NBFC Loan Financing)",
+      "wpo_speed": 68,
+      "key_advantage": "Executive corporate training contracts."
+    },
+    {
+      "name": "360DigiTMG",
+      "status": "Local Bengaluru Institute",
+      "tuition_range": "₹40,000 – ₹60,000",
+      "duration": "3 – 4 Months",
+      "batch_size": "40 – 70 Seats",
+      "delivery_format": "Classroom Hybrid + Zoom",
+      "geo_readiness": 42,
+      "aeo_score": 45,
+      "cro_friction": "Medium (Telecaller Follow-ups)",
+      "wpo_speed": 58,
+      "key_advantage": "Local physical branches in BTM & HSR Layout."
+    }
+  ],
+  "action_items": [
+    {
+      "id": "ACT-01",
+      "priority": "HIGH",
+      "pillar": "GEO & AEO",
+      "title": "Publish Transparent Bengaluru Tuition Benchmark Blog",
+      "description": "Create blog post comparing Data Analytics Course fees in Bengaluru across institutes. Target zero-click queries on Google & Perplexity citations.",
+      "target_url": "/blogs",
+      "impact": "+35% AI Overview impressions"
+    },
+    {
+      "id": "ACT-02",
+      "priority": "HIGH",
+      "pillar": "LSEO & Local",
+      "title": "Add Bengaluru GeoCoordinates to Schema.org Graph",
+      "description": "Inject latitude/longitude coordinates (12.9716° N, 77.5946° E) in EducationalOrganization schema to rank in local 3-pack search.",
+      "target_url": "/about-us",
+      "impact": "+45% local mobile visibility"
+    },
+    {
+      "id": "ACT-03",
+      "priority": "MEDIUM",
+      "pillar": "CRO & Funnel",
+      "title": "Course Syllabus 1-Click PDF WhatsApp Delivery",
+      "description": "Allow users to get syllabus instantly via automated WhatsApp ping instead of filling a multi-input lead form.",
+      "target_url": "/courses/data-analytics-course",
+      "impact": "+2.4x lead conversion rate"
+    },
+    {
+      "id": "ACT-04",
+      "priority": "MEDIUM",
+      "pillar": "WPO & Speed",
+      "title": "Extract Inline Base64 Images to External WebP Files",
+      "description": "Extract remaining base64 embedded SVGs and WebP images to static .webp files to reduce HTML payload from ~800KB to <80KB.",
+      "target_url": "/courses/sql-course",
+      "impact": "60% faster mobile TTFB"
+    }
+  ],
+  "execution_duration_sec": 1.02
+}

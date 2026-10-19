@@ -20,6 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <script src="../neonex-auth.js"></script>
   <style>
     :root {
       --primary-blue: #0284C7;
@@ -588,7 +589,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h2 style="font-size:19px;font-weight:800;margin-bottom:4px;">NeoNex MindX</h2>
       <p style="font-size:13px;font-weight:600;color:#64748B;margin-bottom:20px;">Counsellor workspace login</p>
       <form onsubmit="CRM.handleLogin(event)">
-        <input type="password" id="auth-pass" class="form-control" placeholder="Enter password (Admin123!)" autofocus required style="margin-bottom:12px;" />
+        <input type="password" id="auth-pass" class="form-control" placeholder="Enter counsellor access password..." autofocus required style="margin-bottom:12px;" />
         <button type="submit" class="btn-crm-add" style="width:100%;justify-content:center;height:38px;">Sign In &rarr;</button>
       </form>
     </div>
@@ -868,30 +869,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       },
 
       checkAuth() {
-        const auth = sessionStorage.getItem('neonex_counsellor_auth');
         const gate = document.getElementById('auth-gate');
-        if (auth === 'yes') {
-          if (gate) gate.style.display = 'none';
-        } else {
-          if (gate) gate.classList.add('active');
+        if (gate) gate.style.display = 'none';
+        if (window.NeonexAuth) {
+          NeonexAuth.renderAuthGate('crm', 'Counsellor & CRM Portal', (user) => {
+            sessionStorage.setItem('neonex_counsellor_auth', 'yes');
+            CRM.toast('Welcome back, ' + (user.name || user.username) + ' (' + user.role + ')');
+          });
         }
       },
 
       handleLogin(e) {
         if (e) e.preventDefault();
-        const p = (document.getElementById('auth-pass')?.value || '').trim();
-        if (p === 'Admin123!' || p === 'admin123' || p === 'admin') {
-          sessionStorage.setItem('neonex_counsellor_auth', 'yes');
-          document.getElementById('auth-gate').style.display = 'none';
-          CRM.toast('Welcome back, Counsellor!');
-        } else {
-          alert('Invalid password. Hint: Admin123!');
-        }
+        this.checkAuth();
       },
 
       logout() {
-        sessionStorage.removeItem('neonex_counsellor_auth');
-        location.reload();
+        if (window.NeonexAuth) {
+          NeonexAuth.logout();
+        } else {
+          sessionStorage.removeItem('neonex_counsellor_auth');
+          location.reload();
+        }
       },
 
       save() {
@@ -1814,7 +1813,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div style="display:grid;gap:14px;">
                 <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:16px 20px;">
                   <div style="font-weight:800;font-size:13.5px;color:#0F172A;margin-bottom:4px;">🔑 How do I log in or change credentials?</div>
-                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">Default access code is <code>Admin123!</code>. For production deployments, counsellor sessions stay securely active in the current tab browser storage.</div>
+                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">Counsellor sessions stay securely active in the current tab browser storage with role-based access control.</div>
                 </div>
                 <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:16px 20px;">
                   <div style="font-weight:800;font-size:13.5px;color:#0F172A;margin-bottom:4px;">📥 How to export records for weekly management reviews?</div>
