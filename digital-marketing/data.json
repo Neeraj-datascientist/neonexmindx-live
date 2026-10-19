@@ -1,9 +1,11 @@
 {
   "metadata": {
-    "last_updated": "2026-10-19 23:06:50 IST",
+    "last_updated": "2026-10-19 23:39:26 IST",
     "domain": "neonexmindx.com",
     "search_console_property": "sc-domain:neonexmindx.com",
     "ga4_property_id": "555779266",
+    "google_ads_customer_id": "606-542-9317",
+    "google_ads_email": "neonexmindxofficial@gmail.com",
     "gtm_container": "GTM-PG57R85H",
     "meta_pixel_id": "1698036971288322"
   },
@@ -1415,9 +1417,16 @@
       "detail": "Property ID 555779266"
     },
     {
+      "name": "Google Ads Account",
+      "type": "Product Link (GA4)",
+      "status": "Connected & Live (CID: 606-542-9317)",
+      "code": "green",
+      "detail": "Account: Neonex MindX (606-542-9317) • Linked by neonexmindxofficial@gmail.com • Auto-tagging & Personalized Ads ON"
+    },
+    {
       "name": "Google Tag Manager (GTM)",
       "type": "Web Container",
-      "status": "Active across all 18 pages",
+      "status": "Active across all 22 pages",
       "code": "green",
       "detail": "GTM-PG57R85H"
     },
@@ -1427,13 +1436,6 @@
       "status": "Active",
       "code": "green",
       "detail": "ID 1698036971288322"
-    },
-    {
-      "name": "Google Ads Account",
-      "type": "Product Link",
-      "status": "Ready for 2-Click Link in GA4",
-      "code": "yellow",
-      "detail": "Admin -> Product Links -> Google Ads"
     },
     {
       "name": "WhatsApp Lead Tracker",
