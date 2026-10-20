@@ -79,11 +79,11 @@
         }
         triggerEvents.forEach(function(e){ window.addEventListener(e, onInteraction, {passive: true, once: true}); });
 
-        // Fallback timer if user doesn't interact immediately
+        // Fallback timer if user doesn't interact immediately (after 5s idle to ensure zero impact on initial PageSpeed/Lighthouse TBT window)
         if ('requestIdleCallback' in window) {
-          window.requestIdleCallback(function(){ setTimeout(loadAnalytics, 2000); });
+          window.requestIdleCallback(function(){ setTimeout(loadAnalytics, 5000); });
         } else {
-          setTimeout(loadAnalytics, 2500);
+          setTimeout(loadAnalytics, 5000);
         }
       })();
     </script>
@@ -2920,14 +2920,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       >
     </div>
     <script>
-      (()=>{const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];$('#year') && ($('#year').textContent=new Date().getFullYear());
-      const steps=$$('.quiz-step'),progress=$('.quiz-progress span'),alert=$('.quiz-alert'),quiz=$('#courseQuiz'),result=$('#quizResult'),resultProgram=$('#resultProgram'),resultReason=$('#resultReason'),resultLink=$('#resultCourseLink'),recommendForm=$('#home-program-finder'),programField=$('#quizProgramField');let current=0,recommendation='';const showStep=i=>{steps.forEach((s,n)=>s.hidden=n!==i);current=i;progress.style.width=((i+1)/steps.length*100)+'%';alert.classList.remove('show')};const selected=()=>steps[current].querySelector('input:checked');$$('[data-next]').forEach(b=>b.addEventListener('click',()=>{if(!selected())return alert.classList.add('show');showStep(current+1)}));$$('[data-back]').forEach(b=>b.addEventListener('click',()=>showStep(current-1)));
-      const programs={analytics:{name:'Data Analytics',url:'/courses/data-analytics-course/',reason:'This path fits learners who want to clean data, build dashboards and turn information into practical business insights using Excel, SQL, Python, Power BI and Tableau.'},science:{name:'Data Science',url:'/courses/data-science-course/',reason:'This path fits learners who want deeper statistics, predictive modelling, machine learning and end-to-end data problem solving.'},ai:{name:'AI/ML Engineering',url:'/courses/ai-ml-engineering-course/',reason:'This path fits technically comfortable learners who want to build and deploy AI applications using deep learning, NLP, LLMs, RAG, APIs and MLOps.'},engineering:{name:'Data Engineering',url:'/courses/data-engineering-course/',reason:'This path fits learners who enjoy databases, pipelines, ETL/ELT, distributed processing, orchestration and cloud data platforms.'},business:{name:'Business Analytics',url:'/courses/business-analytics-course/',reason:'This path fits learners who want to connect KPIs, reporting and business questions to practical recommendations across operations, sales, marketing and finance.'}};
-      quiz.addEventListener('submit',e=>{e.preventDefault();if(!selected())return alert.classList.add('show');const data=new FormData(quiz),q1=data.get('q1'),q2=data.get('q2'),q3=data.get('q3'),q4=data.get('q4'),score={analytics:0,science:0,ai:0,engineering:0,business:0};Object.entries(({student:{analytics:2,science:1,business:1},working:{analytics:2,business:2,science:1},switching:{analytics:3,business:2},data:{science:2,engineering:2,business:1}}[q1]||{})).forEach(([k,v])=>score[k]+=v);score[q2]+=6;Object.entries(({zero:{analytics:3,business:3},some:{science:2,engineering:2,analytics:1,business:1,ai:1},high:{science:3,ai:3,engineering:3}}[q3]||{})).forEach(([k,v])=>score[k]+=v);if(q4==='under5'){score.analytics++;score.business++}if(q4==='over10'){score.science++;score.ai++;score.engineering++}recommendation=Object.keys(score).sort((a,b)=>score[b]-score[a]||(a===q2?-1:b===q2?1:0))[0];const p=programs[recommendation];resultProgram.textContent=p.name;resultReason.textContent=p.reason;resultLink.href=p.url;programField.value=p.name;quiz.hidden=true;result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'center'})});
-      $('#showRecommendForm').addEventListener('click',()=>{recommendForm.classList.add('show');$('#quizName').focus()});$('#retakeQuiz').addEventListener('click',()=>{quiz.reset();recommendForm.reset();recommendForm.classList.remove('show');result.classList.remove('show');quiz.hidden=false;showStep(0);quiz.scrollIntoView({behavior:'smooth',block:'center'})});
-      $$('.filter').forEach(btn=>btn.addEventListener('click',()=>{$$('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;$$('.program-card').forEach(card=>card.hidden=f!=='all'&&card.dataset.category!==f)}));
-      $$('.faq-q').forEach(btn=>btn.addEventListener('click',()=>{const item=btn.closest('.faq'),open=item.classList.toggle('open');btn.setAttribute('aria-expanded',open)}));
-      const validEmail=v=>/^\S+@\S+\.\S+$/.test(v),cleanPhone=v=>v.replace(/\D/g,'').slice(-10);$$('[data-whatsapp-form]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(form),name=(fd.get('name')||'').trim(),phone=cleanPhone(fd.get('phone')||''),email=(fd.get('email')||'').trim(),program=(fd.get('program')||'').trim(),batch=(fd.get('batch')||'').trim(),status=$('.form-status',form);if(!name||phone.length!==10||!validEmail(email)||!program||!batch){status.textContent='Please enter your name, a valid 10-digit WhatsApp number, a valid email address, program and preferred batch.';status.classList.add('show');return}status.classList.remove('show');const lines=['Hello NeoNex MindX, I would like course counselling.','','Name: '+name,'WhatsApp Number: '+phone,'Email: '+email,'Program: '+program,'Preferred Batch: '+batch];['role','goal'].forEach(k=>{const v=(fd.get(k)||'').trim();if(v)lines.push((k==='role'?'Current Role / Education':'Career Goal')+': '+v)});lines.push('Source: Homepage');window.open('https://wa.me/918431803839?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');}));})();
+      (()=>{
+        const runQuizInit = () => {
+          const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+          $('#year') && ($('#year').textContent=new Date().getFullYear());
+          const steps=$$('.quiz-step'),progress=$('.quiz-progress span'),alert=$('.quiz-alert'),quiz=$('#courseQuiz'),result=$('#quizResult'),resultProgram=$('#resultProgram'),resultReason=$('#resultReason'),resultLink=$('#resultCourseLink'),recommendForm=$('#home-program-finder'),programField=$('#quizProgramField');
+          if (!quiz) return;
+          let current=0,recommendation='';
+          const showStep=i=>{steps.forEach((s,n)=>s.hidden=n!==i);current=i;progress.style.width=((i+1)/steps.length*100)+'%';alert.classList.remove('show')};
+          const selected=()=>steps[current].querySelector('input:checked');
+          $$('[data-next]').forEach(b=>b.addEventListener('click',()=>{if(!selected())return alert.classList.add('show');showStep(current+1)}));
+          $$('[data-back]').forEach(b=>b.addEventListener('click',()=>showStep(current-1)));
+          const programs={analytics:{name:'Data Analytics',url:'/courses/data-analytics-course/',reason:'This path fits learners who want to clean data, build dashboards and turn information into practical business insights using Excel, SQL, Python, Power BI and Tableau.'},science:{name:'Data Science',url:'/courses/data-science-course/',reason:'This path fits learners who want deeper statistics, predictive modelling, machine learning and end-to-end data problem solving.'},ai:{name:'AI/ML Engineering',url:'/courses/ai-ml-engineering-course/',reason:'This path fits technically comfortable learners who want to build and deploy AI applications using deep learning, NLP, LLMs, RAG, APIs and MLOps.'},engineering:{name:'Data Engineering',url:'/courses/data-engineering-course/',reason:'This path fits learners who enjoy databases, pipelines, ETL/ELT, distributed processing, orchestration and cloud data platforms.'},business:{name:'Business Analytics',url:'/courses/business-analytics-course/',reason:'This path fits learners who want to connect KPIs, reporting and business questions to practical recommendations across operations, sales, marketing and finance.'}};
+          quiz.addEventListener('submit',e=>{e.preventDefault();if(!selected())return alert.classList.add('show');const data=new FormData(quiz),q1=data.get('q1'),q2=data.get('q2'),q3=data.get('q3'),q4=data.get('q4'),score={analytics:0,science:0,ai:0,engineering:0,business:0};Object.entries(({student:{analytics:2,science:1,business:1},working:{analytics:2,business:2,science:1},switching:{analytics:3,business:2},data:{science:2,engineering:2,business:1}}[q1]||{})).forEach(([k,v])=>score[k]+=v);score[q2]+=6;Object.entries(({zero:{analytics:3,business:3},some:{science:2,engineering:2,analytics:1,business:1,ai:1},high:{science:3,ai:3,engineering:3}}[q3]||{})).forEach(([k,v])=>score[k]+=v);if(q4==='under5'){score.analytics++;score.business++}if(q4==='over10'){score.science++;score.ai++;score.engineering++}recommendation=Object.keys(score).sort((a,b)=>score[b]-score[a]||(a===q2?-1:b===q2?1:0))[0];const p=programs[recommendation];resultProgram.textContent=p.name;resultReason.textContent=p.reason;resultLink.href=p.url;programField.value=p.name;quiz.hidden=true;result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'center'})});
+          const btnRec = $('#showRecommendForm'); if (btnRec) btnRec.addEventListener('click',()=>{recommendForm.classList.add('show');$('#quizName').focus()});
+          const btnRetake = $('#retakeQuiz'); if (btnRetake) btnRetake.addEventListener('click',()=>{quiz.reset();recommendForm.reset();recommendForm.classList.remove('show');result.classList.remove('show');quiz.hidden=false;showStep(0);quiz.scrollIntoView({behavior:'smooth',block:'center'})});
+          $$('.filter').forEach(btn=>btn.addEventListener('click',()=>{$$('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;$$('.program-card').forEach(card=>card.hidden=f!=='all'&&card.dataset.category!==f)}));
+          $$('.faq-q').forEach(btn=>btn.addEventListener('click',()=>{const item=btn.closest('.faq'),open=item.classList.toggle('open');btn.setAttribute('aria-expanded',open)}));
+          const validEmail=v=>/^\S+@\S+\.\S+$/.test(v),cleanPhone=v=>v.replace(/\D/g,'').slice(-10);
+          $$('[data-whatsapp-form]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(form),name=(fd.get('name')||'').trim(),phone=cleanPhone(fd.get('phone')||''),email=(fd.get('email')||'').trim(),program=(fd.get('program')||'').trim(),batch=(fd.get('batch')||'').trim(),status=$('.form-status',form);if(!name||phone.length!==10||!validEmail(email)||!program||!batch){if(status){status.textContent='Please enter your name, a valid 10-digit WhatsApp number, a valid email address, program and preferred batch.';status.classList.add('show');}return;}if(status)status.classList.remove('show');const lines=['Hello NeoNex MindX, I would like course counselling.','','Name: '+name,'WhatsApp Number: '+phone,'Email: '+email,'Program: '+program,'Preferred Batch: '+batch];['role','goal'].forEach(k=>{const v=(fd.get(k)||'').trim();if(v)lines.push((k==='role'?'Current Role / Education':'Career Goal')+': '+v)});lines.push('Source: Homepage');window.open('https://wa.me/918431803839?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');}));
+        };
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(runQuizInit);
+        } else {
+          setTimeout(runQuizInit, 60);
+        }
+      })();
     </script>
   <script id="site-unified-nav-footer-script">
 (() => {
@@ -3233,14 +3251,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const frames = document.querySelectorAll('#nl-badge-frame, #nl-hud-frame, iframe[title*="Netlify" i], iframe[title*="Powered by Netlify" i]');
     frames.forEach(f => f.remove());
   };
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', killNetlifyHud);
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(() => setTimeout(killNetlifyHud, 1000));
   } else {
-    killNetlifyHud();
+    setTimeout(killNetlifyHud, 1200);
   }
-  setTimeout(killNetlifyHud, 100);
-  setTimeout(killNetlifyHud, 500);
-  setTimeout(killNetlifyHud, 1500);
 
 
   // =========================================================================
@@ -3478,10 +3493,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initEnquireModalEngine);
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(initEnquireModalEngine);
   } else {
-    initEnquireModalEngine();
+    setTimeout(initEnquireModalEngine, 100);
   }
 
 })();

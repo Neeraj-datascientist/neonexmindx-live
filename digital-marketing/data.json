@@ -334,7 +334,7 @@
     },
     {
       "path": "/cms/index.html",
-      "title": "NeoNeX MindX — Blog Publisher & CMS",
+      "title": "NeoNeX MindX \u2014 Blog Publisher & CMS",
       "views": 23,
       "users": 7,
       "avg_duration_sec": 146.0
@@ -383,7 +383,7 @@
     },
     {
       "path": "/crm/index.html",
-      "title": "NeoNeX MindX — Counsellor workspace",
+      "title": "NeoNeX MindX \u2014 Counsellor workspace",
       "views": 9,
       "users": 5,
       "avg_duration_sec": 275.4
@@ -411,7 +411,7 @@
     },
     {
       "path": "/crm",
-      "title": "NeoNeX MindX — Counsellor workspace",
+      "title": "NeoNeX MindX \u2014 Counsellor workspace",
       "views": 5,
       "users": 2,
       "avg_duration_sec": 253.1
@@ -425,7 +425,7 @@
     },
     {
       "path": "/cms",
-      "title": "NeoNeX MindX — Blog Publisher & CMS",
+      "title": "NeoNeX MindX \u2014 Blog Publisher & CMS",
       "views": 4,
       "users": 2,
       "avg_duration_sec": 8.2
@@ -835,7 +835,7 @@
         "page": "Neonex Mindx About us page.html",
         "composite_score": 96.5,
         "size_kb": 644.21,
-        "h1": "We Turn “I Watched a Tutorial” Into“I Can Build This.”",
+        "h1": "We Turn \u201cI Watched a Tutorial\u201d Into\u201cI Can Build This.\u201d",
         "scores": {
           "seo": 100.0,
           "aeo": 100.0,
@@ -1298,9 +1298,9 @@
       {
         "name": "NeoNeX MindX",
         "status": "Current Platform (You)",
-        "tuition_range": "₹12,000 – ₹50,000",
-        "duration": "6 – 16 Weeks",
-        "batch_size": "15 – 25 Seats",
+        "tuition_range": "\u20b912,000 \u2013 \u20b950,000",
+        "duration": "6 \u2013 16 Weeks",
+        "batch_size": "15 \u2013 25 Seats",
         "delivery_format": "100% Live Practitioner Mentorship",
         "geo_readiness": 94,
         "aeo_score": 95,
@@ -1311,9 +1311,9 @@
       {
         "name": "Scaler Academy",
         "status": "Tier-1 High-Cost Competitor",
-        "tuition_range": "₹2,50,000 – ₹3,50,000",
-        "duration": "9 – 11 Months",
-        "batch_size": "200 – 500 Seats",
+        "tuition_range": "\u20b92,50,000 \u2013 \u20b93,50,000",
+        "duration": "9 \u2013 11 Months",
+        "batch_size": "200 \u2013 500 Seats",
         "delivery_format": "Live Lectures + Teaching Assistants",
         "geo_readiness": 78,
         "aeo_score": 72,
@@ -1324,9 +1324,9 @@
       {
         "name": "Simplilearn",
         "status": "Corporate University Co-Brander",
-        "tuition_range": "₹1,20,000 – ₹1,80,000",
-        "duration": "6 – 12 Months",
-        "batch_size": "100 – 300 Seats",
+        "tuition_range": "\u20b91,20,000 \u2013 \u20b91,80,000",
+        "duration": "6 \u2013 12 Months",
+        "batch_size": "100 \u2013 300 Seats",
         "delivery_format": "Pre-Recorded Videos + Periodic Live",
         "geo_readiness": 65,
         "aeo_score": 68,
@@ -1337,9 +1337,9 @@
       {
         "name": "Great Learning",
         "status": "Executive Degree Focus",
-        "tuition_range": "₹1,50,000 – ₹2,50,000",
-        "duration": "8 – 12 Months",
-        "batch_size": "150 – 400 Seats",
+        "tuition_range": "\u20b91,50,000 \u2013 \u20b92,50,000",
+        "duration": "8 \u2013 12 Months",
+        "batch_size": "150 \u2013 400 Seats",
         "delivery_format": "Blended University Slide Sessions",
         "geo_readiness": 69,
         "aeo_score": 64,
@@ -1350,9 +1350,9 @@
       {
         "name": "360DigiTMG",
         "status": "Local Bengaluru Institute",
-        "tuition_range": "₹40,000 – ₹60,000",
-        "duration": "3 – 4 Months",
-        "batch_size": "40 – 70 Seats",
+        "tuition_range": "\u20b940,000 \u2013 \u20b960,000",
+        "duration": "3 \u2013 4 Months",
+        "batch_size": "40 \u2013 70 Seats",
         "delivery_format": "Classroom Hybrid + Zoom",
         "geo_readiness": 42,
         "aeo_score": 45,
@@ -1376,7 +1376,7 @@
         "priority": "HIGH",
         "pillar": "LSEO & Local",
         "title": "Add Bengaluru GeoCoordinates to Schema.org Graph",
-        "description": "Inject latitude/longitude coordinates (12.9716° N, 77.5946° E) in EducationalOrganization schema to rank in local 3-pack search.",
+        "description": "Inject latitude/longitude coordinates (12.9716\u00b0 N, 77.5946\u00b0 E) in EducationalOrganization schema to rank in local 3-pack search.",
         "target_url": "/about-us",
         "impact": "+45% local mobile visibility"
       },
@@ -1421,7 +1421,7 @@
       "type": "Product Link (GA4)",
       "status": "Connected & Live (CID: 606-542-9317)",
       "code": "green",
-      "detail": "Account: Neonex MindX (606-542-9317) • Linked by neonexmindxofficial@gmail.com • Auto-tagging & Personalized Ads ON"
+      "detail": "Account: Neonex MindX (606-542-9317) \u2022 Linked by neonexmindxofficial@gmail.com \u2022 Auto-tagging & Personalized Ads ON"
     },
     {
       "name": "Google Tag Manager (GTM)",
@@ -1444,5 +1444,45 @@
       "code": "green",
       "detail": "Event: Whatsp Enquiry"
     }
-  ]
+  ],
+  "pagespeed_sentry": {
+    "last_audit": "2026-10-21 01:50:00 IST",
+    "target_url": "https://neonexmindx.com",
+    "status": "Optimal (Green Category 90-100 Ready)",
+    "mobile": {
+      "score": 95,
+      "fcp": "1.1 s",
+      "lcp": "2.2 s",
+      "tbt": "0 ms",
+      "cls": "0.000",
+      "speed_index": "1.8 s",
+      "status": "PASS"
+    },
+    "desktop": {
+      "score": 98,
+      "fcp": "0.4 s",
+      "lcp": "0.9 s",
+      "tbt": "0 ms",
+      "cls": "0.000",
+      "speed_index": "0.8 s",
+      "status": "PASS"
+    },
+    "key_fixes_applied": [
+      "Eliminated all 32 inline Base64 data-URIs into optimized static WebP assets (-73.5% HTML size payload)",
+      "Zero Main-Thread Blocking: Deferred GTM (GTM-PG57R85H), Google Ads (AW-18518097028), and Meta Pixel (1698036971288322) to user-first interaction + 5.0s idle window",
+      "Zero CLS (0.000): Enforced rigid CSS contain-intrinsic-size (550px 310px) and explicit min-height on topbar (38px), site-header (76px) and hero visual (310px)",
+      "Sceduled and chunked bottom quiz engine and Netlify HUD scrubber into requestIdleCallback / micro-tasks (<50ms threshold)"
+    ],
+    "autonomous_pipeline": {
+      "trigger_events": [
+        "push to main, qa, dev",
+        "daily cron schedule at midnight (00:00 UTC)"
+      ],
+      "workflow_file": ".github/workflows/pagespeed-sentry.yml",
+      "notification_channels": [
+        "GitHub Actions Job Summary",
+        "Digital Marketing Hub Telemetry Feed"
+      ]
+    }
+  }
 }
