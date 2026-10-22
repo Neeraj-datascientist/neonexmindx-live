@@ -20,7 +20,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
-  <script src="../neonex-auth.js"></script>
+  <script src="/neonex-auth.js"></script>
+  <script>
+    if (window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('/index')) {
+      const cleanPath = window.location.pathname.replace(/\/index(\.html)?$/, '') || '/';
+      window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+    }
+  </script>
   <style>
     :root {
       --primary-blue: #0284C7;
