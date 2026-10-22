@@ -665,10 +665,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
         <span>Settings</span>
       </div>
+      <div class="nav-link" data-view="integrations">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <span>Integrations &amp; APIs</span>
+      </div>
       <div class="nav-link" data-view="guide">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
         <span>User Guide &amp; SOP</span>
       </div>
+    </div>
+
+    <!-- PORTAL SWITCHER FOOTER -->
+    <div style="padding:14px 16px;border-top:1px solid var(--line-border);display:flex;flex-direction:column;gap:6px;background:var(--surface-2);">
+      <div style="font-size:10px;font-weight:800;letter-spacing:1px;color:var(--muted-gray);">CONNECTED VERTICALS</div>
+      <a href="/cms" target="_blank" style="font-size:12px;font-weight:700;color:var(--primary-blue);display:flex;align-items:center;justify-content:space-between;padding:4px 0;">
+        <span>CMS Studio</span>
+        <span>&rarr;</span>
+      </a>
+      <a href="/digital-marketing" target="_blank" style="font-size:12px;font-weight:700;color:var(--primary-teal);display:flex;align-items:center;justify-content:space-between;padding:4px 0;">
+        <span>Digital Marketing Hub</span>
+        <span>&rarr;</span>
+      </a>
     </div>
   </aside>
 
@@ -718,46 +735,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     const STORAGE_KEY = 'neonex_counsellor_data';
 
     const INITIAL_SEED_DATA = {
-      students: [
-        { name: 'Aarav Sharma', country: 'India', address: 'Bengaluru, Karnataka', phone: '+91 98451 22341', email: 'aarav.sharma@gmail.com' },
-        { name: 'Priya Venkatesh', country: 'India', address: 'Hyderabad, Telangana', phone: '+91 87654 32109', email: 'priya.v@outlook.com' },
-        { name: 'Rohan Deshmukh', country: 'India', address: 'Pune, Maharashtra', phone: '+91 99887 66554', email: 'rohan.d@gmail.com' },
-        { name: 'Shazz Patel', country: 'India', address: 'Ahmedabad, Gujarat', phone: '+91 98765 43210', email: 'shazz.p@yahoo.com' }
-      ],
-      invoices: [
-        { number: '101', client: 'Aarav', date: '07/09/2026', expiredDate: '22/09/2026', total: '$ 53,100.00', paid: '$ 0.00', status: 'sent', payment: 'unpaid' },
-        { number: '102', client: 'Priya', date: '07/09/2026', expiredDate: '17/09/2026', total: '$ 70,800.00', paid: '$ 35,400.00', status: 'sent', payment: 'partially' },
-        { number: '103', client: 'Rohan', date: '07/09/2026', expiredDate: '12/09/2026', total: '$ 41,300.00', paid: '$ 0.00', status: 'pending', payment: 'unpaid' },
-        { number: '104', client: 'shazz', date: '07/09/2026', expiredDate: '07/10/2026', total: '$ 42,000.00', paid: '$ 0.00', status: 'draft', payment: 'unpaid' }
-      ],
-      payments: [
-        { number: '2', client: 'Priya', amount: '$ 35,400.00', date: '07/09/2026', invoiceNumber: '102', year: '2026', paymentMode: 'Direct Net Banking' }
-      ],
-      enquiries: [
-        { name: 'Ananya Roy', phone: '+91 98220 11992', email: 'ananya.roy@gmail.com', program: 'Data Analytics Course', date: '10/10/2026', status: 'New', notes: 'Inquired from website regarding weekend batches' },
-        { name: 'Vikas Gupta', phone: '+91 97410 88334', email: 'vikas.g@outlook.com', program: 'Data Science Master Program', date: '09/10/2026', status: 'Contacted', notes: 'Scheduled demo session on Saturday' }
-      ],
+      students: [],
+      invoices: [],
+      payments: [],
+      enquiries: [],
       courses: [
         { title: 'Data Analytics Master Program', duration: '12-16 Weeks', fee: '$ 42,000.00', batches: '2 Active' },
         { title: 'Data Science & AI Master Program', duration: '16-20 Weeks', fee: '$ 53,100.00', batches: '2 Active' },
         { title: 'AI & Machine Learning Engineering', duration: '16 Weeks', fee: '$ 70,800.00', batches: '1 Active' }
       ],
-      counselling: [
-        { student: 'Aarav Sharma', phone: '+91 98451 22341', date: '12/10/2026', mode: 'Google Meet', status: 'Scheduled', notes: 'Discuss curriculum pace and mentor matching' }
-      ],
-      followups: [
-        { student: 'Ananya Roy', phone: '+91 98220 11992', date: '11/10/2026', action: 'Send Syllabus PDF via WhatsApp', status: 'Pending' }
-      ],
+      counselling: [],
+      followups: [],
       batches: [
-        { name: 'DA-OCT-2026-WKND', course: 'Data Analytics Master Program', mode: 'Weekend Live Online', enrolled: 18, capacity: 25, start: '18 Oct 2026', time: '10:00 AM - 1:00 PM IST (Sat/Sun)' },
-        { name: 'DS-NOV-2026-WDAY', course: 'Data Science & AI Master Program', mode: 'Weekday Live Online', enrolled: 14, capacity: 20, start: '03 Nov 2026', time: '7:30 PM - 9:30 PM IST (Mon-Thu)' },
-        { name: 'AIML-NOV-2026-FAST', course: 'AI & Machine Learning Engineering', mode: 'Hybrid Fastrack', enrolled: 8, capacity: 15, start: '15 Nov 2026', time: '11:00 AM - 2:00 PM IST (Sat/Sun)' }
+        { name: 'DA-OCT-2026-WKND', course: 'Data Analytics Master Program', mode: 'Weekend Live Online', enrolled: 0, capacity: 25, start: '18 Oct 2026', time: '10:00 AM - 1:00 PM IST (Sat/Sun)' },
+        { name: 'DS-NOV-2026-WDAY', course: 'Data Science & AI Master Program', mode: 'Weekday Live Online', enrolled: 0, capacity: 20, start: '03 Nov 2026', time: '7:30 PM - 9:30 PM IST (Mon-Thu)' },
+        { name: 'AIML-NOV-2026-FAST', course: 'AI & Machine Learning Engineering', mode: 'Hybrid Fastrack', enrolled: 0, capacity: 15, start: '15 Nov 2026', time: '11:00 AM - 2:00 PM IST (Sat/Sun)' }
       ],
       counselors: [
         { name: 'Admissions Desk', role: 'Primary Admissions & Lead Intake', status: 'Active', avatar: 'AD' },
         { name: 'Course Advisors Team', role: 'Technical Counseling & Student Demos', status: 'Active', avatar: 'NX' },
         { name: 'Senior Academic Mentors', role: 'Interview Prep & Capstone Guidance', status: 'Active', avatar: 'SM' }
       ],
+      integrations: {
+        whatsappApiKey: '',
+        whatsappPhoneId: '918431803839',
+        whatsappTemplate: 'welcome_counselling_lead_v1',
+        metaVerifyToken: 'neonex_meta_leads_secret_2026',
+        metaAppSecret: '',
+        googleAdsWebhookKey: 'nx_gads_lead_token_2026',
+        googleCustomerId: '606-542-9317'
+      },
       settings: {
         dateFormat: 'DD/MM/YYYY',
         email: 'counsellor@neonexmindx.com',
@@ -917,6 +924,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'followups': 'Follow-up Queue',
           'reports': 'Reports & Backup',
           'settings': 'System Settings',
+          'integrations': 'APIs & Webhooks Hub',
           'guide': 'User Guide & Counsellor SOP'
         };
         const bread = document.getElementById('topbar-breadcrumb');
@@ -941,12 +949,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           case 'followups': root.innerHTML = CRM.viewFollowups(); break;
           case 'reports': root.innerHTML = CRM.viewReports(); break;
           case 'settings': root.innerHTML = CRM.viewSettings(); break;
+          case 'integrations': root.innerHTML = CRM.viewIntegrations(); break;
           case 'guide': root.innerHTML = CRM.viewGuide(); break;
           default: root.innerHTML = CRM.viewDashboard();
         }
       },
 
-      /* 1. DASHBOARD VIEW (Screenshot 1 & 2 exact reproduction + dynamic live updates) */
+      /* 1. DASHBOARD VIEW (Clean dynamic live updates) */
       viewDashboard() {
         const todayStr = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
         const enquiriesCount = APP_DATA.enquiries.length;
@@ -960,8 +969,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           totalFees += parseFloat((inv.total || '0').replace(/[^0-9.]/g, '')) || 0;
           totalPaid += parseFloat((inv.paid || '0').replace(/[^0-9.]/g, '')) || 0;
         });
-        const formattedFees = totalFees > 0 ? totalFees.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) : '207,200';
-        const formattedPaid = totalPaid > 0 ? totalPaid.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) : '35,400';
+        const formattedFees = totalFees > 0 ? ('$ ' + totalFees.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })) : '$ 0';
+        const formattedPaid = totalPaid > 0 ? ('$ ' + totalPaid.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })) : '$ 0';
 
         return `
           <!-- HERO -->
@@ -1665,11 +1674,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
 
               <div style="padding-top:24px;border-top:1px solid #F1F5F9;margin-top:16px;">
-                <h4 style="font-size:14px;font-weight:800;color:#DC2626;margin-bottom:4px;">Factory Reset</h4>
-                <p style="font-size:12px;color:#64748B;margin-bottom:14px;">Wipe local modifications and restore pristine starter demo data.</p>
-                <button onclick="CRM.resetDemoData()" style="padding:7px 14px;border-radius:6px;border:1px solid #FCA5A5;background:#FEF2F2;color:#DC2626;font-size:12px;font-weight:800;cursor:pointer;">
-                  ⚠️ Reset Database to Clean State
-                </button>
+                <h4 style="font-size:14px;font-weight:800;color:#DC2626;margin-bottom:4px;">Factory Reset &amp; Data Purge</h4>
+                <p style="font-size:12px;color:#64748B;margin-bottom:14px;">Wipe local modifications and purge all stored leads/dummy data.</p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                  <button onclick="CRM.resetDemoData()" style="padding:7px 14px;border-radius:6px;border:1px solid #CBD5E1;background:var(--card-bg);color:var(--ink);font-size:12px;font-weight:700;cursor:pointer;">
+                    🔄 Reset Configuration
+                  </button>
+                  <button onclick="CRM.purgeAllData()" style="padding:7px 14px;border-radius:6px;border:1px solid #FCA5A5;background:#FEF2F2;color:#DC2626;font-size:12px;font-weight:800;cursor:pointer;">
+                    🗑️ Purge All Leads &amp; Start 100% Fresh
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -1695,11 +1709,187 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       },
 
       resetDemoData() {
-        if (!confirm('Are you sure you want to reset the CRM to default factory demo data? Any unexported entries will be restored to default.')) return;
+        if (!confirm('Are you sure you want to reset the CRM to default clean state? Any local entries will be cleared.')) return;
         APP_DATA = JSON.parse(JSON.stringify(INITIAL_SEED_DATA));
         CRM.save();
-        CRM.toast('Database restored to factory demo state!');
+        CRM.toast('Database restored to clean state!');
         CRM.render();
+      },
+
+      purgeAllData() {
+        if (!confirm('⚠️ WARNING: This will permanently purge all stored leads, invoices, and enquiries from this browser.\n\nAre you sure you want to wipe local data and start fresh?')) return;
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem('neonex_crm_leads');
+        APP_DATA = JSON.parse(JSON.stringify(INITIAL_SEED_DATA));
+        CRM.save();
+        CRM.toast('All test records and leads wiped clean!');
+        CRM.render();
+      },
+
+      saveIntegrations() {
+        if (!APP_DATA.integrations) APP_DATA.integrations = {};
+        APP_DATA.integrations.whatsappApiKey = (document.getElementById('int-wa-key')?.value || '').trim();
+        APP_DATA.integrations.whatsappPhoneId = (document.getElementById('int-wa-phone')?.value || '').trim();
+        APP_DATA.integrations.whatsappTemplate = (document.getElementById('int-wa-template')?.value || '').trim();
+        APP_DATA.integrations.metaVerifyToken = (document.getElementById('int-meta-token')?.value || '').trim();
+        APP_DATA.integrations.metaAppSecret = (document.getElementById('int-meta-secret')?.value || '').trim();
+        APP_DATA.integrations.googleAdsWebhookKey = (document.getElementById('int-gads-key')?.value || '').trim();
+        APP_DATA.integrations.googleCustomerId = (document.getElementById('int-gads-cid')?.value || '').trim();
+        CRM.save();
+        CRM.toast('Integrations configuration saved!');
+      },
+
+      simulateIncomingLead(source) {
+        const sampleNames = ['Rohan Verma', 'Kavya Nair', 'Aman Deep', 'Siddharth Rao', 'Deepika Sharma'];
+        const samplePrograms = ['Data Analytics Master Program', 'Data Science & AI Master Program', 'AI & Machine Learning Engineering'];
+        const name = sampleNames[Math.floor(Math.random() * sampleNames.length)];
+        const program = samplePrograms[Math.floor(Math.random() * samplePrograms.length)];
+        const phone = '+91 9' + Math.floor(100000000 + Math.random() * 900000000);
+        const email = name.toLowerCase().replace(' ', '.') + '@example.com';
+        const notes = source === 'Meta' ? 'Direct Instant Form Lead (Meta Ads Instagram)' : 'Google Ads Lead Form Extension (PMax)';
+
+        APP_DATA.enquiries.unshift({
+          name,
+          phone,
+          email,
+          program,
+          date: new Date().toLocaleDateString('en-GB'),
+          status: 'New',
+          notes: `[${source} Lead Ads] ${notes}`
+        });
+        CRM.save();
+        CRM.toast(`New incoming lead ingested from ${source}: ${name}!`);
+        CRM.render();
+      },
+
+      /* 13. INTEGRATIONS & APIS HUB */
+      viewIntegrations() {
+        const intg = APP_DATA.integrations || {
+          whatsappApiKey: '',
+          whatsappPhoneId: '918431803839',
+          whatsappTemplate: 'welcome_counselling_lead_v1',
+          metaVerifyToken: 'neonex_meta_leads_secret_2026',
+          metaAppSecret: '',
+          googleAdsWebhookKey: 'nx_gads_lead_token_2026',
+          googleCustomerId: '606-542-9317'
+        };
+
+        return `
+          <div style="display:flex;flex-direction:column;gap:24px;">
+            <!-- HERO -->
+            <div class="counsellor-hero" style="background:linear-gradient(135deg, #0284C7 0%, #0369A1 100%);">
+              <div class="c-date">Automations, Webhooks &amp; Campaign Ingestion</div>
+              <h1 class="c-greeting">Integrations Hub &amp; Lead Connectors</h1>
+              <p class="c-sub">Connect WhatsApp Cloud API, Meta (Facebook/IG) Lead Ads, and Google Ads Lead Forms directly into your counselling pipeline.</p>
+              <div class="c-action-bar">
+                <button class="btn-action-white" onclick="CRM.simulateIncomingLead('Meta')">
+                  <span>📱 Ingest Test Meta Lead</span>
+                </button>
+                <button class="btn-action-white" onclick="CRM.simulateIncomingLead('Google')">
+                  <span>🎯 Ingest Test Google Ad Lead</span>
+                </button>
+                <button class="btn-action-white" onclick="CRM.purgeAllData()" style="background:#FEE2E2;color:#DC2626;">
+                  <span>🗑️ Wipe All Stored Data</span>
+                </button>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));gap:20px;">
+              <!-- 1. WHATSAPP CLOUD API -->
+              <div class="crm-table-card" style="padding:24px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:26px;">💬</span>
+                    <div>
+                      <h3 style="font-size:15px;font-weight:800;color:var(--ink);">WhatsApp Business API</h3>
+                      <span style="font-size:11px;font-weight:700;color:#16A34A;">Official Cloud API / Wati / AiSensy</span>
+                    </div>
+                  </div>
+                  <span style="background:#DCFCE7;color:#15803D;font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;">CONNECTED</span>
+                </div>
+                <div class="form-group" style="margin-bottom:12px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Sender WhatsApp Number</label>
+                  <input type="text" class="form-control" id="int-wa-phone" value="${intg.whatsappPhoneId}" />
+                  <small style="font-size:11px;color:var(--muted-gray);">Primary Desk: +91 84318 03839 (Used across all course pages)</small>
+                </div>
+                <div class="form-group" style="margin-bottom:12px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">WhatsApp API Bearer Token</label>
+                  <input type="password" class="form-control" id="int-wa-key" placeholder="EAABw..." value="${intg.whatsappApiKey}" />
+                </div>
+                <div class="form-group" style="margin-bottom:16px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Approved Message Template</label>
+                  <input type="text" class="form-control" id="int-wa-template" value="${intg.whatsappTemplate}" />
+                </div>
+                <div style="padding:10px 12px;background:var(--surface-2);border-radius:6px;font-size:11.5px;color:var(--ink);line-height:1.5;">
+                  <b>Auto-Trigger:</b> Every new learner enquiry generates a pre-formatted 1-click WhatsApp chat link with personalized applicant name and course info.
+                </div>
+              </div>
+
+              <!-- 2. META LEAD ADS WEBHOOK -->
+              <div class="crm-table-card" style="padding:24px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:26px;">📱</span>
+                    <div>
+                      <h3 style="font-size:15px;font-weight:800;color:var(--ink);">Meta Ads Lead Sync</h3>
+                      <span style="font-size:11px;font-weight:700;color:#2563EB;">Facebook &amp; Instagram Instant Forms</span>
+                    </div>
+                  </div>
+                  <span style="background:#DBEAFE;color:#1D4ED8;font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;">LIVE WEBHOOK</span>
+                </div>
+                <div class="form-group" style="margin-bottom:12px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Webhook Callback Endpoint</label>
+                  <input type="text" class="form-control" readonly value="https://neonexmindx.com/api/webhooks/meta-lead" />
+                </div>
+                <div class="form-group" style="margin-bottom:12px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Verify Token</label>
+                  <input type="text" class="form-control" id="int-meta-token" value="${intg.metaVerifyToken}" />
+                </div>
+                <div class="form-group" style="margin-bottom:16px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Meta App Secret / Access Token</label>
+                  <input type="password" class="form-control" id="int-meta-secret" placeholder="Optional app secret for SHA256 HMAC verification" value="${intg.metaAppSecret}" />
+                </div>
+                <div style="display:flex;gap:8px;">
+                  <button class="btn-crm-action" style="flex:1;" onclick="CRM.simulateIncomingLead('Meta')">Simulate Meta Lead</button>
+                </div>
+              </div>
+
+              <!-- 3. GOOGLE ADS LEAD EXTENSIONS -->
+              <div class="crm-table-card" style="padding:24px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:26px;">🎯</span>
+                    <div>
+                      <h3 style="font-size:15px;font-weight:800;color:var(--ink);">Google Ads Lead Forms</h3>
+                      <span style="font-size:11px;font-weight:700;color:#D97706;">Search &amp; Performance Max Campaigns</span>
+                    </div>
+                  </div>
+                  <span style="background:#FEF3C7;color:#B45309;font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;">ID: 606-542-9317</span>
+                </div>
+                <div class="form-group" style="margin-bottom:12px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Google Ads Customer ID</label>
+                  <input type="text" class="form-control" id="int-gads-cid" value="${intg.googleCustomerId}" />
+                </div>
+                <div class="form-group" style="margin-bottom:12px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Google Webhook URL</label>
+                  <input type="text" class="form-control" readonly value="https://neonexmindx.com/api/webhooks/google-lead" />
+                </div>
+                <div class="form-group" style="margin-bottom:16px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Google Webhook Key</label>
+                  <input type="text" class="form-control" id="int-gads-key" value="${intg.googleAdsWebhookKey}" />
+                </div>
+                <div style="display:flex;gap:8px;">
+                  <button class="btn-crm-action" style="flex:1;" onclick="CRM.simulateIncomingLead('Google')">Simulate Google Lead</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- SAVE BUTTON -->
+            <div style="display:flex;justify-content:flex-end;gap:12px;">
+              <button class="btn-save-teal" onclick="CRM.saveIntegrations()" style="padding:10px 24px;font-size:13px;">Save All Integrations</button>
+            </div>
+          </div>
+        `;
       },
 
       /* 12. IN-APP USER GUIDE & COUNSELLOR SOP */

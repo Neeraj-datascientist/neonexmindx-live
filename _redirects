@@ -84,6 +84,15 @@
 /blog/                                   /blogs                                                 301!
 /blog/:slug                              /blog-post.html?slug=:slug                             200
 /blog-:slug                              /blog/:slug                                            301!
+
+# Raw index.html forced canonical redirects
+/crm/index.html                          /crm                                                   301!
+/crm.html                                /crm                                                   301!
+/cms/index.html                          /cms                                                   301!
+/cms.html                                /cms                                                   301!
+/digital-marketing/index.html            /digital-marketing                                     301!
+/digital-marketing.html                  /digital-marketing                                     301!
+
 /cms                                     /cms/index.html                                        200
 /cms/                                    /cms/index.html                                        200
 /admin                                   /cms/index.html                                        200

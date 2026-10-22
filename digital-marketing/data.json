@@ -333,10 +333,10 @@
       "avg_duration_sec": 276.5
     },
     {
-      "path": "/cms/index.html",
-      "title": "NeoNeX MindX \u2014 Blog Publisher & CMS",
-      "views": 23,
-      "users": 7,
+      "path": "/cms",
+      "title": "NeoNeX MindX — Blog Publisher & CMS",
+      "views": 35,
+      "users": 11,
       "avg_duration_sec": 146.0
     },
     {
@@ -345,13 +345,6 @@
       "views": 23,
       "users": 7,
       "avg_duration_sec": 215.0
-    },
-    {
-      "path": "/cms",
-      "title": "Redirecting to NeoNeX MindX CMS...",
-      "views": 12,
-      "users": 4,
-      "avg_duration_sec": 133.7
     },
     {
       "path": "/about-us",
@@ -382,10 +375,10 @@
       "avg_duration_sec": 2.5
     },
     {
-      "path": "/crm/index.html",
-      "title": "NeoNeX MindX \u2014 Counsellor workspace",
-      "views": 9,
-      "users": 5,
+      "path": "/crm",
+      "title": "NeoNeX MindX — Counsellor workspace",
+      "views": 14,
+      "users": 7,
       "avg_duration_sec": 275.4
     },
     {
