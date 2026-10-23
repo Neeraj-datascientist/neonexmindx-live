@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-10-19 23:39:26 IST",
+    "last_updated": "2026-10-23 21:21:00 IST",
     "domain": "neonexmindx.com",
     "search_console_property": "sc-domain:neonexmindx.com",
     "ga4_property_id": "555779266",
@@ -10,18 +10,18 @@
     "meta_pixel_id": "1698036971288322"
   },
   "kpis": {
-    "total_sessions": 206,
-    "total_users": 104,
-    "organic_sessions": 61,
-    "organic_percent": 29.6,
+    "total_sessions": 211,
+    "total_users": 105,
+    "organic_sessions": 63,
+    "organic_percent": 29.9,
     "total_search_clicks": 1,
-    "total_search_impressions": 86,
+    "total_search_impressions": 194,
     "form_starts": 38,
     "confirmed_leads": 5,
-    "average_speed_score": 75.0,
-    "site_composite_score": 92.3,
+    "average_speed_score": 77.0,
+    "site_composite_score": 92.4,
     "pillar_averages": {
-      "seo": 89.0,
+      "seo": 89.6,
       "aeo": 86.4,
       "geo": 85.2,
       "llmo": 95.5,
@@ -38,9 +38,9 @@
         "neonex"
       ],
       "clicks": 1,
-      "impressions": 75,
-      "ctr": 0.013333333333333334,
-      "position": 5.506666666666667
+      "impressions": 177,
+      "ctr": 0.005649717514124294,
+      "position": 4.887005649717514
     },
     {
       "keys": [
@@ -56,9 +56,18 @@
         "neone x"
       ],
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 8
+      "position": 6
+    },
+    {
+      "keys": [
+        "neonex web"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 4.75
     },
     {
       "keys": [
@@ -68,6 +77,15 @@
       "impressions": 1,
       "ctr": 0,
       "position": 11
+    },
+    {
+      "keys": [
+        "power bi and tableau course fees"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 44
     }
   ],
   "search_pages": [
@@ -75,19 +93,37 @@
       "keys": [
         "https://neonexmindx.com/"
       ],
-      "clicks": 6,
-      "impressions": 115,
-      "ctr": 0.05217391304347826,
-      "position": 5.3652173913043475
+      "clicks": 8,
+      "impressions": 237,
+      "ctr": 0.03375527426160337,
+      "position": 4.953586497890296
+    },
+    {
+      "keys": [
+        "http://neonexmindx.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "https://neonexmindx.com/about-us/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
     },
     {
       "keys": [
         "https://neonexmindx.com/contact-us/"
       ],
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 10,
       "ctr": 0,
-      "position": 4.857142857142858
+      "position": 4.8
     },
     {
       "keys": [
@@ -112,9 +148,9 @@
         "https://neonexmindx.com/courses/business-analytics-course/"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 4,
       "ctr": 0,
-      "position": 13
+      "position": 9
     },
     {
       "keys": [
@@ -130,18 +166,18 @@
         "https://neonexmindx.com/courses/data-analytics-course/"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 9.5
+      "position": 9
     },
     {
       "keys": [
         "https://neonexmindx.com/courses/data-engineering-course"
       ],
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 7,
       "ctr": 0,
-      "position": 9
+      "position": 10
     },
     {
       "keys": [
@@ -157,22 +193,22 @@
         "https://neonexmindx.com/courses/excel-power-bi-tableau-course"
       ],
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 10.2
+      "position": 15.833333333333334
     },
     {
       "keys": [
         "https://neonexmindx.com/courses/python-programming-course/"
       ],
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "ctr": 0,
-      "position": 4
+      "position": 8
     },
     {
       "keys": [
-        "https://neonexmindx.com/placement-assistance-disclaimer/"
+        "https://neonexmindx.com/courses/sql-course/"
       ],
       "clicks": 0,
       "impressions": 1,
@@ -181,29 +217,56 @@
     },
     {
       "keys": [
-        "https://neonexmindx.com/terms-and-conditions/"
+        "https://neonexmindx.com/placement-assistance-disclaimer/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "keys": [
+        "https://neonexmindx.com/privacy-policy/"
       ],
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 6
+      "position": 3
+    },
+    {
+      "keys": [
+        "https://neonexmindx.com/refund-and-cancellation-policy/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "https://neonexmindx.com/terms-and-conditions/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5
     }
   ],
   "traffic_sources": [
     {
       "source": "(direct)",
       "medium": "(none)",
-      "sessions": 112,
+      "sessions": 115,
       "users": 57,
-      "bounce_rate": 55.4,
+      "bounce_rate": 55.7,
       "conversions": 0.0
     },
     {
       "source": "google",
       "medium": "organic",
-      "sessions": 59,
-      "users": 16,
-      "bounce_rate": 59.3,
+      "sessions": 61,
+      "users": 17,
+      "bounce_rate": 60.7,
       "conversions": 0.0
     },
     {
@@ -307,9 +370,9 @@
     {
       "path": "/",
       "title": "Live Online Data Analytics, Data Science & AI Courses | NeoNex MindX",
-      "views": 156,
-      "users": 66,
-      "avg_duration_sec": 134.2
+      "views": 163,
+      "users": 67,
+      "avg_duration_sec": 129.5
     },
     {
       "path": "/home",
@@ -333,10 +396,10 @@
       "avg_duration_sec": 276.5
     },
     {
-      "path": "/cms",
+      "path": "/cms/index.html",
       "title": "NeoNeX MindX — Blog Publisher & CMS",
-      "views": 35,
-      "users": 11,
+      "views": 23,
+      "users": 7,
       "avg_duration_sec": 146.0
     },
     {
@@ -345,6 +408,13 @@
       "views": 23,
       "users": 7,
       "avg_duration_sec": 215.0
+    },
+    {
+      "path": "/cms",
+      "title": "Redirecting to NeoNeX MindX CMS...",
+      "views": 12,
+      "users": 4,
+      "avg_duration_sec": 133.7
     },
     {
       "path": "/about-us",
@@ -375,10 +445,10 @@
       "avg_duration_sec": 2.5
     },
     {
-      "path": "/crm",
+      "path": "/crm/index.html",
       "title": "NeoNeX MindX — Counsellor workspace",
-      "views": 14,
-      "users": 7,
+      "views": 9,
+      "users": 5,
       "avg_duration_sec": 275.4
     },
     {
@@ -404,7 +474,7 @@
     },
     {
       "path": "/crm",
-      "title": "NeoNeX MindX \u2014 Counsellor workspace",
+      "title": "NeoNeX MindX — Counsellor workspace",
       "views": 5,
       "users": 2,
       "avg_duration_sec": 253.1
@@ -418,7 +488,7 @@
     },
     {
       "path": "/cms",
-      "title": "NeoNeX MindX \u2014 Blog Publisher & CMS",
+      "title": "NeoNeX MindX — Blog Publisher & CMS",
       "views": 4,
       "users": 2,
       "avg_duration_sec": 8.2
@@ -476,8 +546,8 @@
   "events": [
     {
       "event": "page_view",
-      "count": 434,
-      "users": 98
+      "count": 443,
+      "users": 99
     },
     {
       "event": "user_engagement",
@@ -486,18 +556,18 @@
     },
     {
       "event": "session_start",
-      "count": 206,
-      "users": 98
+      "count": 211,
+      "users": 99
     },
     {
       "event": "scroll",
-      "count": 153,
-      "users": 26
+      "count": 154,
+      "users": 27
     },
     {
       "event": "first_visit",
-      "count": 98,
-      "users": 98
+      "count": 99,
+      "users": 99
     },
     {
       "event": "form_start",
@@ -514,7 +584,7 @@
     {
       "city": "Bengaluru",
       "country": "India",
-      "sessions": 121,
+      "sessions": 123,
       "users": 31
     },
     {
@@ -532,7 +602,7 @@
     {
       "city": "Coimbatore",
       "country": "India",
-      "sessions": 10,
+      "sessions": 12,
       "users": 2
     },
     {
@@ -608,9 +678,9 @@
       "url": "https://neonexmindx.com/",
       "status_code": 200,
       "speed": {
-        "ttfb_ms": 1436.7,
-        "total_load_ms": 2587.9,
-        "size_kb": 771.27,
+        "ttfb_ms": 1230.2,
+        "total_load_ms": 2253.5,
+        "size_kb": 769.38,
         "speed_score": 65,
         "content_encoding": "None / Plain",
         "server": "Netlify / CDN",
@@ -630,12 +700,12 @@
         "og_image": "https://neonexmindx.com/assets/neonex-mindx-home-og.jpg"
       },
       "assets": {
-        "total_scripts": 7,
+        "total_scripts": 8,
         "external_scripts": 0,
-        "inline_scripts": 7,
+        "inline_scripts": 8,
         "total_images": 19,
         "missing_alt": 2,
-        "missing_lazy": 4,
+        "missing_lazy": 3,
         "stylesheets": 1
       }
     },
@@ -644,9 +714,9 @@
       "url": "https://neonexmindx.com/courses/data-analytics-course",
       "status_code": 200,
       "speed": {
-        "ttfb_ms": 943.1,
-        "total_load_ms": 2592.4,
-        "size_kb": 802.5,
+        "ttfb_ms": 911.8,
+        "total_load_ms": 1319.5,
+        "size_kb": 807.42,
         "speed_score": 65,
         "content_encoding": "None / Plain",
         "server": "Netlify / CDN",
@@ -671,7 +741,7 @@
         "inline_scripts": 6,
         "total_images": 16,
         "missing_alt": 1,
-        "missing_lazy": 4,
+        "missing_lazy": 3,
         "stylesheets": 1
       }
     },
@@ -680,10 +750,10 @@
       "url": "https://neonexmindx.com/trainers",
       "status_code": 200,
       "speed": {
-        "ttfb_ms": 887.0,
-        "total_load_ms": 1509.5,
-        "size_kb": 426.47,
-        "speed_score": 65,
+        "ttfb_ms": 830.5,
+        "total_load_ms": 1881.5,
+        "size_kb": 429.09,
+        "speed_score": 75,
         "content_encoding": "None / Plain",
         "server": "Netlify / CDN",
         "cache_control": "None"
@@ -695,7 +765,7 @@
         "meta_description": "Meet NeoNex MindX trainers across Data Analytics, Data Science, AI/ML, Data Engineering, DevOps, QA and business communication.",
         "meta_description_length": 127,
         "description_status": "Optimal (120-160 chars)",
-        "canonical": "https://neonexmindx.com/trainers-and-mentors",
+        "canonical": "https://neonexmindx.com/trainers",
         "h1_count": 1,
         "h1_text": "A Syllabus Tells You What Is Covered. The Trainer Decides Whether You Learn It.",
         "h2_count": 11,
@@ -707,7 +777,7 @@
         "inline_scripts": 5,
         "total_images": 15,
         "missing_alt": 1,
-        "missing_lazy": 7,
+        "missing_lazy": 2,
         "stylesheets": 1
       }
     },
@@ -716,9 +786,9 @@
       "url": "https://neonexmindx.com/contact-us",
       "status_code": 200,
       "speed": {
-        "ttfb_ms": 902.6,
-        "total_load_ms": 1118.6,
-        "size_kb": 144.44,
+        "ttfb_ms": 761.6,
+        "total_load_ms": 971.6,
+        "size_kb": 147.27,
         "speed_score": 90,
         "content_encoding": "None / Plain",
         "server": "Netlify / CDN",
@@ -743,7 +813,7 @@
         "inline_scripts": 6,
         "total_images": 3,
         "missing_alt": 1,
-        "missing_lazy": 3,
+        "missing_lazy": 2,
         "stylesheets": 0
       }
     },
@@ -752,9 +822,9 @@
       "url": "https://neonexmindx.com/blogs",
       "status_code": 200,
       "speed": {
-        "ttfb_ms": 1094.4,
-        "total_load_ms": 1563.6,
-        "size_kb": 108.01,
+        "ttfb_ms": 907.6,
+        "total_load_ms": 1321.0,
+        "size_kb": 111.84,
         "speed_score": 90,
         "content_encoding": "None / Plain",
         "server": "Netlify / CDN",
@@ -785,13 +855,13 @@
     }
   ],
   "optimization_matrix": {
-    "timestamp": "2026-10-19T23:06:50+05:30",
+    "timestamp": "2026-10-23T21:21:00+05:30",
     "total_pages_audited": 22,
     "llms_txt_active": true,
     "llms_txt_size_kb": 5.3,
-    "site_composite_score": 92.3,
+    "site_composite_score": 92.4,
     "pillar_averages": {
-      "seo": 89.0,
+      "seo": 89.6,
       "aeo": 86.4,
       "geo": 85.2,
       "llmo": 95.5,
@@ -828,7 +898,7 @@
         "page": "Neonex Mindx About us page.html",
         "composite_score": 96.5,
         "size_kb": 644.21,
-        "h1": "We Turn \u201cI Watched a Tutorial\u201d Into\u201cI Can Build This.\u201d",
+        "h1": "We Turn “I Watched a Tutorial” Into“I Can Build This.”",
         "scores": {
           "seo": 100.0,
           "aeo": 100.0,
@@ -981,7 +1051,7 @@
       {
         "page": "Neonex Mindx Home Page.html",
         "composite_score": 97.7,
-        "size_kb": 772.24,
+        "size_kb": 208.83,
         "h1": "Stop Watching Tutorials.Start Building a Career You Can Explain.",
         "scores": {
           "seo": 85.7,
@@ -1091,7 +1161,7 @@
       {
         "page": "blog-post.html",
         "composite_score": 77.2,
-        "size_kb": 116.69,
+        "size_kb": 117.89,
         "h1": "None",
         "scores": {
           "seo": 85.7,
@@ -1113,7 +1183,7 @@
       {
         "page": "blogs.html",
         "composite_score": 80.7,
-        "size_kb": 114.1,
+        "size_kb": 115.53,
         "h1": "Tech & Career Insights for Future Leaders",
         "scores": {
           "seo": 85.7,
@@ -1135,7 +1205,7 @@
       {
         "page": "index.html",
         "composite_score": 97.7,
-        "size_kb": 772.59,
+        "size_kb": 208.83,
         "h1": "Stop Watching Tutorials.Start Building a Career You Can Explain.",
         "scores": {
           "seo": 85.7,
@@ -1156,11 +1226,11 @@
       },
       {
         "page": "thank-you.html",
-        "composite_score": 66.5,
-        "size_kb": 31.51,
+        "composite_score": 68.8,
+        "size_kb": 32.44,
         "h1": "Thank You!",
         "scores": {
-          "seo": 57.1,
+          "seo": 71.4,
           "aeo": 75.0,
           "geo": 50.0,
           "llmo": 75.0,
@@ -1291,9 +1361,9 @@
       {
         "name": "NeoNeX MindX",
         "status": "Current Platform (You)",
-        "tuition_range": "\u20b912,000 \u2013 \u20b950,000",
-        "duration": "6 \u2013 16 Weeks",
-        "batch_size": "15 \u2013 25 Seats",
+        "tuition_range": "₹12,000 – ₹50,000",
+        "duration": "6 – 16 Weeks",
+        "batch_size": "15 – 25 Seats",
         "delivery_format": "100% Live Practitioner Mentorship",
         "geo_readiness": 94,
         "aeo_score": 95,
@@ -1304,9 +1374,9 @@
       {
         "name": "Scaler Academy",
         "status": "Tier-1 High-Cost Competitor",
-        "tuition_range": "\u20b92,50,000 \u2013 \u20b93,50,000",
-        "duration": "9 \u2013 11 Months",
-        "batch_size": "200 \u2013 500 Seats",
+        "tuition_range": "₹2,50,000 – ₹3,50,000",
+        "duration": "9 – 11 Months",
+        "batch_size": "200 – 500 Seats",
         "delivery_format": "Live Lectures + Teaching Assistants",
         "geo_readiness": 78,
         "aeo_score": 72,
@@ -1317,9 +1387,9 @@
       {
         "name": "Simplilearn",
         "status": "Corporate University Co-Brander",
-        "tuition_range": "\u20b91,20,000 \u2013 \u20b91,80,000",
-        "duration": "6 \u2013 12 Months",
-        "batch_size": "100 \u2013 300 Seats",
+        "tuition_range": "₹1,20,000 – ₹1,80,000",
+        "duration": "6 – 12 Months",
+        "batch_size": "100 – 300 Seats",
         "delivery_format": "Pre-Recorded Videos + Periodic Live",
         "geo_readiness": 65,
         "aeo_score": 68,
@@ -1330,9 +1400,9 @@
       {
         "name": "Great Learning",
         "status": "Executive Degree Focus",
-        "tuition_range": "\u20b91,50,000 \u2013 \u20b92,50,000",
-        "duration": "8 \u2013 12 Months",
-        "batch_size": "150 \u2013 400 Seats",
+        "tuition_range": "₹1,50,000 – ₹2,50,000",
+        "duration": "8 – 12 Months",
+        "batch_size": "150 – 400 Seats",
         "delivery_format": "Blended University Slide Sessions",
         "geo_readiness": 69,
         "aeo_score": 64,
@@ -1343,9 +1413,9 @@
       {
         "name": "360DigiTMG",
         "status": "Local Bengaluru Institute",
-        "tuition_range": "\u20b940,000 \u2013 \u20b960,000",
-        "duration": "3 \u2013 4 Months",
-        "batch_size": "40 \u2013 70 Seats",
+        "tuition_range": "₹40,000 – ₹60,000",
+        "duration": "3 – 4 Months",
+        "batch_size": "40 – 70 Seats",
         "delivery_format": "Classroom Hybrid + Zoom",
         "geo_readiness": 42,
         "aeo_score": 45,
@@ -1369,7 +1439,7 @@
         "priority": "HIGH",
         "pillar": "LSEO & Local",
         "title": "Add Bengaluru GeoCoordinates to Schema.org Graph",
-        "description": "Inject latitude/longitude coordinates (12.9716\u00b0 N, 77.5946\u00b0 E) in EducationalOrganization schema to rank in local 3-pack search.",
+        "description": "Inject latitude/longitude coordinates (12.9716° N, 77.5946° E) in EducationalOrganization schema to rank in local 3-pack search.",
         "target_url": "/about-us",
         "impact": "+45% local mobile visibility"
       },
@@ -1392,7 +1462,7 @@
         "impact": "60% faster mobile TTFB"
       }
     ],
-    "execution_duration_sec": 1.02
+    "execution_duration_sec": 0.67
   },
   "connectors": [
     {
@@ -1414,7 +1484,7 @@
       "type": "Product Link (GA4)",
       "status": "Connected & Live (CID: 606-542-9317)",
       "code": "green",
-      "detail": "Account: Neonex MindX (606-542-9317) \u2022 Linked by neonexmindxofficial@gmail.com \u2022 Auto-tagging & Personalized Ads ON"
+      "detail": "Account: Neonex MindX (606-542-9317) • Linked by neonexmindxofficial@gmail.com • Auto-tagging & Personalized Ads ON"
     },
     {
       "name": "Google Tag Manager (GTM)",
@@ -1437,45 +1507,5 @@
       "code": "green",
       "detail": "Event: Whatsp Enquiry"
     }
-  ],
-  "pagespeed_sentry": {
-    "last_audit": "2026-10-21 01:50:00 IST",
-    "target_url": "https://neonexmindx.com",
-    "status": "Optimal (Green Category 90-100 Ready)",
-    "mobile": {
-      "score": 95,
-      "fcp": "1.1 s",
-      "lcp": "2.2 s",
-      "tbt": "0 ms",
-      "cls": "0.000",
-      "speed_index": "1.8 s",
-      "status": "PASS"
-    },
-    "desktop": {
-      "score": 98,
-      "fcp": "0.4 s",
-      "lcp": "0.9 s",
-      "tbt": "0 ms",
-      "cls": "0.000",
-      "speed_index": "0.8 s",
-      "status": "PASS"
-    },
-    "key_fixes_applied": [
-      "Eliminated all 32 inline Base64 data-URIs into optimized static WebP assets (-73.5% HTML size payload)",
-      "Zero Main-Thread Blocking: Deferred GTM (GTM-PG57R85H), Google Ads (AW-18518097028), and Meta Pixel (1698036971288322) to user-first interaction + 5.0s idle window",
-      "Zero CLS (0.000): Enforced rigid CSS contain-intrinsic-size (550px 310px) and explicit min-height on topbar (38px), site-header (76px) and hero visual (310px)",
-      "Sceduled and chunked bottom quiz engine and Netlify HUD scrubber into requestIdleCallback / micro-tasks (<50ms threshold)"
-    ],
-    "autonomous_pipeline": {
-      "trigger_events": [
-        "push to main, qa, dev",
-        "daily cron schedule at midnight (00:00 UTC)"
-      ],
-      "workflow_file": ".github/workflows/pagespeed-sentry.yml",
-      "notification_channels": [
-        "GitHub Actions Job Summary",
-        "Digital Marketing Hub Telemetry Feed"
-      ]
-    }
-  }
+  ]
 }

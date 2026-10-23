@@ -593,8 +593,8 @@
 
     <!-- Portal Switcher Links -->
     <div class="sidebar-portal-nav">
-      <a href="/cms" class="portal-chip">CMS Studio</a>
-      <a href="/crm" class="portal-chip">Admissions CRM</a>
+      <a href="/cms" target="_blank" class="portal-chip">CMS Studio</a>
+      <a href="/crm" target="_blank" class="portal-chip">Admissions CRM</a>
     </div>
 
     <!-- CMS-Style User Row -->
@@ -671,8 +671,8 @@
         </div>
         <div class="kpi-card" style="border-top: 3px solid var(--warn); background: var(--card-tint-amber);">
           <div class="kpi-label">Lead Funnel Conversion</div>
-          <div class="kpi-val"><span style="color:var(--warn);">36</span> / <span style="color:var(--pass);">4</span></div>
-          <div class="kpi-sub">11.1% Form Starts &rarr; Leads</div>
+          <div class="kpi-val"><span id="kpi-funnel-starts" style="color:var(--warn);">38</span> / <span id="kpi-funnel-leads" style="color:var(--pass);">5</span></div>
+          <div class="kpi-sub"><span id="kpi-funnel-rate">13.2%</span> Form Starts &rarr; Leads</div>
         </div>
         <div class="kpi-card" style="border-top: 3px solid var(--pass); background: var(--card-tint-green);">
           <div class="kpi-label">Web Performance (WPO)</div>
@@ -1028,10 +1028,10 @@
 
           <div style="background:var(--card-tint-red); border:1px solid rgba(220, 38, 38, 0.25); border-radius:8px; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <strong style="color:var(--crit);">⚠️ 3. Drop-off Leak (88.9% Abandonment)</strong>
+              <strong style="color:var(--crit);">⚠️ 3. Drop-off Leak (Abandonment)</strong>
               <div style="font-size:11.5px; color:var(--muted);">Users who left before completing submission &bull; Fix via WhatsApp 1-Tap</div>
             </div>
-            <div style="font-family:var(--font-mono); font-size:22px; font-weight:700; color:var(--crit);">32 Dropped</div>
+            <div style="font-family:var(--font-mono); font-size:22px; font-weight:700; color:var(--crit);" id="funnel-dropped">33 Dropped</div>
           </div>
 
           <div style="background:var(--card-tint-green); border:1px solid rgba(22, 163, 74, 0.25); border-radius:8px; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
@@ -1321,12 +1321,21 @@
       const matrix = data.optimization_matrix || {};
 
       // 1. KPI Values
-      if (document.getElementById('kpi-organic')) document.getElementById('kpi-organic').innerText = kpis.organic_sessions || 52;
+      const formStarts = kpis.form_starts || 38;
+      const confirmedLeads = kpis.confirmed_leads || 5;
+      const droppedLeads = Math.max(0, formStarts - confirmedLeads);
+      const convRate = formStarts > 0 ? ((confirmedLeads / formStarts) * 100).toFixed(1) : '13.2';
+
+      if (document.getElementById('kpi-organic')) document.getElementById('kpi-organic').innerText = kpis.organic_sessions || 61;
       if (document.getElementById('kpi-composite')) document.getElementById('kpi-composite').innerText = (matrix.site_composite_score || 92.3) + '%';
       if (document.getElementById('badge-score')) document.getElementById('badge-score').innerText = Math.round(matrix.site_composite_score || 92) + '%';
-      if (document.getElementById('funnel-sessions')) document.getElementById('funnel-sessions').innerText = kpis.total_sessions || 177;
-      if (document.getElementById('funnel-starts')) document.getElementById('funnel-starts').innerText = kpis.form_starts || 36;
-      if (document.getElementById('funnel-leads')) document.getElementById('funnel-leads').innerText = kpis.confirmed_leads || 4;
+      if (document.getElementById('kpi-funnel-starts')) document.getElementById('kpi-funnel-starts').innerText = formStarts;
+      if (document.getElementById('kpi-funnel-leads')) document.getElementById('kpi-funnel-leads').innerText = confirmedLeads;
+      if (document.getElementById('kpi-funnel-rate')) document.getElementById('kpi-funnel-rate').innerText = convRate + '%';
+      if (document.getElementById('funnel-sessions')) document.getElementById('funnel-sessions').innerText = kpis.total_sessions || 206;
+      if (document.getElementById('funnel-starts')) document.getElementById('funnel-starts').innerText = formStarts;
+      if (document.getElementById('funnel-dropped')) document.getElementById('funnel-dropped').innerText = droppedLeads + ' Dropped';
+      if (document.getElementById('funnel-leads')) document.getElementById('funnel-leads').innerText = confirmedLeads;
 
       // PageSpeed Sentry Bindings
       const ps = data.pagespeed_sentry || {};
@@ -1384,7 +1393,7 @@
         }).join('');
       }
 
-      // 3. Striking Keywords Table
+      // 3. Striking Keywords Table & Dedicated Search Console Table
       const keywords = data.keywords || [];
       const strikingTbody = document.getElementById('striking-keywords-tbody');
       if (strikingTbody) {
@@ -1394,6 +1403,19 @@
             <td><span class="badge ${k.position <= 3 ? 'badge-pass' : (k.position <= 10 ? 'badge-info' : 'badge-warn')}">#${k.position.toFixed(1)}</span></td>
             <td style="font-family:var(--font-mono);">${k.impressions}</td>
             <td style="font-family:var(--font-mono);">${(k.ctr * 100).toFixed(1)}%</td>
+          </tr>
+        `).join('');
+      }
+
+      const kwTbody = document.getElementById('keywords-tbody');
+      if (kwTbody) {
+        kwTbody.innerHTML = keywords.map(k => `
+          <tr>
+            <td><strong>${k.keys[0]}</strong></td>
+            <td style="font-family:var(--font-mono);">${k.impressions}</td>
+            <td style="font-family:var(--font-mono); font-weight:700; color:var(--primary);">${k.clicks}</td>
+            <td style="font-family:var(--font-mono);">${(k.ctr * 100).toFixed(1)}%</td>
+            <td><span class="badge ${k.position <= 3 ? 'badge-pass' : (k.position <= 10 ? 'badge-info' : 'badge-warn')}">#${k.position.toFixed(1)}</span></td>
           </tr>
         `).join('');
       }
@@ -1550,12 +1572,16 @@
     }
 
     function refreshData() {
-      const session = NeonexAuth.getSession();
-      if (session && session.user.role === 'Viewer') {
-        alert('Notice: Viewer accounts have read-only access. Only Editors and Admins can trigger live sync.');
-        return;
+      const syncBtn = event ? event.target.closest('button') : null;
+      if (syncBtn) {
+        const orig = syncBtn.innerHTML;
+        syncBtn.innerHTML = '🔄 Syncing...';
+        loadDashboardData().then(() => {
+          setTimeout(() => { syncBtn.innerHTML = orig; }, 500);
+        });
+      } else {
+        loadDashboardData();
       }
-      runLiveAudit();
     }
   </script>
 </body>
