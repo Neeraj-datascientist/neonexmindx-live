@@ -9,21 +9,53 @@
   const STORAGE_USERS = 'neonex_rbac_users';
   const STORAGE_SESSION = 'neonex_active_session';
 
-  // Default Super Admin User (Stored securely, never displayed on public UI)
-  const DEFAULT_ADMIN = {
-    id: 'user-admin-neeraj',
-    name: 'Neeraj',
-    username: 'Neeraj',
-    email: 'pcneeraj123@gmail.com',
-    password: 'Hsc19ph0040@',
-    role: 'Admin', // Admin | Editor | Viewer
-    permissions: {
-      crm: true,
-      cms: true,
-      marketing: true
+  // System Authorized Core Users (Always synced and guaranteed on all devices/browsers)
+  const SEED_USERS = [
+    {
+      id: 'user-admin-neeraj',
+      name: 'Neeraj',
+      username: 'Neeraj',
+      email: 'pcneeraj123@gmail.com',
+      password: 'Hsc19ph0040@',
+      role: 'Admin', // Admin | Editor | Viewer
+      permissions: {
+        crm: true,
+        cms: true,
+        marketing: true
+      },
+      createdAt: '2026-10-17T00:00:00.000Z'
     },
-    createdAt: '2026-10-17T00:00:00.000Z'
-  };
+    {
+      id: 'user-admin-puneeth',
+      name: 'Puneeth',
+      username: 'puneeth',
+      email: 'puneeth@neonexmindx.com',
+      password: 'puneeth$123',
+      role: 'Admin',
+      permissions: {
+        crm: true,
+        cms: true,
+        marketing: true
+      },
+      createdAt: '2026-10-23T00:00:00.000Z'
+    },
+    {
+      id: 'user-editor-mercy',
+      name: 'Mercy',
+      username: 'mercy',
+      email: 'mercy@neonexmindx.com',
+      password: 'mercy$123',
+      role: 'Editor',
+      permissions: {
+        crm: true,
+        cms: false,
+        marketing: false
+      },
+      createdAt: '2026-10-23T00:00:00.000Z'
+    }
+  ];
+
+  const DEFAULT_ADMIN = SEED_USERS[0];
 
   const NeonexAuth = {
     currentPortal: 'crm', // crm | cms | marketing
@@ -37,26 +69,31 @@
     ensureDefaultUsers() {
       let users = this.getUsers();
       if (!users || users.length === 0) {
-        users = [DEFAULT_ADMIN];
+        users = [...SEED_USERS];
         localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
-      } else {
-        // Enforce updated password and full permissions for primary Admin
-        const adminIndex = users.findIndex(u => 
-          u.username.toLowerCase() === 'neeraj' || 
-          u.email.toLowerCase() === 'pcneeraj123@gmail.com'
-        );
-        if (adminIndex >= 0) {
-          users[adminIndex].username = DEFAULT_ADMIN.username;
-          users[adminIndex].email = DEFAULT_ADMIN.email;
-          users[adminIndex].password = DEFAULT_ADMIN.password;
-          users[adminIndex].role = 'Admin';
-          users[adminIndex].permissions = { crm: true, cms: true, marketing: true };
-          localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
-        } else {
-          users.unshift(DEFAULT_ADMIN);
-          localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
-        }
+        return;
       }
+
+      // Sync and guarantee all SEED_USERS exist and have correct passwords/permissions across all browsers
+      SEED_USERS.forEach(seedUser => {
+        const idx = users.findIndex(u => 
+          (u.username && u.username.toLowerCase() === seedUser.username.toLowerCase()) ||
+          (u.email && seedUser.email && u.email.toLowerCase() === seedUser.email.toLowerCase())
+        );
+
+        if (idx >= 0) {
+          // Update credentials and permissions to match system definitions
+          users[idx].username = seedUser.username;
+          users[idx].name = seedUser.name || users[idx].name;
+          users[idx].password = seedUser.password;
+          users[idx].role = seedUser.role;
+          users[idx].permissions = { ...seedUser.permissions };
+        } else {
+          users.push({ ...seedUser });
+        }
+      });
+
+      localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
     },
 
     getUsers() {
@@ -391,7 +428,7 @@
     openUserManagement() {
       const session = this.getSession();
       if (!session || session.user.role !== 'Admin') {
-        alert('Access Restricted: Only Admin (Neeraj) can manage team accounts.');
+        alert('Access Restricted: Only Administrators can manage team accounts.');
         return;
       }
 

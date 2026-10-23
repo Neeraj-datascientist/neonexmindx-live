@@ -888,6 +888,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           NeonexAuth.renderAuthGate('crm', 'Counsellor & CRM Portal', (user) => {
             sessionStorage.setItem('neonex_counsellor_auth', 'yes');
             CRM.toast('Welcome back, ' + (user.name || user.username) + ' (' + user.role + ')');
+            const avatar = document.querySelector('.tb-avatar');
+            if (avatar) {
+              const initial = (user.name || user.username || 'U').charAt(0).toUpperCase();
+              avatar.textContent = initial;
+              avatar.title = (user.name || user.username) + ' (' + user.role + ') - Click to Sign Out';
+            }
           });
         }
       },

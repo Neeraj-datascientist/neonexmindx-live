@@ -82,6 +82,18 @@
 /blogs/                                  /blogs.html                                            200
 /blog                                    /blogs                                                 301!
 /blog/                                   /blogs                                                 301!
+# Static asset passthrough under /blog/ & /cms/
+/blog/*.webp                             /:splat.webp                                           200
+/blog/*.png                              /:splat.png                                            200
+/blog/*.jpg                              /:splat.jpg                                            200
+/blog/*.jpeg                             /:splat.jpeg                                           200
+/blog/*.svg                              /:splat.svg                                            200
+/cms/*.webp                              /:splat.webp                                           200
+/cms/*.png                               /:splat.png                                            200
+/cms/*.jpg                               /:splat.jpg                                            200
+/cms/*.jpeg                              /:splat.jpeg                                           200
+/cms/*.svg                               /:splat.svg                                            200
+
 /blog/:slug                              /blog-post.html?slug=:slug                             200
 /blog-:slug                              /blog/:slug                                            301!
 

@@ -2026,6 +2026,28 @@ id="site-unified-nav-footer-script">
       SYNC_CHANNEL = new BroadcastChannel('neonex_cms_sync');
     } catch(e) {}
 
+    function normalizeImageUrl(url) {
+      if (!url || typeof url !== 'string') {
+        return 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
+      }
+      url = url.trim();
+      if (!url) {
+        return 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
+      }
+      if (url.startsWith('data:image/') || url.startsWith('http://') || url.startsWith('https://')) {
+        return url;
+      }
+      if (url.startsWith('//')) {
+        return 'https:' + url;
+      }
+      if (url.startsWith('file://') || url.includes(':\\') || url.includes(':/')) {
+        const fn = url.split(/[\\/]/).pop();
+        return '/' + fn;
+      }
+      const clean = url.replace(/^(\.\/|\.\.\/)+/, '');
+      return clean.startsWith('/') ? clean : '/' + clean;
+    }
+
     let allPosts = [];
     let allAuthors = [];
     let currentCategory = 'all';
@@ -2193,11 +2215,15 @@ id="site-unified-nav-footer-script">
           const featured = filtered.find(p => p.featured) || filtered[0];
           const featUrl = `/blog/${featured.slug}`;
           const featAuthor = getAuthorInfo(featured);
+          const featHeroImg = normalizeImageUrl(featured.heroImage);
+          const featAvatar = normalizeImageUrl(featAuthor.avatar);
+          const fallbackHero = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
+          const fallbackAvatar = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80';
           spotlightContainer.innerHTML = `
             <div class="featured-card">
               <div class="featured-img-wrap">
                 <a href="${featUrl}">
-                  <img src="${featured.heroImage || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80'}" alt="${featured.heroAlt || featured.title}" loading="lazy" decoding="async">
+                  <img src="${featHeroImg}" alt="${featured.heroAlt || featured.title}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='${fallbackHero}';">
                 </a>
               </div>
               <div class="featured-body">
@@ -2211,7 +2237,7 @@ id="site-unified-nav-footer-script">
                 <h2><a href="${featUrl}">${featured.title}</a></h2>
                 <p class="featured-excerpt">${featured.excerpt || ''}</p>
                 <div class="author-lockup">
-                  <img class="author-avatar" src="${featAuthor.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80'}" alt="${featured.author}" loading="lazy" decoding="async">
+                  <img class="author-avatar" src="${featAvatar}" alt="${featured.author}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='${fallbackAvatar}';">
                   <div>
                     <div class="author-name">${featured.author || 'NeoNeX Mentor'}</div>
                     <div class="author-role">${featAuthor.designation || 'Mentor & Domain Lead'}</div>
@@ -2239,11 +2265,15 @@ id="site-unified-nav-footer-script">
       cardsContainer.innerHTML = filtered.map(post => {
         const postUrl = '/blog/' + post.slug;
         const authorInfo = getAuthorInfo(post);
+        const cardHero = normalizeImageUrl(post.heroImage);
+        const cardAvatar = normalizeImageUrl(authorInfo.avatar);
+        const fallbackCard = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';
+        const fallbackAvatar = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80';
         return `
           <article class="blog-card">
             <div class="card-thumb-wrap">
               <a href="${postUrl}">
-                <img src="${post.heroImage || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'}" alt="${post.heroAlt || post.title}" loading="lazy">
+                <img src="${cardHero}" alt="${post.heroAlt || post.title}" loading="lazy" onerror="this.onerror=null; this.src='${fallbackCard}';">
               </a>
             </div>
             <div class="card-body">
@@ -2258,7 +2288,7 @@ id="site-unified-nav-footer-script">
               <p class="card-excerpt">${post.excerpt || ''}</p>
               <div class="card-footer">
                 <div class="card-author-inline">
-                  <img src="${authorInfo.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80'}" alt="${post.author}" loading="lazy" decoding="async">
+                  <img src="${cardAvatar}" alt="${post.author}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='${fallbackAvatar}';">
                   <span>${post.author || 'NeoNeX Mentor'}</span>
                 </div>
                 <a href="${postUrl}" class="read-more-link">Read &rarr;</a>

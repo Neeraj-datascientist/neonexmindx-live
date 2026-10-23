@@ -258,6 +258,42 @@
           "a": "Yes, every module incorporates end-to-end production datasets, model deployments, and real-time dashboard implementations."
         }
       ]
+    },
+    {
+      "id": "post-data-analytics-portfolio-2026",
+      "title": "Data Analytics Portfolio: How to Build One in 2026",
+      "slug": "data-analytics-portfolio-how-to-build-one-in-2026",
+      "category": "Data Analytics",
+      "author": "Dr. Rajesh Varma",
+      "authorId": "author-rajesh",
+      "status": "published",
+      "publishDate": "2026-09-30",
+      "readTime": "17 min read",
+      "heroImage": "/portfolio-projects.webp",
+      "heroAlt": "Professional data analytics workspace displaying SQL queries, business dashboards and portfolio projects for aspiring data analysts.",
+      "focusKeyword": "Data Analytics Portfolio",
+      "metaDescription": "Step-by-step guide to building a job-winning Data Analytics portfolio in 2026. Explore real-world SQL, Power BI, Python projects, recruiter checklists, and case studies.",
+      "excerpt": "A definitive guide to building a high-impact Data Analytics portfolio in 2026 that gets you interview-ready with real-world SQL, Power BI, and Python business case studies.",
+      "seoScore": 98,
+      "tags": [
+        "Data Analytics",
+        "Power BI",
+        "SQL",
+        "Portfolio Projects",
+        "Career Roadmap"
+      ],
+      "featured": true,
+      "body": "<h2>How to Build a Data Analytics Portfolio That Gets You Interview-Ready in 2026</h2><p>In 2026, recruiters and hiring managers spend an average of less than 45 seconds reviewing an entry-level or career-transitioner's resume. What separates candidates who get ghosted from those who receive immediate interview invitations isn't certificate counts—it is proof of practical business execution through a structured portfolio.</p><h3>Quick Answer: What Should a Data Analytics Portfolio Include?</h3><p>A winning 2026 data analytics portfolio must demonstrate end-to-end analytical capability across four key competencies:</p><ul><li><strong>1. Data Extraction &amp; Modeling (SQL):</strong> Complex joins, window functions, and Common Table Expressions (CTEs) answering specific business questions.</li><li><strong>2. Exploratory Analysis &amp; Automation (Python or Excel):</strong> Cleaning messy data, statistical correlation, and automating weekly KPI workflows.</li><li><strong>3. Interactive Business Intelligence (Power BI or Tableau):</strong> Executive dashboards featuring dynamic DAX measures, drill-through hierarchies, and responsive UI.</li><li><strong>4. Commercial Storytelling &amp; Documentation:</strong> Clear README documentation detailing problem statements, analytical methodology, quantifiable outcomes, and next-step recommendations.</li></ul><h3>Candidate Comparison: Why Generic Portfolios Fail</h3><table><thead><tr><th>Evaluation Metric</th><th>Candidate A (Generic)</th><th>Candidate B (NeoNeX MindX Standard)</th></tr></thead><tbody><tr><td>Dataset Origin</td><td>Kaggle Titanic / Iris dataset</td><td>Real-world retail churn &amp; supply chain data</td></tr><tr><td>Analysis Depth</td><td>Summary statistics &amp; basic bar charts</td><td>Cohort analysis, LTV modeling &amp; hypothesis testing</td></tr><tr><td>Dashboard UX</td><td>Cluttered charts with default palettes</td><td>Executive KPIs, drill-throughs, accessible contrast</td></tr><tr><td>Business Impact</td><td>'Model had 82% accuracy'</td><td>'Identified $42,000 inventory shrinkage leak'</td></tr></tbody></table><h3>The 3 Core Projects Every 2026 Portfolio Needs</h3><p>Rather than including 10 unfinished notebooks, focus on 3 deeply executed projects:</p><ol><li><strong>Executive Revenue &amp; Churn Dashboard:</strong> Built in Power BI with DAX calculations for MoM growth, rolling averages, and cohort retention.</li><li><strong>Customer Segmentation &amp; RFM Analysis:</strong> Python pipeline clustering customers by Recency, Frequency, and Monetary value with targeted marketing recommendations.</li><li><strong>Operational SQL Warehouse Optimization:</strong> Normalized schemas, indexing strategies, and automated ETL staging scripts for high-frequency transaction data.</li></ol><p>At NeoNeX MindX, our <strong>Data Analytics &amp; Power BI Masterclass</strong> guides you through live datasets, mentor code reviews, and end-to-end portfolio deployments designed to impress senior engineering leads.</p>",
+      "faqs": [
+        {
+          "q": "What projects should I include in a Data Analytics portfolio for 2026?",
+          "a": "Include 3 in-depth projects: an executive Power BI revenue dashboard with complex DAX measures, an exploratory customer segmentation pipeline in Python, and an optimized relational database schema with advanced SQL queries."
+        },
+        {
+          "q": "Can I get hired without a computer science background?",
+          "a": "Yes! Recruiters prioritize candidates who demonstrate domain knowledge, analytical reasoning, and clean portfolio documentation over specific degrees."
+        }
+      ]
     }
   ],
   "authors": [
@@ -295,7 +331,7 @@
       "id": "author-raveendran",
       "name": "Raveendran",
       "designation": "Lead Data Engineer & Analytics Mentor",
-      "avatar": "raveendran.webp",
+      "avatar": "/raveendran.webp",
       "linkedin": "https://www.linkedin.com/in/raveendran-m-581a723b8",
       "bio": "Experienced Data Engineer specializing in PySpark, Apache Spark, Airflow, Kafka, dbt, Snowflake, AWS, and Azure Databricks."
     },
@@ -303,7 +339,7 @@
       "id": "author-venkat",
       "name": "Venkat Nagarjun",
       "designation": "Developer & QA Mentor",
-      "avatar": "trainer-venkat.webp",
+      "avatar": "/trainer-venkat.webp",
       "linkedin": "https://www.linkedin.com/",
       "bio": "Software developer and QA automation specialist mentoring learners on practical code quality, test frameworks, Python applications, and production readiness."
     },
@@ -311,7 +347,7 @@
       "id": "author-nikhil",
       "name": "Nikhil",
       "designation": "Lead Developer & QA Mentor",
-      "avatar": "trainer-nikhil.webp",
+      "avatar": "/trainer-nikhil.webp",
       "linkedin": "https://www.linkedin.com/",
       "bio": "Software developer and QA automation specialist mentoring learners on practical code quality, test frameworks, Python applications, and production readiness."
     },
@@ -319,7 +355,7 @@
       "id": "author-sanjana",
       "name": "Sanjana",
       "designation": "DevOps & Cloud Mentor",
-      "avatar": "trainer-sanjana.webp",
+      "avatar": "/trainer-sanjana.webp",
       "linkedin": "https://www.linkedin.com/",
       "bio": "DevOps engineer specializing in CI/CD pipelines, container orchestration, cloud deployment architectures, and production reliability engineering."
     },
@@ -327,7 +363,7 @@
       "id": "author-yashas",
       "name": "Yashas",
       "designation": "Senior Analytics & AI Mentor",
-      "avatar": "trainer-yashas.webp",
+      "avatar": "/trainer-yashas.webp",
       "linkedin": "https://www.linkedin.com/",
       "bio": "Specialist in business analytics, exploratory data frameworks, SQL optimization, and enterprise dashboard architecture using Power BI and Tableau."
     },
@@ -335,7 +371,7 @@
       "id": "author-neeraj",
       "name": "Neeraj PC",
       "designation": "Data Analytics & AI Mentor",
-      "avatar": "trainer-neeraj.webp",
+      "avatar": "/trainer-neeraj.webp",
       "linkedin": "https://www.linkedin.com/",
       "bio": "Analytics consultant mentoring students across exploratory data analysis, business intelligence, dashboard storytelling, and machine learning architectures."
     },
@@ -343,7 +379,7 @@
       "id": "author-lakshmi",
       "name": "Lakshmi M. Achar",
       "designation": "Senior Data Science & Machine Learning Mentor",
-      "avatar": "trainer-lakshmi.webp",
+      "avatar": "/trainer-lakshmi.webp",
       "linkedin": "https://www.linkedin.com/",
       "bio": "Data scientist with expertise in predictive modeling, statistical learning, customer analytics, and production ML pipelines."
     },
@@ -351,9 +387,101 @@
       "id": "author-megha",
       "name": "Megha",
       "designation": "Career Coach & Profile Building Mentor",
-      "avatar": "trainer-megha.webp",
+      "avatar": "/trainer-megha.webp",
       "linkedin": "https://www.linkedin.com/",
       "bio": "Corporate HR and executive communications trainer coaching learners on technical storytelling, resume positioning, interview presence, and workplace communication."
+    }
+  ],
+  "media": [
+    {
+      "id": "med-portfolio-projects",
+      "name": "portfolio-projects.webp",
+      "url": "/portfolio-projects.webp",
+      "type": "image",
+      "alt": "Professional data analytics workspace displaying SQL queries, business dashboards and portfolio projects for aspiring data analysts.",
+      "size": "38.5 KB",
+      "date": "2026-09-30"
+    },
+    {
+      "id": "med-hero-dashboard",
+      "name": "hero-dashboard.webp",
+      "url": "/hero-dashboard.webp",
+      "type": "image",
+      "alt": "Enterprise AI and Data Science analytics dashboard interface",
+      "size": "38.6 KB",
+      "date": "2026-09-20"
+    },
+    {
+      "id": "med-career-prep",
+      "name": "career-preparation.webp",
+      "url": "/career-preparation.webp",
+      "type": "image",
+      "alt": "Data science and AI career transition roadmap and placement guidance",
+      "size": "39.0 KB",
+      "date": "2026-09-15"
+    },
+    {
+      "id": "med-live-classroom",
+      "name": "live-classroom.webp",
+      "url": "/live-classroom.webp",
+      "type": "image",
+      "alt": "Interactive live instructor-led technical training classroom",
+      "size": "37.0 KB",
+      "date": "2026-09-15"
+    },
+    {
+      "id": "med-learning-model",
+      "name": "learning-model.webp",
+      "url": "/learning-model.webp",
+      "type": "image",
+      "alt": "NeoNeX MindX practical hybrid learning and project architecture",
+      "size": "37.6 KB",
+      "date": "2026-09-12"
+    },
+    {
+      "id": "med-course-selector",
+      "name": "course-selector.webp",
+      "url": "/course-selector.webp",
+      "type": "image",
+      "alt": "Curated technical course pathways in Data Science, AI and Analytics",
+      "size": "29.2 KB",
+      "date": "2026-09-10"
+    },
+    {
+      "id": "med-programs-overview",
+      "name": "programs-overview.webp",
+      "url": "/programs-overview.webp",
+      "type": "image",
+      "alt": "Comprehensive data and machine learning curriculum overview",
+      "size": "39.0 KB",
+      "date": "2026-09-08"
+    },
+    {
+      "id": "med-unsplash-analytics",
+      "name": "modern-data-analytics-workspace.jpg",
+      "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "type": "image",
+      "alt": "Financial analytics, charts and high performance KPI dashboards",
+      "size": "Cloud Asset",
+      "date": "2026-09-01"
+    },
+    {
+      "id": "med-unsplash-ai-ml",
+      "name": "deep-neural-networks.jpg",
+      "url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
+      "type": "image",
+      "alt": "Neural network architecture and machine learning intelligence visualization",
+      "size": "Cloud Asset",
+      "date": "2026-09-01"
+    },
+    {
+      "id": "med-unsplash-cloud",
+      "name": "cloud-data-infrastructure.jpg",
+      "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+      "type": "image",
+      "alt": "Cloud server infrastructure and distributed data engineering clusters",
+      "size": "Cloud Asset",
+      "date": "2026-09-01"
     }
   ]
 }
