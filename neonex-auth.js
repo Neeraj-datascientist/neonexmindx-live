@@ -678,6 +678,8 @@
         }
       }
     }
+  };
+
   window.NeonexAuth = NeonexAuth;
   window.NeoNexAuth = NeonexAuth; // Safe alias
 
