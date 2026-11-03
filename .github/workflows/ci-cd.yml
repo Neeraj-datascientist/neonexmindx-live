@@ -1,18 +1,16 @@
-name: CI/CD Pipeline
+name: CI/CD Pipeline & Cloudflare Pages Auto-Deploy
 
 on:
   push:
     branches:
       - main
-      - qa
   pull_request:
     branches:
       - main
-      - qa
 
 jobs:
   validate-and-test:
-    name: Validate Website & CMS Assets
+    name: Validate Website & Core Portals
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -27,12 +25,10 @@ jobs:
         run: |
           echo "Checking essential production files..."
           test -f "index.html" || { echo "index.html missing!"; exit 1; }
-          test -f "cms.html" || { echo "cms.html missing!"; exit 1; }
-          test -f "crm.html" || { echo "crm.html missing!"; exit 1; }
           test -f "crm/index.html" || { echo "crm/index.html missing!"; exit 1; }
-          test -f "thank-you.html" || { echo "thank-you.html missing!"; exit 1; }
+          test -f "cms/index.html" || { echo "cms/index.html missing!"; exit 1; }
           test -f "_redirects" || { echo "_redirects missing!"; exit 1; }
-          test -f "neonex-logo.webp" || { echo "Brand logo missing!"; exit 1; }
+          test -f "neonex-auth.js" || { echo "neonex-auth.js missing!"; exit 1; }
           echo "All essential core assets present."
 
       - name: Validate GTM Integration
@@ -41,19 +37,18 @@ jobs:
           grep -q "GTM-PG57R85H" index.html || { echo "GTM container missing from index.html!"; exit 1; }
           echo "GTM container verified successfully."
 
-  deploy:
-    name: Deploy to Production / Staging
+  deploy-to-cloudflare:
+    name: Deploy to Cloudflare Pages
     needs: validate-and-test
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/qa'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Template deployment steps: can be adapted to GitHub Pages, Cloudflare Pages, Netlify, or Vercel
-      - name: Deploy to GitHub Pages (Staging Preview)
-        if: github.ref == 'refs/heads/qa'
-        run: |
-          echo "Ready for QA preview deployment."
-          echo "Branch: ${{ github.ref }}"
-          echo "Commit: ${{ github.sha }}"
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy . --project-name=neonexmindx --commit-dirty=true
