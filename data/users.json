@@ -1,0 +1,44 @@
+[
+  {
+    "id": "user-admin-neeraj",
+    "name": "Neeraj",
+    "username": "Neeraj",
+    "email": "pcneeraj123@gmail.com",
+    "password": "Hsc19ph0040@",
+    "role": "Admin",
+    "permissions": {
+      "crm": true,
+      "cms": true,
+      "marketing": true
+    },
+    "createdAt": "2026-10-17T00:00:00.000Z"
+  },
+  {
+    "id": "user-admin-puneeth",
+    "name": "Puneeth",
+    "username": "puneeth",
+    "email": "puneeth@neonexmindx.com",
+    "password": "puneeth$123",
+    "role": "Admin",
+    "permissions": {
+      "crm": true,
+      "cms": true,
+      "marketing": true
+    },
+    "createdAt": "2026-10-23T00:00:00.000Z"
+  },
+  {
+    "id": "user-editor-mercy",
+    "name": "Mercy",
+    "username": "mercy",
+    "email": "mercy@neonexmindx.com",
+    "password": "mercy$123",
+    "role": "Editor",
+    "permissions": {
+      "crm": true,
+      "cms": false,
+      "marketing": false
+    },
+    "createdAt": "2026-10-23T00:00:00.000Z"
+  }
+]

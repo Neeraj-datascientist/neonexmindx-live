@@ -109,30 +109,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .brand-wrap {
       height: 68px;
-      padding: 0 18px;
+      padding: 0 16px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-shrink: 0;
+      border-bottom: 1px solid var(--line-border);
+      background: var(--card-bg);
+    }
+    .brand-logo-img {
+      height: 34px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      display: block;
     }
     .brand-box {
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
       background: #1D4ED8;
       color: #FFFFFF;
       font-weight: 800;
-      font-size: 16px;
+      font-size: 15px;
       display: grid;
       place-items: center;
       border-radius: 8px;
       flex-shrink: 0;
     }
     .brand-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
-      color: #0F172A;
+      color: var(--ink);
       letter-spacing: -0.01em;
       white-space: nowrap;
+    }
+    .nav-badge-pill {
+      margin-left: auto;
+      background: var(--surface-2);
+      color: var(--muted-gray);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 10px;
+      border: 1px solid var(--line-border);
+    }
+    .nav-link.active .nav-badge-pill {
+      background: var(--sidebar-active-color);
+      color: #FFFFFF;
+      border-color: transparent;
     }
     .nav-list { flex: 1; padding: 10px 10px 30px; overflow-y: auto; }
     .nav-sec-title {
@@ -604,8 +628,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- SIDEBAR NAVIGATION (Exact match with Screenshots) -->
   <aside id="sidebar">
     <div class="brand-wrap">
-      <div class="brand-box">N</div>
-      <div class="brand-title">NeoNex MindX</div>
+      <img src="/neonex-logo.webp" alt="NeoNeX MindX" class="brand-logo-img" onerror="this.onerror=null;this.src='../neonex-logo.webp';">
+      <span class="brand-title">Counsellor CRM</span>
     </div>
 
     <div class="nav-list">
@@ -617,18 +641,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="nav-link" data-view="students">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
         <span>Students</span>
+        <span class="nav-badge-pill" id="crm-badge-students">0</span>
       </div>
       <div class="nav-link" data-view="enquiries">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         <span>Enquiries</span>
+        <span class="nav-badge-pill" id="crm-badge-enquiries">0</span>
       </div>
       <div class="nav-link" data-view="courses">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
         <span>Courses</span>
+        <span class="nav-badge-pill" id="crm-badge-courses">3</span>
       </div>
       <div class="nav-link" data-view="admissions">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
         <span>Admissions</span>
+        <span class="nav-badge-pill" id="crm-badge-admissions">0</span>
       </div>
 
       <!-- OPERATIONS SECTION -->
@@ -636,6 +664,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="nav-link" data-view="batches">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
         <span>Course Batches</span>
+        <span class="nav-badge-pill" id="crm-badge-batches">3</span>
       </div>
       <div class="nav-link" data-view="counselors">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -647,10 +676,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="nav-link" data-view="fees">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="6" x2="12" y2="8"></line><line x1="12" y1="16" x2="12" y2="18"></line></svg>
         <span>Fees</span>
+        <span class="nav-badge-pill" id="crm-badge-invoices">0</span>
       </div>
       <div class="nav-link" data-view="payments">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
         <span>Payments</span>
+        <span class="nav-badge-pill" id="crm-badge-payments">0</span>
       </div>
 
       <!-- COUNSELLING SECTION -->
@@ -658,10 +689,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="nav-link" data-view="counselling">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
         <span>Counselling</span>
+        <span class="nav-badge-pill" id="crm-badge-counselling">0</span>
       </div>
       <div class="nav-link" data-view="followups">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         <span>Follow-ups</span>
+        <span class="nav-badge-pill" id="crm-badge-followups">0</span>
       </div>
       <div class="nav-link" data-view="reports">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
@@ -782,39 +815,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     let ACTIVE_VIEW = 'dashboard';
     let SEARCH_QUERY = '';
+    let INVOICE_SEARCH_QUERY = '';
+    let PAYMENT_SEARCH_QUERY = '';
 
     const CRM = {
-      init() {
+      async init() {
         CRM.checkAuth();
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
           try { APP_DATA = { ...APP_DATA, ...JSON.parse(saved) }; } catch(e){}
         }
 
-        // Pull any incoming live leads from local storage if submitted from website forms
-        const liveLeads = localStorage.getItem('neonex_crm_leads');
-        if (liveLeads) {
-          try {
-            const parsed = JSON.parse(liveLeads);
-            if (Array.isArray(parsed) && parsed.length) {
-              const existingPhones = new Set(APP_DATA.enquiries.map(e => e.phone));
-              parsed.forEach(p => {
-                if (p.phone && !existingPhones.has(p.phone)) {
-                  APP_DATA.enquiries.unshift({
-                    name: p.name || 'Student Candidate',
-                    phone: p.phone,
-                    email: p.email || '-',
-                    program: p.program || 'General Inquiry',
-                    date: new Date().toLocaleDateString('en-GB'),
-                    status: 'New',
-                    notes: p.notes || p.goal || 'Website lead submission'
-                  });
-                  existingPhones.add(p.phone);
-                }
-              });
-            }
-          } catch(e){}
-        }
+        // Pull live central database from backend server for cross-device synchronization
+        await CRM.syncFromServer(false);
+        await CRM.ingestWebsiteLeads();
 
         document.querySelectorAll('.nav-link').forEach(link => {
           link.addEventListener('click', () => {
@@ -828,6 +842,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         document.documentElement.setAttribute('data-theme', savedTheme);
         CRM.updateThemeIcon(savedTheme);
         CRM.navigate('dashboard');
+      },
+
+      async syncFromServer(notify = true) {
+        try {
+          const res = await fetch('/api/crm/data?_t=' + Date.now());
+          if (res.ok) {
+            const serverData = await res.json();
+            if (serverData && typeof serverData === 'object' && Object.keys(serverData).length > 0) {
+              const mergeArrays = (key) => {
+                const localArr = APP_DATA[key] || [];
+                const srvArr = serverData[key] || [];
+                const seenIds = new Set(localArr.map(x => x.id || x.phone || x.number).filter(Boolean));
+                srvArr.forEach(item => {
+                  const identifier = item.id || item.phone || item.number;
+                  if (identifier && !seenIds.has(identifier)) {
+                    localArr.unshift(item);
+                    seenIds.add(identifier);
+                  }
+                });
+                APP_DATA[key] = localArr;
+              };
+
+              ['enquiries', 'students', 'invoices', 'payments', 'counselling', 'followups'].forEach(mergeArrays);
+              if (serverData.batches && serverData.batches.length) APP_DATA.batches = serverData.batches;
+              if (serverData.counselors && serverData.counselors.length) APP_DATA.counselors = serverData.counselors;
+              if (serverData.integrations) APP_DATA.integrations = { ...APP_DATA.integrations, ...serverData.integrations };
+              
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(APP_DATA));
+              CRM.updateBadges();
+              if (notify) {
+                CRM.toast('Synced with Central Server (Multi-Device Active)');
+                CRM.render();
+              }
+            }
+          }
+        } catch(e) {
+          console.warn('[CRM] Server sync fallback to local storage:', e);
+        }
       },
 
       toggleTheme() {
@@ -845,13 +897,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       },
 
       async syncPulse() {
-        CRM.ingestWebsiteLeads();
+        await CRM.syncFromServer(false);
+        await CRM.ingestWebsiteLeads();
         CRM.updateBadges();
         CRM.render();
-        CRM.toast('Live sync complete! Refreshed latest leads and inquiries.');
+        CRM.toast('Live multi-device sync complete! Refreshed latest server and website leads.');
       },
 
-      ingestWebsiteLeads() {
+      async ingestWebsiteLeads() {
+        // First check backend leads API
+        try {
+          const res = await fetch('/api/leads?_t=' + Date.now());
+          if (res.ok) {
+            const data = await res.json();
+            if (data && Array.isArray(data.leads)) {
+              const existingIds = new Set(APP_DATA.enquiries.map(e => e.id || e.phone));
+              data.leads.forEach(l => {
+                if (!existingIds.has(l.id || l.phone)) {
+                  APP_DATA.enquiries.unshift(l);
+                  existingIds.add(l.id || l.phone);
+                }
+              });
+            }
+          }
+        } catch(e){}
+
+        // Also check browser localStorage fallback
         const liveLeads = localStorage.getItem('neonex_crm_leads');
         if (liveLeads) {
           try {
@@ -867,18 +938,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     program: p.program || 'General Inquiry',
                     date: new Date().toLocaleDateString('en-GB'),
                     status: 'New',
-                    notes: p.notes || p.goal || 'Website lead submission'
+                    notes: p.notes || p.goal || 'Website lead submission',
+                    utm_source: p.utm_source || 'direct'
                   });
                   existingPhones.add(p.phone);
                 }
               });
+              CRM.save();
             }
           } catch(e){}
         }
       },
 
       updateBadges() {
-        // updates badge counts
+        const setBadge = (id, count) => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.textContent = count;
+            el.style.display = count > 0 ? 'inline-block' : 'none';
+          }
+        };
+        setBadge('crm-badge-students', (APP_DATA.students || []).length);
+        setBadge('crm-badge-enquiries', (APP_DATA.enquiries || []).length);
+        setBadge('crm-badge-courses', (APP_DATA.courses || []).length);
+        setBadge('crm-badge-admissions', (APP_DATA.students || []).length);
+        setBadge('crm-badge-batches', (APP_DATA.batches || []).length);
+        setBadge('crm-badge-invoices', (APP_DATA.invoices || []).length);
+        setBadge('crm-badge-payments', (APP_DATA.payments || []).length);
+        setBadge('crm-badge-counselling', (APP_DATA.counselling || []).length);
+        setBadge('crm-badge-followups', (APP_DATA.followups || []).length);
       },
 
       checkAuth() {
@@ -914,6 +1002,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       save() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(APP_DATA));
+        try {
+          fetch('/api/crm/data', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(APP_DATA)
+          }).catch(() => {});
+        } catch(e) {}
       },
 
       navigate(view) {
@@ -1257,7 +1352,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <tbody>
                     ${APP_DATA.enquiries.map(e => `
                       <tr>
-                        <td><b>${e.name}</b><br><small style="color:#64748B;">${e.email}</small></td>
+                        <td>
+                          <b>${e.name}</b><br>
+                          <small style="color:#64748B;">${e.email}</small>
+                          ${e.utm_source ? `<br><span style="display:inline-block; margin-top:3px; background:rgba(37,99,235,0.1); color:#2563EB; border:1px solid rgba(37,99,235,0.25); border-radius:4px; font-size:10px; font-weight:700; padding:1px 5px;">🎯 ${e.utm_source}${e.utm_campaign ? ` • ${e.utm_campaign}` : ''}</span>` : ''}
+                        </td>
                         <td>${e.program}</td>
                         <td>${e.date}</td>
                         <td>${e.phone}</td>
@@ -1348,15 +1447,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </tr>
               </thead>
               <tbody>
-                ${APP_DATA.students.map((s, idx) => `
+                ${(APP_DATA.students || []).length ? APP_DATA.students.map((s, idx) => `
                   <tr>
                     <td><b>${s.name}</b><br><small style="color:var(--muted-gray);">${s.phone}</small></td>
                     <td>ADM-2026-0${idx+1}</td>
                     <td><span style="background:#F0FDF4;color:#16A34A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">Admitted</span></td>
                     <td>07/09/2026</td>
-                    <td><button onclick="CRM.printReceipt('${s.name}', 'ADM-2026-0${idx+1}')" style="background:var(--surface-2);border:1px solid var(--line-border);border-radius:4px;padding:3px 8px;font-size:11.5px;font-weight:700;cursor:pointer;">Receipt</button></td>
+                    <td><button onclick="CRM.viewReceipt('${s.name}', 'ADM-2026-0${idx+1}', 'Data Analytics Master Program', '$ 42,000.00')" style="background:var(--surface-2);border:1px solid var(--line-border);border-radius:4px;padding:3px 8px;font-size:11.5px;font-weight:700;cursor:pointer;">Receipt</button></td>
                   </tr>
-                `).join('')}
+                `).join('') : `
+                  <tr>
+                    <td colspan="5" style="text-align:center;padding:48px 20px;">
+                      <div class="empty-icon" style="margin-bottom:8px;font-size:26px;">🎓</div>
+                      <div style="font-weight:700;color:var(--ink);margin-bottom:4px;">No Registered Admissions</div>
+                      <div style="color:var(--muted-gray);font-size:12.5px;">Click "+ Register Admission" above to enroll candidate.</div>
+                    </td>
+                  </tr>
+                `}
               </tbody>
             </table>
           </div>
@@ -1418,8 +1525,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         `;
       },
 
-      /* 6. FEES VIEW (Invoice List - Screenshot 5 exact reproduction) */
+      /* 6. FEES VIEW (Invoice List - Filterable & Production-Grade) */
       viewFees() {
+        const list = (APP_DATA.invoices || []).filter(inv => {
+          if (!INVOICE_SEARCH_QUERY) return true;
+          const q = INVOICE_SEARCH_QUERY.toLowerCase();
+          return (inv.number || '').toLowerCase().includes(q) ||
+                 (inv.client || '').toLowerCase().includes(q) ||
+                 (inv.status || '').toLowerCase().includes(q);
+        });
+
         return `
           <div class="crm-table-card">
             <div class="table-top-bar">
@@ -1427,10 +1542,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span style="cursor:pointer;" onclick="CRM.navigate('dashboard')">&larr;</span> Invoice List
               </div>
               <div class="table-controls">
-                <input type="text" class="crm-search-box" placeholder="Search" />
-                <button class="btn-crm-refresh" onclick="CRM.render()">
+                <input type="text" class="crm-search-box" placeholder="Search Invoices..." value="${INVOICE_SEARCH_QUERY}" oninput="INVOICE_SEARCH_QUERY=this.value; CRM.render();" />
+                <button class="btn-crm-refresh" onclick="INVOICE_SEARCH_QUERY=''; CRM.render();">
                   <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-                  <span>Refresh</span>
+                  <span>Reset</span>
                 </button>
                 <button class="btn-crm-add" onclick="CRM.openAddInvoice()">+ Add New Invoice</button>
               </div>
@@ -1446,23 +1561,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <th>Paid</th>
                   <th>Status</th>
                   <th>Payment</th>
-                  <th></th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                ${APP_DATA.invoices.map(inv => `
+                ${list.length ? list.map(inv => `
                   <tr>
-                    <td><b>${inv.number}</b></td>
+                    <td><b>INV-${inv.number}</b></td>
                     <td>${inv.client}</td>
                     <td>${inv.date}</td>
                     <td>${inv.expiredDate}</td>
                     <td><b>${inv.total}</b></td>
                     <td>${inv.paid}</td>
-                    <td>${inv.status}</td>
-                    <td>${inv.payment}</td>
-                    <td style="text-align:right;letter-spacing:2px;font-size:16px;cursor:pointer;" onclick="alert('Invoice #${inv.number}')">&bull;&bull;&bull;</td>
+                    <td><span style="background:${inv.status==='paid'?'#F0FDF4':'#EFF6FF'};color:${inv.status==='paid'?'#16A34A':'#2563EB'};padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;text-transform:capitalize;">${inv.status}</span></td>
+                    <td><span style="background:${inv.payment==='paid'?'#F0FDF4':'#FFFBEB'};color:${inv.payment==='paid'?'#16A34A':'#D97706'};padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;text-transform:capitalize;">${inv.payment}</span></td>
+                    <td style="text-align:right;">
+                      <button onclick="CRM.viewInvoiceDetails('${inv.number}')" style="background:var(--surface-2);border:1px solid var(--line-border);border-radius:4px;padding:3px 8px;font-size:11.5px;font-weight:700;cursor:pointer;margin-right:6px;">View Slip</button>
+                      <button onclick="CRM.deleteInvoice('${inv.number}')" style="background:none;border:none;color:#DC2626;cursor:pointer;font-weight:800;font-size:14px;">&times;</button>
+                    </td>
                   </tr>
-                `).join('')}
+                `).join('') : `
+                  <tr>
+                    <td colspan="9" style="text-align:center;padding:48px 20px;">
+                      <div class="empty-icon" style="margin-bottom:8px;font-size:26px;">🧾</div>
+                      <div style="font-weight:700;color:var(--ink);margin-bottom:4px;">No Invoices Recorded</div>
+                      <div style="color:var(--muted-gray);font-size:12.5px;">Click "+ Add New Invoice" above to generate a client fee statement.</div>
+                    </td>
+                  </tr>
+                `}
               </tbody>
             </table>
             <div class="pagination-bar">
@@ -1474,8 +1600,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         `;
       },
 
-      /* 7. PAYMENTS VIEW (Payment List - Screenshot 6 exact reproduction) */
+      /* 7. PAYMENTS VIEW (Payment List - Filterable & Production-Grade) */
       viewPayments() {
+        const list = (APP_DATA.payments || []).filter(p => {
+          if (!PAYMENT_SEARCH_QUERY) return true;
+          const q = PAYMENT_SEARCH_QUERY.toLowerCase();
+          return (p.number || '').toLowerCase().includes(q) ||
+                 (p.client || '').toLowerCase().includes(q) ||
+                 (p.paymentMode || '').toLowerCase().includes(q);
+        });
+
         return `
           <div class="crm-table-card">
             <div class="table-top-bar">
@@ -1483,11 +1617,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span style="cursor:pointer;" onclick="CRM.navigate('dashboard')">&larr;</span> Payment List
               </div>
               <div class="table-controls">
-                <input type="text" class="crm-search-box" placeholder="Search" />
-                <button class="btn-crm-refresh" onclick="CRM.render()">
+                <input type="text" class="crm-search-box" placeholder="Search Payments..." value="${PAYMENT_SEARCH_QUERY}" oninput="PAYMENT_SEARCH_QUERY=this.value; CRM.render();" />
+                <button class="btn-crm-refresh" onclick="PAYMENT_SEARCH_QUERY=''; CRM.render();">
                   <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-                  <span>Refresh</span>
+                  <span>Reset</span>
                 </button>
+                <button class="btn-crm-add" onclick="CRM.openAddPayment()">+ Record Payment</button>
               </div>
             </div>
             <table class="crm-table">
@@ -1497,25 +1632,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <th>Client</th>
                   <th>Amount</th>
                   <th>Date</th>
-                  <th>Number</th>
+                  <th>Invoice Ref</th>
                   <th>Year</th>
                   <th>Payment Mode</th>
-                  <th></th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                ${APP_DATA.payments.map(p => `
+                ${list.length ? list.map(p => `
                   <tr>
-                    <td><b>${p.number}</b></td>
+                    <td><b>PAY-${p.number}</b></td>
                     <td>${p.client}</td>
                     <td><b style="color:#0F172A;">${p.amount}</b></td>
                     <td>${p.date}</td>
-                    <td>${p.invoiceNumber}</td>
+                    <td>${p.invoiceNumber ? 'INV-' + p.invoiceNumber : '-'}</td>
                     <td>${p.year}</td>
-                    <td>${p.paymentMode}</td>
-                    <td style="text-align:right;letter-spacing:2px;font-size:16px;cursor:pointer;">&bull;&bull;&bull;</td>
+                    <td><span style="background:#F0FDF4;color:#16A34A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">${p.paymentMode}</span></td>
+                    <td style="text-align:right;">
+                      <button onclick="CRM.viewPaymentReceipt('${p.number}')" style="background:var(--surface-2);border:1px solid var(--line-border);border-radius:4px;padding:3px 8px;font-size:11.5px;font-weight:700;cursor:pointer;margin-right:6px;">Receipt</button>
+                      <button onclick="CRM.deletePayment('${p.number}')" style="background:none;border:none;color:#DC2626;cursor:pointer;font-weight:800;font-size:14px;">&times;</button>
+                    </td>
                   </tr>
-                `).join('')}
+                `).join('') : `
+                  <tr>
+                    <td colspan="8" style="text-align:center;padding:48px 20px;">
+                      <div class="empty-icon" style="margin-bottom:8px;font-size:26px;">💳</div>
+                      <div style="font-weight:700;color:var(--ink);margin-bottom:4px;">No Payments Recorded</div>
+                      <div style="color:var(--muted-gray);font-size:12.5px;">Click "+ Record Payment" above to register a candidate installment.</div>
+                    </td>
+                  </tr>
+                `}
               </tbody>
             </table>
             <div class="pagination-bar">
@@ -1639,7 +1785,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;">
               <button class="btn-crm-add" onclick="CRM.exportData('clients')">Download Clients (CSV)</button>
               <button class="btn-crm-add" onclick="CRM.exportData('enquiries')">Download Inquiries (CSV)</button>
-              <button class="btn-crm-refresh" onclick="CRM.exportData('json')">Download Full System Backup (JSON)</button>
+              <button class="btn-crm-add" onclick="CRM.exportData('invoices')">Download Invoices (CSV)</button>
+              <button class="btn-crm-add" onclick="CRM.exportData('payments')">Download Payments (CSV)</button>
+              <button class="btn-crm-add" onclick="CRM.exportData('batches')">Download Batches (CSV)</button>
+              <button class="btn-crm-refresh" onclick="CRM.exportData('json')">Full System Backup (JSON)</button>
             </div>
             
             <div style="padding-top:20px;border-top:1px solid #F1F5F9;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
@@ -1656,36 +1805,136 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         `;
       },
 
-      /* 11. SETTINGS VIEW (Screenshot 9 exact reproduction) */
+      /* 11. SETTINGS VIEW (Multi-Tab Interactive Settings Suite) */
       viewSettings() {
+        const activeTab = APP_DATA.settings.activeSettingsTab || 'general';
+
+        let tabContent = '';
+        if (activeTab === 'general') {
+          tabContent = `
+            <h2 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:28px;">General Settings</h2>
+            <h3 style="font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;">App Settings</h3>
+            <p style="font-size:12.5px;color:var(--muted-gray);margin-bottom:28px;font-weight:600;">Update Application Formatting &amp; Communication Baseline</p>
+
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:20px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);"><span style="color:#DC2626;">*</span> Date Format:</label>
+              <select class="form-control" style="max-width:320px;" id="set-df">
+                <option value="DD/MM/YYYY" ${APP_DATA.settings.dateFormat==='DD/MM/YYYY'?'selected':''}>DD/MM/YYYY (Indian Standard)</option>
+                <option value="MM/DD/YYYY" ${APP_DATA.settings.dateFormat==='MM/DD/YYYY'?'selected':''}>MM/DD/YYYY (US Format)</option>
+                <option value="YYYY-MM-DD" ${APP_DATA.settings.dateFormat==='YYYY-MM-DD'?'selected':''}>YYYY-MM-DD (ISO Global)</option>
+              </select>
+            </div>
+
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:32px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);"><span style="color:#DC2626;">*</span> Counsellor Email:</label>
+              <input type="email" class="form-control" style="max-width:320px;" id="set-email" value="${APP_DATA.settings.email}" />
+            </div>
+
+            <div style="display:flex;gap:12px;align-items:center;margin-bottom:32px;">
+              <button class="btn-save-teal" onclick="CRM.saveGeneralSettings()">Save Configuration</button>
+              <button onclick="CRM.navigate('guide')" class="btn-crm-refresh" style="font-weight:700;">📘 Read User Guide &amp; SOP</button>
+            </div>
+          `;
+        } else if (activeTab === 'company') {
+          const comp = APP_DATA.settings.company || {
+            name: 'NeoNeX MindX Academic Technologies',
+            phone: '+91 84318 03839',
+            city: 'Bengaluru',
+            state: 'Karnataka',
+            country: 'India',
+            taxNo: 'GSTIN29AAACN1234F1Z5'
+          };
+          tabContent = `
+            <h2 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:28px;">Company &amp; Institute Profile</h2>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:16px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">Entity Name:</label>
+              <input type="text" class="form-control" style="max-width:340px;" id="comp-name" value="${comp.name}" />
+            </div>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:16px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">Headquarters:</label>
+              <input type="text" class="form-control" style="max-width:340px;" id="comp-city" value="${comp.city}, ${comp.state}, ${comp.country}" />
+            </div>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:16px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">Official Phone:</label>
+              <input type="text" class="form-control" style="max-width:340px;" id="comp-phone" value="${comp.phone}" />
+            </div>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:28px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">GST / Tax Reg:</label>
+              <input type="text" class="form-control" style="max-width:340px;" id="comp-tax" value="${comp.taxNo}" />
+            </div>
+            <button class="btn-save-teal" onclick="CRM.saveCompanySettings()">Save Company Profile</button>
+          `;
+        } else if (activeTab === 'logo') {
+          tabContent = `
+            <h2 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:28px;">Company Logo &amp; Identity</h2>
+            <div style="display:flex;align-items:center;gap:20px;padding:20px;background:var(--surface-2);border:1px solid var(--line-border);border-radius:10px;margin-bottom:24px;">
+              <img src="/neonex-logo.webp" alt="NeoNeX" style="height:48px;width:auto;object-fit:contain;" onerror="this.src='../neonex-logo.webp';">
+              <div>
+                <div style="font-weight:800;font-size:14px;color:var(--ink);">Current Active Brand Mark</div>
+                <div style="font-size:12px;color:var(--muted-gray);">Standardized WebP asset deployed across all marketing and admin modules.</div>
+              </div>
+            </div>
+            <div style="font-size:12.5px;color:var(--muted-gray);line-height:1.6;margin-bottom:20px;">
+              Brand guidelines require all invoices, slips, and receipts to utilize the official vector/WebP insignia located at <code>/neonex-logo.webp</code>.
+            </div>
+            <button class="btn-save-teal" onclick="CRM.toast('Brand logo verified and locked to official asset!')">Verify Brand Assets</button>
+          `;
+        } else if (activeTab === 'currency') {
+          const curr = APP_DATA.settings.currency || { symbol: '$', code: 'USD', position: 'before' };
+          tabContent = `
+            <h2 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:28px;">Currency &amp; Pricing Display</h2>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:16px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">Currency Symbol:</label>
+              <input type="text" class="form-control" style="max-width:140px;" id="curr-sym" value="${curr.symbol}" />
+            </div>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:16px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">Currency Code:</label>
+              <input type="text" class="form-control" style="max-width:140px;" id="curr-code" value="${curr.code}" />
+            </div>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:28px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">Symbol Position:</label>
+              <select class="form-control" style="max-width:180px;" id="curr-pos">
+                <option value="before" ${curr.position==='before'?'selected':''}>Before Amount ($ 45,000)</option>
+                <option value="after" ${curr.position==='after'?'selected':''}>After Amount (45,000 $)</option>
+              </select>
+            </div>
+            <button class="btn-save-teal" onclick="CRM.saveCurrencySettings()">Save Currency Format</button>
+          `;
+        } else if (activeTab === 'finance') {
+          const fin = APP_DATA.settings.finance || {
+            bankName: 'HDFC Bank Ltd',
+            accountNo: '50200087492198',
+            ifsc: 'HDFC0001742',
+            upiId: 'neonexmindx@hdfcbank'
+          };
+          tabContent = `
+            <h2 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:28px;">Finance &amp; Settlement Account</h2>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:16px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">Settlement Bank:</label>
+              <input type="text" class="form-control" style="max-width:320px;" id="fin-bank" value="${fin.bankName}" />
+            </div>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:16px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">Account Number:</label>
+              <input type="text" class="form-control" style="max-width:320px;" id="fin-acc" value="${fin.accountNo}" />
+            </div>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:16px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">IFSC / SWIFT:</label>
+              <input type="text" class="form-control" style="max-width:320px;" id="fin-ifsc" value="${fin.ifsc}" />
+            </div>
+            <div style="display:grid;grid-template-columns:140px 1fr;align-items:center;margin-bottom:28px;">
+              <label style="font-size:13px;font-weight:700;color:var(--ink);">UPI VPA ID:</label>
+              <input type="text" class="form-control" style="max-width:320px;" id="fin-upi" value="${fin.upiId}" />
+            </div>
+            <button class="btn-save-teal" onclick="CRM.saveFinanceSettings()">Save Settlement Details</button>
+          `;
+        }
+
         return `
           <div class="settings-layout">
             <div class="settings-card">
-              <h2 style="font-size:18px;font-weight:800;color:#0F172A;margin-bottom:28px;">General Settings</h2>
-              
-              <h3 style="font-size:15px;font-weight:800;color:#0F172A;margin-bottom:4px;">App Settings</h3>
-              <p style="font-size:12.5px;color:#64748B;margin-bottom:28px;font-weight:600;">Update Your App Configuration</p>
+              ${tabContent}
 
-              <div style="display:grid;grid-template-columns:130px 1fr;align-items:center;margin-bottom:20px;">
-                <label style="font-size:13px;font-weight:700;color:#334155;"><span style="color:#DC2626;">*</span> Date Format:</label>
-                <select class="form-control" style="max-width:320px;" id="set-df">
-                  <option value="DD/MM/YYYY" ${APP_DATA.settings.dateFormat==='DD/MM/YYYY'?'selected':''}>DD/MM/YYYY</option>
-                  <option value="MM/DD/YYYY" ${APP_DATA.settings.dateFormat==='MM/DD/YYYY'?'selected':''}>MM/DD/YYYY</option>
-                  <option value="YYYY-MM-DD" ${APP_DATA.settings.dateFormat==='YYYY-MM-DD'?'selected':''}>YYYY-MM-DD</option>
-                </select>
-              </div>
-
-              <div style="display:grid;grid-template-columns:130px 1fr;align-items:center;margin-bottom:32px;">
-                <label style="font-size:13px;font-weight:700;color:#334155;"><span style="color:#DC2626;">*</span> Email:</label>
-                <input type="email" class="form-control" style="max-width:320px;" id="set-email" value="${APP_DATA.settings.email}" />
-              </div>
-
-              <div style="display:flex;gap:12px;align-items:center;margin-bottom:32px;">
-                <button class="btn-save-teal" onclick="CRM.saveSettings()">Save Configuration</button>
-                <button onclick="CRM.navigate('guide')" class="btn-crm-refresh" style="font-weight:700;">📘 Read User Guide &amp; SOP</button>
-              </div>
-
-              <div style="padding-top:24px;border-top:1px solid #F1F5F9;margin-top:16px;">
+              <div style="padding-top:24px;border-top:1px solid #F1F5F9;margin-top:28px;">
                 <h4 style="font-size:14px;font-weight:800;color:#DC2626;margin-bottom:4px;">Factory Reset &amp; Data Purge</h4>
                 <p style="font-size:12px;color:#64748B;margin-bottom:14px;">Wipe local modifications and purge all stored leads/dummy data.</p>
                 <div style="display:flex;gap:10px;flex-wrap:wrap;">
@@ -1699,25 +1948,66 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
 
-            <!-- RIGHT SETTINGS MENU (Screenshot 9) -->
+            <!-- RIGHT SETTINGS MENU -->
             <div class="settings-menu">
               <div style="text-align:center;font-size:16px;font-weight:800;color:#3B0764;margin-bottom:12px;">Settings</div>
-              <div class="settings-nav-item active">⚙️ General Settings</div>
-              <div class="settings-nav-item">🏢 Company Settings</div>
-              <div class="settings-nav-item">🖼️ Company Logo</div>
-              <div class="settings-nav-item">💲 Currency Settings</div>
-              <div class="settings-nav-item">💳 Finance Settings</div>
+              <div class="settings-nav-item ${activeTab==='general'?'active':''}" onclick="CRM.switchSettingsTab('general')">⚙️ General Settings</div>
+              <div class="settings-nav-item ${activeTab==='company'?'active':''}" onclick="CRM.switchSettingsTab('company')">🏢 Company Settings</div>
+              <div class="settings-nav-item ${activeTab==='logo'?'active':''}" onclick="CRM.switchSettingsTab('logo')">🖼️ Company Logo</div>
+              <div class="settings-nav-item ${activeTab==='currency'?'active':''}" onclick="CRM.switchSettingsTab('currency')">💲 Currency Settings</div>
+              <div class="settings-nav-item ${activeTab==='finance'?'active':''}" onclick="CRM.switchSettingsTab('finance')">💳 Finance Settings</div>
             </div>
           </div>
         `;
       },
 
-      /* MODALS & ACTIONS */
-      saveSettings() {
-        APP_DATA.settings.dateFormat = document.getElementById('set-df').value;
-        APP_DATA.settings.email = document.getElementById('set-email').value;
+      switchSettingsTab(tab) {
+        if (!APP_DATA.settings) APP_DATA.settings = {};
+        APP_DATA.settings.activeSettingsTab = tab;
+        CRM.render();
+      },
+
+      saveGeneralSettings() {
+        if (!APP_DATA.settings) APP_DATA.settings = {};
+        APP_DATA.settings.dateFormat = document.getElementById('set-df')?.value || 'DD/MM/YYYY';
+        APP_DATA.settings.email = document.getElementById('set-email')?.value || 'counsellor@neonexmindx.com';
         CRM.save();
-        CRM.toast('Settings saved successfully!');
+        CRM.toast('General settings saved successfully!');
+      },
+
+      saveCompanySettings() {
+        if (!APP_DATA.settings) APP_DATA.settings = {};
+        APP_DATA.settings.company = {
+          name: document.getElementById('comp-name')?.value || 'NeoNeX MindX',
+          city: document.getElementById('comp-city')?.value || 'Bengaluru',
+          phone: document.getElementById('comp-phone')?.value || '+91 84318 03839',
+          taxNo: document.getElementById('comp-tax')?.value || 'GSTIN29AAACN1234F1Z5'
+        };
+        CRM.save();
+        CRM.toast('Company profile saved successfully!');
+      },
+
+      saveCurrencySettings() {
+        if (!APP_DATA.settings) APP_DATA.settings = {};
+        APP_DATA.settings.currency = {
+          symbol: document.getElementById('curr-sym')?.value || '$',
+          code: document.getElementById('curr-code')?.value || 'USD',
+          position: document.getElementById('curr-pos')?.value || 'before'
+        };
+        CRM.save();
+        CRM.toast('Currency preferences updated!');
+      },
+
+      saveFinanceSettings() {
+        if (!APP_DATA.settings) APP_DATA.settings = {};
+        APP_DATA.settings.finance = {
+          bankName: document.getElementById('fin-bank')?.value || 'HDFC Bank Ltd',
+          accountNo: document.getElementById('fin-acc')?.value || '',
+          ifsc: document.getElementById('fin-ifsc')?.value || '',
+          upiId: document.getElementById('fin-upi')?.value || ''
+        };
+        CRM.save();
+        CRM.toast('Settlement account details saved!');
       },
 
       resetDemoData() {
@@ -1851,7 +2141,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <div class="form-group" style="margin-bottom:12px;">
                   <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Webhook Callback Endpoint</label>
-                  <input type="text" class="form-control" readonly value="https://neonexmindx.com/api/webhooks/meta-lead" />
+                  <input type="text" class="form-control" readonly value="https://neonexmindx.com/api/webhook/meta" />
                 </div>
                 <div class="form-group" style="margin-bottom:12px;">
                   <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Verify Token</label>
@@ -1884,7 +2174,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <div class="form-group" style="margin-bottom:12px;">
                   <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Google Webhook URL</label>
-                  <input type="text" class="form-control" readonly value="https://neonexmindx.com/api/webhooks/google-lead" />
+                  <input type="text" class="form-control" readonly value="https://neonexmindx.com/api/webhook/google-ads" />
                 </div>
                 <div class="form-group" style="margin-bottom:16px;">
                   <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Google Webhook Key</label>
@@ -2113,18 +2403,222 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         if (!client) return alert('Client name is required');
 
         APP_DATA.invoices.unshift({
-          number: String(105 + APP_DATA.invoices.length),
+          number: String(105 + (APP_DATA.invoices || []).length),
           client,
-          date: '10/10/2026',
-          expiredDate: '24/10/2026',
+          date: new Date().toLocaleDateString('en-GB'),
+          expiredDate: new Date(Date.now() + 14*86400000).toLocaleDateString('en-GB'),
           total, paid,
-          status: 'sent',
-          payment: paid === '$ 0.00' ? 'unpaid' : 'partially'
+          status: paid === total ? 'paid' : 'sent',
+          payment: paid === '$ 0.00' ? 'unpaid' : (paid === total ? 'paid' : 'partially')
         });
         CRM.save();
+        CRM.updateBadges();
         CRM.closeModal();
         CRM.toast('Invoice created!');
         CRM.render();
+      },
+
+      deleteInvoice(num) {
+        if (!confirm(`Delete Invoice INV-${num}?`)) return;
+        APP_DATA.invoices = (APP_DATA.invoices || []).filter(inv => inv.number !== num);
+        CRM.save();
+        CRM.updateBadges();
+        CRM.toast('Invoice deleted');
+        CRM.render();
+      },
+
+      openAddPayment() {
+        const clientOptions = (APP_DATA.students || []).map(s => `<option value="${s.name}">${s.name}</option>`).join('');
+        const invoiceOptions = (APP_DATA.invoices || []).map(inv => `<option value="${inv.number}">INV-${inv.number} (${inv.client} - ${inv.total})</option>`).join('');
+
+        const body = `
+          <div class="form-group">
+            <label class="form-label">Client Candidate *</label>
+            <input type="text" id="ap-client" class="form-control" placeholder="Candidate name" required list="client-datalist" />
+            <datalist id="client-datalist">
+              ${clientOptions}
+            </datalist>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Amount Received *</label>
+            <input type="text" id="ap-amount" class="form-control" value="$ 15,000.00" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Linked Invoice (Optional)</label>
+            <select id="ap-invoice" class="form-control">
+              <option value="">-- No Direct Invoice Link --</option>
+              ${invoiceOptions}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Payment Mode</label>
+            <select id="ap-mode" class="form-control">
+              <option value="UPI / GPay / PhonePe">UPI / GPay / PhonePe</option>
+              <option value="NetBanking (NEFT/RTGS)">NetBanking (NEFT/RTGS)</option>
+              <option value="Credit / Debit Card">Credit / Debit Card</option>
+              <option value="Bank Wire Transfer">Bank Wire Transfer</option>
+              <option value="Cash / Cheque">Cash / Cheque</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Transaction / Reference ID</label>
+            <input type="text" id="ap-ref" class="form-control" placeholder="e.g. UPI-9842104592" />
+          </div>
+        `;
+        const footer = `
+          <button onclick="CRM.closeModal()" style="padding:6px 14px;border:1px solid #CBD5E1;background:#FFF;border-radius:6px;cursor:pointer;font-weight:700;">Cancel</button>
+          <button class="btn-crm-add" onclick="CRM.savePayment()">Record Payment</button>
+        `;
+        CRM.modal('Record Candidate Fee Payment', body, footer);
+      },
+
+      savePayment() {
+        const client = (document.getElementById('ap-client')?.value || '').trim();
+        const amount = (document.getElementById('ap-amount')?.value || '$ 15,000.00').trim();
+        const invoiceNumber = (document.getElementById('ap-invoice')?.value || '').trim();
+        const paymentMode = (document.getElementById('ap-mode')?.value || 'UPI / GPay').trim();
+        if (!client) return alert('Client name is required');
+
+        if (!APP_DATA.payments) APP_DATA.payments = [];
+        const num = String(1001 + APP_DATA.payments.length);
+
+        APP_DATA.payments.unshift({
+          number: num,
+          client,
+          amount,
+          date: new Date().toLocaleDateString('en-GB'),
+          invoiceNumber,
+          year: String(new Date().getFullYear()),
+          paymentMode
+        });
+
+        // Auto update invoice paid status if linked
+        if (invoiceNumber && APP_DATA.invoices) {
+          const matchedInv = APP_DATA.invoices.find(i => i.number === invoiceNumber);
+          if (matchedInv) {
+            matchedInv.paid = amount;
+            matchedInv.payment = 'partially';
+          }
+        }
+
+        CRM.save();
+        CRM.updateBadges();
+        CRM.closeModal();
+        CRM.toast('Payment recorded successfully!');
+        CRM.render();
+      },
+
+      deletePayment(num) {
+        if (!confirm(`Delete Payment record PAY-${num}?`)) return;
+        APP_DATA.payments = (APP_DATA.payments || []).filter(p => p.number !== num);
+        CRM.save();
+        CRM.updateBadges();
+        CRM.toast('Payment record removed');
+        CRM.render();
+      },
+
+      viewInvoiceDetails(num) {
+        const inv = (APP_DATA.invoices || []).find(i => i.number === num);
+        if (!inv) return;
+
+        const body = `
+          <div style="padding:10px;font-family:var(--font-body);">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid #E2E8F0;padding-bottom:14px;margin-bottom:16px;">
+              <div>
+                <img src="/neonex-logo.webp" alt="NeoNeX" style="height:36px;margin-bottom:6px;" onerror="this.src='../neonex-logo.webp';">
+                <div style="font-size:12px;color:#64748B;">Academic &amp; Training Operations</div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:17px;font-weight:800;color:#0F172A;">INVOICE INV-${inv.number}</div>
+                <div style="font-size:12px;color:#64748B;">Date: ${inv.date} &bull; Due: ${inv.expiredDate}</div>
+              </div>
+            </div>
+            <div style="margin-bottom:16px;background:#F8FAFC;padding:12px;border-radius:8px;">
+              <div style="font-size:11px;font-weight:700;color:#64748B;text-transform:uppercase;">Billed Candidate:</div>
+              <div style="font-size:15px;font-weight:800;color:#0F172A;">${inv.client}</div>
+            </div>
+            <table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:13px;">
+              <thead>
+                <tr style="background:#F1F5F9;text-align:left;">
+                  <th style="padding:8px 10px;">Description</th>
+                  <th style="padding:8px 10px;text-align:right;">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #E2E8F0;">
+                  <td style="padding:8px 10px;">Program Tuition &amp; Academic Enrollment</td>
+                  <td style="padding:8px 10px;text-align:right;font-weight:700;">${inv.total}</td>
+                </tr>
+                <tr style="border-bottom:1px solid #E2E8F0;">
+                  <td style="padding:8px 10px;">Amount Settled / Paid</td>
+                  <td style="padding:8px 10px;text-align:right;font-weight:700;color:#16A34A;">${inv.paid}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#EFF6FF;border-radius:6px;font-size:12px;color:#1D4ED8;font-weight:700;">
+              <span>Status: ${inv.status.toUpperCase()}</span>
+              <span>Settlement: ${inv.payment.toUpperCase()}</span>
+            </div>
+          </div>
+        `;
+        const footer = `
+          <button onclick="CRM.closeModal()" style="padding:6px 14px;border:1px solid #CBD5E1;background:#FFF;border-radius:6px;cursor:pointer;font-weight:700;">Close</button>
+          <button class="btn-crm-add" onclick="window.print()">🖨️ Print Invoice Slip</button>
+        `;
+        CRM.modal(`Invoice INV-${inv.number}`, body, footer);
+      },
+
+      viewPaymentReceipt(num) {
+        const p = (APP_DATA.payments || []).find(pay => pay.number === num);
+        if (!p) return;
+
+        const body = `
+          <div style="padding:10px;font-family:var(--font-body);">
+            <div style="text-align:center;border-bottom:1px solid #E2E8F0;padding-bottom:14px;margin-bottom:16px;">
+              <img src="/neonex-logo.webp" alt="NeoNeX" style="height:38px;margin-bottom:6px;" onerror="this.src='../neonex-logo.webp';">
+              <div style="font-size:16px;font-weight:800;color:#0F172A;">PAYMENT RECEIPT</div>
+              <div style="font-size:12px;color:#16A34A;font-weight:800;">VERIFIED TRANSACTION &bull; PAY-${p.number}</div>
+            </div>
+            <div style="background:#F8FAFC;padding:14px;border-radius:8px;display:grid;gap:8px;font-size:13px;margin-bottom:16px;">
+              <div style="display:flex;justify-content:space-between;"><span style="color:#64748B;">Student:</span><b>${p.client}</b></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#64748B;">Payment Date:</span><b>${p.date}</b></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#64748B;">Payment Mode:</span><b>${p.paymentMode}</b></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#64748B;">Invoice Ref:</span><b>${p.invoiceNumber ? 'INV-' + p.invoiceNumber : 'Direct'}</b></div>
+              <div style="display:flex;justify-content:space-between;border-top:1px solid #E2E8F0;padding-top:8px;font-size:15px;"><span style="color:#0F172A;font-weight:800;">Amount Paid:</span><b style="color:#16A34A;">${p.amount}</b></div>
+            </div>
+            <div style="font-size:11.5px;color:#64748B;text-align:center;">This is an authorized computer-generated fee acknowledgement from NeoNeX MindX.</div>
+          </div>
+        `;
+        const footer = `
+          <button onclick="CRM.closeModal()" style="padding:6px 14px;border:1px solid #CBD5E1;background:#FFF;border-radius:6px;cursor:pointer;font-weight:700;">Close</button>
+          <button class="btn-crm-add" onclick="window.print()">🖨️ Print Receipt Slip</button>
+        `;
+        CRM.modal(`Receipt PAY-${p.number}`, body, footer);
+      },
+
+      viewReceipt(studentName, admId, course, fee) {
+        const body = `
+          <div style="padding:10px;font-family:var(--font-body);">
+            <div style="text-align:center;border-bottom:1px solid #E2E8F0;padding-bottom:14px;margin-bottom:16px;">
+              <img src="/neonex-logo.webp" alt="NeoNeX" style="height:38px;margin-bottom:6px;" onerror="this.src='../neonex-logo.webp';">
+              <div style="font-size:17px;font-weight:800;color:#0F172A;">OFFICIAL ADMISSION CONFIRMATION</div>
+              <div style="font-size:12px;color:#2563EB;font-weight:800;">CONFIRMED REGISTRATION &bull; ${admId}</div>
+            </div>
+            <div style="background:#F8FAFC;padding:14px;border-radius:8px;display:grid;gap:8px;font-size:13px;margin-bottom:16px;">
+              <div style="display:flex;justify-content:space-between;"><span style="color:#64748B;">Student Candidate:</span><b>${studentName}</b></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#64748B;">Admission ID:</span><b>${admId}</b></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#64748B;">Academic Program:</span><b>${course || 'Data Master Program'}</b></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#64748B;">Term / Year:</span><b>2026-2027 Academic Cohort</b></div>
+              <div style="display:flex;justify-content:space-between;border-top:1px solid #E2E8F0;padding-top:8px;"><span style="color:#64748B;">Admission Status:</span><span style="background:#F0FDF4;color:#16A34A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">VERIFIED ACTIVE</span></div>
+            </div>
+            <div style="font-size:11.5px;color:#64748B;text-align:center;">Official digital admission slip recognized for batch allocations and LMS access.</div>
+          </div>
+        `;
+        const footer = `
+          <button onclick="CRM.closeModal()" style="padding:6px 14px;border:1px solid #CBD5E1;background:#FFF;border-radius:6px;cursor:pointer;font-weight:700;">Close</button>
+          <button class="btn-crm-add" onclick="window.print()">🖨️ Print Admission Slip</button>
+        `;
+        CRM.modal(`Admission Slip: ${studentName}`, body, footer);
       },
 
       openAddEnquiry() {
@@ -2412,11 +2906,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           filename = 'counsellor_crm_full_backup.json';
           mime = 'application/json';
         } else if (type === 'enquiries') {
-          content = 'Candidate,Phone,Email,Program,Date,Status,Notes\n' + APP_DATA.enquiries.map(e => `"${e.name}","${e.phone}","${e.email}","${e.program}","${e.date}","${e.status}","${e.notes}"`).join('\n');
+          content = 'Candidate,Phone,Email,Program,Date,Status,Notes\n' + (APP_DATA.enquiries || []).map(e => `"${e.name}","${e.phone}","${e.email}","${e.program}","${e.date}","${e.status}","${e.notes}"`).join('\n');
           filename = 'enquiries_export.csv';
           mime = 'text/csv';
+        } else if (type === 'invoices') {
+          content = 'Number,Client,Date,Expired Date,Total,Paid,Status,Payment\n' + (APP_DATA.invoices || []).map(i => `"INV-${i.number}","${i.client}","${i.date}","${i.expiredDate}","${i.total}","${i.paid}","${i.status}","${i.payment}"`).join('\n');
+          filename = 'invoices_export.csv';
+          mime = 'text/csv';
+        } else if (type === 'payments') {
+          content = 'Number,Client,Amount,Date,Invoice Ref,Year,Payment Mode\n' + (APP_DATA.payments || []).map(p => `"PAY-${p.number}","${p.client}","${p.amount}","${p.date}","${p.invoiceNumber ? 'INV-' + p.invoiceNumber : '-'}","${p.year}","${p.paymentMode}"`).join('\n');
+          filename = 'payments_export.csv';
+          mime = 'text/csv';
+        } else if (type === 'batches') {
+          content = 'Batch Name,Course,Delivery Mode,Enrolled,Capacity,Start Date,Timings\n' + (APP_DATA.batches || []).map(b => `"${b.name}","${b.course}","${b.mode}",${b.enrolled},${b.capacity},"${b.start}","${b.time}"`).join('\n');
+          filename = 'cohort_batches_export.csv';
+          mime = 'text/csv';
         } else {
-          content = 'Name,Country,Address,Phone,Email\n' + APP_DATA.students.map(s => `"${s.name}","${s.country}","${s.address}","${s.phone}","${s.email}"`).join('\n');
+          content = 'Name,Country,Address,Phone,Email\n' + (APP_DATA.students || []).map(s => `"${s.name}","${s.country}","${s.address}","${s.phone}","${s.email}"`).join('\n');
           filename = 'clients_list.csv';
           mime = 'text/csv';
         }

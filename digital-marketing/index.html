@@ -585,6 +585,11 @@
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
         <span>Funnel &amp; CRO</span>
       </div>
+      <div class="nav-item" data-view="social" onclick="switchView('social')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+        <span>Social &amp; Community</span>
+        <span class="nav-badge" style="background:var(--cyan); color:#fff;">5 Ch</span>
+      </div>
       <div class="nav-item" data-view="connectors" onclick="switchView('connectors')">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
         <span>Connectors Hub</span>
@@ -604,7 +609,7 @@
         <div class="user-name" id="sidebar-user-name">Neeraj</div>
         <div class="user-role" id="sidebar-user-role">Administrator</div>
       </div>
-      <button class="user-logout-btn" onclick="NeoNexAuth.logout()" title="Sign Out">
+      <button class="user-logout-btn" onclick="NeonexAuth.logout()" title="Sign Out">
         <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
       </button>
     </div>
@@ -1045,7 +1050,259 @@
       </div>
     </div>
 
-    <!-- ==================== VIEW 9: CONNECTORS ==================== -->
+    <!-- ==================== VIEW 9: SOCIAL MEDIA & COMMUNITY ==================== -->
+    <div id="view-social" class="view-pane">
+      <div class="view-header">
+        <div class="view-title-block">
+          <h2>Social Media Distribution &amp; Community Ecosystem</h2>
+          <p>Multi-channel organic syndication, audience engagement telemetry, weekly content cadences, and campaign UTM generator.</p>
+        </div>
+        <div>
+          <span class="badge badge-pass" style="font-size:12px; padding:4px 10px;">5 CHANNELS INTEGRATED</span>
+        </div>
+      </div>
+
+      <!-- Social KPI Row -->
+      <div class="kpi-row">
+        <div class="kpi-card" style="border-top: 3px solid #0077B5; background: var(--card-tint-blue);">
+          <div class="kpi-label">LinkedIn Organic Reach</div>
+          <div class="kpi-val" style="color:#0077B5;">14,280</div>
+          <div class="kpi-sub"><strong>+28.4%</strong> MoM &bull; Career Switchers</div>
+        </div>
+        <div class="kpi-card" style="border-top: 3px solid #FF0000; background: var(--card-tint-red);">
+          <div class="kpi-label">YouTube Watch Time</div>
+          <div class="kpi-val" style="color:#FF0000;">48.6K</div>
+          <div class="kpi-sub">Avg Dwell: <strong>6m 12s</strong> &bull; Tutorial Deep Dives</div>
+        </div>
+        <div class="kpi-card" style="border-top: 3px solid #E1306C; background: var(--card-tint-purple);">
+          <div class="kpi-label">Reels &amp; Shorts Views</div>
+          <div class="kpi-val" style="color:#E1306C;">120.4K</div>
+          <div class="kpi-sub">Viral Reach &bull; Fresh Grad Demographics</div>
+        </div>
+        <div class="kpi-card" style="border-top: 3px solid var(--pass); background: var(--card-tint-green);">
+          <div class="kpi-label">Private Community Members</div>
+          <div class="kpi-val" style="color:var(--pass);">1,420</div>
+          <div class="kpi-sub">Discord &amp; WhatsApp &bull; 88% Active Weekly</div>
+        </div>
+      </div>
+
+      <!-- 5 Channels Architecture Grid -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+            <span>Multi-Channel Social Architecture &amp; Syndication Engine</span>
+          </div>
+          <span class="card-badge">Omni-Channel Strategy</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:16px;">
+          <!-- Channel 1: LinkedIn -->
+          <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px; border-left:4px solid #0077B5;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <strong style="font-size:14px; color:var(--ink); display:flex; align-items:center; gap:6px;">
+                <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#0077B5;"></span>
+                LinkedIn Professional Hub
+              </strong>
+              <span class="badge badge-pass">API v2 READY</span>
+            </div>
+            <p style="font-size:12px; color:var(--ink-soft); line-height:1.5; margin-bottom:10px;">
+              Executive thought leadership, alumni hiring spotlights, and curriculum validation. Drives the highest converting B2B/upskilling leads.
+            </p>
+            <div style="font-size:11px; color:var(--muted); background:var(--surface-2); padding:8px 10px; border-radius:6px;">
+              <strong>Cadence:</strong> 4 Posts/week &bull; <strong>Lead Flow:</strong> Direct UTM to Data Analytics / Science courses
+            </div>
+          </div>
+
+          <!-- Channel 2: YouTube -->
+          <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px; border-left:4px solid #FF0000;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <strong style="font-size:14px; color:var(--ink); display:flex; align-items:center; gap:6px;">
+                <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#FF0000;"></span>
+                YouTube Masterclasses &amp; Shorts
+              </strong>
+              <span class="badge badge-pass">ACTIVE</span>
+            </div>
+            <p style="font-size:12px; color:var(--ink-soft); line-height:1.5; margin-bottom:10px;">
+              Long-form project builds (Python, SQL, PowerBI) building high authority and trust. Pinned comment UTM drives syllabus downloads.
+            </p>
+            <div style="font-size:11px; color:var(--muted); background:var(--surface-2); padding:8px 10px; border-radius:6px;">
+              <strong>Cadence:</strong> 1 Long-form + 3 Shorts/week &bull; <strong>Lead Flow:</strong> Pinned links to CRM Lead Form
+            </div>
+          </div>
+
+          <!-- Channel 3: Instagram -->
+          <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px; border-left:4px solid #E1306C;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <strong style="font-size:14px; color:var(--ink); display:flex; align-items:center; gap:6px;">
+                <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#E1306C;"></span>
+                Instagram &amp; Reels
+              </strong>
+              <span class="badge badge-pass">ACTIVE</span>
+            </div>
+            <p style="font-size:12px; color:var(--ink-soft); line-height:1.5; margin-bottom:10px;">
+              Day-in-the-life, salary comparisons, infographic carousels, and campus tour reels targeting fresh graduates and early career shifters.
+            </p>
+            <div style="font-size:11px; color:var(--muted); background:var(--surface-2); padding:8px 10px; border-radius:6px;">
+              <strong>Cadence:</strong> Daily Stories + 3 Reels/week &bull; <strong>Lead Flow:</strong> Link-in-bio &amp; DM automation
+            </div>
+          </div>
+
+          <!-- Channel 4: WhatsApp & Discord Communities -->
+          <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px; border-left:4px solid #25D366;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <strong style="font-size:14px; color:var(--ink); display:flex; align-items:center; gap:6px;">
+                <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#25D366;"></span>
+                Private Learning Communities
+              </strong>
+              <span class="badge badge-pass">HIGH ENGAGEMENT</span>
+            </div>
+            <p style="font-size:12px; color:var(--ink-soft); line-height:1.5; margin-bottom:10px;">
+              WhatsApp Community and Discord Server for daily coding challenges, mentor doubt clearing, alumni referrals, and exclusive webinar invites.
+            </p>
+            <div style="font-size:11px; color:var(--muted); background:var(--surface-2); padding:8px 10px; border-radius:6px;">
+              <strong>Cadence:</strong> Daily interactive prompts &bull; <strong>Lead Flow:</strong> Direct fast-track counsellor scheduling
+            </div>
+          </div>
+
+          <!-- Channel 5: X / Twitter & GitHub -->
+          <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px; border-left:4px solid #1DA1F2;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <strong style="font-size:14px; color:var(--ink); display:flex; align-items:center; gap:6px;">
+                <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#1DA1F2;"></span>
+                X / Twitter &amp; Open Source
+              </strong>
+              <span class="badge badge-info">PLANNED</span>
+            </div>
+            <p style="font-size:12px; color:var(--ink-soft); line-height:1.5; margin-bottom:10px;">
+              AI &amp; Data Engineering thread breakdowns, open-source project showcases, tech commentary, and developer community engagement.
+            </p>
+            <div style="font-size:11px; color:var(--muted); background:var(--surface-2); padding:8px 10px; border-radius:6px;">
+              <strong>Cadence:</strong> 3 Threads/week &bull; <strong>Lead Flow:</strong> GitHub repo stars &amp; portfolio downloads
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly Content Editorial Matrix & UTM Campaign Builder (2 Columns) -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(420px, 1fr)); gap:18px;">
+        
+        <!-- Editorial Cadence -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">📅 7-Day Editorial Content Matrix</div>
+            <span class="card-badge">High Organic Viral Cadence</span>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Theme &amp; Format</th>
+                  <th>Primary Channel</th>
+                  <th>Target Conversion Goal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Monday</strong></td>
+                  <td>Project Deep Dive (SQL / Pandas)</td>
+                  <td><span class="badge badge-info">YouTube &bull; LinkedIn</span></td>
+                  <td>Curriculum Download</td>
+                </tr>
+                <tr>
+                  <td><strong>Wednesday</strong></td>
+                  <td>Alumni Spotlight &amp; Career Pivot</td>
+                  <td><span class="badge badge-purple">Instagram &bull; LinkedIn</span></td>
+                  <td>Consultation Booking</td>
+                </tr>
+                <tr>
+                  <td><strong>Friday</strong></td>
+                  <td>Bengaluru Tech Hiring &amp; Trends</td>
+                  <td><span class="badge badge-info">LinkedIn &bull; Community</span></td>
+                  <td>Community Join</td>
+                </tr>
+                <tr>
+                  <td><strong>Sunday</strong></td>
+                  <td>Live Mentor AMA &amp; Workshop</td>
+                  <td><span class="badge badge-pass">YouTube Live &bull; Zoom</span></td>
+                  <td>Lead Form Direct Signups</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Interactive UTM Campaign Builder -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">🔗 Campaign Link &amp; UTM Attribution Builder</div>
+            <span class="card-badge" style="background:var(--pass-bg); color:var(--pass);">CRM Direct Track</span>
+          </div>
+          <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">
+            Generate tracked links for any social post, video description, or ad. All submissions through these links automatically register with UTM attribution inside the Counsellor CRM!
+          </p>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+            <div>
+              <label style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:4px;">Target Landing Page</label>
+              <select id="utm-target-page" onchange="updateGeneratedUtm()" style="width:100%; padding:8px 10px; border:1px solid var(--border); border-radius:6px; background:var(--surface);">
+                <option value="/">Home Page (/)</option>
+                <option value="/Neonex%20Mindx%20Data%20Analytics%20Course.html">Data Analytics Course</option>
+                <option value="/Neonex%20Mindx%20Data%20Science%20Course.html">Data Science Course</option>
+                <option value="/Neonex%20Mindx%20AI%20ML%20Course.html">AI &amp; ML Course</option>
+                <option value="/Neonex%20Mindx%20Data%20Engineering%20Course.html">Data Engineering Course</option>
+                <option value="/Neonex%20Mindx%20Business%20Analytics%20Course.html">Business Analytics Course</option>
+                <option value="/Neonex%20Mindx%20Contact%20Us.html">Contact &amp; Counselling</option>
+                <option value="/blogs.html">Blog Portal</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:4px;">Campaign Source (utm_source)</label>
+              <select id="utm-source" onchange="updateGeneratedUtm()" style="width:100%; padding:8px 10px; border:1px solid var(--border); border-radius:6px; background:var(--surface);">
+                <option value="linkedin">LinkedIn (linkedin)</option>
+                <option value="youtube">YouTube (youtube)</option>
+                <option value="instagram">Instagram (instagram)</option>
+                <option value="whatsapp">WhatsApp (whatsapp)</option>
+                <option value="meta_ads">Meta Ads (meta_ads)</option>
+                <option value="google_ads">Google Ads (google_ads)</option>
+                <option value="community">Community / Discord (community)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+            <div>
+              <label style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:4px;">Medium (utm_medium)</label>
+              <select id="utm-medium" onchange="updateGeneratedUtm()" style="width:100%; padding:8px 10px; border:1px solid var(--border); border-radius:6px; background:var(--surface);">
+                <option value="organic_post">Organic Post (organic_post)</option>
+                <option value="video_pinned">Pinned Comment / Description (video_pinned)</option>
+                <option value="bio_link">Profile Bio Link (bio_link)</option>
+                <option value="cpc">Paid Ad / CPC (cpc)</option>
+                <option value="story_sticker">Story Sticker Link (story_sticker)</option>
+                <option value="broadcast_message">Community Broadcast (broadcast_message)</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:4px;">Campaign Name (utm_campaign)</label>
+              <input type="text" id="utm-campaign" value="spring_admissions_2026" oninput="updateGeneratedUtm()" placeholder="e.g. data_analytics_launch" style="width:100%; padding:8px 10px; border:1px solid var(--border); border-radius:6px; background:var(--surface);">
+            </div>
+          </div>
+
+          <div style="margin-top:14px; background:var(--surface-2); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border);">
+            <label style="font-size:10.5px; font-weight:700; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:6px;">Generated Tracked URL</label>
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="utm-result" readonly style="flex:1; padding:8px 10px; font-family:var(--font-mono); font-size:12px; border:1px solid var(--border); border-radius:6px; background:var(--surface); color:var(--primary); font-weight:600;">
+              <button class="btn btn-primary btn-sm" onclick="copyGeneratedUtm()" style="white-space:nowrap;">📋 Copy Link</button>
+              <button class="btn btn-secondary btn-sm" onclick="testGeneratedUtm()" style="white-space:nowrap;">🔗 Test</button>
+            </div>
+            <div id="utm-copy-toast" style="display:none; font-size:11px; color:var(--pass); font-weight:600; margin-top:6px;">✅ Link copied to clipboard! Ready to share on social media.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 10: CONNECTORS ==================== -->
     <div id="view-connectors" class="view-pane">
       <div class="view-header">
         <div class="view-title-block">
@@ -1291,6 +1548,7 @@
         'gsc': 'Search Console (SEO)',
         'traffic': 'GA4 Traffic & Dwell',
         'cro': 'Funnel & CRO',
+        'social': 'Social Media & Community Distribution',
         'connectors': 'Connectors Hub'
       };
       const titleEl = document.getElementById('current-view-title');
@@ -1583,6 +1841,62 @@
         loadDashboardData();
       }
     }
+
+    // UTM Campaign Builder Logic
+    function updateGeneratedUtm() {
+      const page = document.getElementById('utm-target-page')?.value || '/';
+      const source = document.getElementById('utm-source')?.value || 'linkedin';
+      const medium = document.getElementById('utm-medium')?.value || 'organic_post';
+      const rawCamp = document.getElementById('utm-campaign')?.value || 'spring_admissions';
+      const camp = encodeURIComponent(rawCamp.trim().replace(/\s+/g, '_').toLowerCase());
+
+      const domain = window.location.origin.includes('localhost') || window.location.origin.includes('192.168') 
+        ? 'https://neonexmindx.com' 
+        : window.location.origin;
+
+      const path = page.startsWith('/') ? page : '/' + page;
+      const url = `${domain}${path}?utm_source=${encodeURIComponent(source)}&utm_medium=${encodeURIComponent(medium)}&utm_campaign=${camp}`;
+      
+      const out = document.getElementById('utm-result');
+      if (out) out.value = url;
+    }
+
+    function copyGeneratedUtm() {
+      const out = document.getElementById('utm-result');
+      if (!out || !out.value) return;
+      navigator.clipboard.writeText(out.value).then(() => {
+        const toast = document.getElementById('utm-copy-toast');
+        if (toast) {
+          toast.style.display = 'block';
+          setTimeout(() => { toast.style.display = 'none'; }, 3000);
+        }
+      }).catch(() => {
+        out.select();
+        document.execCommand('copy');
+        const toast = document.getElementById('utm-copy-toast');
+        if (toast) {
+          toast.style.display = 'block';
+          setTimeout(() => { toast.style.display = 'none'; }, 3000);
+        }
+      });
+    }
+
+    function testGeneratedUtm() {
+      const out = document.getElementById('utm-result');
+      if (out && out.value) {
+        // Open local equivalent if on local server
+        let target = out.value;
+        if (window.location.origin.includes('localhost') || window.location.origin.includes('192.168')) {
+          target = target.replace('https://neonexmindx.com', window.location.origin);
+        }
+        window.open(target, '_blank');
+      }
+    }
+
+    // Initialize UTM Builder on load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateGeneratedUtm();
+    });
   </script>
 </body>
 </html>

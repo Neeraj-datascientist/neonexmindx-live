@@ -973,21 +973,25 @@ body.site-mobile-nav-locked {
     .share-wa { color: #15803D; }
     .share-in { color: #0284C7; }
 
-    /* HERO BANNER - 16:9 (1920x1080) Aspect Ratio Standard */
+    /* HERO BANNER - 16:9 (1920x1080) Aspect Ratio Standard with Infographic Safeguard */
     .article-hero-wrap {
       width: 100%;
       aspect-ratio: 16 / 9;
+      max-height: 540px;
       border-radius: 16px;
       overflow: hidden;
       margin: 28px 0 40px;
-      background: #E2E8F0;
+      background: #0B192C;
       box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .article-hero-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center center;
       display: block;
     }
@@ -1304,6 +1308,7 @@ body.site-mobile-nav-locked {
 
   <!-- Dynamic JSON-LD injection slot -->
   <script type="application/ld+json" id="article-json-ld"></script>
+  <script src="/neonex-tracker.js"></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -2091,19 +2096,36 @@ id="site-unified-nav-footer-script">
 
     // 3. Render Post
     async function renderPost() {
-      const slug = resolveSlug();
-      const db = await getCmsData();
+      const urlParams = new URLSearchParams(window.location.search);
+      const isPreview = urlParams.get('preview') === 'true' || urlParams.get('preview') === '1';
+
+      let post = null;
+      let db = null;
+      let authors = [];
+
+      if (isPreview) {
+        try {
+          const draftStr = localStorage.getItem('neonex_blog_preview_draft');
+          if (draftStr) {
+            post = JSON.parse(draftStr);
+          }
+        } catch(e) {}
+      }
+
+      db = await getCmsData();
+      authors = db.authors || [];
       const posts = db.posts || [];
-      const authors = db.authors || [];
       const container = document.getElementById('article-content-container');
       const bcTitle = document.getElementById('bc-article-title');
 
-      if (!slug || posts.length === 0) {
-        renderDefaultOrNotFound(posts[0]);
-        return;
+      if (!post) {
+        const slug = resolveSlug();
+        if (!slug || posts.length === 0) {
+          renderDefaultOrNotFound(posts[0]);
+          return;
+        }
+        post = posts.find(p => p.slug === slug || p.slug === decodeURIComponent(slug));
       }
-
-      const post = posts.find(p => p.slug === slug || p.slug === decodeURIComponent(slug));
 
       if (!post) {
         renderDefaultOrNotFound(posts[0]);
@@ -2121,14 +2143,15 @@ id="site-unified-nav-footer-script">
 
       const heroImgUrl = normalizeImageUrl(post.heroImage);
       const authorAvatarUrl = normalizeImageUrl(authorObj.avatar);
-      const fallbackHero = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
-      const fallbackAvatar = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80';
+      const fallbackHero = '/hero-dashboard.webp';
+      const fallbackAvatar = '/trainer-neeraj.webp';
 
-      // Update meta & title
-      document.title = `${post.title} | NeoNeX MindX`;
+      // Update meta & title (Support dedicated metaTitle)
+      const pageTitle = (post.metaTitle || post.title || 'Blog Post').trim();
+      document.title = pageTitle.includes('NeoNeX') ? pageTitle : `${pageTitle} | NeoNeX MindX`;
       bcTitle.textContent = post.title;
       document.getElementById('meta-desc')?.setAttribute('content', post.metaDescription || post.excerpt || '');
-      document.getElementById('og-title')?.setAttribute('content', post.title);
+      document.getElementById('og-title')?.setAttribute('content', post.metaTitle || post.title);
       document.getElementById('og-desc')?.setAttribute('content', post.metaDescription || post.excerpt || '');
       document.getElementById('og-image')?.setAttribute('content', heroImgUrl);
 
@@ -2193,6 +2216,15 @@ id="site-unified-nav-footer-script">
       const shareTitle = encodeURIComponent(post.title);
 
       container.innerHTML = `
+        ${isPreview ? `
+          <div style="background:#1B5DB7; color:#fff; padding:12px 20px; border-radius:10px; margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; font-family:'DM Sans', sans-serif; font-size:13.5px; box-shadow:0 4px 14px rgba(27,93,183,0.3);">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="background:rgba(255,255,255,0.22); padding:3px 9px; border-radius:6px; font-weight:800; font-size:11px; letter-spacing:0.05em;">PREVIEW MODE</span>
+              <span>Viewing unpublished CMS draft at dedicated URL</span>
+            </div>
+            <a href="/cms" style="color:#fff; text-decoration:underline; font-weight:600; font-size:12px;">&larr; Back to CMS Studio</a>
+          </div>
+        ` : ''}
         <article class="article-header">
           <span class="article-cat-tag">${post.category || 'Data Science'}</span>
           <h1>${post.title}</h1>

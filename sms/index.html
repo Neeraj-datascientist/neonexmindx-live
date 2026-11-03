@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-48x48.png">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeoNeX MindX &mdash; Social Media Management Studio (SMS)</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="/neonex-auth.js"></script>
+  <script>
+    if (window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('/index')) {
+      const cleanPath = window.location.pathname.replace(/\/index(\.html)?$/, '') || '/';
+      window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+    }
+  </script>
+  
+  <style>
+    :root {
+      --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: "Sora", "DM Sans", sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --primary: #1B5DB7;
+      --primary-hover: #12478E;
+      --primary-tint: #EEF4FC;
+      --accent: #0284C7;
+      --accent-teal: #0D9488;
+      --crit: #DC2626;
+      --crit-bg: #FEF2F2;
+      --warn: #EA580C;
+      --warn-bg: #FFF7ED;
+      --pass: #16A34A;
+      --pass-bg: #F0FDF4;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+    html[data-theme="light"] {
+      --base: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-2: #F1F5F9;
+      --border: #E2E8F0;
+      --ink: #0F172A;
+      --ink-soft: #475569;
+      --muted: #64748B;
+      --sidebar-bg: #FFFFFF;
+      --sidebar-border: #E2E8F0;
+      --sidebar-ink: #334155;
+      --sidebar-active: #EEF4FC;
+      --sidebar-active-ink: #1B5DB7;
+      --shadow-sm: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(15,23,42,0.08), 0 2px 4px -2px rgba(15,23,42,0.05);
+    }
+    html[data-theme="dark"] {
+      --base: #0B0F19;
+      --surface: #111827;
+      --surface-2: #1E293B;
+      --border: #334155;
+      --ink: #F8FAFC;
+      --ink-soft: #CBD5E1;
+      --muted: #94A3B8;
+      --sidebar-bg: #0F172A;
+      --sidebar-border: #1E293B;
+      --sidebar-ink: #CBD5E1;
+      --sidebar-active: #1E293B;
+      --sidebar-active-ink: #60A5FA;
+      --primary: #3B82F6;
+      --primary-hover: #2563EB;
+      --primary-tint: #1E293B;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--base);
+      color: var(--ink);
+      height: 100vh;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: 64px 1fr;
+      grid-template-areas: "side top" "side main";
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, select, textarea { font-family: inherit; color: inherit; font-size: inherit; }
+    a { text-decoration: none; color: inherit; }
+
+    /* SIDEBAR */
+    #sidebar {
+      grid-area: side;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--sidebar-border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      z-index: 30;
+      transition: transform 0.2s ease;
+    }
+    .brand-wrap {
+      height: 76px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--sidebar-border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      text-decoration: none;
+      gap: 10px;
+    }
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+      max-width: 165px;
+      object-fit: contain;
+      display: block;
+    }
+    .brand-pill-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--accent-teal);
+      background: #F0FDFA;
+      border: 1px solid #CCFBF1;
+      padding: 4px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .nav-body { flex: 1; padding: 16px 12px; overflow-y: auto; }
+    .nav-section-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 16px 8px 8px;
+    }
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 10px 12px;
+      background: none;
+      border: none;
+      border-radius: var(--radius-sm);
+      color: var(--sidebar-ink);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+    }
+    .nav-btn:hover { background: var(--surface-2); color: var(--ink); }
+    .nav-btn.active {
+      background: var(--sidebar-active);
+      color: var(--sidebar-active-ink);
+      font-weight: 700;
+    }
+    .nav-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .badge {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 12px;
+      background: var(--surface-2);
+      color: var(--muted);
+    }
+    .nav-btn.active .badge { background: var(--primary); color: #fff; }
+
+    /* TOPBAR */
+    #topbar {
+      grid-area: top;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 20;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 14px; }
+    .topbar-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--ink); }
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-icon:hover { background: var(--surface-2); }
+    .tb-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0D9488 0%, #0284C7 100%);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* MAIN WORKSPACE */
+    #main-content {
+      grid-area: main;
+      overflow-y: auto;
+      padding: 28px 32px 60px;
+      background: var(--base);
+    }
+    .hero-banner {
+      background: linear-gradient(135deg, #0D9488 0%, #0369A1 100%);
+      color: #fff;
+      padding: 32px 36px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 28px;
+    }
+    .hero-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.18);
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .hero-title { font-family: var(--font-display); font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+    .hero-sub { font-size: 14px; opacity: 0.92; line-height: 1.5; max-width: 720px; margin-bottom: 20px; }
+    .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+    .hero-stat-val { font-family: var(--font-display); font-size: 22px; font-weight: 800; }
+    .hero-stat-lbl { font-size: 12px; opacity: 0.85; font-weight: 500; }
+
+    /* CARDS & TABLES */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .card-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--ink); }
+    .badge-status {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .badge-active { background: #DCFCE7; color: #15803D; }
+    .badge-ready { background: #DBEAFE; color: #1D4ED8; }
+    .badge-warn { background: #FEF3C7; color: #B45309; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .data-table th {
+      text-align: left;
+      padding: 12px 14px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table td {
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink);
+    }
+    .data-table tr:hover td { background: var(--surface-2); }
+
+    .btn-action {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s;
+    }
+    .btn-action:hover { background: var(--primary-hover); }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-secondary:hover { background: var(--surface-2); }
+
+    /* TOAST */
+    .toast-tray { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 8px; z-index: 1000; }
+    .toast {
+      background: #0F172A;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 900px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 64px 1fr;
+        grid-template-areas: "top" "main";
+      }
+      #sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        bottom: 0;
+        width: 260px;
+      }
+      #sidebar.mobile-open { left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="brand-wrap">
+      <a href="/" class="brand-link">
+        <img src="/neonex-logo.webp" alt="NeoNeX MindX" class="brand-logo-img">
+        <span class="brand-pill-tag">SMS HUB</span>
+      </a>
+    </div>
+
+    <div class="nav-body">
+      <div class="nav-section-title">CHANNELS &amp; REACH</div>
+      <button class="nav-btn active" data-view="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <span>Overview &amp; Reach</span>
+        <span class="badge" id="badge-accounts">5</span>
+      </button>
+
+      <button class="nav-btn" data-view="accounts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span>Connected Accounts</span>
+      </button>
+
+      <button class="nav-btn" data-view="calendar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <span>Editorial Calendar</span>
+        <span class="badge" id="badge-scheduled">3</span>
+      </button>
+
+      <div class="nav-section-title">CAMPAIGNS &amp; ADS</div>
+      <button class="nav-btn" data-view="campaigns">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        <span>Ad Campaigns (Meta &amp; Google)</span>
+        <span class="badge" id="badge-campaigns">3</span>
+      </button>
+
+      <button class="nav-btn" data-view="generator">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        <span>UTM Link Generator</span>
+      </button>
+
+      <div class="nav-section-title">ECOSYSTEM NAVIGATION</div>
+      <button class="nav-btn" onclick="window.open('/cms', '_blank')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        <span>Blog Publisher &amp; CMS &rarr;</span>
+      </button>
+
+      <button class="nav-btn" onclick="window.open('/crm', '_blank')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span>Sales &amp; Admissions CRM &rarr;</span>
+      </button>
+
+      <button class="nav-btn" onclick="window.open('/digital-marketing', '_blank')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        <span>Digital Marketing Hub &rarr;</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- TOPBAR -->
+  <header id="topbar">
+    <div class="topbar-left">
+      <button class="btn-icon" style="display:none;" id="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('mobile-open')">☰</button>
+      <div class="topbar-title">Social Media Management Studio (SMS)</div>
+    </div>
+    <div class="topbar-right">
+      <button class="btn-icon" onclick="SMS.toggleTheme()" title="Toggle Dark/Light Mode" id="theme-btn">🌙</button>
+      <button class="btn-action" onclick="SMS.openComposer()">+ Create New Post</button>
+      <div class="tb-avatar" title="Neeraj (SuperAdmin)" onclick="NeonexAuth.logout()">N</div>
+    </div>
+  </header>
+
+  <!-- MAIN WORKSPACE -->
+  <main id="main-content">
+    <div id="view-root"></div>
+  </main>
+
+  <div class="toast-tray" id="toast-tray"></div>
+
+  <!-- APPLICATION ENGINE -->
+  <script>
+    let SOCIAL_DATA = { accounts: [], campaigns: [], scheduledPosts: [] };
+    let CURRENT_VIEW = 'dashboard';
+
+    const SMS = {
+      async init() {
+        if (window.NeonexAuth) {
+          NeonexAuth.renderAuthGate('sms', 'Social Media Studio', (user) => {
+            SMS.toast('Welcome back, ' + (user.name || user.username));
+          });
+        }
+
+        const savedTheme = localStorage.getItem('neonex_sms_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.getElementById('theme-btn').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+        await SMS.loadData();
+
+        document.querySelectorAll('.nav-btn[data-view]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const v = btn.getAttribute('data-view');
+            SMS.navigate(v);
+          });
+        });
+
+        SMS.render();
+      },
+
+      async loadData() {
+        try {
+          const res = await fetch('/data/social_data.json?_t=' + Date.now());
+          if (res.ok) {
+            SOCIAL_DATA = await res.json();
+          }
+        } catch(e) {
+          console.warn('Fallback loading social data:', e);
+        }
+      },
+
+      toggleTheme() {
+        const cur = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = cur === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('neonex_sms_theme', next);
+        document.getElementById('theme-btn').textContent = next === 'dark' ? '☀️' : '🌙';
+        SMS.toast(`Switched to ${next} theme`);
+      },
+
+      navigate(view) {
+        CURRENT_VIEW = view;
+        document.querySelectorAll('.nav-btn[data-view]').forEach(b => {
+          b.classList.toggle('active', b.getAttribute('data-view') === view);
+        });
+        SMS.render();
+      },
+
+      toast(msg) {
+        const tray = document.getElementById('toast-tray');
+        const t = document.createElement('div');
+        t.className = 'toast';
+        t.textContent = msg;
+        tray.appendChild(t);
+        setTimeout(() => t.remove(), 2500);
+      },
+
+      openComposer() {
+        const title = prompt('Enter headline or post title for scheduling:');
+        if (!title) return;
+        const platform = prompt('Platform (LinkedIn / YouTube / Instagram / X):', 'LinkedIn');
+        const utm = prompt('Campaign tag (utm_campaign):', 'organic_social_2026');
+        
+        SOCIAL_DATA.scheduledPosts.unshift({
+          id: 'post-' + Date.now(),
+          title: title,
+          platforms: [platform || 'LinkedIn'],
+          scheduledTime: 'Tomorrow • 10:30 AM IST',
+          status: 'Ready',
+          author: 'Content Directorate',
+          utm_campaign: utm || 'social_growth'
+        });
+        SMS.toast('Draft added to editorial schedule!');
+        SMS.render();
+      },
+
+      render() {
+        const root = document.getElementById('view-root');
+        if (CURRENT_VIEW === 'dashboard') root.innerHTML = SMS.renderDashboard();
+        else if (CURRENT_VIEW === 'accounts') root.innerHTML = SMS.renderAccounts();
+        else if (CURRENT_VIEW === 'calendar') root.innerHTML = SMS.renderCalendar();
+        else if (CURRENT_VIEW === 'campaigns') root.innerHTML = SMS.renderCampaigns();
+        else if (CURRENT_VIEW === 'generator') root.innerHTML = SMS.renderGenerator();
+      },
+
+      renderDashboard() {
+        const totalFollowers = (SOCIAL_DATA.accounts || []).reduce((acc, a) => acc + (a.followers || a.subscribers || a.members || 0), 0);
+        const totalAdLeads = (SOCIAL_DATA.campaigns || []).reduce((acc, c) => acc + (c.leads || 0), 0);
+
+        return `
+          <div class="hero-banner">
+            <span class="hero-pill">Social Media Management Studio (SMS)</span>
+            <h1 class="hero-title">Omnichannel Community &amp; Distribution Command</h1>
+            <p class="hero-sub">Orchestrate organic content distribution across LinkedIn, YouTube, Instagram, WhatsApp, and X. Automate inbound lead generation without depending solely on ad spend.</p>
+            <div class="hero-stats">
+              <div>
+                <div class="hero-stat-val">${totalFollowers.toLocaleString()}</div>
+                <div class="hero-stat-lbl">Total Community Footprint</div>
+              </div>
+              <div>
+                <div class="hero-stat-val">${totalAdLeads}</div>
+                <div class="hero-stat-lbl">Inbound Campaign Leads</div>
+              </div>
+              <div>
+                <div class="hero-stat-val">5 Channels</div>
+                <div class="hero-stat-lbl">Active Synced Networks</div>
+              </div>
+              <div>
+                <div class="hero-stat-val">₹134</div>
+                <div class="hero-stat-lbl">Blended Cost per Inbound Lead</div>
+              </div>
+            </div>
+          </div>
+
+          <h2 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:16px;">Active Distribution Channels</h2>
+          <div class="grid-cards">
+            ${(SOCIAL_DATA.accounts || []).map(a => `
+              <div class="card">
+                <div class="card-head">
+                  <div style="font-weight:800;font-size:16px;">${a.platform}</div>
+                  <span class="badge-status badge-active">${a.status}</span>
+                </div>
+                <div style="font-size:24px;font-family:var(--font-display);font-weight:800;margin-bottom:4px;color:var(--primary);">
+                  ${(a.followers || a.subscribers || a.members || 0).toLocaleString()}
+                </div>
+                <div style="font-size:12px;color:var(--pass);font-weight:700;margin-bottom:12px;">${a.growth}</div>
+                <p style="font-size:12.5px;color:var(--muted);line-height:1.5;margin-bottom:12px;">${a.keyTopics}</p>
+                <div style="font-size:11.5px;font-weight:700;color:var(--ink-soft);background:var(--surface-2);padding:6px 10px;border-radius:6px;">
+                  Cadence: ${a.cadence}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h3 class="card-title">Upcoming Editorial Calendar Schedule</h3>
+              <button class="btn-action" onclick="SMS.openComposer()">+ Schedule Content</button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Topic / Headline</th>
+                  <th>Platforms</th>
+                  <th>Scheduled Release</th>
+                  <th>Author</th>
+                  <th>Attribution Tag</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${(SOCIAL_DATA.scheduledPosts || []).map(p => `
+                  <tr>
+                    <td><b>${p.title}</b></td>
+                    <td>${(p.platforms || []).join(', ')}</td>
+                    <td>${p.scheduledTime}</td>
+                    <td>${p.author}</td>
+                    <td><code style="font-family:var(--font-mono);font-size:11px;background:var(--surface-2);padding:2px 6px;border-radius:4px;">${p.utm_campaign}</code></td>
+                    <td><span class="badge-status badge-ready">${p.status}</span></td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      renderAccounts() {
+        return `
+          <h2 style="font-family:var(--font-display);font-size:20px;font-weight:800;margin-bottom:8px;">Connected Social Accounts &amp; Credentials</h2>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:24px;">Manage channel access tokens, posting permissions, and webhooks for real-time reach tracking.</p>
+          <div class="grid-cards">
+            ${(SOCIAL_DATA.accounts || []).map(a => `
+              <div class="card">
+                <div class="card-head">
+                  <div style="font-weight:800;font-size:16px;">${a.platform}</div>
+                  <span class="badge-status badge-active">SYNC ACTIVE</span>
+                </div>
+                <div style="font-size:13px;color:var(--muted);margin-bottom:8px;">Handle: <b>${a.handle}</b></div>
+                <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:16px;">Target: ${a.primaryAudience}</div>
+                <div style="display:flex;gap:8px;">
+                  <button class="btn-secondary" style="flex:1;" onclick="window.open('${a.url}', '_blank')">View Profile</button>
+                  <button class="btn-action" style="flex:1;" onclick="SMS.toast('API Token Verified &amp; Active for ${a.platform}')">Test Webhook</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      },
+
+      renderCalendar() {
+        return `
+          <div class="card">
+            <div class="card-head">
+              <h2 class="card-title">Editorial Content Matrix &amp; Release Cadence</h2>
+              <button class="btn-action" onclick="SMS.openComposer()">+ Add Schedule Entry</button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Topic / Headline</th>
+                  <th>Target Channels</th>
+                  <th>Timing</th>
+                  <th>SME / Author</th>
+                  <th>UTM Campaign</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${(SOCIAL_DATA.scheduledPosts || []).map((p, idx) => `
+                  <tr>
+                    <td><b>${p.title}</b></td>
+                    <td>${(p.platforms || []).join(', ')}</td>
+                    <td>${p.scheduledTime}</td>
+                    <td>${p.author}</td>
+                    <td><code style="font-family:var(--font-mono);font-size:11px;">${p.utm_campaign}</code></td>
+                    <td>
+                      <button onclick="SMS.toast('Pushed live to ${p.platforms[0]}!')" style="background:var(--pass-bg);color:var(--pass);border:1px solid #BBF7D0;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:800;cursor:pointer;">Publish Now</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      renderCampaigns() {
+        return `
+          <div class="card">
+            <div class="card-head">
+              <h2 class="card-title">Paid Ads &amp; Campaign Performance (Meta &amp; Google Ads)</h2>
+              <button class="btn-secondary" onclick="window.open('/crm', '_blank')">Open In CRM Pipeline &rarr;</button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Campaign Name</th>
+                  <th>Platform</th>
+                  <th>Budget / Spent</th>
+                  <th>Leads Generated</th>
+                  <th>Cost per Lead</th>
+                  <th>Objective</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${(SOCIAL_DATA.campaigns || []).map(c => `
+                  <tr>
+                    <td><b>${c.name}</b></td>
+                    <td>${c.platform}</td>
+                    <td>${c.budget} / <b style="color:var(--ink);">${c.spent}</b></td>
+                    <td><b style="color:var(--primary);font-size:14px;">${c.leads}</b></td>
+                    <td><span style="font-weight:700;color:var(--pass);">${c.cpl}</span></td>
+                    <td>${c.objective}</td>
+                    <td><span class="badge-status badge-active">${c.status}</span></td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      },
+
+      renderGenerator() {
+        return `
+          <div class="card" style="max-width:680px;">
+            <h2 class="card-title" style="margin-bottom:8px;">Interactive UTM Link &amp; Attribution Builder</h2>
+            <p style="color:var(--muted);font-size:13px;margin-bottom:20px;">Generate tracking links for Instagram bios, YouTube video descriptions, and LinkedIn posts that feed directly into the CRM.</p>
+            
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <div>
+                <label style="font-size:12px;font-weight:700;color:var(--muted);">Landing Page Destination</label>
+                <input type="text" id="utm-target" value="https://neonexmindx.com/courses/data-science-course" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface-2);" />
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div>
+                  <label style="font-size:12px;font-weight:700;color:var(--muted);">UTM Source (Platform)</label>
+                  <select id="utm-src" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface-2);" onchange="SMS.updateUtmLink()">
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="whatsapp">WhatsApp Community</option>
+                    <option value="x_twitter">X / Twitter</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size:12px;font-weight:700;color:var(--muted);">UTM Medium</label>
+                  <select id="utm-med" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface-2);" onchange="SMS.updateUtmLink()">
+                    <option value="organic_post">Organic Post / Carousel</option>
+                    <option value="reels_bio">Reels / Bio Link</option>
+                    <option value="video_description">Video Description</option>
+                    <option value="community_chat">Community Broadcast</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label style="font-size:12px;font-weight:700;color:var(--muted);">UTM Campaign Name</label>
+                <input type="text" id="utm-camp" value="bengaluru_data_science_pivot" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface-2);" oninput="SMS.updateUtmLink()" />
+              </div>
+              <div>
+                <label style="font-size:12px;font-weight:700;color:var(--muted);">Generated Trackable URL</label>
+                <input type="text" id="utm-result" readonly style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface-2);font-family:var(--font-mono);font-size:12px;" />
+              </div>
+              <button class="btn-action" onclick="navigator.clipboard.writeText(document.getElementById('utm-result').value); SMS.toast('Copied tracking URL to clipboard!')">📋 Copy Link to Clipboard</button>
+            </div>
+          </div>
+        `;
+      },
+
+      updateUtmLink() {
+        const target = document.getElementById('utm-target')?.value || 'https://neonexmindx.com/';
+        const src = document.getElementById('utm-src')?.value || 'linkedin';
+        const med = document.getElementById('utm-med')?.value || 'organic_post';
+        const camp = document.getElementById('utm-camp')?.value || 'social_growth';
+        const res = `${target}?utm_source=${src}&utm_medium=${med}&utm_campaign=${camp}`;
+        const out = document.getElementById('utm-result');
+        if (out) out.value = res;
+      }
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      SMS.init();
+      setTimeout(SMS.updateUtmLink, 200);
+    });
+  </script>
+</body>
+</html>

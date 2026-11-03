@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-23T21:21:00+05:30",
+  "timestamp": "2026-10-31T00:34:42+05:30",
   "total_pages_audited": 22,
   "llms_txt_active": true,
   "llms_txt_size_kb": 5.3,
@@ -195,7 +195,7 @@
     {
       "page": "Neonex Mindx Home Page.html",
       "composite_score": 97.7,
-      "size_kb": 208.83,
+      "size_kb": 209.64,
       "h1": "Stop Watching Tutorials.Start Building a Career You Can Explain.",
       "scores": {
         "seo": 85.7,
@@ -305,7 +305,7 @@
     {
       "page": "blog-post.html",
       "composite_score": 77.2,
-      "size_kb": 117.89,
+      "size_kb": 117.88,
       "h1": "None",
       "scores": {
         "seo": 85.7,
@@ -327,7 +327,7 @@
     {
       "page": "blogs.html",
       "composite_score": 80.7,
-      "size_kb": 115.53,
+      "size_kb": 115.35,
       "h1": "Tech & Career Insights for Future Leaders",
       "scores": {
         "seo": 85.7,
@@ -349,7 +349,7 @@
     {
       "page": "index.html",
       "composite_score": 97.7,
-      "size_kb": 208.83,
+      "size_kb": 209.64,
       "h1": "Stop Watching Tutorials.Start Building a Career You Can Explain.",
       "scores": {
         "seo": 85.7,
@@ -606,5 +606,5 @@
       "impact": "60% faster mobile TTFB"
     }
   ],
-  "execution_duration_sec": 0.67
+  "execution_duration_sec": 7.81
 }

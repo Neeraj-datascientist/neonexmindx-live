@@ -1,0 +1,157 @@
+{
+  "students": [],
+  "invoices": [],
+  "payments": [],
+  "enquiries": [
+    {
+      "id": "gads-1793633451741",
+      "name": "Ananya Sen",
+      "phone": "+91 98860 54321",
+      "email": "ananya.sen.b@gmail.com",
+      "program": "Data Analytics Master Program",
+      "date": "02/11/2026",
+      "status": "New",
+      "notes": "Transitioning from non-IT to Data Analytics. Needs EMI options.",
+      "source_page": "Google Ads Search Extension",
+      "utm_source": "google_ads",
+      "utm_medium": "cpc",
+      "utm_campaign": "Search_Data_Analytics_Course_Bengaluru",
+      "utm_content": "lead_extension"
+    },
+    {
+      "id": "meta-1793633451723",
+      "name": "Karthik Raja",
+      "phone": "+91 94480 12345",
+      "email": "karthik.raja.eng@gmail.com",
+      "program": "Data Science & AI Master Program",
+      "date": "02/11/2026",
+      "status": "New",
+      "notes": "Looking for weekend batch with placement assistance",
+      "source_page": "Meta Lead Ads (Facebook & Instagram)",
+      "utm_source": "meta_ads",
+      "utm_medium": "paid_social",
+      "utm_campaign": "Bengaluru_DataScience_LeadGen_Nov2026",
+      "utm_content": "QA_to_AI_Carousel_Ad_03"
+    }
+  ],
+  "courses": [
+    {
+      "title": "Data Analytics Master Program",
+      "duration": "12-16 Weeks",
+      "fee": "₹ 42,000.00",
+      "batches": "2 Active"
+    },
+    {
+      "title": "Data Science & AI Master Program",
+      "duration": "16-20 Weeks",
+      "fee": "₹ 53,100.00",
+      "batches": "2 Active"
+    },
+    {
+      "title": "AI & Machine Learning Engineering",
+      "duration": "16 Weeks",
+      "fee": "₹ 70,800.00",
+      "batches": "1 Active"
+    }
+  ],
+  "counselling": [],
+  "followups": [],
+  "batches": [
+    {
+      "name": "DA-OCT-2026-WKND",
+      "course": "Data Analytics Master Program",
+      "mode": "Weekend Live Online",
+      "enrolled": 0,
+      "capacity": 25,
+      "start": "18 Oct 2026",
+      "time": "10:00 AM - 1:00 PM IST (Sat/Sun)"
+    },
+    {
+      "name": "DS-NOV-2026-WDAY",
+      "course": "Data Science & AI Master Program",
+      "mode": "Weekday Live Online",
+      "enrolled": 0,
+      "capacity": 20,
+      "start": "03 Nov 2026",
+      "time": "7:30 PM - 9:30 PM IST (Mon-Thu)"
+    },
+    {
+      "name": "AIML-NOV-2026-FAST",
+      "course": "AI & Machine Learning Engineering",
+      "mode": "Hybrid Fastrack",
+      "enrolled": 0,
+      "capacity": 15,
+      "start": "15 Nov 2026",
+      "time": "11:00 AM - 2:00 PM IST (Sat/Sun)"
+    }
+  ],
+  "counselors": [
+    {
+      "name": "Admissions Desk",
+      "role": "Primary Admissions & Lead Intake",
+      "status": "Active",
+      "avatar": "AD"
+    },
+    {
+      "name": "Course Advisors Team",
+      "role": "Technical Counseling & Student Demos",
+      "status": "Active",
+      "avatar": "NX"
+    },
+    {
+      "name": "Senior Academic Mentors",
+      "role": "Interview Prep & Capstone Guidance",
+      "status": "Active",
+      "avatar": "SM"
+    }
+  ],
+  "integrations": {
+    "whatsappApiKey": "",
+    "whatsappPhoneId": "918431803839",
+    "whatsappTemplate": "welcome_counselling_lead_v1",
+    "metaVerifyToken": "neonex_meta_leads_secret_2026",
+    "metaAppSecret": "",
+    "googleAdsWebhookKey": "nx_gads_lead_token_2026",
+    "googleCustomerId": "606-542-9317",
+    "activeMetaCampaigns": [
+      {
+        "id": "meta-camp-01",
+        "name": "Bengaluru_DataScience_LeadGen_Nov2026",
+        "status": "Ready",
+        "platform": "Meta (FB / IG Lead Ads)",
+        "leads": 0,
+        "cost_per_lead": "₹145 - ₹180 est.",
+        "target": "QA, Support Engineers, College Grads"
+      },
+      {
+        "id": "meta-camp-02",
+        "name": "PowerBI_Tableau_FastTrack_Nov2026",
+        "status": "Ready",
+        "platform": "Instagram Reels Ad",
+        "leads": 0,
+        "cost_per_lead": "₹110 - ₹140 est.",
+        "target": "Working Professionals (BPO/Operations to Analytics)"
+      }
+    ],
+    "activeGoogleCampaigns": [
+      {
+        "id": "gads-camp-01",
+        "name": "Search_Data_Analytics_Course_Bengaluru",
+        "status": "Ready",
+        "platform": "Google Search & Lead Form",
+        "leads": 0,
+        "target_cpa": "₹320 est.",
+        "keywords": [
+          "data analytics course in bangalore",
+          "data science institute near me",
+          "offline data analytics coaching"
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "dateFormat": "DD/MM/YYYY",
+    "email": "counsellor@neonexmindx.com",
+    "activeSettingsTab": "general"
+  }
+}

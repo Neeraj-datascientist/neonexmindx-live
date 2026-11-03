@@ -988,8 +988,10 @@ body.site-mobile-nav-locked {
     }
     .featured-img-wrap {
       min-height: 320px;
+      aspect-ratio: 16 / 9;
       position: relative;
       overflow: hidden;
+      background: #0B192C;
     }
     .featured-img-wrap img {
       width: 100%;
@@ -1120,10 +1122,12 @@ body.site-mobile-nav-locked {
       border-color: #CBD5E1;
     }
     .card-thumb-wrap {
-      height: 200px;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      min-height: 180px;
       overflow: hidden;
       position: relative;
-      background: #E2E8F0;
+      background: #0B192C;
     }
     .card-thumb-wrap img {
       width: 100%;
@@ -1308,6 +1312,7 @@ body.site-mobile-nav-locked {
     }
   }
   </script>
+  <script src="/neonex-tracker.js"></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -2217,8 +2222,8 @@ id="site-unified-nav-footer-script">
           const featAuthor = getAuthorInfo(featured);
           const featHeroImg = normalizeImageUrl(featured.heroImage);
           const featAvatar = normalizeImageUrl(featAuthor.avatar);
-          const fallbackHero = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
-          const fallbackAvatar = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80';
+          const fallbackHero = '/hero-dashboard.webp';
+          const fallbackAvatar = '/trainer-neeraj.webp';
           spotlightContainer.innerHTML = `
             <div class="featured-card">
               <div class="featured-img-wrap">
@@ -2267,8 +2272,8 @@ id="site-unified-nav-footer-script">
         const authorInfo = getAuthorInfo(post);
         const cardHero = normalizeImageUrl(post.heroImage);
         const cardAvatar = normalizeImageUrl(authorInfo.avatar);
-        const fallbackCard = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';
-        const fallbackAvatar = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80';
+        const fallbackCard = '/portfolio-projects.webp';
+        const fallbackAvatar = '/trainer-neeraj.webp';
         return `
           <article class="blog-card">
             <div class="card-thumb-wrap">

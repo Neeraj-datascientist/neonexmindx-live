@@ -19,6 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <title>NeoNeX MindX &mdash; Blog Publisher & CMS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="/neonex-auth.js"></script>
   <script>
     if (window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('/index')) {
@@ -113,7 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid var(--sidebar-border);
-      background: #FFFFFF;
+      background: var(--surface);
       flex-shrink: 0;
     }
     .brand-link {
@@ -140,9 +141,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .brand-pill-tag {
       font-size: 10px;
       font-weight: 800;
-      color: #1B5DB7;
-      background: #EEF4FC;
-      border: 1px solid rgba(27, 93, 183, 0.2);
+      color: var(--primary);
+      background: var(--primary-tint);
+      border: 1px solid var(--border);
       padding: 4px 8px;
       border-radius: 6px;
       letter-spacing: 0.05em;
@@ -1332,11 +1333,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       normalizeImageUrl(url) {
         if (!url || typeof url !== 'string') {
-          return 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
+          return '/hero-dashboard.webp';
         }
         url = url.trim();
         if (!url) {
-          return 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
+          return '/hero-dashboard.webp';
         }
         if (url.startsWith('data:image/') || url.startsWith('http://') || url.startsWith('https://')) {
           return url;
@@ -1413,24 +1414,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           DB.media = APP.getDefaultMedia();
         }
 
-        // Sync fresh posts & media from disk seed
+        // Clean any existing duplicates in local state
+        APP.deduplicatePosts();
+
+        // Sync authoritative posts & media from server blogs.json (ensures edits across devices are reflected)
         try {
-          const res = await fetch('../data/blogs.json?_t=' + Date.now());
+          const res = await fetch('/data/blogs.json?_t=' + Date.now());
           if (res.ok) {
             const diskData = await res.json();
             if (diskData && Array.isArray(diskData.posts)) {
-              const existingPostIds = new Set((DB.posts || []).map(p => p.id || p.slug));
+              const mergedPosts = [];
+              const seenSlugs = new Set();
+              
+              // Server disk data is authoritative for published articles
               diskData.posts.forEach(dp => {
-                if (!existingPostIds.has(dp.id) && !existingPostIds.has(dp.slug)) {
-                  DB.posts.push(dp);
-                } else {
-                  // Repair any missing or broken heroImage
-                  const idx = DB.posts.findIndex(p => p.id === dp.id || p.slug === dp.slug);
-                  if (idx !== -1 && (!DB.posts[idx].heroImage || DB.posts[idx].heroImage.includes('undefined') || !DB.posts[idx].heroImage.startsWith('/'))) {
-                    DB.posts[idx].heroImage = dp.heroImage;
-                  }
+                const s = (dp.slug || '').trim().toLowerCase();
+                if (s && !seenSlugs.has(s)) {
+                  mergedPosts.push(dp);
+                  seenSlugs.add(s);
                 }
               });
+
+              // Preserve any offline local drafts that aren't yet on server
+              (DB.posts || []).forEach(lp => {
+                const s = (lp.slug || '').trim().toLowerCase();
+                if (lp.status === 'draft' && s && !seenSlugs.has(s)) {
+                  mergedPosts.push(lp);
+                  seenSlugs.add(s);
+                }
+              });
+
+              DB.posts = mergedPosts;
+              APP.deduplicatePosts();
             }
             if (diskData && Array.isArray(diskData.media)) {
               const existingMediaUrls = new Set((DB.media || []).map(m => m.url));
@@ -1440,7 +1455,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 }
               });
             }
+            if (diskData && diskData.site) {
+              DB.site = { ...DB.site, ...diskData.site };
+            }
+            if (diskData && diskData.customSitemapUrls) {
+              DB.customSitemapUrls = diskData.customSitemapUrls;
+            }
+            if (diskData && Array.isArray(diskData.authors) && diskData.authors.length) {
+              if (!Array.isArray(DB.authors) || !DB.authors.length) {
+                DB.authors = diskData.authors;
+              } else {
+                const existingAuthorIds = new Set(DB.authors.map(a => a.id));
+                diskData.authors.forEach(da => {
+                  const idx = DB.authors.findIndex(a => a.id === da.id);
+                  if (idx >= 0) {
+                    DB.authors[idx] = { ...DB.authors[idx], ...da };
+                  } else {
+                    DB.authors.push(da);
+                  }
+                });
+              }
+            }
             APP.saveToLocalStorage(false);
+            // Fetch live central page metadata
+            try {
+              fetch('/api/page-meta?_t=' + Date.now())
+                .then(r => r.ok ? r.json() : null)
+                .then(meta => { if (meta) DB.pageMeta = meta; })
+                .catch(() => {});
+            } catch(e) {}
           }
         } catch (syncErr) {}
 
@@ -1468,6 +1511,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Theme
         const savedTheme = localStorage.getItem('neonex_theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
+        APP.updateThemeIcon(savedTheme);
 
         APP.updateSidebarCounts();
         APP.navigateTo('dashboard');
@@ -1475,7 +1519,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       async loadSeedData() {
         try {
-          const res = await fetch('../data/blogs.json?_t=' + Date.now());
+          const res = await fetch('/data/blogs.json?_t=' + Date.now());
           if (res.ok) {
             DB = await res.json();
             if (!DB.media || !DB.media.length) {
@@ -1523,12 +1567,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (countEl) countEl.textContent = DB.posts ? DB.posts.length : 0;
       },
 
+      deduplicatePosts() {
+        if (!DB || !Array.isArray(DB.posts)) return;
+        const seenSlugs = new Map();
+        const seenIds = new Set();
+        const cleanList = [];
+
+        // Prioritize published posts and higher SEO scores when duplicates exist
+        const sorted = [...DB.posts].sort((a, b) => {
+          if (a.status === 'published' && b.status !== 'published') return -1;
+          if (b.status === 'published' && a.status !== 'published') return 1;
+          return (b.seoScore || 0) - (a.seoScore || 0);
+        });
+
+        sorted.forEach(p => {
+          const s = (p.slug || '').trim().toLowerCase();
+          const id = p.id;
+          if (s && seenSlugs.has(s)) return;
+          if (id && seenIds.has(id)) return;
+          if (s) seenSlugs.set(s, true);
+          if (id) seenIds.add(id);
+          cleanList.push(p);
+        });
+
+        if (cleanList.length !== DB.posts.length) {
+          console.log(`[CMS] Deduplicated posts from ${DB.posts.length} to ${cleanList.length}`);
+          DB.posts = cleanList;
+          APP.saveToLocalStorage(false);
+        }
+      },
+
       toggleTheme() {
         const cur = document.documentElement.getAttribute('data-theme') || 'light';
         const next = cur === 'light' ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem('neonex_theme', next);
+        APP.updateThemeIcon(next);
         APP.showToast(`Switched to ${next} mode`);
+      },
+
+      updateThemeIcon(theme) {
+        const iconContainer = document.getElementById('theme-icon-sun');
+        if (!iconContainer) return;
+        if (theme === 'dark') {
+          // Moon icon
+          iconContainer.outerHTML = '<svg id="theme-icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+        } else {
+          // Sun icon
+          iconContainer.outerHTML = '<svg id="theme-icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+        }
       },
 
       navigateTo(view, payload = null) {
@@ -1900,6 +1987,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           { q: 'What career prerequisites are required to start this program?', a: 'Basic mathematics and introductory logic concepts are helpful. Our mentors guide you from fundamentals to advanced industry projects.' }
         ];
 
+        if (post && post.id) {
+          EDITING_POST_ID = post.id;
+        }
+
         return `
           <div class="view-header">
             <div class="view-title-block">
@@ -1908,7 +1999,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="view-header-actions">
               <button class="btn" onclick="APP.navigateTo('posts')">Cancel</button>
-              <button class="btn btn-outline-primary" onclick="APP.previewCurrentEditor()">Preview</button>
+              <button class="btn btn-outline-primary" onclick="APP.previewCurrentEditor()" title="Open live preview in separate URL tab">⚡ Live Preview (New Tab)</button>
               <button class="btn btn-primary" onclick="APP.saveCurrentEditor(false)">Save Draft</button>
               <button class="btn btn-primary" style="background:#16A34A; border-color:#16A34A;" onclick="APP.saveCurrentEditor(true)">Publish Now</button>
             </div>
@@ -1926,6 +2017,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div id="tab-pane-content">
+                  <input type="hidden" id="ed-id" value="${post.id || ''}">
                   <div class="form-group">
                     <label class="form-label">ARTICLE TITLE</label>
                     <input type="text" id="ed-title" class="form-control" style="font-size:16px; font-weight:600;" value="${APP.escapeHtml(post.title)}" placeholder="Enter compelling article title..." oninput="APP.onTitleChanged(this.value)">
@@ -1999,13 +2091,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div id="tab-pane-seo" style="display:none;">
                   <div class="form-group">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                      <label class="form-label" style="margin:0;">META TITLE (SEO TITLE &mdash; RECOMMENDED 50-60 CHARACTERS)</label>
+                      <span class="badge" style="background:var(--primary-tint); color:var(--primary); font-size:11px; padding:2px 8px; border-radius:10px; font-weight:600;">SERP Headline</span>
+                    </div>
+                    <input type="text" id="ed-metatitle" class="form-control" placeholder="Search engine display title (defaults to article title if blank)..." value="${APP.escapeHtml(post.metaTitle || '')}" oninput="APP.calculateLiveSeo(); APP.updateLiveSchemas();">
+                    <div class="form-hint" id="metatitle-count" style="display:flex; justify-content:space-between;">
+                      <span>0 / 60 characters</span>
+                      <span id="metatitle-status" style="color:var(--muted);">Defaults to article headline</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
                     <label class="form-label">META DESCRIPTION (RECOMMENDED 130-160 CHARACTERS)</label>
                     <textarea id="ed-metadesc" class="form-control" rows="3" placeholder="Google snippet description..." oninput="APP.calculateLiveSeo(); APP.updateLiveSchemas();">${APP.escapeHtml(post.metaDescription || '')}</textarea>
                     <div class="form-hint" id="metadesc-count">0 / 160 characters</div>
                   </div>
+
                   <div class="form-group">
                     <label class="form-label">ARTICLE TAGS (COMMA SEPARATED)</label>
                     <input type="text" id="ed-tags" class="form-control" value="${(post.tags||[]).join(', ')}" placeholder="Python, Machine Learning, Career" oninput="APP.updateLiveSchemas()">
+                  </div>
+
+                  <!-- Interactive Google SERP Snippet Preview Card -->
+                  <div style="margin-top:18px; padding:16px; border-radius:10px; background:var(--surface-2); border:1px solid var(--border);">
+                    <div style="font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                      Google Search Result Snippet Preview
+                    </div>
+                    <div style="font-family:arial, sans-serif; background:var(--surface); padding:14px; border-radius:8px; border:1px solid var(--border);">
+                      <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px; font-size:12px; color:var(--muted);">
+                        <span style="display:inline-block; width:16px; height:16px; border-radius:50%; background:var(--primary); color:#fff; text-align:center; font-size:10px; line-height:16px; font-weight:bold;">N</span>
+                        <span style="color:#202124;">https://neonexmindx.com</span>
+                        <span>&rsaquo;</span>
+                        <span id="serp-preview-slug" style="color:#5f6368;">blog &rsaquo; ${APP.escapeHtml(post.slug || 'article-slug')}</span>
+                      </div>
+                      <div id="serp-preview-title" style="color:#1a0dab; font-size:18px; line-height:1.3; font-weight:400; cursor:pointer; text-decoration:none; margin-bottom:4px; word-break:break-word;">
+                        ${APP.escapeHtml(post.metaTitle || post.title || 'Untitled Article &mdash; NeoNeX MindX')}
+                      </div>
+                      <div id="serp-preview-desc" style="color:#4d5156; font-size:13px; line-height:1.58; word-break:break-word;">
+                        <span style="color:#70757a;">${post.publishDate || new Date().toISOString().split('T')[0]} &mdash; </span>
+                        ${APP.escapeHtml(post.metaDescription || post.excerpt || 'Read this in-depth guide from NeoNeX MindX covering key insights, real-world examples, and step-by-step career advice.')}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -2086,17 +2214,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
 
                   <div class="rte-toolbar" id="rte-toolbar-main">
-                    <button class="rte-btn" onclick="document.execCommand('undo')" title="Undo">↶</button>
-                    <button class="rte-btn" onclick="document.execCommand('redo')" title="Redo">↷</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="document.execCommand('undo')" title="Undo">↶</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="document.execCommand('redo')" title="Redo">↷</button>
                     <div class="rte-sep"></div>
 
                     <!-- Quick Heading Buttons -->
-                    <button class="rte-btn" id="rte-btn-h1" onclick="APP.applyHeading('h1', true)" title="Apply Heading 1 (H1)" style="font-weight:800; font-size:12px;">H1</button>
-                    <button class="rte-btn" id="rte-btn-h2" onclick="APP.applyHeading('h2', true)" title="Apply Heading 2 (H2)" style="font-weight:800; font-size:12px;">H2</button>
-                    <button class="rte-btn" id="rte-btn-h3" onclick="APP.applyHeading('h3', true)" title="Apply Heading 3 (H3)" style="font-weight:800; font-size:12px;">H3</button>
+                    <button class="rte-btn" id="rte-btn-h1" onmousedown="event.preventDefault()" onclick="APP.applyHeading('h1', true)" title="Apply Heading 1 (H1)" style="font-weight:800; font-size:12px;">H1</button>
+                    <button class="rte-btn" id="rte-btn-h2" onmousedown="event.preventDefault()" onclick="APP.applyHeading('h2', true)" title="Apply Heading 2 (H2)" style="font-weight:800; font-size:12px;">H2</button>
+                    <button class="rte-btn" id="rte-btn-h3" onmousedown="event.preventDefault()" onclick="APP.applyHeading('h3', true)" title="Apply Heading 3 (H3)" style="font-weight:800; font-size:12px;">H3</button>
 
                     <!-- All Heading Levels Dropdown -->
-                    <select class="rte-select" id="rte-format-select" onchange="APP.applyHeading(this.value)" title="Typography Format">
+                    <select class="rte-select" id="rte-format-select" onmousedown="APP.saveSelection()" onfocus="APP.saveSelection()" onchange="APP.applyHeading(this.value)" title="Typography Format">
                       <option value="p">Paragraph</option>
                       <option value="h1">Heading 1 (H1)</option>
                       <option value="h2">Heading 2 (H2)</option>
@@ -2108,7 +2236,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </select>
 
                     <!-- Expanded Font Family List -->
-                    <select class="rte-select" id="rte-font-select" onchange="APP.applyFontFamily(this.value)" title="Font Family">
+                    <select class="rte-select" id="rte-font-select" onmousedown="APP.saveSelection()" onfocus="APP.saveSelection()" onchange="APP.applyFontFamily(this.value)" title="Font Family">
                       <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
                       <option value="Inter">Inter</option>
                       <option value="Outfit">Outfit</option>
@@ -2123,39 +2251,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </select>
 
                     <div class="rte-sep"></div>
-                    <button class="rte-btn" id="rte-btn-bold" onclick="document.execCommand('bold'); APP.updateEditorToolbarState();" title="Bold"><b>B</b></button>
-                    <button class="rte-btn" id="rte-btn-italic" onclick="document.execCommand('italic'); APP.updateEditorToolbarState();" title="Italic"><i>I</i></button>
-                    <button class="rte-btn" id="rte-btn-underline" onclick="document.execCommand('underline'); APP.updateEditorToolbarState();" title="Underline"><u>U</u></button>
-                    <button class="rte-btn" id="rte-btn-strike" onclick="document.execCommand('strikeThrough'); APP.updateEditorToolbarState();" title="Strike"><s>S</s></button>
+                    <button class="rte-btn" id="rte-btn-bold" onmousedown="event.preventDefault()" onclick="document.execCommand('bold'); APP.updateEditorToolbarState();" title="Bold"><b>B</b></button>
+                    <button class="rte-btn" id="rte-btn-italic" onmousedown="event.preventDefault()" onclick="document.execCommand('italic'); APP.updateEditorToolbarState();" title="Italic"><i>I</i></button>
+                    <button class="rte-btn" id="rte-btn-underline" onmousedown="event.preventDefault()" onclick="document.execCommand('underline'); APP.updateEditorToolbarState();" title="Underline"><u>U</u></button>
+                    <button class="rte-btn" id="rte-btn-strike" onmousedown="event.preventDefault()" onclick="document.execCommand('strikeThrough'); APP.updateEditorToolbarState();" title="Strike"><s>S</s></button>
                     <div class="rte-sep"></div>
 
                     <!-- Text Alignment -->
-                    <button class="rte-btn" onclick="APP.applyAlignment('left')" title="Align Left">⇤ Left</button>
-                    <button class="rte-btn" onclick="APP.applyAlignment('center')" title="Align Center">≡ Center</button>
-                    <button class="rte-btn" onclick="APP.applyAlignment('right')" title="Align Right">⇥ Right</button>
-                    <button class="rte-btn" onclick="APP.applyAlignment('justify')" title="Justify">⇿ Justify</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.applyAlignment('left')" title="Align Left">⇤ Left</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.applyAlignment('center')" title="Align Center">≡ Center</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.applyAlignment('right')" title="Align Right">⇥ Right</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.applyAlignment('justify')" title="Justify">⇿ Justify</button>
                     <div class="rte-sep"></div>
 
-                    <button class="rte-btn" onclick="document.execCommand('insertUnorderedList')" title="Bullet List">• List</button>
-                    <button class="rte-btn" onclick="document.execCommand('insertOrderedList')" title="Numbered List">1. List</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="document.execCommand('insertUnorderedList')" title="Bullet List">• List</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="document.execCommand('insertOrderedList')" title="Numbered List">1. List</button>
                     <div class="rte-sep"></div>
 
-                    <button class="rte-btn" onclick="APP.openLinkModal()" title="Insert or Edit Link">🔗</button>
-                    <button class="rte-btn" onclick="document.execCommand('unlink')" title="Remove Link">⦸</button>
-                    <button class="rte-btn" onclick="APP.openImagePickerModal()" title="Insert Image">🖼</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.openLinkModal()" title="Insert or Edit Link">🔗</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="document.execCommand('unlink')" title="Remove Link">⦸</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.openImagePickerModal()" title="Insert Image">🖼</button>
 
                     <!-- Table Operations -->
-                    <button class="rte-btn" onclick="APP.openTableModal()" title="Insert Custom Table">▦ Table</button>
-                    <button class="rte-btn" onclick="APP.addTableRow()" title="Insert Row below current cell">+Row</button>
-                    <button class="rte-btn" onclick="APP.getTableColumn()" title="Insert Column right of current cell">+Col</button>
-                    <button class="rte-btn" onclick="APP.deleteTableRow()" title="Delete Current Row" style="color:var(--crit);">-Row</button>
-                    <button class="rte-btn" onclick="APP.deleteTableColumn()" title="Delete Current Column" style="color:var(--crit);">-Col</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.openTableModal()" title="Insert Custom Table">▦ Table</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.addTableRow()" title="Insert Row below current cell">+Row</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.getTableColumn()" title="Insert Column right of current cell">+Col</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.deleteTableRow()" title="Delete Current Row" style="color:var(--crit);">-Row</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="APP.deleteTableColumn()" title="Delete Current Column" style="color:var(--crit);">-Col</button>
 
-                    <button class="rte-btn" onclick="document.execCommand('removeFormat')" title="Clear Formatting">✕</button>
+                    <button class="rte-btn" onmousedown="event.preventDefault()" onclick="document.execCommand('removeFormat')" title="Clear Formatting">✕</button>
                   </div>
                 </div>
 
-                <div class="rte-content-area" id="ed-body" contenteditable="true" data-placeholder="Start writing the blog post body here..." oninput="APP.calculateLiveSeo(); APP.updateLiveSchemas(); APP.updateEditorToolbarState();" onmouseup="APP.updateEditorToolbarState();" onkeyup="APP.updateEditorToolbarState();" onclick="APP.updateEditorToolbarState();">${post.body || ''}</div>
+                <div class="rte-content-area" id="ed-body" contenteditable="true" data-placeholder="Start writing the blog post body here..." oninput="APP.saveSelection(); APP.calculateLiveSeo(); APP.updateLiveSchemas(); APP.updateEditorToolbarState();" onmouseup="APP.saveSelection(); APP.updateEditorToolbarState();" onkeyup="APP.saveSelection(); APP.updateEditorToolbarState();" onclick="APP.saveSelection(); APP.updateEditorToolbarState();" onblur="APP.saveSelection();">${post.body || ''}</div>
                 <textarea id="ed-body-source" style="display:none; width:100%; min-height:480px; font-family:var(--font-mono); font-size:12.5px; padding:18px; border:none; outline:none; background:var(--surface); color:var(--ink); line-height:1.6;"></textarea>
 
                 <div style="padding:10px 18px; background:var(--surface-2); border-top:1px solid var(--border); display:flex; justify-content:space-between; font-size:11.5px; color:var(--muted);">
@@ -2195,9 +2323,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <button class="btn btn-primary" style="background:#16A34A; border-color:#16A34A;" onclick="APP.saveCurrentEditor(true)">Publish</button>
                 </div>
                 <div style="margin-top:8px;">
-                  <button class="btn" style="width:100%; justify-content:center;" onclick="APP.previewCurrentEditor()">
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span>Live Preview</span>
+                  <button class="btn" style="width:100%; justify-content:center;" onclick="APP.previewCurrentEditor()" title="Open live preview in separate URL tab">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    <span>Live Preview (New Tab)</span>
                   </button>
                 </div>
               </div>
@@ -2289,13 +2417,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         APP.updateLiveSchemas();
       },
 
+      savedRange: null,
+
+      saveSelection() {
+        const ed = document.getElementById('ed-body');
+        if (!ed) return;
+        const sel = window.getSelection();
+        if (sel && sel.rangeCount > 0) {
+          const r = sel.getRangeAt(0);
+          if (ed.contains(r.commonAncestorContainer) || r.commonAncestorContainer === ed) {
+            APP.savedRange = r.cloneRange();
+          }
+        }
+      },
+
+      restoreSelection() {
+        const ed = document.getElementById('ed-body');
+        if (!ed) return;
+        ed.focus();
+        if (APP.savedRange) {
+          const sel = window.getSelection();
+          if (sel) {
+            sel.removeAllRanges();
+            sel.addRange(APP.savedRange);
+          }
+        }
+      },
+
       getActiveBlockTag() {
         const ed = document.getElementById('ed-body');
         if (!ed) return 'p';
+        let node = null;
         const sel = window.getSelection();
-        if (!sel || !sel.rangeCount) return 'p';
-
-        let node = sel.anchorNode;
+        if (sel && sel.rangeCount) {
+          node = sel.anchorNode;
+        }
+        if (!node && APP.savedRange) {
+          node = APP.savedRange.startContainer;
+        }
         if (!node) return 'p';
         if (node.nodeType === 3) node = node.parentNode;
 
@@ -2362,7 +2521,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (!tag) return;
         const ed = document.getElementById('ed-body');
         if (!ed) return;
-        ed.focus();
+        APP.restoreSelection();
 
         const currentTag = APP.getActiveBlockTag();
         let targetTag = tag.toLowerCase();
@@ -2373,15 +2532,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         const sel = window.getSelection();
-        if (!sel || !sel.rangeCount) {
-          try {
-            document.execCommand('formatBlock', false, '<' + targetTag + '>');
-          } catch(e) {
-            document.execCommand('formatBlock', false, targetTag);
-          }
-          APP.updateEditorToolbarState();
-          APP.calculateLiveSeo();
-          return;
+        let range = (sel && sel.rangeCount) ? sel.getRangeAt(0) : APP.savedRange;
+
+        if (!range || (!ed.contains(range.commonAncestorContainer) && range.commonAncestorContainer !== ed)) {
+          range = document.createRange();
+          range.selectNodeContents(ed);
+          range.collapse(false);
+          sel.removeAllRanges();
+          sel.addRange(range);
         }
 
         // If user highlighted across multiple blocks, formatBlock natively handles the whole range
@@ -2391,6 +2549,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           } catch(e) {
             document.execCommand('formatBlock', false, targetTag);
           }
+          APP.saveSelection();
+          ed.focus();
           APP.updateEditorToolbarState();
           APP.calculateLiveSeo();
           APP.updateLiveSchemas();
@@ -2398,7 +2558,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         // Single block replacement
-        let node = sel.anchorNode;
+        let node = range.startContainer;
         if (node && node.nodeType === 3) node = node.parentNode;
 
         let blockNode = null;
@@ -2421,11 +2581,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             blockNode.parentNode.replaceChild(newElem, blockNode);
 
             // Restore caret inside new element
-            const range = document.createRange();
-            range.selectNodeContents(newElem);
-            range.collapse(false);
+            const newRange = document.createRange();
+            newRange.selectNodeContents(newElem);
+            newRange.collapse(false);
             sel.removeAllRanges();
-            sel.addRange(range);
+            sel.addRange(newRange);
+            APP.savedRange = newRange.cloneRange();
           }
         } else {
           try {
@@ -2433,6 +2594,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           } catch(e) {
             document.execCommand('formatBlock', false, targetTag);
           }
+          APP.saveSelection();
         }
 
         ed.focus();
@@ -2783,6 +2945,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       updateLiveSchemas() {
         const title = (document.getElementById('ed-title')?.value || '').trim() || 'Untitled Article';
+        const metaTitle = (document.getElementById('ed-metatitle')?.value || '').trim() || title;
         const slug = (document.getElementById('ed-slug')?.value || '').trim() || 'article-slug';
         const authorName = document.getElementById('ed-author')?.value || 'Dr. Rajesh Varma';
         const authorObj = (DB.authors || []).find(a => a.name === authorName) || { name: authorName, linkedin: 'https://neonexmindx.com' };
@@ -2800,7 +2963,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             "@type": "WebPage",
             "@id": "https://neonexmindx.com/blog/" + slug
           },
-          "headline": title,
+          "headline": metaTitle,
           "description": metaDesc,
           "image": heroImg,
           "author": {
@@ -3249,6 +3412,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       calculateLiveSeo() {
         const title = (document.getElementById('ed-title')?.value || '').trim();
+        const metaTitle = (document.getElementById('ed-metatitle')?.value || '').trim();
         const slug = (document.getElementById('ed-slug')?.value || '').trim();
         const keyword = (document.getElementById('ed-keyword')?.value || '').trim().toLowerCase();
         const metadesc = (document.getElementById('ed-metadesc')?.value || '').trim();
@@ -3264,17 +3428,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           wordCountEl.textContent = `${words} words \u00b7 ${readTimeMinutes} min read`;
         }
 
+        const metaTitleCountEl = document.getElementById('metatitle-count');
+        if (metaTitleCountEl) {
+          const mLen = metaTitle.length;
+          const statusText = mLen === 0 ? 'Defaults to headline' : (mLen >= 50 && mLen <= 60 ? 'Optimal (50-60)' : (mLen > 60 ? 'Too long (>60)' : 'Short (<50)'));
+          const statusColor = (mLen >= 50 && mLen <= 60) ? 'var(--pass)' : (mLen > 60 ? 'var(--warn)' : 'var(--muted)');
+          metaTitleCountEl.innerHTML = `<span>${mLen} / 60 characters</span> <span style="color:${statusColor}; font-weight:600;">${statusText}</span>`;
+        }
+
         const metaCountEl = document.getElementById('metadesc-count');
         if (metaCountEl) {
-          metaCountEl.textContent = `${metadesc.length} / 160 characters`;
+          const dLen = metadesc.length;
+          const statusText = dLen === 0 ? 'Empty' : (dLen >= 120 && dLen <= 160 ? 'Optimal (120-160)' : (dLen > 160 ? 'Too long (>160)' : 'Short (<120)'));
+          const statusColor = (dLen >= 120 && dLen <= 160) ? 'var(--pass)' : (dLen > 160 ? 'var(--warn)' : 'var(--muted)');
+          metaCountEl.innerHTML = `<span>${dLen} / 160 characters</span> <span style="color:${statusColor}; font-weight:600;">${statusText}</span>`;
+        }
+
+        // Live Google SERP snippet preview updates
+        const serpTitleEl = document.getElementById('serp-preview-title');
+        const serpDescEl = document.getElementById('serp-preview-desc');
+        const serpSlugEl = document.getElementById('serp-preview-slug');
+        if (serpTitleEl) serpTitleEl.textContent = metaTitle || title || 'Untitled Article — NeoNeX MindX';
+        if (serpSlugEl) serpSlugEl.textContent = 'blog › ' + (slug || 'article-slug');
+        if (serpDescEl) {
+          const pubD = document.getElementById('ed-date')?.value || new Date().toISOString().split('T')[0];
+          serpDescEl.innerHTML = `<span style="color:#70757a;">${pubD} &mdash; </span>${APP.escapeHtml(metadesc || 'Read this in-depth guide from NeoNeX MindX covering practical skills, industry projects and career guidance.')}`;
         }
 
         // Checks
+        const effectiveTitle = metaTitle || title;
         const checks = [
-          { label: 'Title present (30-70 characters)', pass: title.length >= 25 && title.length <= 80, points: 15 },
+          { label: 'Title / Meta Title present (30-70 characters)', pass: effectiveTitle.length >= 25 && effectiveTitle.length <= 80, points: 15 },
           { label: 'Meta description added (120-160 chars)', pass: metadesc.length >= 100 && metadesc.length <= 170, points: 15 },
           { label: 'Focus keyword specified', pass: keyword.length > 2, points: 10 },
-          { label: 'Keyword in article title', pass: keyword.length > 2 && title.toLowerCase().includes(keyword), points: 15 },
+          { label: 'Keyword in title or SEO title', pass: keyword.length > 2 && (title.toLowerCase().includes(keyword) || metaTitle.toLowerCase().includes(keyword)), points: 15 },
           { label: 'Keyword in URL slug', pass: keyword.length > 2 && slug.toLowerCase().includes(keyword.replace(/\s+/g, '-')), points: 10 },
           { label: 'Keyword in meta description', pass: keyword.length > 2 && metadesc.toLowerCase().includes(keyword), points: 10 },
           { label: 'Content length 300+ words', pass: words >= 300, points: 15 },
@@ -3315,116 +3502,211 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return totalScore;
       },
 
-      saveCurrentEditor(publishImmediate = false) {
-        const title = (document.getElementById('ed-title')?.value || '').trim();
-        if (!title) {
-          alert('Please enter an article title.');
-          return;
+      async saveCurrentEditor(publishImmediate = false) {
+        if (APP._isSaving) return;
+        APP._isSaving = true;
+
+        try {
+          const title = (document.getElementById('ed-title')?.value || '').trim();
+          if (!title) {
+            alert('Please enter an article title.');
+            APP._isSaving = false;
+            return;
+          }
+
+          let slug = (document.getElementById('ed-slug')?.value || '').trim();
+          if (!slug) {
+            slug = title.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+          }
+
+          const formId = (document.getElementById('ed-id')?.value || '').trim();
+          const targetId = formId || EDITING_POST_ID || ('post-' + Date.now());
+
+          const category = document.getElementById('ed-category')?.value || 'Data Science';
+          const authorSelect = document.getElementById('ed-author');
+          const author = authorSelect?.value || 'Dr. Rajesh Varma';
+          const authorId = authorSelect?.options[authorSelect.selectedIndex]?.dataset?.id || 'author-rajesh';
+
+          const bodyDiv = document.getElementById('ed-body');
+          const sourceTa = document.getElementById('ed-body-source');
+          const body = (sourceTa.style.display === 'block' ? sourceTa.value : bodyDiv.innerHTML) || '';
+
+          const metaTitle = (document.getElementById('ed-metatitle')?.value || '').trim() || title;
+          const excerpt = document.getElementById('ed-excerpt')?.value || '';
+          const focusKeyword = document.getElementById('ed-keyword')?.value || '';
+          const metaDescription = document.getElementById('ed-metadesc')?.value || '';
+          const tagsRaw = document.getElementById('ed-tags')?.value || '';
+          const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+          const heroImage = document.getElementById('ed-heroimage')?.value || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
+          const heroAlt = document.getElementById('ed-heroalt')?.value || title;
+          const status = publishImmediate ? 'published' : (document.getElementById('ed-status')?.value || 'draft');
+          const publishDate = document.getElementById('ed-date')?.value || new Date().toISOString().split('T')[0];
+
+          const words = (body.replace(/<[^>]*>/g, ' ').match(/\b\w+\b/g) || []).length;
+          const readTime = Math.max(1, Math.ceil(words / 200)) + ' min read';
+          const seoScore = APP.calculateLiveSeo();
+
+          const postRecord = {
+            id: targetId,
+            title,
+            metaTitle,
+            slug,
+            category,
+            author,
+            authorId,
+            status,
+            publishDate,
+            readTime,
+            heroImage,
+            heroAlt,
+            focusKeyword,
+            metaDescription,
+            excerpt,
+            seoScore,
+            tags,
+            body,
+            faqs: window.CURRENT_POST_FAQS || []
+          };
+
+          // Strict Deduplication: Match by ID OR by normalized slug
+          const normSlug = slug.toLowerCase();
+          let existingIdx = DB.posts.findIndex(p => p.id === targetId);
+          if (existingIdx === -1 && normSlug) {
+            existingIdx = DB.posts.findIndex(p => (p.slug || '').trim().toLowerCase() === normSlug);
+          }
+
+          if (existingIdx !== -1) {
+            postRecord.id = DB.posts[existingIdx].id;
+            DB.posts[existingIdx] = postRecord;
+          } else {
+            DB.posts.push(postRecord);
+          }
+
+          EDITING_POST_ID = postRecord.id;
+          const edIdEl = document.getElementById('ed-id');
+          if (edIdEl) edIdEl.value = postRecord.id;
+
+          APP.deduplicatePosts();
+
+          await APP.saveToLocalStorage();
+          APP.showToast(publishImmediate ? 'Article published successfully!' : 'Article draft saved!');
+          APP.navigateTo('posts');
+        } finally {
+          setTimeout(() => { APP._isSaving = false; }, 400);
         }
-
-        let slug = (document.getElementById('ed-slug')?.value || '').trim();
-        if (!slug) {
-          slug = title.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
-        }
-
-        const category = document.getElementById('ed-category')?.value || 'Data Science';
-        const authorSelect = document.getElementById('ed-author');
-        const author = authorSelect?.value || 'Dr. Rajesh Varma';
-        const authorId = authorSelect?.options[authorSelect.selectedIndex]?.dataset?.id || 'author-rajesh';
-
-        const bodyDiv = document.getElementById('ed-body');
-        const sourceTa = document.getElementById('ed-body-source');
-        const body = (sourceTa.style.display === 'block' ? sourceTa.value : bodyDiv.innerHTML) || '';
-
-        const excerpt = document.getElementById('ed-excerpt')?.value || '';
-        const focusKeyword = document.getElementById('ed-keyword')?.value || '';
-        const metaDescription = document.getElementById('ed-metadesc')?.value || '';
-        const tagsRaw = document.getElementById('ed-tags')?.value || '';
-        const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
-        const heroImage = document.getElementById('ed-heroimage')?.value || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
-        const heroAlt = document.getElementById('ed-heroalt')?.value || title;
-        const status = publishImmediate ? 'published' : (document.getElementById('ed-status')?.value || 'draft');
-        const publishDate = document.getElementById('ed-date')?.value || new Date().toISOString().split('T')[0];
-
-        const words = (body.replace(/<[^>]*>/g, ' ').match(/\b\w+\b/g) || []).length;
-        const readTime = Math.max(1, Math.ceil(words / 200)) + ' min read';
-        const seoScore = APP.calculateLiveSeo();
-
-        const postRecord = {
-          id: EDITING_POST_ID || ('post-' + Date.now()),
-          title,
-          slug,
-          category,
-          author,
-          authorId,
-          status,
-          publishDate,
-          readTime,
-          heroImage,
-          heroAlt,
-          focusKeyword,
-          metaDescription,
-          excerpt,
-          seoScore,
-          tags,
-          body,
-          faqs: window.CURRENT_POST_FAQS || []
-        };
-
-        const existingIdx = DB.posts.findIndex(p => p.id === postRecord.id);
-        if (existingIdx !== -1) {
-          DB.posts[existingIdx] = postRecord;
-        } else {
-          DB.posts.push(postRecord);
-        }
-
-        APP.saveToLocalStorage();
-        APP.showToast(publishImmediate ? 'Article published successfully!' : 'Article draft saved!');
-        APP.navigateTo('posts');
       },
 
       previewCurrentEditor() {
-        const title = document.getElementById('ed-title')?.value || 'Sample Title';
-        const body = document.getElementById('ed-body')?.innerHTML || '';
+        const title = (document.getElementById('ed-title')?.value || '').trim() || 'Untitled Post';
+        const metaTitle = (document.getElementById('ed-metatitle')?.value || '').trim() || title;
+        const metaDescription = (document.getElementById('ed-metadesc')?.value || '').trim();
+        const slug = (document.getElementById('ed-slug')?.value || '').trim() || APP.slugify(title) || 'preview-post';
+        const category = document.getElementById('ed-category')?.value || 'Data Science';
+        const authorSelect = document.getElementById('ed-author');
+        const authorName = authorSelect?.value || 'Dr. Rajesh Varma';
+        const authorObj = (DB.authors || []).find(a => a.name === authorName) || { name: authorName, designation: 'Curriculum Director & Mentor', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80', bio: 'Mentor at NeoNeX MindX' };
         const rawHero = document.getElementById('ed-heroimage')?.value || '';
-        const hero = APP.normalizeImageUrl(rawHero);
+        const heroImage = APP.normalizeImageUrl(rawHero) || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
+        const heroAlt = document.getElementById('ed-heroalt')?.value || title;
+        const body = (document.getElementById('ed-body')?.innerHTML || '').trim();
+        const excerpt = document.getElementById('ed-excerpt')?.value || metaDescription || '';
+        const tagsRaw = document.getElementById('ed-tags')?.value || '';
+        const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+        const publishDate = document.getElementById('ed-date')?.value || new Date().toISOString().split('T')[0];
+        const words = (body.replace(/<[^>]*>/g, ' ').match(/\b\w+\b/g) || []).length;
+        const readTime = Math.max(1, Math.ceil(words / 200)) + ' min read';
 
-        const previewHtml = `
-          <div style="font-family:'Plus Jakarta Sans', sans-serif; max-height:75vh; overflow-y:auto; padding:10px;">
-            ${hero ? `
-              <div style="width:100%; aspect-ratio:16/9; max-height:520px; border-radius:14px; overflow:hidden; margin-bottom:22px; background:#E2E8F0; box-shadow:0 8px 25px rgba(15,23,42,0.08);">
-                <img src="${hero}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80';" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
-              </div>
-            ` : ''}
-            <h1 style="font-size:24px; font-weight:800; margin-bottom:12px; line-height:1.3;">${APP.escapeHtml ? APP.escapeHtml(title) : title}</h1>
-            <div style="border-top:1px solid #E2E8F0; padding-top:16px; margin-top:16px; line-height:1.7;">
-              ${body}
-            </div>
-          </div>
-        `;
-        APP.openModal('Live Article Preview', previewHtml, '<button class="btn btn-primary" onclick="APP.closeModal()">Close Preview</button>');
+        const previewDraft = {
+          id: EDITING_POST_ID || ('draft-' + Date.now()),
+          title,
+          metaTitle,
+          metaDescription,
+          slug,
+          category,
+          author: authorObj.name,
+          authorRole: authorObj.designation || 'Data & AI Mentor',
+          authorAvatar: authorObj.avatar || '',
+          authorBio: authorObj.bio || '',
+          authorLinkedin: authorObj.linkedin || '',
+          heroImage,
+          heroAlt,
+          heroCaption: '',
+          body,
+          excerpt,
+          tags,
+          publishDate,
+          readTime,
+          status: 'draft',
+          isDraftPreview: true
+        };
+
+        try {
+          localStorage.setItem('neonex_blog_preview_draft', JSON.stringify(previewDraft));
+        } catch(e) {
+          console.warn('Failed to save preview draft to localStorage', e);
+        }
+
+        const previewUrl = '/blog-post.html?preview=true&slug=' + encodeURIComponent(slug);
+        const win = window.open(previewUrl, '_blank');
+        if (win) {
+          win.focus();
+          APP.showToast('Opened live preview in dedicated URL tab!');
+        } else {
+          APP.openModal(
+            'Live Article Preview (Dedicated URL)',
+            `<p style="margin-bottom:12px; color:var(--ink);">Your browser blocked the popup tab. Click below to view your full live article draft at its dedicated URL:</p>
+             <a href="${previewUrl}" target="_blank" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px;">
+               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+               Open Dedicated Live Preview Tab
+             </a>`,
+            '<button class="btn" onclick="APP.closeModal()">Close</button>'
+          );
+        }
       },
 
-      /* ==================== PAGES VIEW ==================== */
+      /* ==================== PAGES & META VIEW ==================== */
+      getDefaultPageMeta() {
+        return {
+          "/": { page_key: "/", page_name: "Home Page", file_name: "Neonex Mindx Home Page.html", category: "Core Landing", title: "Live Online Data Analytics, Data Science & AI Courses | NeoNex MindX", meta_description: "Build practical skills through live online Data Analytics, Data Science, AI/ML Engineering, Data Engineering and Business Analytics programs with projects, mentors and honest career support." },
+          "/about-us": { page_key: "/about-us", page_name: "About Us", file_name: "Neonex Mindx About us page.html", category: "Core Landing", title: "About NeoNex MindX | Practical Data, Analytics & AI Training", meta_description: "Learn how NeoNex MindX builds practical data, analytics and AI capability through live classes, guided projects, experienced mentors and honest career support." },
+          "/trainers": { page_key: "/trainers", page_name: "Trainers & Mentors", file_name: "Neonex Mindx Trainers Page.html", category: "Core Landing", title: "Data, AI & Analytics Trainers | NeoNex MindX", meta_description: "Meet NeoNex MindX trainers across Data Analytics, Data Science, AI/ML, Data Engineering, DevOps, QA and business communication." },
+          "/contact-us": { page_key: "/contact-us", page_name: "Contact Us", file_name: "Neonex Mindx Contact Us.html", category: "Core Landing", title: "Contact NeoNex MindX | Course Counselling and Support", meta_description: "Contact NeoNex MindX for course counselling, syllabus, fees, batch timings and enrolment support for Data Analytics, Data Science, AI/ML, Data Engineering and Business Analytics programs." },
+          "/blogs": { page_key: "/blogs", page_name: "Blogs Directory", file_name: "blogs.html", category: "Core Landing", title: "Tech & Career Insights Blog | NeoNeX MindX", meta_description: "Explore expert articles, career transition roadmaps, and step-by-step tutorials on Data Science, AI & Machine Learning, Power BI, Python, and Data Engineering from NeoNeX MindX." },
+          "/courses/data-analytics-course": { page_key: "/courses/data-analytics-course", page_name: "Data Analytics Course", file_name: "Neonex Mindx Data Analytics Course.html", category: "Career Program", title: "Data Analytics Course Online India | NeoNex MindX", meta_description: "Join a live online Data Analytics course in India covering Excel, SQL, Python, Power BI, Tableau, projects, internship and placement assistance." },
+          "/courses/data-science-course": { page_key: "/courses/data-science-course", page_name: "Data Science Course", file_name: "Neonex Mindx Data Science Course.html", category: "Career Program", title: "Data Science Course Online India | NeoNex MindX", meta_description: "Learn Python, SQL, statistics, machine learning and model deployment in a live online Data Science course with projects, internship and career support." },
+          "/courses/ai-ml-engineering-course": { page_key: "/courses/ai-ml-engineering-course", page_name: "AI & ML Engineering Course", file_name: "Neonex Mindx AI ML Course.html", category: "Career Program", title: "AI and Machine Learning Course India | NeoNex MindX", meta_description: "Learn Python, machine learning, deep learning, NLP, computer vision, LLMs, RAG, MLOps and deployment in a live online AI/ML course." },
+          "/courses/data-engineering-course": { page_key: "/courses/data-engineering-course", page_name: "Data Engineering Course", file_name: "Neonex Mindx Data Engineering Course.html", category: "Career Program", title: "Data Engineering Course Online India | NeoNex MindX", meta_description: "Learn Python, advanced SQL, ETL, Spark, Kafka, Airflow, data warehousing and cloud platforms in a live online Data Engineering course." },
+          "/courses/business-analytics-course": { page_key: "/courses/business-analytics-course", page_name: "Business Analytics Course", file_name: "Neonex Mindx Business Analytics Course.html", category: "Career Program", title: "Business Analytics Course India | NeoNex MindX", meta_description: "Learn Excel, SQL, Power BI, Tableau, KPIs, forecasting and business decision analytics in a live online Business Analytics course in India." },
+          "/courses/excel-power-bi-tableau-course": { page_key: "/courses/excel-power-bi-tableau-course", page_name: "Excel, PowerBI & Tableau", file_name: "Neonex Mindx Excel PowerBI Tableau Course.html", category: "Skill Course", title: "Excel Power BI Tableau Course Online India | NeoNex MindX", meta_description: "Join a live Excel, Power BI and Tableau course covering data cleaning, formulas, PivotTables, Power Query, DAX, data modelling, dashboards and projects." },
+          "/courses/sql-course": { page_key: "/courses/sql-course", page_name: "SQL Course", file_name: "Neonex Mindx SQL Course.html", category: "Skill Course", title: "SQL Course Online in India with Projects | NeoNex MindX", meta_description: "Join a live SQL course online in India covering database fundamentals, joins, subqueries, CTEs, views, procedures, transactions, indexes and SQL projects." },
+          "/courses/python-programming-course": { page_key: "/courses/python-programming-course", page_name: "Python Programming Course", file_name: "Neonex Mindx Python Programming Course.html", category: "Skill Course", title: "Python Course Online in India for Beginners | NeoNex MindX", meta_description: "Join a live Python course online covering fundamentals, OOP, files, NumPy, Pandas, visualisation and practical projects. Beginner friendly." },
+          "/courses/machine-learning-course": { page_key: "/courses/machine-learning-course", page_name: "Machine Learning Course", file_name: "Neonex Mindx Machine Learning Course.html", category: "Skill Course", title: "Machine Learning Course Online India | NeoNex MindX", meta_description: "Join a live machine learning course online in India covering regression, classification, clustering, feature engineering, evaluation, tuning and projects." }
+        };
+      },
+
       renderPages() {
-        const pages = [
-          { name: 'Blogs Directory (/blogs)', path: '/blogs', status: 'published', lastMod: '2026-09-23', isEditable: true },
-          { name: 'Home', path: '/home', status: 'published', lastMod: '2026-09-20' },
-          { name: 'Data Science Course', path: '/courses/data-science-course', status: 'published', lastMod: '2026-09-18' },
-          { name: 'AI & ML Course', path: '/courses/ai-ml-course', status: 'published', lastMod: '2026-09-18' },
-          { name: 'Data Analytics Course', path: '/courses/data-analytics-course', status: 'published', lastMod: '2026-09-18' },
-          { name: 'About Us', path: '/about-us', status: 'published', lastMod: '2026-09-15' },
-          { name: 'Contact Us', path: '/contact-us', status: 'published', lastMod: '2026-09-15' }
-        ];
+        const pageMeta = { ...APP.getDefaultPageMeta(), ...(DB.pageMeta || {}) };
+        const pageKeys = Object.keys(pageMeta);
 
         return `
           <div class="view-header">
             <div class="view-title-block">
-              <h2>Pages &amp; Routing</h2>
-              <p>CMS / Pages \u2014 Manage site pages and configure <b>/blogs</b> page content.</p>
+              <h2>Course &amp; Landing Pages Meta Manager</h2>
+              <p>CMS / Pages &mdash; Update SEO Title, Meta Description, Keywords, and Canonical tags for all courses and landing pages. Directly synced to disk and live HTML files.</p>
             </div>
             <div class="view-header-actions">
-              <button class="btn btn-primary" onclick="APP.navigateTo('settings')">Configure /blogs Content</button>
+              <button class="btn btn-outline-primary" onclick="APP.navigateTo('settings')">Configure /blogs Layout</button>
+              <button class="btn btn-primary" onclick="APP.syncLiveSitemap()">⚡ Sync Live Sitemap</button>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:16px; padding:14px 18px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; background:var(--surface);">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-weight:700; font-size:13px; color:var(--ink);">All 14 Site Pages Active</span>
+              <span class="badge" style="background:var(--pass-bg); color:var(--pass); font-weight:700; padding:3px 9px; border-radius:12px; font-size:11px;">HTML &amp; Disk Sync Enabled</span>
+            </div>
+            <div style="font-size:12px; color:var(--muted);">
+              Click <b>Edit Meta Details</b> on any course or landing page to change its Google snippet &amp; browser title.
             </div>
           </div>
 
@@ -3432,36 +3714,171 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <table>
               <thead>
                 <tr>
-                  <th>Page</th>
-                  <th>Path</th>
-                  <th>Status</th>
-                  <th>SEO Health</th>
-                  <th>Action</th>
+                  <th style="min-width:180px;">Page &amp; Category</th>
+                  <th style="min-width:140px;">URL Path &amp; File</th>
+                  <th style="min-width:240px;">Meta Title &lt;title&gt;</th>
+                  <th style="min-width:280px;">Meta Description</th>
+                  <th style="min-width:160px; text-align:right;">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                ${pages.map(pg => `
-                  <tr>
-                    <td><b>${pg.name}</b></td>
-                    <td><code>${pg.path}</code></td>
-                    <td><span class="status-pill published"><span class="status-dot"></span>Published</span></td>
-                    <td><span class="score-badge score-high">100% OK</span></td>
-                    <td>
-                      <div style="display:flex; gap:6px;">
-                        ${pg.isEditable ? `
-                          <button class="btn btn-sm btn-primary" onclick="APP.navigateTo('settings')">Edit Content</button>
-                          <a href="../blogs.html" target="_blank" class="btn btn-sm">Inspect Live</a>
-                        ` : `
-                          <a href="..${pg.path==='/blogs'?'/blogs.html':pg.path+'.html'}" target="_blank" class="btn btn-sm">Inspect</a>
-                        `}
-                      </div>
-                    </td>
-                  </tr>
-                `).join('')}
+                ${pageKeys.map(k => {
+                  const pg = pageMeta[k];
+                  const titleLen = (pg.title || '').length;
+                  const descLen = (pg.meta_description || '').length;
+                  const targetUrl = k === '/' ? '/' : (k.startsWith('/') ? k : '/' + k);
+                  const isProgram = (pg.category || '').includes('Program');
+                  const categoryBadgeColor = isProgram ? 'background:#EEF4FC; color:#1B5DB7;' : (pg.category === 'Skill Course' ? 'background:#F0FDF4; color:#16A34A;' : 'background:#F1F5F9; color:#475569;');
+
+                  return `
+                    <tr>
+                      <td>
+                        <div style="font-weight:700; color:var(--ink); font-size:13.5px; margin-bottom:3px;">${pg.page_name || k}</div>
+                        <span class="badge" style="${categoryBadgeColor} font-size:10.5px; padding:2px 7px; border-radius:8px; font-weight:600;">${pg.category || 'Landing Page'}</span>
+                      </td>
+                      <td>
+                        <div style="font-family:var(--font-mono); font-size:11.5px; color:var(--ink); font-weight:600; margin-bottom:2px;">${k}</div>
+                        <div style="font-size:10.5px; color:var(--muted);">${pg.file_name || ''}</div>
+                      </td>
+                      <td>
+                        <div style="font-size:12.5px; color:var(--ink); line-height:1.4; margin-bottom:4px; max-width:320px;">${APP.escapeHtml(pg.title || '-')}</div>
+                        <span style="font-size:10.5px; color:${titleLen >= 50 && titleLen <= 65 ? 'var(--pass)' : 'var(--muted)'}; font-weight:600;">${titleLen} chars ${titleLen >= 50 && titleLen <= 65 ? '✓ Ideal' : ''}</span>
+                      </td>
+                      <td>
+                        <div style="font-size:12px; color:var(--ink-soft); line-height:1.4; margin-bottom:4px; max-width:360px;">${APP.escapeHtml((pg.meta_description || '-').slice(0, 110))}${(pg.meta_description || '').length > 110 ? '...' : ''}</div>
+                        <span style="font-size:10.5px; color:${descLen >= 120 && descLen <= 165 ? 'var(--pass)' : 'var(--muted)'}; font-weight:600;">${descLen} chars ${descLen >= 120 && descLen <= 165 ? '✓ Ideal' : ''}</span>
+                      </td>
+                      <td style="text-align:right;">
+                        <div style="display:inline-flex; gap:6px;">
+                          <button class="btn btn-sm btn-primary" onclick="APP.openEditPageMetaModal('${k}')" style="font-weight:700; display:inline-flex; align-items:center; gap:5px;">
+                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            Edit Meta
+                          </button>
+                          <a href="${targetUrl}" target="_blank" class="btn btn-sm" title="View Live Page">Inspect</a>
+                        </div>
+                      </td>
+                    </tr>
+                  `;
+                }).join('')}
               </tbody>
             </table>
           </div>
         `;
+      },
+
+      openEditPageMetaModal(pageKey) {
+        const pageMeta = { ...APP.getDefaultPageMeta(), ...(DB.pageMeta || {}) };
+        const pg = pageMeta[pageKey] || { page_key: pageKey, page_name: pageKey, title: '', meta_description: '' };
+
+        const body = `
+          <div style="margin-bottom:14px; padding:10px 14px; background:var(--surface-2); border-radius:8px; border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase;">PAGE TARGET</div>
+              <div style="font-weight:700; color:var(--ink); font-size:14px;">${pg.page_name || pageKey} (${pageKey})</div>
+            </div>
+            <span class="badge" style="background:var(--primary-tint); color:var(--primary); font-weight:700; padding:4px 10px; border-radius:8px; font-size:11px;">${pg.file_name || 'HTML Target'}</span>
+          </div>
+
+          <div class="form-group">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <label class="form-label" style="margin:0;">PAGE SEO TITLE &lt;title&gt; *</label>
+              <span id="modal-pm-title-count" style="font-size:11px; font-weight:600; color:var(--muted);">${(pg.title||'').length} / 60 characters</span>
+            </div>
+            <input type="text" id="modal-pm-title" class="form-control" value="${APP.escapeHtml(pg.title || '')}" placeholder="Search engine display title (50-60 chars)..." oninput="document.getElementById('modal-pm-title-count').textContent = this.value.length + ' / 60 characters'; const p = document.getElementById('modal-pm-serp-title'); if(p) p.textContent = this.value || 'Page Title';">
+          </div>
+
+          <div class="form-group">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <label class="form-label" style="margin:0;">META DESCRIPTION &lt;meta name="description"&gt; *</label>
+              <span id="modal-pm-desc-count" style="font-size:11px; font-weight:600; color:var(--muted);">${(pg.meta_description||'').length} / 160 characters</span>
+            </div>
+            <textarea id="modal-pm-desc" class="form-control" rows="3" placeholder="Search snippet description summarizing the curriculum and career outcomes (130-160 chars)..." oninput="document.getElementById('modal-pm-desc-count').textContent = this.value.length + ' / 160 characters'; const d = document.getElementById('modal-pm-serp-desc'); if(d) d.textContent = this.value || 'Page description';">${APP.escapeHtml(pg.meta_description || '')}</textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">KEYWORDS (COMMA SEPARATED)</label>
+              <input type="text" id="modal-pm-keywords" class="form-control" value="${APP.escapeHtml(pg.keywords || 'data analytics, data science, ai, python, sql, bangalore courses')}" placeholder="course, python, sql">
+            </div>
+            <div class="form-group">
+              <label class="form-label">CANONICAL URL</label>
+              <input type="url" id="modal-pm-canonical" class="form-control" value="${APP.escapeHtml(pg.canonical || ('https://neonexmindx.com' + pageKey))}" placeholder="https://neonexmindx.com/courses/...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">OG SOCIAL SHARE BANNER IMAGE (1200x630)</label>
+            <input type="text" id="modal-pm-og" class="form-control" value="${APP.escapeHtml(pg.og_image || 'https://neonexmindx.com/brand-logo.webp')}" placeholder="https://neonexmindx.com/assets/...">
+          </div>
+
+          <!-- Live Google Snippet Preview -->
+          <div style="margin-top:14px; padding:12px; background:var(--surface); border:1px solid var(--border); border-radius:8px;">
+            <div style="font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase; margin-bottom:6px;">Google Search Preview</div>
+            <div style="font-size:12px; color:#202124;">https://neonexmindx.com &rsaquo; ${pageKey.replace(/^\//, '')}</div>
+            <div id="modal-pm-serp-title" style="color:#1a0dab; font-size:16px; font-weight:500; line-height:1.3; margin:2px 0;">${APP.escapeHtml(pg.title || 'Page Title')}</div>
+            <div id="modal-pm-serp-desc" style="color:#4d5156; font-size:12.5px; line-height:1.5;">${APP.escapeHtml(pg.meta_description || 'Page description snippet...')}</div>
+          </div>
+        `;
+
+        const footer = `
+          <button class="btn" onclick="APP.closeModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="APP.savePageMeta('${pageKey}')">⚡ Save Meta Details &amp; Sync to HTML</button>
+        `;
+
+        APP.openModal('Edit Page Meta Details', body, footer);
+      },
+
+      async savePageMeta(pageKey) {
+        const title = (document.getElementById('modal-pm-title')?.value || '').trim();
+        const metaDescription = (document.getElementById('modal-pm-desc')?.value || '').trim();
+        const keywords = (document.getElementById('modal-pm-keywords')?.value || '').trim();
+        const canonical = (document.getElementById('modal-pm-canonical')?.value || '').trim();
+        const ogImage = (document.getElementById('modal-pm-og')?.value || '').trim();
+
+        if (!title) {
+          alert('Page title is required for SEO.');
+          return;
+        }
+
+        APP.showToast('Saving meta details and syncing to HTML file...');
+
+        DB.pageMeta = DB.pageMeta || { ...APP.getDefaultPageMeta() };
+        DB.pageMeta[pageKey] = {
+          ...(DB.pageMeta[pageKey] || {}),
+          page_key: pageKey,
+          title,
+          meta_description: metaDescription,
+          keywords,
+          canonical,
+          og_image: ogImage
+        };
+
+        try {
+          const res = await fetch('/api/save-page-meta', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              pageKey,
+              title,
+              metaDescription,
+              keywords,
+              canonical,
+              ogImage
+            })
+          });
+
+          if (res.ok) {
+            APP.showToast(`SEO Meta saved & updated in ${pageKey} HTML file!`);
+          } else {
+            APP.showToast('Saved locally; server file sync returned non-200.');
+          }
+        } catch(e) {
+          APP.showToast('Saved to local CMS cache (server unreachable).');
+        }
+
+        APP.saveToLocalStorage(false);
+        APP.closeModal();
+        APP.renderCurrentView();
       },
 
       /* ==================== CATEGORIES & TAGS ==================== */
@@ -3609,7 +4026,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       ${a.linkedin ? `<a href="${a.linkedin}" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600; display:inline-flex; align-items:center; gap:4px;"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> Profile</a>` : '<span style="color:var(--muted); font-size:11px;">Not set</span>'}
                     </td>
                     <td>
-                      <button class="btn btn-sm btn-danger" onclick="APP.deleteAuthor('${a.id}')">Delete</button>
+                      <div style="display:flex; gap:6px;">
+                        <button class="btn btn-sm btn-primary" onclick="APP.openEditAuthorModal('${a.id}')" style="display:inline-flex; align-items:center; gap:4px; font-weight:600;">
+                          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                          Edit
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="APP.deleteAuthor('${a.id}')">Delete</button>
+                      </div>
                     </td>
                   </tr>
                 `).join('')}
@@ -3727,6 +4150,118 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         DB.authors = DB.authors.filter(a => a.id !== id);
         APP.saveToLocalStorage();
         APP.showToast('Author removed');
+        APP.renderCurrentView();
+      },
+
+      openEditAuthorModal(authorId) {
+        const author = (DB.authors || []).find(a => a.id === authorId);
+        if (!author) {
+          alert('Author profile not found');
+          return;
+        }
+
+        const body = `
+          <div class="form-group">
+            <label class="form-label">FULL NAME *</label>
+            <input type="text" id="modal-auth-edit-name" class="form-control" value="${APP.escapeHtml(author.name || '')}" placeholder="e.g. Sumanth Kumar">
+          </div>
+          <div class="form-group">
+            <label class="form-label">DESIGNATION / ROLE</label>
+            <input type="text" id="modal-auth-edit-desig" class="form-control" value="${APP.escapeHtml(author.designation || '')}" placeholder="e.g. Senior ML Architect & Mentor">
+          </div>
+          <div class="form-group">
+            <label class="form-label">EMAIL</label>
+            <input type="email" id="modal-auth-edit-email" class="form-control" value="${APP.escapeHtml(author.email || '')}" placeholder="name@neonexmindx.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">LINKEDIN URL *</label>
+            <input type="url" id="modal-auth-edit-linkedin" class="form-control" value="${APP.escapeHtml(author.linkedin || '')}" placeholder="https://www.linkedin.com/in/username">
+            <div class="form-hint">Professional social verification link displayed on articles and mentor bios.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">AUTHOR PICTURE (UPLOAD FILE OR ENTER URL)</label>
+            <div style="display:flex; gap:12px; align-items:flex-start; margin-bottom:10px;">
+              <img id="modal-auth-edit-preview" src="${APP.normalizeImageUrl(author.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80')}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80';" style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid var(--border); flex-shrink:0;">
+              <div style="flex:1;">
+                <input type="file" id="modal-auth-edit-file" accept="image/*" style="display:none;" onchange="APP.handleAuthorEditPhotoUpload(this)">
+                <div style="display:flex; gap:8px; margin-bottom:6px;">
+                  <button type="button" class="btn btn-sm btn-outline-primary" onclick="document.getElementById('modal-auth-edit-file').click()">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    Upload New Picture
+                  </button>
+                  <button type="button" class="btn btn-sm" onclick="document.getElementById('modal-auth-edit-avatar').value=''; document.getElementById('modal-auth-edit-preview').src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80';">Clear</button>
+                </div>
+                <input type="text" id="modal-auth-edit-avatar" class="form-control" value="${APP.escapeHtml(author.avatar || '')}" placeholder="https://... or uploaded image data" oninput="document.getElementById('modal-auth-edit-preview').src = APP.normalizeImageUrl(this.value)">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">SHORT BIO</label>
+            <textarea id="modal-auth-edit-bio" class="form-control" rows="3" placeholder="Brief mentor bio and domain expertise...">${APP.escapeHtml(author.bio || '')}</textarea>
+          </div>
+        `;
+        const footer = `
+          <button class="btn" onclick="APP.closeModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="APP.saveAuthorChanges('${authorId}')">Save Author Changes</button>
+        `;
+        APP.openModal('Edit Author Profile', body, footer);
+      },
+
+      async handleAuthorEditPhotoUpload(input) {
+        if (!input.files || !input.files[0]) return;
+        const file = input.files[0];
+        APP.showToast('Optimizing author photo...');
+        const dataUrl = await APP.compressImage(file, 400, 0.85);
+        if (!dataUrl) return;
+
+        let finalUrl = dataUrl;
+        const fileName = 'author_' + file.name.replace(/[^a-zA-Z0-9_.-]/g, '_');
+        try {
+          const res = await fetch('/api/upload-media', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ filename: fileName, dataUrl })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.url) {
+              finalUrl = data.url;
+            }
+          }
+        } catch(e) {}
+
+        const preview = document.getElementById('modal-auth-edit-preview');
+        const avatarInput = document.getElementById('modal-auth-edit-avatar');
+        if (preview) preview.src = finalUrl;
+        if (avatarInput) avatarInput.value = finalUrl;
+      },
+
+      saveAuthorChanges(authorId) {
+        const idx = (DB.authors || []).findIndex(a => a.id === authorId);
+        if (idx === -1) return;
+
+        const name = (document.getElementById('modal-auth-edit-name')?.value || '').trim();
+        const designation = (document.getElementById('modal-auth-edit-desig')?.value || '').trim();
+        const email = (document.getElementById('modal-auth-edit-email')?.value || '').trim();
+        const linkedin = (document.getElementById('modal-auth-edit-linkedin')?.value || '').trim();
+        const avatar = (document.getElementById('modal-auth-edit-avatar')?.value || '').trim();
+        const bio = (document.getElementById('modal-auth-edit-bio')?.value || '').trim();
+
+        if (!name) { alert('Please enter author name'); return; }
+
+        DB.authors[idx] = {
+          ...DB.authors[idx],
+          name,
+          designation: designation || 'Mentor & Trainer',
+          email: email || 'contact@neonexmindx.com',
+          linkedin: linkedin || '',
+          avatar: APP.normalizeImageUrl(avatar) || DB.authors[idx].avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80',
+          bio
+        };
+
+        APP.saveToLocalStorage();
+        APP.closeModal();
+        APP.showToast('Author profile updated successfully!');
         APP.renderCurrentView();
       },
 
@@ -4016,22 +4551,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       renderSitemap() {
         const siteUrl = (DB.site && DB.site.siteUrl) || 'https://neonexmindx.com';
         const posts = (DB.posts || []).filter(p => p.status === 'published');
+        const todayStr = new Date().toISOString().split('T')[0];
+
         DB.customSitemapUrls = DB.customSitemapUrls || [
-          { loc: '/', priority: '1.0', changefreq: 'weekly', lastmod: '2026-10-09' },
-          { loc: '/about-us', priority: '0.8', changefreq: 'monthly', lastmod: '2026-10-09' },
-          { loc: '/trainers', priority: '0.8', changefreq: 'monthly', lastmod: '2026-10-09' },
-          { loc: '/contact-us', priority: '0.8', changefreq: 'monthly', lastmod: '2026-10-09' },
-          { loc: '/courses/data-analytics-course', priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-09' },
-          { loc: '/courses/data-science-course', priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-09' },
-          { loc: '/courses/ai-ml-engineering-course', priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-09' },
-          { loc: '/courses/data-engineering-course', priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-09' },
-          { loc: '/courses/business-analytics-course', priority: '0.9', changefreq: 'weekly', lastmod: '2026-10-09' },
-          { loc: '/courses/excel-power-bi-tableau-course', priority: '0.8', changefreq: 'weekly', lastmod: '2026-10-09' },
-          { loc: '/courses/sql-course', priority: '0.8', changefreq: 'weekly', lastmod: '2026-10-09' },
-          { loc: '/courses/python-programming-course', priority: '0.8', changefreq: 'weekly', lastmod: '2026-10-09' },
-          { loc: '/courses/machine-learning-course', priority: '0.8', changefreq: 'weekly', lastmod: '2026-10-09' },
-          { loc: '/blogs', priority: '0.9', changefreq: 'daily', lastmod: '2026-10-09' }
+          { loc: '/', priority: '1.0', changefreq: 'daily', lastmod: todayStr },
+          { loc: '/about-us', priority: '0.8', changefreq: 'monthly', lastmod: todayStr },
+          { loc: '/trainers', priority: '0.8', changefreq: 'monthly', lastmod: todayStr },
+          { loc: '/contact-us', priority: '0.8', changefreq: 'monthly', lastmod: todayStr },
+          { loc: '/courses/data-analytics-course', priority: '0.9', changefreq: 'weekly', lastmod: todayStr },
+          { loc: '/courses/data-science-course', priority: '0.9', changefreq: 'weekly', lastmod: todayStr },
+          { loc: '/courses/ai-ml-engineering-course', priority: '0.9', changefreq: 'weekly', lastmod: todayStr },
+          { loc: '/courses/data-engineering-course', priority: '0.9', changefreq: 'weekly', lastmod: todayStr },
+          { loc: '/courses/business-analytics-course', priority: '0.9', changefreq: 'weekly', lastmod: todayStr },
+          { loc: '/courses/excel-power-bi-tableau-course', priority: '0.8', changefreq: 'weekly', lastmod: todayStr },
+          { loc: '/courses/sql-course', priority: '0.8', changefreq: 'weekly', lastmod: todayStr },
+          { loc: '/courses/python-programming-course', priority: '0.8', changefreq: 'weekly', lastmod: todayStr },
+          { loc: '/courses/machine-learning-course', priority: '0.8', changefreq: 'weekly', lastmod: todayStr },
+          { loc: '/blogs', priority: '0.9', changefreq: 'daily', lastmod: todayStr }
         ];
+
+        // Ensure existing custom urls don't hold outdated hardcoded dates
+        DB.customSitemapUrls.forEach(u => {
+          if (!u.lastmod || u.lastmod === '2026-10-09' || u.lastmod < '2026-10-20') {
+            u.lastmod = todayStr;
+          }
+        });
 
         const allUrls = [];
         // Add custom URLs
@@ -4041,7 +4585,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             loc: fullLoc,
             priority: u.priority || '0.8',
             changefreq: u.changefreq || 'weekly',
-            lastmod: u.lastmod || new Date().toISOString().split('T')[0]
+            lastmod: u.lastmod || todayStr
           });
         });
 
@@ -4049,14 +4593,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         posts.forEach(p => {
           const postLoc = `${siteUrl}/blog/${p.slug}`;
           if (!allUrls.some(u => u.loc === postLoc)) {
+            const pDate = p.updatedAt || p.publishDate || todayStr;
             allUrls.push({
               loc: postLoc,
               priority: '0.8',
-              changefreq: 'monthly',
-              lastmod: p.publishDate || '2026-09-23'
+              changefreq: 'weekly',
+              lastmod: pDate.includes('T') ? pDate.split('T')[0] : pDate
             });
           }
         });
+
+        // Automatically fetch live server sitemap.xml on view render
+        setTimeout(async () => {
+          try {
+            const res = await fetch('/sitemap.xml?_t=' + Date.now());
+            if (res.ok) {
+              const liveXml = await res.text();
+              const ta = document.getElementById('sitemap-xml-preview');
+              if (ta && liveXml) ta.value = liveXml;
+            }
+          } catch(e) {}
+        }, 60);
 
         const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -4075,8 +4632,10 @@ ${allUrls.map(u => `  <url>
               <p>CMS / Sitemap — Add custom URLs, manage crawl priorities, and sync XML for search indexing.</p>
             </div>
             <div class="view-header-actions">
-              <button class="btn btn-primary" onclick="navigator.clipboard.writeText(document.getElementById('sitemap-xml-preview').value); APP.showToast('XML copied to clipboard!');">Copy XML</button>
+              <button class="btn btn-primary" onclick="APP.syncLiveSitemap()">⚡ Sync Live Sitemap to Server</button>
+              <button class="btn btn-outline-primary" onclick="navigator.clipboard.writeText(document.getElementById('sitemap-xml-preview').value); APP.showToast('XML copied to clipboard!');">Copy XML</button>
               <button class="btn btn-outline-primary" onclick="APP.downloadSitemapXml()">Download XML</button>
+              <a href="/sitemap.xml" target="_blank" class="btn btn-secondary" style="display:inline-flex; align-items:center; gap:4px;">View Live XML &rarr;</a>
             </div>
           </div>
 
@@ -4208,6 +4767,30 @@ ${allUrls.map(u => `  <url>
         a.download = 'sitemap.xml';
         a.click();
         APP.showToast('Downloaded sitemap.xml');
+      },
+
+      async syncLiveSitemap() {
+        try {
+          APP.showToast('Regenerating live dynamic sitemap on server...');
+          const res = await fetch('/api/sync-sitemap', { method: 'POST' });
+          if (res.ok) {
+            const data = await res.json();
+            try {
+              const xmlRes = await fetch('/sitemap.xml?_t=' + Date.now());
+              if (xmlRes.ok) {
+                const liveXml = await xmlRes.text();
+                const el = document.getElementById('sitemap-xml-preview');
+                if (el && liveXml) el.value = liveXml;
+              }
+            } catch(e) {}
+            APP.showToast(`Live dynamic sitemap regenerated with ${data.published_articles || 'all'} articles!`);
+            APP.renderCurrentView();
+          } else {
+            APP.showToast('Sitemap sync received non-200 response.');
+          }
+        } catch(e) {
+          APP.showToast('Server connection error while syncing sitemap.');
+        }
       },
 
       /* ==================== LLMS.TXT VIEW ==================== */

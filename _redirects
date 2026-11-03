@@ -104,6 +104,8 @@
 /cms.html                                /cms                                                   301!
 /digital-marketing/index.html            /digital-marketing                                     301!
 /digital-marketing.html                  /digital-marketing                                     301!
+/sms/index.html                          /sms                                                   301!
+/sms.html                                /sms                                                   301!
 
 /cms                                     /cms/index.html                                        200
 /cms/                                    /cms/index.html                                        200
@@ -111,6 +113,10 @@
 /admin/                                  /cms/index.html                                        200
 /crm                                     /crm/index.html                                        200
 /crm/                                    /crm/index.html                                        200
+/sms                                     /sms/index.html                                        200
+/sms/                                    /sms/index.html                                        200
+/social                                  /sms/index.html                                        200
+/social/                                 /sms/index.html                                        200
 /digital-marketing                       /digital-marketing/index.html                          200
 /digital-marketing/                      /digital-marketing/index.html                          200
 /digital-marketing-dashboard             /digital-marketing/index.html                          200

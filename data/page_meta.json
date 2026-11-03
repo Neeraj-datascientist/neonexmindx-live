@@ -1,0 +1,142 @@
+{
+  "/": {
+    "page_key": "/",
+    "page_name": "Home Page",
+    "file_name": "Neonex Mindx Home Page.html",
+    "title": "Live Online Data Analytics, Data Science &amp; AI Courses | NeoNex MindX",
+    "meta_description": "Build practical skills through live online Data Analytics, Data Science, AI/ML Engineering, Data Engineering and Business Analytics programs with projects, mentors and honest career support.",
+    "og_image": "https://neonexmindx.com/brand-logo.webp",
+    "canonical": "https://neonexmindx.com/",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/about-us": {
+    "page_key": "/about-us",
+    "page_name": "About Us",
+    "file_name": "Neonex Mindx About us page.html",
+    "title": "About NeoNex MindX | Practical Data, Analytics &amp; AI Training",
+    "meta_description": "Learn how NeoNex MindX builds practical data, analytics and AI capability through live classes, guided projects, experienced mentors and honest career support.",
+    "og_image": "https://neonexmindx.com/images/logo-plain.png",
+    "canonical": "https://neonexmindx.com/about-us",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/trainers": {
+    "page_key": "/trainers",
+    "page_name": "Trainers & Mentors",
+    "file_name": "Neonex Mindx Trainers Page.html",
+    "title": "Data, AI &amp; Analytics Trainers | NeoNex MindX",
+    "meta_description": "Meet NeoNex MindX trainers across Data Analytics, Data Science, AI/ML, Data Engineering, DevOps, QA and business communication.",
+    "og_image": "https://neonexmindx.com/assets/neonex-mindx-home-og.jpg",
+    "canonical": "https://neonexmindx.com/trainers",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/contact-us": {
+    "page_key": "/contact-us",
+    "page_name": "Contact Us",
+    "file_name": "Neonex Mindx Contact Us.html",
+    "title": "Contact NeoNex MindX | Course Counselling and Support",
+    "meta_description": "Contact NeoNex MindX for course counselling, syllabus, fees, batch timings and enrolment support for Data Analytics, Data Science, AI/ML, Data Engineering and Business Analytics programs.",
+    "og_image": "https://neonexmindx.com/assets/contact-us-og.jpg",
+    "canonical": "https://neonexmindx.com/contact-us/",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/courses/data-analytics-course": {
+    "page_key": "/courses/data-analytics-course",
+    "page_name": "Data Analytics Course",
+    "file_name": "Neonex Mindx Data Analytics Course.html",
+    "title": "Data Analytics Course Online India | NeoNex MindX",
+    "meta_description": "Join a live online Data Analytics course in India covering Excel, SQL, Python, Power BI, Tableau, projects, internship and placement assistance.",
+    "og_image": "https://neonexmindx.com/assets/data-analytics-course-og.jpg",
+    "canonical": "https://neonexmindx.com/courses/data-analytics-course/",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/courses/data-science-course": {
+    "page_key": "/courses/data-science-course",
+    "page_name": "Data Science Course",
+    "file_name": "Neonex Mindx Data Science Course.html",
+    "title": "Data Science Course Online India | NeoNex MindX",
+    "meta_description": "Learn Python, SQL, statistics, machine learning and model deployment in a live online Data Science course with projects, internship and career support.",
+    "og_image": "https://neonexmindx.com/assets/data-science-course-og.jpg",
+    "canonical": "https://neonexmindx.com/courses/data-science-course/",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/courses/ai-ml-engineering-course": {
+    "page_key": "/courses/ai-ml-engineering-course",
+    "page_name": "AI & ML Engineering Course",
+    "file_name": "Neonex Mindx AI ML Course.html",
+    "title": "AI and Machine Learning Course India | NeoNex MindX",
+    "meta_description": "Learn Python, machine learning, deep learning, NLP, computer vision, LLMs, RAG, MLOps and deployment in a live online AI/ML course.",
+    "og_image": "https://neonexmindx.com/assets/ai-ml-engineering-course-og.jpg",
+    "canonical": "https://neonexmindx.com/courses/ai-ml-engineering-course/",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/courses/data-engineering-course": {
+    "page_key": "/courses/data-engineering-course",
+    "page_name": "Data Engineering Course",
+    "file_name": "Neonex Mindx Data Engineering Course.html",
+    "title": "Data Engineering Course Online India | NeoNex MindX",
+    "meta_description": "Learn Python, advanced SQL, ETL, Spark, Kafka, Airflow, data warehousing and cloud platforms in a live online Data Engineering course.",
+    "og_image": "https://neonexmindx.com/brand-logo.webp",
+    "canonical": "https://neonexmindx.com/courses/data-engineering-course",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/courses/business-analytics-course": {
+    "page_key": "/courses/business-analytics-course",
+    "page_name": "Business Analytics Course",
+    "file_name": "Neonex Mindx Business Analytics Course.html",
+    "title": "Business Analytics Course India | NeoNex MindX",
+    "meta_description": "Learn Excel, SQL, Power BI, Tableau, KPIs, forecasting and business decision analytics in a live online Business Analytics course in India.",
+    "og_image": "https://neonexmindx.com/assets/business-analytics-course-og.jpg",
+    "canonical": "https://neonexmindx.com/courses/business-analytics-course/",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/courses/excel-power-bi-tableau-course": {
+    "page_key": "/courses/excel-power-bi-tableau-course",
+    "page_name": "Excel, PowerBI & Tableau",
+    "file_name": "Neonex Mindx Excel PowerBI Tableau Course.html",
+    "title": "Excel Power BI Tableau Course Online India | NeoNex MindX",
+    "meta_description": "Join a live Excel, Power BI and Tableau course covering data cleaning, formulas, PivotTables, Power Query, DAX, data modelling, dashboards and projects.",
+    "og_image": "https://neonexmindx.com/assets/excel-power-bi-tableau-course-og.jpg",
+    "canonical": "https://neonexmindx.com/courses/excel-power-bi-tableau-course",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/courses/sql-course": {
+    "page_key": "/courses/sql-course",
+    "page_name": "SQL Course",
+    "file_name": "Neonex Mindx SQL Course.html",
+    "title": "SQL Course Online in India with Projects | NeoNex MindX",
+    "meta_description": "Join a live SQL course online in India covering database fundamentals, joins, subqueries, CTEs, views, procedures, transactions, indexes and SQL projects.",
+    "og_image": "https://neonexmindx.com/brand-logo.webp",
+    "canonical": "https://neonexmindx.com/courses/sql-course",
+    "keywords": "sql course, sql queries, database training, bangalore"
+  },
+  "/courses/python-programming-course": {
+    "page_key": "/courses/python-programming-course",
+    "page_name": "Python Programming Course",
+    "file_name": "Neonex Mindx Python Programming Course.html",
+    "title": "Python Course Online in India for Beginners | NeoNex MindX",
+    "meta_description": "Join a live Python course online covering fundamentals, OOP, files, NumPy, Pandas, visualisation and practical projects. Beginner friendly.",
+    "og_image": "https://neonexmindx.com/assets/python-programming-course-og.jpg",
+    "canonical": "https://neonexmindx.com/courses/python-programming-course",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/courses/machine-learning-course": {
+    "page_key": "/courses/machine-learning-course",
+    "page_name": "Machine Learning Course",
+    "file_name": "Neonex Mindx Machine Learning Course.html",
+    "title": "Machine Learning Course Online India | NeoNex MindX",
+    "meta_description": "Join a live machine learning course online in India covering regression, classification, clustering, feature engineering, evaluation, tuning and projects.",
+    "og_image": "https://neonexmindx.com/assets/machine-learning-course-og.jpg",
+    "canonical": "https://neonexmindx.com/courses/machine-learning-course",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  },
+  "/blogs": {
+    "page_key": "/blogs",
+    "page_name": "Blogs Directory",
+    "file_name": "blogs.html",
+    "title": "Tech &amp; Career Insights Blog | NeoNeX MindX",
+    "meta_description": "Explore expert articles, career transition roadmaps, and step-by-step tutorials on Data Science, AI &amp; Machine Learning, Power BI, Python, and Data Engineering from NeoNeX MindX.",
+    "og_image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "canonical": "https://neonexmindx.com/blogs",
+    "keywords": "data analytics, data science, ai, python, sql, bangalore courses"
+  }
+}

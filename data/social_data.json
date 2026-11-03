@@ -1,0 +1,126 @@
+{
+  "accounts": [
+    {
+      "platform": "LinkedIn",
+      "handle": "@neonex-mindx",
+      "url": "https://linkedin.com/company/neonex-mindx",
+      "status": "Connected",
+      "followers": 14200,
+      "growth": "+18.4% MoM",
+      "cadence": "4 posts / week",
+      "primaryAudience": "IT QA, Support, Tech Leads & Analysts",
+      "keyTopics": "Data Science pivots, Capstone projects, salary breakdowns"
+    },
+    {
+      "platform": "YouTube",
+      "handle": "@NeoNeXMindX",
+      "url": "https://youtube.com/@NeoNeXMindX",
+      "status": "Connected",
+      "subscribers": 48600,
+      "growth": "+24.2% MoM",
+      "cadence": "2 deep-dives + 5 Shorts / week",
+      "primaryAudience": "Engineering students & Self-taught coders",
+      "keyTopics": "Live coding sessions, end-to-end ML builds, alumni AMAs"
+    },
+    {
+      "platform": "Instagram",
+      "handle": "@neonexmindx",
+      "url": "https://instagram.com/neonexmindx",
+      "status": "Connected",
+      "followers": 28400,
+      "growth": "+32.1% MoM",
+      "cadence": "Daily Reels & Story quizzes",
+      "primaryAudience": "21-28 Career changers & Bengaluru freshers",
+      "keyTopics": "Campus life, day in the life of Data Scientist, interview prep"
+    },
+    {
+      "platform": "WhatsApp Community",
+      "handle": "NeoNeX Tech Cohort VIP",
+      "url": "https://chat.whatsapp.com/invite/neonexmindx",
+      "status": "Connected",
+      "members": 1420,
+      "growth": "+45 new learners / week",
+      "cadence": "Daily coding challenge + Weekly mentor office hours",
+      "primaryAudience": "Enrolled learners & high-intent leads",
+      "keyTopics": "SQL challenges, resume reviews, placement openings"
+    },
+    {
+      "platform": "X / Twitter",
+      "handle": "@NeoNeXMindX",
+      "url": "https://x.com/NeoNeXMindX",
+      "status": "Connected",
+      "followers": 6800,
+      "growth": "+12.0% MoM",
+      "cadence": "3 threads / week",
+      "primaryAudience": "AI Researchers & Tech Founders",
+      "keyTopics": "LLM breakdowns, LangChain tutorials, Bengaluru tech jobs"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "soc-camp-01",
+      "name": "Bengaluru_DataScience_LeadGen_Nov2026",
+      "platform": "Meta (FB / Instagram)",
+      "status": "Active",
+      "budget": "₹35,000",
+      "spent": "₹12,450",
+      "leads": 84,
+      "cpl": "₹148",
+      "objective": "Instant Lead Form Submission",
+      "creatives": ["QA to Data Science Carousel", "Bengaluru Tech Salary Comparison Reel"]
+    },
+    {
+      "id": "soc-camp-02",
+      "name": "PowerBI_Tableau_FastTrack_Nov2026",
+      "platform": "Instagram Reels",
+      "status": "Active",
+      "budget": "₹20,000",
+      "spent": "₹6,800",
+      "leads": 56,
+      "cpl": "₹121",
+      "objective": "Direct Syllabus Download",
+      "creatives": ["3-Minute Financial Dashboard Build", "PowerBI vs Excel Career Scope"]
+    },
+    {
+      "id": "soc-camp-03",
+      "name": "Organic_Weekly_Tech_Challenge",
+      "platform": "LinkedIn & WhatsApp",
+      "status": "Organic / Ongoing",
+      "budget": "₹0 (Organic)",
+      "spent": "₹0",
+      "leads": 112,
+      "cpl": "₹0",
+      "objective": "Community Growth & Inbound Referral",
+      "creatives": ["Monday 3-Line SQL Query Puzzle", "Friday Capstone Code Review"]
+    }
+  ],
+  "scheduledPosts": [
+    {
+      "id": "post-101",
+      "title": "5 Production Machine Learning Traps in 2026 (And How to Avoid Them)",
+      "platforms": ["LinkedIn", "X"],
+      "scheduledTime": "Nov 04, 2026 • 10:00 AM IST",
+      "status": "Ready",
+      "author": "Venkat R. (Principal AI Architect)",
+      "utm_campaign": "linkedin_ml_traps_nov2026"
+    },
+    {
+      "id": "post-102",
+      "title": "From Manual QA to ₹14 LPA Data Scientist: Meet Pooja Sharma's 5-Month Journey",
+      "platforms": ["LinkedIn", "Instagram", "YouTube Community"],
+      "scheduledTime": "Nov 05, 2026 • 06:30 PM IST",
+      "status": "Ready",
+      "author": "Admissions Desk",
+      "utm_campaign": "alumni_pooja_qa_pivot"
+    },
+    {
+      "id": "post-103",
+      "title": "Mastering SQL Window Functions in 60 Seconds [Hands-On Code]",
+      "platforms": ["YouTube", "Instagram"],
+      "scheduledTime": "Nov 06, 2026 • 01:00 PM IST",
+      "status": "Scheduled",
+      "author": "Nikhil V. (Lead Analytics Mentor)",
+      "utm_campaign": "reels_sql_window_fn"
+    }
+  ]
+}

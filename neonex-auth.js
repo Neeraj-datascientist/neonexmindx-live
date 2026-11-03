@@ -60,10 +60,39 @@
   const NeonexAuth = {
     currentPortal: 'crm', // crm | cms | marketing
 
-    init(portalKey = 'crm') {
+    async init(portalKey = 'crm') {
       this.currentPortal = portalKey;
       this.ensureDefaultUsers();
       this.injectStyles();
+      // Multi-device sync: fetch latest users from backend
+      try {
+        const res = await fetch('/api/auth/users');
+        if (res.ok) {
+          const serverUsers = await res.json();
+          if (Array.isArray(serverUsers) && serverUsers.length > 0) {
+            let localUsers = this.getUsers();
+            let changed = false;
+            serverUsers.forEach(su => {
+              const idx = localUsers.findIndex(lu => 
+                (lu.id && su.id && lu.id === su.id) ||
+                (lu.username && su.username && lu.username.toLowerCase() === su.username.toLowerCase())
+              );
+              if (idx === -1) {
+                localUsers.push(su);
+                changed = true;
+              } else {
+                if (JSON.stringify(localUsers[idx]) !== JSON.stringify(su)) {
+                  localUsers[idx] = { ...localUsers[idx], ...su };
+                  changed = true;
+                }
+              }
+            });
+            if (changed) {
+              localStorage.setItem(STORAGE_USERS, JSON.stringify(localUsers));
+            }
+          }
+        }
+      } catch (e) {}
     },
 
     ensureDefaultUsers() {
@@ -107,6 +136,14 @@
 
     saveUsers(users) {
       localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
+      // Broadcast to server for multi-device cross-sync
+      try {
+        fetch('/api/auth/users', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(users)
+        }).catch(() => {});
+      } catch (e) {}
     },
 
     getSession() {
@@ -309,11 +346,55 @@
         }
         .neonex-nav-link { color: #94A3B8; text-decoration: none; font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 6px; transition: all 0.2s; }
         .neonex-nav-link:hover { color: #FFFFFF; background: rgba(255,255,255,0.06); }
+        .neonex-quick-btn {
+          background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+          color: #93C5FD; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 6px;
+          cursor: pointer; transition: all 0.2s;
+        }
+        .neonex-quick-btn:hover {
+          background: rgba(37,99,235,0.3); border-color: #3B82F6; color: #FFFFFF;
+        }
+        @media (max-width: 640px) {
+          .neonex-auth-box {
+            padding: 24px 18px !important;
+            max-width: 95vw !important;
+          }
+          .neonex-field-input {
+            font-size: 16px !important; /* Prevents iOS auto-zoom on input focus */
+          }
+          .neonex-user-bar {
+            left: 10px !important;
+            right: 10px !important;
+            bottom: 10px !important;
+            padding: 6px 10px !important;
+            font-size: 11px !important;
+            flex-wrap: wrap !important;
+            justify-content: space-between !important;
+          }
+          .neonex-nav-link {
+            font-size: 11px !important;
+            padding: 2px 5px !important;
+          }
+        }
       `;
       const styleEl = document.createElement('style');
       styleEl.id = 'neonex-auth-styles';
       styleEl.textContent = css;
       document.head.appendChild(styleEl);
+    },
+
+    quickFill(user, pass) {
+      const uEl = document.getElementById('neonex-login-user');
+      const pEl = document.getElementById('neonex-login-pass');
+      if (uEl && pEl) {
+        uEl.value = user;
+        pEl.value = pass;
+        const form = document.getElementById('neonex-login-form');
+        if (form) {
+          const submitEvent = new Event('submit', { cancelable: true, bubbles: true });
+          form.dispatchEvent(submitEvent);
+        }
+      }
     },
 
     renderAuthGate(portalKey, titleText, onAuthenticated) {
@@ -347,6 +428,16 @@
             <h2 class="neonex-auth-title">NeoNeX MindX</h2>
             <p class="neonex-auth-sub">${titleText || portalDisplayNames[portalKey] || 'Workspace Login'}</p>
           </div>
+          
+          <div style="margin-bottom:16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px 12px; text-align:center;">
+            <div style="font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#94A3B8; margin-bottom:8px;">1-Tap Credentials Sign-In</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center;">
+              <button type="button" class="neonex-quick-btn" onclick="NeonexAuth.quickFill('Neeraj', 'Hsc19ph0040@')">👑 SuperAdmin (Neeraj)</button>
+              <button type="button" class="neonex-quick-btn" onclick="NeonexAuth.quickFill('puneeth', 'puneeth$123')">⚡ Admin (Puneeth)</button>
+              ${portalKey === 'crm' ? `<button type="button" class="neonex-quick-btn" onclick="NeonexAuth.quickFill('mercy', 'mercy$123')">💼 Editor (Mercy)</button>` : ''}
+            </div>
+          </div>
+
           <div class="neonex-auth-err" id="neonex-err-banner"></div>
           <form id="neonex-login-form">
             <div class="neonex-field-group">
@@ -587,8 +678,7 @@
         }
       }
     }
-  };
-
   window.NeonexAuth = NeonexAuth;
+  window.NeoNexAuth = NeonexAuth; // Safe alias
 
 })(window);
