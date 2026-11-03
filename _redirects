@@ -78,8 +78,6 @@
 /terms-and-conditions/                   /Legal%20Page/Neonex%20Mindx%20Terms%20&%20Conditions.html 200
 
 # 4. BLOGS & CMS CONTENT MANAGEMENT SYSTEM
-/blogs                                   /blogs.html                                            200
-/blogs/                                  /blogs.html                                            200
 /blog                                    /blogs                                                 301!
 /blog/                                   /blogs                                                 301!
 # Static asset passthrough under /blog/ & /cms/
