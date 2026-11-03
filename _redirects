@@ -1,14 +1,27 @@
-# Netlify Server-Level URL Rewrites & Redirects for NeoNex MindX
+# Cloudflare Pages Clean Canonical Redirects (Priority 1)
+/Neonex*Data*Analytics*Course*            /courses/data-analytics-course/         301!
+/Neonex*Data*Science*Course*              /courses/data-science-course/           301!
+/Neonex*AI*ML*Course*                     /courses/ai-ml-course/                  301!
+/Neonex*Data*Engineering*Course*          /courses/data-engineering-course/       301!
+/Neonex*Business*Analytics*Course*        /courses/business-analytics-course/     301!
+/Neonex*Excel*PowerBI*Tableau*Course*     /courses/excel-power-bi-tableau-course/ 301!
+/Neonex*Machine*Learning*Course*          /courses/machine-learning-course/       301!
+/Neonex*Python*Programming*Course*        /courses/python-programming-course/     301!
+/Neonex*SQL*Course*                       /courses/sql-course/                    301!
+/Neonex*About*us*page*                    /about-us/                              301!
+/Neonex*Contact*Us*                       /contact-us/                            301!
+/Neonex*Trainers*Page*                    /trainers/                              301!
+/Neonex*Home*Page*                        /                                       301!
 
-# 1. ROOT & CLEAN HOME ROUTES (200 OK)
-/                                        /Neonex%20Mindx%20Home%20Page.html                     200
+# Cloudflare Pages Clean Canonical Redirects for NeoNex MindX
+
+# 1. ROOT & HOME
 /home                                    /                                                      301!
 /home/                                   /                                                      301!
-/index.html                              /Neonex%20Mindx%20Home%20Page.html                     200
+/index.html                              /                                                      301!
 
-# 2. FORCE 301 REDIRECTS FOR RAW/UGLY URLS (Strip %20 filenames and .html)
+# 2. REDIRECT RAW UGLY FILENAMES TO CLEAN CANONICAL DIRECTORIES
 /neonex%20mindx%20home%20page            /                                                      301!
-/neonex%20mindx%20home%20page/           /                                                      301!
 /neonex%20mindx%20home%20page.html       /                                                      301!
 /Neonex%20Mindx%20Home%20Page.html       /                                                      301!
 
@@ -22,14 +35,31 @@
 /Neonex%20Mindx%20Trainers%20Page.html   /trainers                                              301!
 
 /Neonex%20Mindx%20Data%20Analytics%20Course.html        /courses/data-analytics-course          301!
+/Neonex%20Mindx%20Data%20Analytics%20Course             /courses/data-analytics-course          301!
+
 /Neonex%20Mindx%20Data%20Science%20Course.html          /courses/data-science-course            301!
+/Neonex%20Mindx%20Data%20Science%20Course               /courses/data-science-course            301!
+
 /Neonex%20Mindx%20AI%20ML%20Course.html                 /courses/ai-ml-course                   301!
+/Neonex%20Mindx%20AI%20ML%20Course                      /courses/ai-ml-course                   301!
+
 /Neonex%20Mindx%20Data%20Engineering%20Course.html     /courses/data-engineering-course        301!
+/Neonex%20Mindx%20Data%20Engineering%20Course          /courses/data-engineering-course        301!
+
 /Neonex%20Mindx%20Business%20Analytics%20Course.html   /courses/business-analytics-course      301!
+/Neonex%20Mindx%20Business%20Analytics%20Course        /courses/business-analytics-course      301!
+
 /Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course.html /courses/excel-power-bi-tableau-course 301!
+/Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course    /courses/excel-power-bi-tableau-course 301!
+
 /Neonex%20Mindx%20Machine%20Learning%20Course.html      /courses/machine-learning-course        301!
+/Neonex%20Mindx%20Machine%20Learning%20Course           /courses/machine-learning-course        301!
+
 /Neonex%20Mindx%20Python%20Programming%20Course.html   /courses/python-programming-course      301!
+/Neonex%20Mindx%20Python%20Programming%20Course        /courses/python-programming-course      301!
+
 /Neonex%20Mindx%20SQL%20Course.html                     /courses/sql-course                     301!
+/Neonex%20Mindx%20SQL%20Course                          /courses/sql-course                     301!
 
 /Legal%20Page/Neonex%20Mindx%20Placement%20Assistance.html /placement-assistance-disclaimer     301!
 /Legal%20Page/Neonex%20Mindx%20Placement%20Assitance.html  /placement-assistance-disclaimer     301!
@@ -37,111 +67,25 @@
 /Legal%20Page/Neonex%20Mindx%20Refund%20&%20Cancellation.html /refund-and-cancellation-policy   301!
 /Legal%20Page/Neonex%20Mindx%20Terms%20&%20Conditions.html /terms-and-conditions                301!
 
-# 3. CLEAN CANONICAL ROUTES (200 OK Rewrites)
-/about-us                                /Neonex%20Mindx%20About%20us%20page.html               200
-/about-us/                               /Neonex%20Mindx%20About%20us%20page.html               200
-/contact-us                              /Neonex%20Mindx%20Contact%20Us.html                    200
-/contact-us/                             /Neonex%20Mindx%20Contact%20Us.html                    200
-/trainers                                /Neonex%20Mindx%20Trainers%20Page.html                 200
-/trainers/                               /Neonex%20Mindx%20Trainers%20Page.html                 200
-/trainers-and-mentors                    /Neonex%20Mindx%20Trainers%20Page.html                 200
-/trainers-and-mentors/                   /Neonex%20Mindx%20Trainers%20Page.html                 200
+# 3. DIRECT COURSE SHORTCUTS
+/data-analytics                         /courses/data-analytics-course          301!
+/data-science                           /courses/data-science-course            301!
+/ai-ml                                  /courses/ai-ml-course                   301!
+/data-engineering                       /courses/data-engineering-course        301!
+/business-analytics                     /courses/business-analytics-course      301!
 
-/courses/data-analytics-course           /Neonex%20Mindx%20Data%20Analytics%20Course.html       200
-/courses/data-analytics-course/          /Neonex%20Mindx%20Data%20Analytics%20Course.html       200
-/courses/data-science-course             /Neonex%20Mindx%20Data%20Science%20Course.html         200
-/courses/data-science-course/            /Neonex%20Mindx%20Data%20Science%20Course.html         200
-/courses/ai-ml-engineering-course        /Neonex%20Mindx%20AI%20ML%20Course.html                200
-/courses/ai-ml-engineering-course/       /Neonex%20Mindx%20AI%20ML%20Course.html                200
-/courses/ai-ml-course                    /Neonex%20Mindx%20AI%20ML%20Course.html                200
-/courses/ai-ml-course/                   /Neonex%20Mindx%20AI%20ML%20Course.html                200
-/courses/data-engineering-course         /Neonex%20Mindx%20Data%20Engineering%20Course.html     200
-/courses/data-engineering-course/        /Neonex%20Mindx%20Data%20Engineering%20Course.html     200
-/courses/business-analytics-course       /Neonex%20Mindx%20Business%20Analytics%20Course.html   200
-/courses/business-analytics-course/      /Neonex%20Mindx%20Business%20Analytics%20Course.html   200
-/courses/excel-power-bi-tableau-course   /Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course.html 200
-/courses/excel-power-bi-tableau-course/  /Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course.html 200
-/courses/machine-learning-course         /Neonex%20Mindx%20Machine%20Learning%20Course.html     200
-/courses/machine-learning-course/        /Neonex%20Mindx%20Machine%20Learning%20Course.html     200
-/courses/python-programming-course       /Neonex%20Mindx%20Python%20Programming%20Course.html   200
-/courses/python-programming-course/      /Neonex%20Mindx%20Python%20Programming%20Course.html   200
-/courses/sql-course                      /Neonex%20Mindx%20SQL%20Course.html                    200
-/courses/sql-course/                     /Neonex%20Mindx%20SQL%20Course.html                    200
+# 4. BLOGS & ARTICLES
+/blog                                   /blogs                                  301!
+/blog/                                  /blogs                                  301!
+/blogs.html                             /blogs                                  301!
+/blog/:slug                             /blog-post.html?slug=:slug              200
+/blog-:slug                             /blog/:slug                             301!
 
-/placement-assistance-disclaimer         /Legal%20Page/Neonex%20Mindx%20Placement%20Assistance.html 200
-/placement-assistance-disclaimer/        /Legal%20Page/Neonex%20Mindx%20Placement%20Assistance.html 200
-/privacy-policy                          /Legal%20Page/Neonex%20Mindx%20Privacy%20Policy.html   200
-/privacy-policy/                         /Legal%20Page/Neonex%20Mindx%20Privacy%20Policy.html   200
-/refund-and-cancellation-policy          /Legal%20Page/Neonex%20Mindx%20Refund%20&%20Cancellation.html 200
-/refund-and-cancellation-policy/         /Legal%20Page/Neonex%20Mindx%20Refund%20&%20Cancellation.html 200
-/terms-and-conditions                    /Legal%20Page/Neonex%20Mindx%20Terms%20&%20Conditions.html 200
-/terms-and-conditions/                   /Legal%20Page/Neonex%20Mindx%20Terms%20&%20Conditions.html 200
+# 5. PORTAL CLEAN URLS
+/crm.html                               /crm                                    301!
+/cms.html                               /cms                                    301!
+/digital-marketing.html                 /digital-marketing                      301!
+/sms.html                               /sms                                    301!
 
-# 4. BLOGS & CMS CONTENT MANAGEMENT SYSTEM
-/blog                                    /blogs                                                 301!
-/blog/                                   /blogs                                                 301!
-# Static asset passthrough under /blog/ & /cms/
-/blog/*.webp                             /:splat.webp                                           200
-/blog/*.png                              /:splat.png                                            200
-/blog/*.jpg                              /:splat.jpg                                            200
-/blog/*.jpeg                             /:splat.jpeg                                           200
-/blog/*.svg                              /:splat.svg                                            200
-/cms/*.webp                              /:splat.webp                                           200
-/cms/*.png                               /:splat.png                                            200
-/cms/*.jpg                               /:splat.jpg                                            200
-/cms/*.jpeg                              /:splat.jpeg                                           200
-/cms/*.svg                               /:splat.svg                                            200
-
-/blog/:slug                              /blog-post.html?slug=:slug                             200
-/blog-:slug                              /blog/:slug                                            301!
-
-# Raw index.html forced canonical redirects
-/crm/index.html                          /crm                                                   301!
-/crm.html                                /crm                                                   301!
-/cms/index.html                          /cms                                                   301!
-/cms.html                                /cms                                                   301!
-/digital-marketing/index.html            /digital-marketing                                     301!
-/digital-marketing.html                  /digital-marketing                                     301!
-/sms/index.html                          /sms                                                   301!
-/sms.html                                /sms                                                   301!
-
-/cms                                     /cms/index.html                                        200
-/cms/                                    /cms/index.html                                        200
-/admin                                   /cms/index.html                                        200
-/admin/                                  /cms/index.html                                        200
-/crm                                     /crm/index.html                                        200
-/crm/                                    /crm/index.html                                        200
-/sms                                     /sms/index.html                                        200
-/sms/                                    /sms/index.html                                        200
-/social                                  /sms/index.html                                        200
-/social/                                 /sms/index.html                                        200
-/digital-marketing                       /digital-marketing/index.html                          200
-/digital-marketing/                      /digital-marketing/index.html                          200
-/digital-marketing-dashboard             /digital-marketing/index.html                          200
-/digital-marketing-dashboard/            /digital-marketing/index.html                          200
-/digital%20marketing%20dashboard         /digital-marketing/index.html                          301!
-/digital%20marketing%20dashboard/        /digital-marketing/index.html                          301!
-/marketing                               /digital-marketing/index.html                          200
-/marketing/                              /digital-marketing/index.html                          200
-
-
-# 5. THANK YOU CONVERSION ROUTE
-/thank-you                               /thank-you.html                                        200
-/thank-you/                              /thank-you.html                                        200
-
-# 6. SECTION ANCHORS & LEGACY REDIRECTS
-/courses/                                /home#career-programs                                  302
-/short-courses/                          /home#focused-short-courses                            302
-/learner-reviews-and-success-stories/    /home#learner-stories                                  302
-/success-stories/                        /home#learner-stories                                  302
-
-
-
-# ASSETS REWRITE FOR CLEAN SUBDIRECTORIES
-/courses/*.webp  /:splat.webp  200
-/courses/*.jpg   /:splat.jpg   200
-/courses/*.png   /:splat.png   200
-/courses/*.svg   /:splat.svg   200
-
-# 7. CUSTOM 404 CATCH-ALL ROUTE
-/*                                       /index.html                                            404
+# Fallback SPA 404 handler
+/*                                      /index.html                             404
