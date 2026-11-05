@@ -88,8 +88,6 @@
 /blog                                   /blogs                                  301!
 /blog/                                  /blogs                                  301!
 /blogs.html                             /blogs                                  301!
-/blog/:slug                             /blog-post.html?slug=:slug              200
-/blog-:slug                             /blog/:slug                             301!
 
 # 5. PORTAL CLEAN URLS
 /crm.html                               /crm                                    301!

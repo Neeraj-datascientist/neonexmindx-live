@@ -81,5 +81,17 @@ export async function onRequest(context) {
     return Response.redirect('https://neonexmindx.com' + subPath, 302);
   }
 
+  // 5. Dynamic Blog Routing: Preserve slug when accessing /blog/:slug
+  // Cloudflare Pages rewrites without query strings in _redirects; middleware handles rewriting cleanly.
+  if (url.pathname.startsWith('/blog/') && url.pathname.length > 6) {
+    const slug = url.pathname.substring(6).replace(/\/$/, '').replace(/\.html$/, '');
+    if (slug && slug !== 'index') {
+      // Rewrite request internally to /blog-post.html with slug preserved in query param
+      const rewriteUrl = new URL('/blog-post.html', url.origin);
+      rewriteUrl.searchParams.set('slug', slug);
+      return context.env.ASSETS.fetch(rewriteUrl);
+    }
+  }
+
   return context.next();
 }
