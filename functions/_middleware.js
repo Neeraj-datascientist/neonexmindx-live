@@ -72,8 +72,12 @@ export async function onRequest(context) {
     const subPath = (url.pathname === '/' || url.pathname === '') ? '/cms/' : url.pathname;
     return Response.redirect('https://neonexmindx.com' + subPath, 302);
   }
-  if (host === 'sms.neonexmindx.com' || host === 'social.neonexmindx.com') {
+  if (host === 'sms.neonexmindx.com' || host === 'smm.neonexmindx.com' || host === 'social.neonexmindx.com') {
     const subPath = (url.pathname === '/' || url.pathname === '') ? '/sms/' : url.pathname;
+    return Response.redirect('https://neonexmindx.com' + subPath, 302);
+  }
+  if (host === 'dmm.neonexmindx.com' || host === 'marketing.neonexmindx.com') {
+    const subPath = (url.pathname === '/' || url.pathname === '') ? '/digital-marketing/' : url.pathname;
     return Response.redirect('https://neonexmindx.com' + subPath, 302);
   }
 

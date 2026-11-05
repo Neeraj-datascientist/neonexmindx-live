@@ -21,7 +21,8 @@
       permissions: {
         crm: true,
         cms: true,
-        marketing: true
+        marketing: true,
+        sms: true
       },
       createdAt: '2026-10-17T00:00:00.000Z'
     },
@@ -35,7 +36,8 @@
       permissions: {
         crm: true,
         cms: true,
-        marketing: true
+        marketing: true,
+        sms: true
       },
       createdAt: '2026-10-23T00:00:00.000Z'
     },
@@ -184,7 +186,7 @@
 
       const portal = portalKey || this.currentPortal;
       if (!user.permissions || !user.permissions[portal]) {
-        const portalNames = { crm: 'CRM Portal', cms: 'CMS Blog Administration', marketing: 'Digital Marketing Dashboard' };
+        const portalNames = { crm: 'CRM Portal', cms: 'CMS Blog Administration', marketing: 'Digital Marketing Dashboard', sms: 'Social Media Studio' };
         return {
           success: false,
           message: `Access Denied: Your account does not have permission to access the ${portalNames[portal] || portal}. Contact administrator Neeraj for access.`
@@ -404,7 +406,8 @@
       const portalDisplayNames = {
         crm: 'Counsellor & CRM Portal',
         cms: 'Blog Publisher & CMS',
-        marketing: 'Digital Marketing Intelligence Hub'
+        marketing: 'Digital Marketing Intelligence Hub',
+        sms: 'Social Media Management Studio (SMS)'
       };
 
       overlay.innerHTML = `
