@@ -1147,7 +1147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="tb-actions">
-      <a href="../blogs.html" target="_blank" class="btn btn-outline-primary btn-sm">
+      <a href="/blogs" target="_blank" class="btn btn-outline-primary btn-sm">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
         <span>View /blogs</span>
       </a>
@@ -3198,6 +3198,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             .trim()
             .replace(/\s+/g, '-');
         }
+        const metaTitleInput = document.getElementById('ed-metatitle');
+        if (metaTitleInput && (!metaTitleInput.value || !EDITING_POST_ID)) {
+          metaTitleInput.value = title;
+        }
         APP.calculateLiveSeo();
         APP.updateLiveSchemas();
       },
@@ -5000,7 +5004,7 @@ ${posts.map(p => `- https://neonexmindx.com/blog/${p.slug} : ${p.title}`).join('
                 <h3 style="font-size:16px; font-weight:700; color:var(--ink);">/blogs Page Hero Content</h3>
                 <p style="font-size:13px; color:var(--muted); margin-top:2px;">Edit the public banner text displayed at the top of the main /blogs page in real-time.</p>
               </div>
-              <a href="../blogs.html" target="_blank" class="btn btn-sm" style="display:flex; align-items:center; gap:6px;">
+              <a href="/blogs" target="_blank" class="btn btn-sm" style="display:flex; align-items:center; gap:6px;">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 <span>View /blogs Page</span>
               </a>
