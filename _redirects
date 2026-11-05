@@ -14,10 +14,10 @@
 /Neonex*AI*ML*Course*                     /courses/ai-ml-course/                  301!
 /Neonex*Data*Engineering*Course*          /courses/data-engineering-course/       301!
 /Neonex*Business*Analytics*Course*        /courses/business-analytics-course/     301!
-/Neonex*Excel*PowerBI*Tableau*Course*     /courses/excel-power-bi-tableau-course/ 301!
-/Neonex*Machine*Learning*Course*          /courses/machine-learning-course/       301!
-/Neonex*Python*Programming*Course*        /courses/python-programming-course/     301!
-/Neonex*SQL*Course*                       /courses/sql-course/                    301!
+/Neonex*Excel*PowerBI*Tableau*Course*    /courses/data-analytics-course/          301!
+/Neonex*Machine*Learning*Course*         /courses/ai-ml-course/                   301!
+/Neonex*Python*Programming*Course*       /courses/data-science-course/            301!
+/Neonex*SQL*Course*                      /courses/data-analytics-course/          301!
 /Neonex*About*us*page*                    /about-us/                              301!
 /Neonex*Contact*Us*                       /contact-us/                            301!
 /Neonex*Trainers*Page*                    /trainers/                              301!
@@ -59,17 +59,17 @@
 /Neonex%20Mindx%20Business%20Analytics%20Course.html   /courses/business-analytics-course      301!
 /Neonex%20Mindx%20Business%20Analytics%20Course        /courses/business-analytics-course      301!
 
-/Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course.html /courses/excel-power-bi-tableau-course 301!
-/Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course    /courses/excel-power-bi-tableau-course 301!
+/Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course.html /courses/data-analytics-course/          301!
+/Neonex%20Mindx%20Excel%20PowerBI%20Tableau%20Course /courses/data-analytics-course/          301!
 
-/Neonex%20Mindx%20Machine%20Learning%20Course.html      /courses/machine-learning-course        301!
-/Neonex%20Mindx%20Machine%20Learning%20Course           /courses/machine-learning-course        301!
+/Neonex%20Mindx%20Machine%20Learning%20Course.html /courses/ai-ml-course/                   301!
+/Neonex%20Mindx%20Machine%20Learning%20Course /courses/ai-ml-course/                   301!
 
-/Neonex%20Mindx%20Python%20Programming%20Course.html   /courses/python-programming-course      301!
-/Neonex%20Mindx%20Python%20Programming%20Course        /courses/python-programming-course      301!
+/Neonex%20Mindx%20Python%20Programming%20Course.html /courses/data-science-course/            301!
+/Neonex%20Mindx%20Python%20Programming%20Course /courses/data-science-course/            301!
 
-/Neonex%20Mindx%20SQL%20Course.html                     /courses/sql-course                     301!
-/Neonex%20Mindx%20SQL%20Course                          /courses/sql-course                     301!
+/Neonex%20Mindx%20SQL%20Course.html      /courses/data-analytics-course/          301!
+/Neonex%20Mindx%20SQL%20Course           /courses/data-analytics-course/          301!
 
 /Legal%20Page/Neonex%20Mindx%20Placement%20Assistance.html /placement-assistance-disclaimer     301!
 /Legal%20Page/Neonex%20Mindx%20Placement%20Assitance.html  /placement-assistance-disclaimer     301!
