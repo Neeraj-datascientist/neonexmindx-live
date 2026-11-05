@@ -1,23 +1,69 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   const host = url.hostname.toLowerCase();
-  const path = url.pathname.toLowerCase().replace(/\/$/, '');
+  const rawPath = decodeURIComponent(url.pathname.toLowerCase()).replace(/\/$/, '');
 
   // 1. Permanent 301 redirects for legacy standalone courses to flagship career programs
-  if (path === '/courses/sql-course' || path === '/sql-course') {
+  if (
+    rawPath === '/courses/sql-course' ||
+    rawPath === '/sql-course' ||
+    rawPath.includes('sql course') ||
+    rawPath.includes('sql-course')
+  ) {
     return Response.redirect('https://neonexmindx.com/courses/data-analytics-course/', 301);
   }
-  if (path === '/courses/excel-power-bi-tableau-course' || path === '/excel-power-bi-tableau-course') {
+
+  if (
+    rawPath === '/courses/excel-power-bi-tableau-course' ||
+    rawPath === '/excel-power-bi-tableau-course' ||
+    rawPath.includes('excel powerbi tableau course') ||
+    rawPath.includes('excel, power bi & tableau') ||
+    rawPath.includes('excel-power-bi-tableau-course')
+  ) {
     return Response.redirect('https://neonexmindx.com/courses/data-analytics-course/', 301);
   }
-  if (path === '/courses/python-programming-course' || path === '/python-programming-course') {
+
+  if (
+    rawPath === '/courses/python-programming-course' ||
+    rawPath === '/python-programming-course' ||
+    rawPath.includes('python programming course') ||
+    rawPath.includes('python-programming-course')
+  ) {
     return Response.redirect('https://neonexmindx.com/courses/data-science-course/', 301);
   }
-  if (path === '/courses/machine-learning-course' || path === '/machine-learning-course') {
+
+  if (
+    rawPath === '/courses/machine-learning-course' ||
+    rawPath === '/machine-learning-course' ||
+    rawPath.includes('machine learning course') ||
+    rawPath.includes('machine-learning-course')
+  ) {
     return Response.redirect('https://neonexmindx.com/courses/ai-ml-course/', 301);
   }
 
-  // 2. Subdomains routing
+  // 2. Immediate 301 redirects for any raw named pages to canonical clean URLs
+  if (rawPath.includes('data analytics course')) {
+    return Response.redirect('https://neonexmindx.com/courses/data-analytics-course/', 301);
+  }
+  if (rawPath.includes('data science course')) {
+    return Response.redirect('https://neonexmindx.com/courses/data-science-course/', 301);
+  }
+  if (rawPath.includes('ai ml course')) {
+    return Response.redirect('https://neonexmindx.com/courses/ai-ml-course/', 301);
+  }
+  if (rawPath.includes('data engineering course')) {
+    return Response.redirect('https://neonexmindx.com/courses/data-engineering-course/', 301);
+  }
+  if (rawPath.includes('business analytics course')) {
+    return Response.redirect('https://neonexmindx.com/courses/business-analytics-course/', 301);
+  }
+
+  // 3. Purge author/person paths (e.g. Ananya Sen) -> 301 redirect to Career Counselling & Placement
+  if (rawPath.includes('ananya') || rawPath.includes('author-ananya')) {
+    return Response.redirect('https://neonexmindx.com/placement-assistance-disclaimer/', 301);
+  }
+
+  // 4. Subdomains routing
   if (host === 'crm.neonexmindx.com') {
     return Response.redirect('https://neonexmindx.com/crm' + (url.pathname === '/' ? '' : url.pathname), 302);
   }
