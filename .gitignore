@@ -26,3 +26,5 @@ analytics/
 service_account.json
 credentials.json
 token.json
+
+.wrangler/
