@@ -11,7 +11,28 @@ nav{position:sticky;top:0;z-index:10;display:flex;gap:4px;overflow-x:auto;white-
 @media(max-width:1060px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}.controls{grid-template-columns:1fr 1fr 1fr}.modbody{grid-template-columns:1fr}.module summary{grid-template-columns:45px minmax(0,1fr) auto}.module summary:after{grid-column:3}.callout-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:680px){.hero{padding:30px 18px}.wrap{padding:17px 11px 50px}.stats,.grid2,.grid3,.grid4,.callout-grid{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1fr}.controls input{grid-column:1/-1}.section-head{align-items:start;flex-direction:column}.module summary{grid-template-columns:37px minmax(0,1fr);padding:13px;position:relative;padding-right:42px}.modno{width:35px;height:35px}.module summary .badge{grid-column:2;justify-self:start}.module summary:after{position:absolute;right:16px;top:18px}.phase-title{align-items:start}.score{grid-template-columns:125px 1fr 42px}}
 @media print{body{background:#fff}.hero{print-color-adjust:exact;background:#10223d!important;padding:22px}.wrap{max-width:none;padding:10px}nav,.controls,.btn{display:none!important}.module{break-inside:avoid}.module:not([open]) .modbody{display:none}.panel,.stat,.phase,.module{box-shadow:none}.footer{break-inside:avoid}}
-</style></head><body>
+</style><style id="mobile-topbar-cleanup">
+/* HIDE LEGACY TOPBAR ON ALL MOBILE & TABLET SCREENS TO PREVENT BLACK STRIP / TRUNCATION */
+@media (max-width: 1040px) {
+  .topbar,
+  .topbar-inner,
+  .topbar-links,
+  div[class*="topbar"] {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+</style>
+</head><body>
 <header class="hero"><div class="eyebrow">NEONEX MINDX · FINAL REVIEW DRAFT · V6 PART C ENHANCEMENTS</div><h1>Generative AI Engineering</h1><p><strong>Follow the AI Engineering learning path through the shared foundation and advanced core—then branch into a deep Generative AI specialization.</strong> The intended outcome is not a course that repeats Python or introductory RAG, but one that uses the same approved classes where appropriate and invests specialist time in enterprise knowledge systems, agentic applications, evaluation, security, inference, LLMOps and portfolio-grade products.</p><div class="tagline">PART A · COMMON FOUNDATION → PART B · JOINT AI ENGINEERING CORE → PART C · GENAI SPECIALIZATION → PART D · PROJECT STUDIO</div><div class="pills"><span class="pill">12–14 month delivery envelope</span><span class="pill">Shared modules retained in original sequence</span><span class="pill">Specialization-focused Part C</span><span class="pill">Project-based Part D</span><span class="pill">No unnecessary module duplication</span><span class="pill">Part C refined after current market review</span></div></header>
 <nav><a href="#overview">Overview</a><a href="#cohort">Cohort architecture</a><a href="#sequence">Exact sequence</a><a href="#mapping">Sharing matrix</a><a href="#catalogue">Full curriculum</a><a href="#specialization">Part C value</a><a href="#projects">Part D projects</a><a href="#assessment">Assessment</a><a href="#market">Market scan</a><a href="#decisions">Final controls</a><a href="#sources">Sources</a></nav>
 <main class="wrap">

@@ -1483,6 +1483,27 @@ body.site-mobile-nav-locked {
 }
 </style>
   <script src="/neonex-tracker.js"></script>
+<style id="mobile-topbar-cleanup">
+/* HIDE LEGACY TOPBAR ON ALL MOBILE & TABLET SCREENS TO PREVENT BLACK STRIP / TRUNCATION */
+@media (max-width: 1040px) {
+  .topbar,
+  .topbar-inner,
+  .topbar-links,
+  div[class*="topbar"] {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+</style>
 </head>
   <body>
 <!-- Google Tag Manager (noscript) -->
