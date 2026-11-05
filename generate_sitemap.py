@@ -85,6 +85,12 @@ def generate_dynamic_sitemap(directory=None):
         f'    <changefreq>weekly</changefreq>',
         f'    <priority>0.9</priority>',
         f'  </url>',
+        f'  <url>',
+        f'    <loc>{site_url}/courses/generative-ai-engineering-course</loc>',
+        f'    <lastmod>{today}</lastmod>',
+        f'    <changefreq>weekly</changefreq>',
+        f'    <priority>0.9</priority>',
+        f'  </url>,'
         '',
         '  <!-- Blog Knowledge Hub -->',
         f'  <url>',
