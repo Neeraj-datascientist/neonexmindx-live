@@ -1,29 +1,31 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   const host = url.hostname.toLowerCase();
+  const path = url.pathname.toLowerCase().replace(/\/$/, '');
 
-  // If visiting crm.neonexmindx.com, rewrite path internally or redirect to clean CRM
+  // 1. Permanent 301 redirects for legacy standalone courses to flagship career programs
+  if (path === '/courses/sql-course' || path === '/sql-course') {
+    return Response.redirect('https://neonexmindx.com/courses/data-analytics-course/', 301);
+  }
+  if (path === '/courses/excel-power-bi-tableau-course' || path === '/excel-power-bi-tableau-course') {
+    return Response.redirect('https://neonexmindx.com/courses/data-analytics-course/', 301);
+  }
+  if (path === '/courses/python-programming-course' || path === '/python-programming-course') {
+    return Response.redirect('https://neonexmindx.com/courses/data-science-course/', 301);
+  }
+  if (path === '/courses/machine-learning-course' || path === '/machine-learning-course') {
+    return Response.redirect('https://neonexmindx.com/courses/ai-ml-course/', 301);
+  }
+
+  // 2. Subdomains routing
   if (host === 'crm.neonexmindx.com') {
-    if (url.pathname === '/' || url.pathname === '') {
-      return Response.redirect('https://neonexmindx.com/crm', 302);
-    }
-    return Response.redirect(`https://neonexmindx.com/crm${url.pathname}`, 302);
+    return Response.redirect('https://neonexmindx.com/crm' + (url.pathname === '/' ? '' : url.pathname), 302);
   }
-
-  // If visiting cms.neonexmindx.com, redirect to clean CMS Studio
   if (host === 'cms.neonexmindx.com') {
-    if (url.pathname === '/' || url.pathname === '') {
-      return Response.redirect('https://neonexmindx.com/cms', 302);
-    }
-    return Response.redirect(`https://neonexmindx.com/cms${url.pathname}`, 302);
+    return Response.redirect('https://neonexmindx.com/cms' + (url.pathname === '/' ? '' : url.pathname), 302);
   }
-
-  // If visiting sms.neonexmindx.com, redirect to clean Social Media Hub
   if (host === 'sms.neonexmindx.com' || host === 'social.neonexmindx.com') {
-    if (url.pathname === '/' || url.pathname === '') {
-      return Response.redirect('https://neonexmindx.com/sms', 302);
-    }
-    return Response.redirect(`https://neonexmindx.com/sms${url.pathname}`, 302);
+    return Response.redirect('https://neonexmindx.com/sms' + (url.pathname === '/' ? '' : url.pathname), 302);
   }
 
   return context.next();
