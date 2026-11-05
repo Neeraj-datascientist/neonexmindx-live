@@ -63,15 +63,18 @@ export async function onRequest(context) {
     return Response.redirect('https://neonexmindx.com/placement-assistance-disclaimer/', 301);
   }
 
-  // 4. Subdomains routing
+  // 4. Subdomains routing (direct to directory with trailing slash to load the workspace directly)
   if (host === 'crm.neonexmindx.com') {
-    return Response.redirect('https://neonexmindx.com/crm' + (url.pathname === '/' ? '' : url.pathname), 302);
+    const subPath = (url.pathname === '/' || url.pathname === '') ? '/crm/' : url.pathname;
+    return Response.redirect('https://neonexmindx.com' + subPath, 302);
   }
   if (host === 'cms.neonexmindx.com') {
-    return Response.redirect('https://neonexmindx.com/cms' + (url.pathname === '/' ? '' : url.pathname), 302);
+    const subPath = (url.pathname === '/' || url.pathname === '') ? '/cms/' : url.pathname;
+    return Response.redirect('https://neonexmindx.com' + subPath, 302);
   }
   if (host === 'sms.neonexmindx.com' || host === 'social.neonexmindx.com') {
-    return Response.redirect('https://neonexmindx.com/sms' + (url.pathname === '/' ? '' : url.pathname), 302);
+    const subPath = (url.pathname === '/' || url.pathname === '') ? '/sms/' : url.pathname;
+    return Response.redirect('https://neonexmindx.com' + subPath, 302);
   }
 
   return context.next();
