@@ -1,3 +1,13 @@
+# 301 Permanent Redirects for standalone tool courses -> Main Program
+/courses/sql-course                      /courses/data-analytics-course/         301!
+/courses/sql-course/                     /courses/data-analytics-course/         301!
+/courses/excel-power-bi-tableau-course   /courses/data-analytics-course/         301!
+/courses/excel-power-bi-tableau-course/  /courses/data-analytics-course/         301!
+/courses/python-programming-course       /courses/data-science-course/           301!
+/courses/python-programming-course/      /courses/data-science-course/           301!
+/courses/machine-learning-course         /courses/ai-ml-course/                  301!
+/courses/machine-learning-course/        /courses/ai-ml-course/                  301!
+
 # Cloudflare Pages Clean Canonical Redirects (Priority 1)
 /Neonex*Data*Analytics*Course*            /courses/data-analytics-course/         301!
 /Neonex*Data*Science*Course*              /courses/data-science-course/           301!
