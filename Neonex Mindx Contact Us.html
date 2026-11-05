@@ -86,7 +86,73 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .btn:focus-visible,.menu:focus-visible,.links a:focus-visible,.quick a:focus-visible,.card a:focus-visible,.social a:focus-visible{outline:3px solid rgba(27,93,183,.28);outline-offset:3px}
       @media(max-width:1050px){.links.open{display:flex;position:absolute;top:68px;right:0;left:0;z-index:110;flex-direction:column;align-items:stretch;padding:18px;border:1px solid var(--cloud);border-radius:16px;background:#fff;box-shadow:0 18px 45px rgba(20,40,70,.15)}}
       @media(max-width:700px){body{padding-bottom:72px}h1{font-size:clamp(36px,11vw,46px)}.hero-actions .btn,.cta-actions .btn,.form-card .btn,.help>.btn{width:100%}.field input,.field select,.field textarea{font-size:16px}.map-link{margin-top:22px}.social a{min-height:40px}.mobile a:focus-visible{outline:3px solid rgba(27,93,183,.28);outline-offset:2px}}
-    </style>
+    
+/* ROCK-SOLID MOBILE MODAL STYLING */
+@media (max-width: 820px) {
+  .enquire-modal-overlay {
+    padding: 0 !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+  }
+  .enquire-modal-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 90vh !important;
+    height: auto !important;
+    border-radius: 24px 24px 0 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.35) !important;
+  }
+  .enquire-modal-left {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+  .enquire-modal-right {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    padding: 32px 20px 36px 20px !important;
+    background: #ffffff !important;
+    box-sizing: border-box !important;
+  }
+  .enquire-modal-close {
+    position: fixed !important;
+    top: 14px !important;
+    right: 14px !important;
+    z-index: 9999999 !important;
+    background: rgba(15, 23, 42, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  }
+  .enquire-modal-form .form-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .enquire-modal-form .field {
+    width: 100% !important;
+  }
+  .enquire-modal-form .input {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important; /* Prevents auto-zoom on iOS safari */
+  }
+}
+
+</style>
     <script type="application/ld+json">
       {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://neonexmindx.com/#website","url":"https://neonexmindx.com/","name":"NeoNex MindX","inLanguage":"en-IN","publisher":{"@id":"https://neonexmindx.com/#organization"}},{"@type":"EducationalOrganization","@id":"https://neonexmindx.com/#organization","name":"NeoNex MindX","url":"https://neonexmindx.com/","logo":{"@type":"ImageObject","url":"https://neonexmindx.com/images/logo-plain.png","contentUrl":"https://neonexmindx.com/images/logo-plain.png","width":1000,"height":1000,"caption":"NeoNex MindX"},"slogan":"Empowering Intelligence. Building Careers in Data, AI & Analytics.","email":"neonexminds@gmail.com","telephone":"+91 84318 03839","address":{"@type":"PostalAddress","streetAddress":"15/1, 1st A Cross, 4th Main, MES Road, Muthyala Nagar","addressLocality":"Bengaluru","addressRegion":"Karnataka","postalCode":"560054","addressCountry":"IN"},"hasMap":"https://maps.app.goo.gl/MnxCtkmMZF4Nq79n8","geo":{"@type":"GeoCoordinates","latitude":13.0336,"longitude":77.5452},"areaServed":{"@type":"Country","name":"India"},"contactPoint":{"@type":"ContactPoint","telephone":"+91 84318 03839","email":"neonexminds@gmail.com","contactType":"Course counselling and enrolment support","areaServed":"IN","availableLanguage":["English"],"hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"20:00"}},"sameAs":["https://www.facebook.com/neonexmindx","https://www.instagram.com/neonexmindx","https://www.linkedin.com/company/neonex-mindx/","https://www.youtube.com/@neonexmindx"]},{"@type":"ContactPage","@id":"https://neonexmindx.com/contact-us/#webpage","url":"https://neonexmindx.com/contact-us/","name":"Contact NeoNex MindX | Course Counselling and Support","description":"Contact NeoNex MindX for course counselling, syllabus, fees, batch timings and enrolment support for Data Analytics, Data Science, AI/ML, Data Engineering and Business Analytics programs.","isPartOf":{"@id":"https://neonexmindx.com/#website"},"about":{"@id":"https://neonexmindx.com/#organization"},"mainEntity":{"@id":"https://neonexmindx.com/#organization"},"inLanguage":"en-IN","breadcrumb":{"@id":"https://neonexmindx.com/contact-us/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://neonexmindx.com/assets/contact-us-og.jpg","width":1200,"height":630}},{"@type":"BreadcrumbList","@id":"https://neonexmindx.com/contact-us/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://neonexmindx.com/"},{"@type":"ListItem","position":2,"name":"Contact Us","item":"https://neonexmindx.com/contact-us/"}]}]}
     </script>
