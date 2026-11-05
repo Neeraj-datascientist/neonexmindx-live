@@ -383,20 +383,6 @@
       document.head.appendChild(styleEl);
     },
 
-    quickFill(user, pass) {
-      const uEl = document.getElementById('neonex-login-user');
-      const pEl = document.getElementById('neonex-login-pass');
-      if (uEl && pEl) {
-        uEl.value = user;
-        pEl.value = pass;
-        const form = document.getElementById('neonex-login-form');
-        if (form) {
-          const submitEvent = new Event('submit', { cancelable: true, bubbles: true });
-          form.dispatchEvent(submitEvent);
-        }
-      }
-    },
-
     renderAuthGate(portalKey, titleText, onAuthenticated) {
       this.init(portalKey);
       const session = this.getSession();
@@ -429,14 +415,7 @@
             <p class="neonex-auth-sub">${titleText || portalDisplayNames[portalKey] || 'Workspace Login'}</p>
           </div>
           
-          <div style="margin-bottom:16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px 12px; text-align:center;">
-            <div style="font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#94A3B8; margin-bottom:8px;">1-Tap Credentials Sign-In</div>
-            <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center;">
-              <button type="button" class="neonex-quick-btn" onclick="NeonexAuth.quickFill('Neeraj', 'Hsc19ph0040@')">👑 SuperAdmin (Neeraj)</button>
-              <button type="button" class="neonex-quick-btn" onclick="NeonexAuth.quickFill('puneeth', 'puneeth$123')">⚡ Admin (Puneeth)</button>
-              ${portalKey === 'crm' ? `<button type="button" class="neonex-quick-btn" onclick="NeonexAuth.quickFill('mercy', 'mercy$123')">💼 Editor (Mercy)</button>` : ''}
-            </div>
-          </div>
+          
 
           <div class="neonex-auth-err" id="neonex-err-banner"></div>
           <form id="neonex-login-form">
