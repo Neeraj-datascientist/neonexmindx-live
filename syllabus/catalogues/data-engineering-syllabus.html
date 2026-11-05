@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Engineering Master Course - Complete Master Syllabus | NeoNex MindX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #102a43;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --text: #1f2937;
+      --text-muted: #4b5563;
+      --border: #e2e8f0;
+      --bg-alt: #f8fafc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #f1f5f9;
+      padding: 24px 16px;
+    }
+    .print-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+    .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .brand span { color: var(--accent); }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      color: var(--primary);
+      margin: 12px 0 6px 0;
+      line-height: 1.25;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+    .meta-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+    }
+    .meta-item span {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .meta-item strong {
+      font-size: 16px;
+      color: var(--primary);
+    }
+    .btn-action-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-alt);
+    }
+    .module-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      page-break-inside: avoid;
+    }
+    .module-header {
+      background: var(--bg-alt);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .module-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      color: var(--primary);
+    }
+    .module-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .module-body {
+      padding: 20px;
+    }
+    .topic-group {
+      margin-bottom: 16px;
+    }
+    .topic-group:last-child {
+      margin-bottom: 0;
+    }
+    .topic-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .bullet-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .bullet-list li {
+      margin-bottom: 4px;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 36px;
+    }
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .print-container {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        max-width: 100%;
+      }
+      .btn-action-bar {
+        display: none !important;
+      }
+      .module-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #cbd5e1;
+      }
+    }
+    @media (max-width: 600px) {
+      .print-container { padding: 20px 16px; }
+      .header-bar { flex-direction: column; gap: 12px; }
+      .btn-action-bar { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-container">
+    <div class="header-bar">
+      <div>
+        <a href="/" class="brand">NeoNeX<span>MindX</span></a>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">School of Artificial Intelligence, Data & Engineering</div>
+      </div>
+      <span class="badge">Official Master Syllabus</span>
+    </div>
+
+    <h1>Data Engineering Master Course</h1>
+    <p class="subtitle">Complete Enterprise Data Engineering Curriculum: Advanced Python, SQL, Cloud Data Warehouses, Big Data (Spark/Hadoop), Kafka Streaming, Airflow Orchestration & GenAI.</p>
+
+    <div class="meta-box">
+      <div class="meta-item">
+        <span>Duration</span>
+        <strong>9–11 months</strong>
+      </div>
+      <div class="meta-item">
+        <span>Regular Fee</span>
+        <strong>₹85,000</strong>
+      </div>
+      <div class="meta-item">
+        <span>Learning Format</span>
+        <strong>Live Mentor-Led + Projects</strong>
+      </div>
+      <div class="meta-item">
+        <span>Certification</span>
+        <strong>Industry Accredited + Internship</strong>
+      </div>
+    </div>
+
+    <div class="btn-action-bar">
+      <button onclick="window.print()" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Save / Download as PDF (Print)
+      </button>
+      <a href="tel:+918431803839" class="btn btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Speak with Academic Advisor (084318 03839)
+      </a>
+    </div>
+
+    <div class="syllabus-modules">
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 01: COURSE ARCHITECTURE & CLICKABLE  INDEX</h2>
+          <p>Select a module or elective below to jump directly to its detailed syllabus. The index is organized by the source-defined programme parts.</p>
+        </div>
+        <div class="module-body">
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 02: COMMON GENERATIVE AI PRACTICAL CRASH COURSE</h2>
+          <p>This shared course is taught to every NeoNex MindX candidate, regardless of the primary programme selected. It is a common practical crash course and is delivered alongside the candidates chosen specialization.</p>
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 01  Python</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 02  SQL</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 03  Git & GitHub</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 04  Data Modelling</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 05  MongoDB / NoSQL</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 06  Data Pipelines & ETL / ELT</div>
+            <ul class="bullet-list">
+              <li>PART B  OPTIONAL CROSS-TRACK</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">OPTIONAL MODULE  Mathematics for Data Science & AI</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">OPTIONAL MODULE  Machine Learning</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">OPTIONAL MODULE  Basic Deployment</div>
+            <ul class="bullet-list">
+              <li>Flask  Streamlit  AWS S3  AWS EC2</li>
+              <li>PART C  DATA ENGINEERING SPECIALIZATION</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 07  DATA ENGINEERING FOUNDATIONS, LINUX & ARCHITECTURE</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 7.1  Data Engineering Fundamentals</div>
+            <ul class="bullet-list">
+              <li>What is Data Engineering?</li>
+              <li>Role of a Data Engineer</li>
+              <li>Data Engineering lifecycle</li>
+              <li>Data sources and consumers</li>
+              <li>Operational vs analytical systems</li>
+              <li>Structured, semi-structured & unstructured data</li>
+              <li>Batch vs streaming</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 7.2  Data Platform Architecture</div>
+            <ul class="bullet-list">
+              <li>Source layer</li>
+              <li>Ingestion layer</li>
+              <li>Storage layer</li>
+              <li>Processing layer</li>
+              <li>Transformation layer</li>
+              <li>Serving layer</li>
+              <li>Analytics layer</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 7.3  Data Pipeline Architecture</div>
+            <ul class="bullet-list">
+              <li>Batch pipelines</li>
+              <li>Micro-batch</li>
+              <li>Streaming pipelines</li>
+              <li>Event-driven architecture</li>
+              <li>ETL / ELT architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 7.4  Data Engineering Principles</div>
+            <ul class="bullet-list">
+              <li>Scalability</li>
+              <li>Reliability</li>
+              <li>Availability</li>
+              <li>Fault tolerance</li>
+              <li>Maintainability</li>
+              <li>Performance</li>
+              <li>Cost awareness</li>
+              <li>Security</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 7.5  Linux & Shell</div>
+            <ul class="bullet-list">
+              <li>Linux fundamentals</li>
+              <li>File system</li>
+              <li>Permissions</li>
+              <li>Processes</li>
+              <li>SSH</li>
+              <li>Environment variables</li>
+              <li>CLI</li>
+              <li>Pipes and redirection</li>
+              <li>grep</li>
+              <li>awk</li>
+              <li>sed</li>
+              <li>find</li>
+              <li>Bash scripting</li>
+              <li>Cron jobs</li>
+              <li>Basic server operations</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 7.6  Distributed Systems Foundations</div>
+            <ul class="bullet-list">
+              <li>Distributed computing</li>
+              <li>Parallel processing</li>
+              <li>Cluster computing</li>
+              <li>Horizontal scaling</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partitioning</div>
+            <ul class="bullet-list">
+              <li>Replication</li>
+              <li>Fault tolerance</li>
+              <li>Data locality</li>
+              <li>Shuffle</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 08  DATA INGESTION, CDC, STORAGE, DATA LAKE & DATA WAREHOUSE</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 8.1  Data Ingestion</div>
+            <ul class="bullet-list">
+              <li>Database ingestion</li>
+              <li>API ingestion</li>
+              <li>File ingestion</li>
+              <li>NoSQL ingestion</li>
+              <li>Application-system ingestion</li>
+              <li>Log ingestion</li>
+              <li>Batch ingestion</li>
+              <li>Incremental ingestion</li>
+              <li>Micro-batch ingestion</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 8.2  Incremental Processing & CDC</div>
+            <ul class="bullet-list">
+              <li>Full vs incremental load</li>
+              <li>High-water marks</li>
+              <li>Timestamp-based extraction</li>
+              <li>Watermarks</li>
+              <li>Checkpoints</li>
+              <li>Change Data Capture</li>
+              <li>Insert / update / delete capture</li>
+              <li>CDC architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 8.3  Reliable Ingestion</div>
+            <ul class="bullet-list">
+              <li>Idempotency</li>
+              <li>Duplicate handling</li>
+              <li>Retry</li>
+              <li>Backoff</li>
+              <li>Rate limiting</li>
+              <li>Throttling</li>
+              <li>Replay</li>
+              <li>Backfill</li>
+              <li>Dead-letter handling</li>
+              <li>Error handling</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 8.4  Storage & File Formats</div>
+            <ul class="bullet-list">
+              <li>Object storage</li>
+              <li>Distributed storage</li>
+              <li>CSV</li>
+              <li>JSON</li>
+              <li>Avro</li>
+              <li>Parquet</li>
+              <li>ORC</li>
+              <li>Row vs columnar storage</li>
+              <li>Compression</li>
+              <li>Serialization</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partitioning</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 8.5  Data Lake Engineering</div>
+            <ul class="bullet-list">
+              <li>Data Lake architecture</li>
+              <li>Raw layer</li>
+              <li>Bronze</li>
+              <li>Silver</li>
+              <li>Gold</li>
+              <li>Schema management</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partition strategy</div>
+            <ul class="bullet-list">
+              <li>File organization</li>
+              <li>Small-file problem</li>
+              <li>Lifecycle management</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 8.6  Data Warehouse Engineering</div>
+            <ul class="bullet-list">
+              <li>Warehouse architecture</li>
+              <li>Source</li>
+              <li>Staging</li>
+              <li>ODS concepts</li>
+              <li>Data warehouse</li>
+              <li>Data marts</li>
+              <li>Full loading</li>
+              <li>Incremental loading</li>
+              <li>Upsert / Merge</li>
+              <li>CDC-based loading</li>
+              <li>Fact loading</li>
+              <li>Dimension loading</li>
+              <li>Surrogate keys</li>
+              <li>SCD implementation</li>
+              <li>Late-arriving data</li>
+              <li>Reconciliation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 8.7  Analytical Platforms</div>
+            <ul class="bullet-list">
+              <li>Amazon Redshift</li>
+              <li>Warehouse architecture</li>
+              <li>Loading from S3</li>
+              <li>Analytical querying</li>
+              <li>Sort/distribution concepts</li>
+              <li>Performance fundamentals</li>
+              <li>Snowflake  Basic</li>
+              <li>Snowflake architecture</li>
+              <li>Databases, schemas and tables</li>
+              <li>Warehouses</li>
+              <li>Compute vs storage</li>
+              <li>Loading data</li>
+              <li>Basic SQL usage</li>
+              <li>Basic performance concepts</li>
+              <li>Basic Snowflake vs Redshift comparison</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 09  BIG DATA, HADOOP & APACHE SPARK</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 9.1  Big Data Fundamentals</div>
+            <ul class="bullet-list">
+              <li>Big Data concepts</li>
+              <li>Volume</li>
+              <li>Velocity</li>
+              <li>Variety</li>
+              <li>Veracity</li>
+              <li>Scalability challenges</li>
+              <li>Traditional vs distributed processing</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 9.2  Hadoop Ecosystem</div>
+            <ul class="bullet-list">
+              <li>Hadoop architecture</li>
+              <li>HDFS</li>
+              <li>NameNode</li>
+              <li>DataNode</li>
+              <li>Blocks</li>
+              <li>Replication</li>
+              <li>YARN</li>
+              <li>Resource management</li>
+              <li>MapReduce</li>
+              <li>Hive</li>
+              <li>HiveQL</li>
+              <li>Managed vs external tables</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partitioning</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 9.3  Hadoop Ecosystem Awareness</div>
+            <ul class="bullet-list">
+              <li>HBase</li>
+              <li>Sqoop</li>
+              <li>Flume</li>
+              <li>Hadoop ecosystem evolution</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 9.4  Apache Spark Fundamentals</div>
+            <ul class="bullet-list">
+              <li>Why Spark?</li>
+              <li>Spark architecture</li>
+              <li>Driver</li>
+              <li>Executors</li>
+              <li>Jobs</li>
+              <li>Stages</li>
+              <li>Tasks</li>
+              <li>Cluster concepts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 9.5  RDD & Spark Core</div>
+            <ul class="bullet-list">
+              <li>RDD</li>
+              <li>Transformations</li>
+              <li>Actions</li>
+              <li>Lazy evaluation</li>
+              <li>Fault tolerance</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 9.6  DataFrames & Spark SQL</div>
+            <ul class="bullet-list">
+              <li>DataFrames</li>
+              <li>Schemas</li>
+              <li>Data types</li>
+              <li>Spark SQL</li>
+              <li>Temporary views</li>
+              <li>Reading and writing data</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 9.7  PySpark Data Engineering</div>
+            <ul class="bullet-list">
+              <li>CSV</li>
+              <li>JSON</li>
+              <li>Parquet</li>
+              <li>Data cleaning</li>
+              <li>Joins</li>
+              <li>Aggregations</li>
+              <li>Window functions</li>
+              <li>Deduplication</li>
+              <li>Schema handling</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 9.8  Spark Performance & Optimization</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partitioning</div>
+            <ul class="bullet-list">
+              <li>Repartition</li>
+              <li>Coalesce</li>
+              <li>Shuffle</li>
+              <li>Broadcast joins</li>
+              <li>Caching</li>
+              <li>Persistence</li>
+              <li>Data skew</li>
+              <li>Small-file problem</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partition pruning</div>
+            <ul class="bullet-list">
+              <li>Query plans</li>
+              <li>Catalyst awareness</li>
+              <li>Resource optimization</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 9.9  Spark on AWS</div>
+            <ul class="bullet-list">
+              <li>AWS Glue with Spark</li>
+              <li>Amazon EMR  Basic</li>
+              <li>Spark on EMR</li>
+              <li>Glue vs EMR</li>
+              <li>Selecting the appropriate service</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 10  STREAMING, KAFKA & REAL-TIME DATA ENGINEERING</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 10.1  Streaming Foundations</div>
+            <ul class="bullet-list">
+              <li>Batch vs streaming</li>
+              <li>Events</li>
+              <li>Producers</li>
+              <li>Consumers</li>
+              <li>Event-driven architecture</li>
+              <li>Real-time processing</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 10.2  Apache Kafka</div>
+            <ul class="bullet-list">
+              <li>Kafka architecture</li>
+              <li>Brokers</li>
+              <li>Topics</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partitions</div>
+            <ul class="bullet-list">
+              <li>Producers</li>
+              <li>Consumers</li>
+              <li>Offsets</li>
+              <li>Consumer groups</li>
+              <li>Replication</li>
+              <li>Retention</li>
+              <li>Ordering</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 10.3  Kafka Development</div>
+            <ul class="bullet-list">
+              <li>Python producer</li>
+              <li>Python consumer</li>
+              <li>JSON events</li>
+              <li>Serialization</li>
+              <li>Event schemas</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 10.4  Kafka Reliability</div>
+            <ul class="bullet-list">
+              <li>At-most-once</li>
+              <li>At-least-once</li>
+              <li>Exactly-once concepts</li>
+              <li>Idempotency</li>
+              <li>Retry</li>
+              <li>Dead-letter topics</li>
+              <li>Replay</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 10.5  Kafka Streams  Basic</div>
+            <ul class="bullet-list">
+              <li>Kafka Streams architecture</li>
+              <li>Streams vs consumers</li>
+              <li>Stateless processing</li>
+              <li>Stateful processing</li>
+              <li>KStream</li>
+              <li>KTable</li>
+              <li>Basic joins</li>
+              <li>Aggregations</li>
+              <li>Windowing</li>
+              <li>State stores</li>
+              <li>Basic Kafka Streams application</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 10.6  Stream Processing</div>
+            <ul class="bullet-list">
+              <li>Event time</li>
+              <li>Processing time</li>
+              <li>Windowing</li>
+              <li>Watermarking</li>
+              <li>Late-arriving events</li>
+              <li>Stateful processing</li>
+              <li>Checkpointing</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 10.7  Spark Structured Streaming</div>
+            <ul class="bullet-list">
+              <li>Streaming DataFrames</li>
+              <li>Sources</li>
+              <li>Sinks</li>
+              <li>Transformations</li>
+              <li>Windows</li>
+              <li>Watermarks</li>
+              <li>Checkpointing</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 10.8  AWS Streaming  Basic</div>
+            <ul class="bullet-list">
+              <li>Amazon Kinesis Data Streams</li>
+              <li>Kinesis Data Firehose</li>
+              <li>Amazon MSK</li>
+              <li>Kafka vs Kinesis</li>
+              <li>AWS streaming architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 11  WORKFLOW ORCHESTRATION & MODERN DATA TRANSFORMATION</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 11.1  Apache Airflow</div>
+            <ul class="bullet-list">
+              <li>Workflow orchestration</li>
+              <li>DAGs</li>
+              <li>Tasks</li>
+              <li>Operators</li>
+              <li>Dependencies</li>
+              <li>Scheduling</li>
+              <li>Sensors</li>
+              <li>Variables</li>
+              <li>Connections</li>
+              <li>Parameters</li>
+              <li>XCom</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 11.2  Production Airflow</div>
+            <ul class="bullet-list">
+              <li>Retries</li>
+              <li>Backfill</li>
+              <li>Catchup</li>
+              <li>Failure handling</li>
+              <li>Logging</li>
+              <li>Alerts</li>
+              <li>Monitoring</li>
+              <li>Restartability</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 11.3  Airflow Integrations</div>
+            <ul class="bullet-list">
+              <li>Airflow + Spark</li>
+              <li>Airflow + AWS</li>
+              <li>Airflow + dbt</li>
+              <li>Airflow + quality checks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 11.4  Amazon MWAA  Basic</div>
+            <ul class="bullet-list">
+              <li>What is MWAA?</li>
+              <li>Managed Airflow architecture</li>
+              <li>Environment setup concepts</li>
+              <li>DAG deployment</li>
+              <li>S3 integration</li>
+              <li>AWS IAM integration</li>
+              <li>CloudWatch integration</li>
+              <li>MWAA vs self-managed Airflow</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 11.5  dbt</div>
+            <ul class="bullet-list">
+              <li>dbt fundamentals</li>
+              <li>Models</li>
+              <li>Sources</li>
+              <li>Dependencies</li>
+              <li>SQL transformations</li>
+              <li>Tests</li>
+              <li>Documentation</li>
+              <li>Lineage</li>
+              <li>Incremental models</li>
+              <li>Snapshots</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 12  LAKEHOUSE & MODERN DATA ARCHITECTURE</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 12.1  Lakehouse Fundamentals</div>
+            <ul class="bullet-list">
+              <li>Data Lake vs Data Warehouse</li>
+              <li>Lakehouse architecture</li>
+              <li>Medallion architecture</li>
+              <li>Analytical architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 12.2  Apache Iceberg  Basic</div>
+            <ul class="bullet-list">
+              <li>What is Iceberg?</li>
+              <li>Why open table formats?</li>
+              <li>Tables and snapshots</li>
+              <li>Schema evolution</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partition evolution</div>
+            <ul class="bullet-list">
+              <li>Time travel</li>
+              <li>ACID concepts</li>
+              <li>Metadata</li>
+              <li>Basic Iceberg operations</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 12.3  Delta Lake  Basic</div>
+            <ul class="bullet-list">
+              <li>What is Delta Lake?</li>
+              <li>Delta tables</li>
+              <li>ACID concepts</li>
+              <li>Schema enforcement</li>
+              <li>Schema evolution</li>
+              <li>Time travel</li>
+              <li>Basic table operations</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 12.4  Modern Data Concepts</div>
+            <ul class="bullet-list">
+              <li>Data contracts</li>
+              <li>Data products</li>
+              <li>Semantic layer</li>
+              <li>Metadata-driven pipelines</li>
+              <li>Data lineage</li>
+              <li>Data Mesh concepts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 12.5  Databricks  Basic</div>
+            <ul class="bullet-list">
+              <li>Databricks platform overview</li>
+              <li>Lakehouse architecture</li>
+              <li>Workspace</li>
+              <li>Compute</li>
+              <li>Notebooks</li>
+              <li>Spark integration</li>
+              <li>Delta Lake integration</li>
+              <li>Jobs/workflows</li>
+              <li>Basic data engineering workflow</li>
+              <li>Databricks vs open-source Spark</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 13  AWS DATA ENGINEERING PLATFORM</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.1  AWS Foundations</div>
+            <ul class="bullet-list">
+              <li>AWS Regions</li>
+              <li>Availability Zones</li>
+              <li>IAM</li>
+              <li>Roles</li>
+              <li>Policies</li>
+              <li>Least privilege</li>
+              <li>Basic networking</li>
+              <li>AWS CLI</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.2  Amazon S3</div>
+            <ul class="bullet-list">
+              <li>Buckets</li>
+              <li>Objects</li>
+              <li>Prefixes</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partitioning</div>
+            <ul class="bullet-list">
+              <li>Versioning</li>
+              <li>Lifecycle</li>
+              <li>Storage classes</li>
+              <li>Security</li>
+              <li>Data Lake design</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.3  AWS Glue & Data Catalog</div>
+            <ul class="bullet-list">
+              <li>Glue architecture</li>
+              <li>Glue Data Catalog</li>
+              <li>Databases</li>
+              <li>Tables</li>
+              <li>Schemas</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partitions</div>
+            <ul class="bullet-list">
+              <li>Crawlers</li>
+              <li>ETL jobs</li>
+              <li>PySpark</li>
+              <li>Schema discovery</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.4  Amazon Athena</div>
+            <ul class="bullet-list">
+              <li>Querying S3</li>
+              <li>External tables</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partition-aware queries</div>
+            <ul class="bullet-list">
+              <li>Serverless analytics</li>
+              <li>Cost-aware querying</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.5  Amazon Redshift</div>
+            <ul class="bullet-list">
+              <li>Data warehouse architecture</li>
+              <li>Loading from S3</li>
+              <li>Analytical queries</li>
+              <li>Sort/distribution concepts</li>
+              <li>Performance fundamentals</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.6  Amazon EMR  Basic</div>
+            <ul class="bullet-list">
+              <li>EMR architecture</li>
+              <li>Hadoop on AWS</li>
+              <li>Spark on AWS</li>
+              <li>Cluster concepts</li>
+              <li>Workload selection</li>
+              <li>EMR vs Glue</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.7  AWS Streaming  Basic</div>
+            <ul class="bullet-list">
+              <li>Kinesis</li>
+              <li>MSK</li>
+              <li>Streaming ingestion</li>
+              <li>Managed streaming architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.8  AWS DMS  Basic</div>
+            <ul class="bullet-list">
+              <li>Database migration</li>
+              <li>Replication</li>
+              <li>CDC</li>
+              <li>Source/target concepts</li>
+              <li>Basic migration workflow</li>
+              <li>DMS use cases</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.9  AWS Event & Workflow Services  Basic</div>
+            <ul class="bullet-list">
+              <li>EventBridge</li>
+              <li>Step Functions</li>
+              <li>Lambda</li>
+              <li>Event-driven data workflows</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.10  AWS Operations</div>
+            <ul class="bullet-list">
+              <li>CloudWatch</li>
+              <li>Logs</li>
+              <li>Metrics</li>
+              <li>Alarms</li>
+              <li>Pipeline monitoring</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 13.11  AWS Governance</div>
+            <ul class="bullet-list">
+              <li>Lake Formation</li>
+              <li>KMS</li>
+              <li>CloudTrail</li>
+              <li>Data access</li>
+              <li>Governance concepts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 14  PRODUCTION ENGINEERING: DOCKER, KUBERNETES, CI/CD & IaC</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 14.1  Docker</div>
+            <ul class="bullet-list">
+              <li>Containers</li>
+              <li>Images</li>
+              <li>Dockerfile</li>
+              <li>Volumes</li>
+              <li>Networks</li>
+              <li>Environment variables</li>
+              <li>Docker Compose</li>
+              <li>Containerizing data services</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 14.2  Kubernetes  Medium</div>
+            <ul class="bullet-list">
+              <li>Why Kubernetes?</li>
+              <li>Kubernetes architecture</li>
+              <li>Control plane / worker concepts</li>
+              <li>Pods</li>
+              <li>Deployments</li>
+              <li>Services</li>
+              <li>ConfigMaps</li>
+              <li>Secrets</li>
+              <li>Jobs</li>
+              <li>CronJobs</li>
+              <li>Namespaces</li>
+              <li>Resource requests/limits</li>
+              <li>Health checks</li>
+              <li>Scaling</li>
+              <li>Logs</li>
+              <li>Basic troubleshooting</li>
+              <li>Stateful workloads</li>
+              <li>Persistent storage concepts</li>
+              <li>Kubernetes for Airflow/Spark/data workloads</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 14.3  CI/CD</div>
+            <ul class="bullet-list">
+              <li>CI/CD fundamentals</li>
+              <li>GitHub Actions</li>
+              <li>Automated testing</li>
+              <li>Build pipelines</li>
+              <li>Deployment pipelines</li>
+              <li>Environment management</li>
+              <li>Secrets</li>
+              <li>Versioning</li>
+              <li>Rollbacks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 14.4  Terraform  Medium</div>
+            <ul class="bullet-list">
+              <li>Infrastructure as Code</li>
+              <li>Terraform architecture</li>
+              <li>Providers</li>
+              <li>Resources</li>
+              <li>Variables</li>
+              <li>Outputs</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Modules</div>
+            <ul class="bullet-list">
+              <li>State</li>
+              <li>Plan</li>
+              <li>Apply</li>
+              <li>Destroy</li>
+              <li>AWS resource provisioning</li>
+              <li>Remote state concepts</li>
+              <li>Reusable infrastructure</li>
+              <li>Basic environment management</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 14.5  AWS Infrastructure Awareness</div>
+            <ul class="bullet-list">
+              <li>CloudFormation</li>
+              <li>AWS CDK</li>
+              <li>EKS</li>
+              <li>ECS</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 15  DATA QUALITY, OBSERVABILITY, SECURITY & GOVERNANCE</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 15.1  Data Quality</div>
+            <ul class="bullet-list">
+              <li>Accuracy</li>
+              <li>Completeness</li>
+              <li>Consistency</li>
+              <li>Validity</li>
+              <li>Uniqueness</li>
+              <li>Timeliness</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 15.2  Data Validation & Testing</div>
+            <ul class="bullet-list">
+              <li>Null checks</li>
+              <li>Duplicate checks</li>
+              <li>Schema validation</li>
+              <li>Data-type validation</li>
+              <li>Range checks</li>
+              <li>Business-rule validation</li>
+              <li>Referential integrity</li>
+              <li>Reconciliation</li>
+              <li>Unit testing</li>
+              <li>Transformation testing</li>
+              <li>Pipeline testing</li>
+              <li>Regression testing</li>
+              <li>Tool</li>
+              <li>Great Expectations  Practical</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 15.3  Data Observability</div>
+            <ul class="bullet-list">
+              <li>Pipeline health</li>
+              <li>Data freshness</li>
+              <li>Data volume</li>
+              <li>Runtime</li>
+              <li>Throughput</li>
+              <li>Latency</li>
+              <li>Failure rate</li>
+              <li>Lineage</li>
+              <li>Data-quality observability</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 15.4  Monitoring & Visualization  Basic</div>
+            <ul class="bullet-list">
+              <li>Prometheus</li>
+              <li>Metrics fundamentals</li>
+              <li>Targets</li>
+              <li>Scraping</li>
+              <li>Exporters</li>
+              <li>Basic queries</li>
+              <li>Data-engineering monitoring use cases</li>
+              <li>Grafana</li>
+              <li>Dashboards</li>
+              <li>Panels</li>
+              <li>Data sources</li>
+              <li>Basic alerts</li>
+              <li>Pipeline monitoring dashboards</li>
+              <li>AWS</li>
+              <li>CloudWatch integration</li>
+              <li>Logs</li>
+              <li>Metrics</li>
+              <li>Alarms</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 15.5  Logging & Reliability</div>
+            <ul class="bullet-list">
+              <li>Structured logging</li>
+              <li>Pipeline logs</li>
+              <li>Error logs</li>
+              <li>Audit logs</li>
+              <li>Alerting</li>
+              <li>Incident analysis</li>
+              <li>Retry</li>
+              <li>Recovery</li>
+              <li>Backfill</li>
+              <li>Replay</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 15.6  Data Security</div>
+            <ul class="bullet-list">
+              <li>Authentication</li>
+              <li>Authorization</li>
+              <li>IAM</li>
+              <li>Least privilege</li>
+              <li>Encryption</li>
+              <li>Secrets management</li>
+              <li>Access control</li>
+              <li>PII</li>
+              <li>Data masking</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 15.7  Data Governance</div>
+            <ul class="bullet-list">
+              <li>Metadata</li>
+              <li>Data catalog</li>
+              <li>Data lineage</li>
+              <li>Data ownership</li>
+              <li>Data classification</li>
+              <li>Retention</li>
+              <li>Auditability</li>
+              <li>Privacy</li>
+              <li>Compliance concepts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 16  PERFORMANCE, COST OPTIMIZATION & DATA ENGINEERING SYSTEM DESIGN</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 16.1  Performance Engineering</div>
+            <ul class="bullet-list">
+              <li>Performance fundamentals</li>
+              <li>Bottleneck identification</li>
+              <li>Throughput</li>
+              <li>Latency</li>
+              <li>Parallelism</li>
+              <li>Resource utilization</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 16.2  SQL & Warehouse Optimization</div>
+            <ul class="bullet-list">
+              <li>Query plans</li>
+              <li>Join optimization</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partitioning</div>
+            <ul class="bullet-list">
+              <li>Clustering</li>
+              <li>Scan reduction</li>
+              <li>Large-table strategies</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 16.3  Spark Optimization</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partition optimization</div>
+            <ul class="bullet-list">
+              <li>Shuffle optimization</li>
+              <li>Broadcast joins</li>
+              <li>Data skew</li>
+              <li>Caching</li>
+              <li>File optimization</li>
+              <li>Resource optimization</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 16.4  Pipeline Reliability</div>
+            <ul class="bullet-list">
+              <li>Retry</li>
+              <li>Backoff</li>
+              <li>Checkpointing</li>
+              <li>Recovery</li>
+              <li>Backfill</li>
+              <li>Replay</li>
+              <li>Fault tolerance</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 16.5  AWS Cost Optimization</div>
+            <ul class="bullet-list">
+              <li>S3 lifecycle</li>
+              <li>Storage classes</li>
+              <li>Right-sizing</li>
+              <li>Athena query costs</li>
+              <li>Redshift cost</li>
+              <li>EMR cost</li>
+              <li>Data transfer</li>
+              <li>Serverless vs provisioned</li>
+              <li>Cost monitoring</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 16.6  Data Engineering System Design</div>
+            <ul class="bullet-list">
+              <li>Data-platform requirements</li>
+              <li>Batch architecture</li>
+              <li>Streaming architecture</li>
+              <li>Data Lake design</li>
+              <li>Data Warehouse design</li>
+              <li>Lakehouse design</li>
+              <li>Real-time analytics</li>
+              <li>Large-scale ingestion</li>
+              <li>Cloud data platform architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 16.7  Architecture Decision Making</div>
+            <ul class="bullet-list">
+              <li>Tool selection</li>
+              <li>Storage selection</li>
+              <li>Batch vs streaming</li>
+              <li>Managed vs self-managed</li>
+              <li>Reliability vs cost</li>
+              <li>Performance vs complexity</li>
+              <li>Scalability vs operational overhead</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 17  DATA ENGINEERING ECOSYSTEM AWARENESS</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 17.1  Big Data Ecosystem</div>
+            <ul class="bullet-list">
+              <li>Hadoop ecosystem</li>
+              <li>HBase</li>
+              <li>Hive</li>
+              <li>Sqoop</li>
+              <li>Flume</li>
+              <li>Presto / Trino</li>
+              <li>Distributed query engines</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 17.2  Streaming Ecosystem</div>
+            <ul class="bullet-list">
+              <li>Apache Flink</li>
+              <li>Kafka Connect</li>
+              <li>Schema Registry</li>
+              <li>Kafka Streams ecosystem</li>
+              <li>Amazon Managed Service for Apache Flink</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 17.3  Cloud Data Ecosystems</div>
+            <ul class="bullet-list">
+              <li>AWS</li>
+              <li>Extended AWS analytics ecosystem</li>
+              <li>Azure</li>
+              <li>Azure Data Factory</li>
+              <li>Azure Synapse</li>
+              <li>Azure Data Lake Storage</li>
+              <li>GCP</li>
+              <li>BigQuery</li>
+              <li>Cloud Storage</li>
+              <li>Pub/Sub</li>
+              <li>Dataflow</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 17.4  Data Platforms</div>
+            <ul class="bullet-list">
+              <li>Databricks ecosystem</li>
+              <li>Snowflake ecosystem</li>
+              <li>Microsoft Fabric</li>
+              <li>Open-source lakehouse ecosystem</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 17.5  Database & Storage Technologies</div>
+            <ul class="bullet-list">
+              <li>DynamoDB</li>
+              <li>HBase</li>
+              <li>Cassandra</li>
+              <li>Elasticsearch / OpenSearch</li>
+              <li>Graph databases</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 17.6  Infrastructure & Platform Technologies</div>
+            <ul class="bullet-list">
+              <li>Kubernetes ecosystem</li>
+              <li>EKS</li>
+              <li>ECS</li>
+              <li>Terraform ecosystem</li>
+              <li>CloudFormation</li>
+              <li>AWS CDK</li>
+              <li>Serverless data processing</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Sub-Module 17.7  Modern Data & AI Awareness</div>
+            <ul class="bullet-list">
+              <li>Data contracts</li>
+              <li>Data products</li>
+              <li>Data Mesh</li>
+              <li>Feature stores</li>
+              <li>ML data pipelines</li>
+              <li>LLM data pipelines</li>
+              <li>Vector databases</li>
+              <li>Embeddings</li>
+              <li>RAG data pipelines</li>
+              <li>AI-ready data platforms</li>
+              <li>Awareness Format</li>
+              <li>For every technology:</li>
+              <li>What is it?  Why is it used?  What problem does it solve?  Where is it used?  How does it fit into a data architecture?  When would you choose it?  What are the main alternatives?</li>
+              <li>FINAL SYLLABUS FLOW</li>
+              <li>COMMON FOUNDATION</li>
+              <li>Python</li>
+              <li>SQL</li>
+              <li>Git & GitHub</li>
+              <li>Data Modelling</li>
+              <li>MongoDB / NoSQL</li>
+              <li>ETL / ELT</li>
+              <li>DATA ENGINEERING FOUNDATIONS</li>
+              <li>Linux + Architecture + Distributed Systems</li>
+              <li>INGESTION</li>
+              <li>CDC + Reliability</li>
+              <li>STORAGE + FILE FORMATS</li>
+              <li>DATA LAKE</li>
+              <li>DATA WAREHOUSE</li>
+              <li>BIG DATA</li>
+              <li>HADOOP + HDFS + YARN + MAPREDUCE + HIVE</li>
+              <li>APACHE SPARK + PYSPARK</li>
+              <li>SPARK OPTIMIZATION</li>
+              <li>KAFKA</li>
+              <li>KAFKA STREAMS</li>
+              <li>STREAM PROCESSING</li>
+              <li>SPARK STRUCTURED STREAMING</li>
+              <li>AIRFLOW</li>
+              <li>dbt</li>
+              <li>LAKEHOUSE</li>
+              <li>ICEBERG + DELTA LAKE</li>
+              <li>AWS DATA ENGINEERING</li>
+              <li>S3 + GLUE + CATALOG + ATHENA</li>
+              <li>REDSHIFT + EMR</li>
+              <li>KINESIS + MSK + DMS</li>
+              <li>EVENTBRIDGE + STEP FUNCTIONS + MWAA</li>
+              <li>DOCKER</li>
+              <li>KUBERNETES</li>
+              <li>CI/CD</li>
+              <li>TERRAFORM</li>
+              <li>DATA QUALITY</li>
+              <li>OBSERVABILITY</li>
+              <li>PROMETHEUS + GRAFANA</li>
+              <li>SECURITY + GOVERNANCE</li>
+              <li>PERFORMANCE</li>
+              <li>AWS COST OPTIMIZATION</li>
+              <li>SYSTEM DESIGN</li>
+              <li>DATA ENGINEERING ECOSYSTEM AWARENESS</li>
+              <li>STUDENT-FACING HIGH-LEVEL FLOW</li>
+              <li>COMMON FOUNDATION</li>
+              <li>Python  SQL  Git & GitHub  Data Modelling  MongoDB / NoSQL  ETL / ELT</li>
+              <li>DATA ENGINEERING FOUNDATIONS</li>
+              <li>Architecture  Linux  Distributed Systems</li>
+              <li>DATA PLATFORM ENGINEERING</li>
+              <li>Ingestion  CDC  Storage  Data Lake  Data Warehouse</li>
+              <li>BIG DATA ENGINEERING</li>
+              <li>Hadoop  HDFS  YARN  Hive  Spark  PySpark</li>
+              <li>REAL-TIME DATA ENGINEERING</li>
+              <li>Kafka  Kafka Streams  Streaming  Spark Structured Streaming  Kinesis  MSK</li>
+              <li>MODERN DATA PLATFORM</li>
+              <li>Airflow  dbt  Lakehouse  Iceberg  Delta Lake  Databricks</li>
+              <li>AWS DATA ENGINEERING</li>
+              <li>S3  Glue  Glue Data Catalog  Athena  Redshift  EMR  Kinesis  MSK  DMS  MWAA  CloudWatch</li>
+              <li>PRODUCTION DATA ENGINEERING</li>
+              <li>Docker  Kubernetes  CI/CD  Terraform</li>
+              <li>TRUSTED DATA ENGINEERING</li>
+              <li>Data Quality  Testing  Observability  Prometheus  Grafana  Security  Governance</li>
+              <li>ENGINEERING MATURITY</li>
+              <li>Performance  Cost Optimization  System Design</li>
+              <li>ECOSYSTEM AWARENESS</li>
+              <li>Flink  HBase  Trino  Azure  GCP  Fabric  Extended AWS  Modern Data & AI Platforms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-note">
+      <p><strong>NeoNex MindX</strong> &bull; Complete Master Syllabus &bull; www.neonexmindx.com &bull; Contact: +91 84318 03839 / neonexminds@gmail.com</p>
+      <p style="margin-top: 4px;">&copy; 2026 NeoNex MindX Edutech Private Limited. All syllabus contents are proprietary and structured for professional competency.</p>
+    </div>
+  </div>
+</body>
+</html>
