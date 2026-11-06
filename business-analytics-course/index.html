@@ -3270,7 +3270,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const srcInput = modalForm ? modalForm.querySelector('input[name="source_page"]') : null;
     if (srcInput) srcInput.value = window.location.pathname;
 
-    let isModalShown = false;
+    let isModalOpen = false;
+    let initialTimerFired = false;
+    let recurringTimer = null;
 
     function openEnquireModal(preselectedCourse) {
       if (!overlay) return;
@@ -3291,13 +3293,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      isModalShown = true;
-    };
+      isModalOpen = true;
+    }
+
+    function scheduleReopenTimer() {
+      if (recurringTimer) clearTimeout(recurringTimer);
+      recurringTimer = setTimeout(() => {
+        if (!isModalOpen) {
+          openEnquireModal();
+        }
+      }, 45000); // 45 seconds after user closes modal
+    }
 
     function closeEnquireModal() {
       overlay.classList.remove('open');
       overlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      isModalOpen = false;
+      scheduleReopenTimer();
     }
     window.openEnquireModal = openEnquireModal;
     window.closeEnquireModal = closeEnquireModal;
@@ -3345,29 +3358,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     }, true);
 
-    // 2. Automated Trigger: Users scrolling and spending > 20 seconds on page
+    // 2. Automated Scroll + 10s Trigger: Users scrolling and spending 10 seconds on page
     let userHasScrolled = false;
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 80) {
+      if (window.scrollY > 40) {
         userHasScrolled = true;
       }
     }, { passive: true });
 
     setTimeout(() => {
-      if (!isModalShown && userHasScrolled) {
-        // If user is actively reading and spent > 20s
+      initialTimerFired = true;
+      if (!isModalOpen && userHasScrolled) {
+        // If user is actively scrolling/reading and spent 10s
         openEnquireModal();
-      } else if (!isModalShown) {
-        // If 20s passed, listen for next scroll to trigger immediately
+      } else if (!isModalOpen) {
+        // If 10s passed, listen for next scroll to trigger immediately
         const scrollOnceListener = () => {
-          if (!isModalShown) {
+          if (!isModalOpen) {
             openEnquireModal();
           }
           window.removeEventListener('scroll', scrollOnceListener);
         };
         window.addEventListener('scroll', scrollOnceListener, { passive: true });
       }
-    }, 20000);
+    }, 10000); // 10th second trigger
   
     // DIRECT MODAL FORM SUBMIT HANDLER (Email via FormSubmit + WhatsApp to 8431803839)
     if (modalForm) {

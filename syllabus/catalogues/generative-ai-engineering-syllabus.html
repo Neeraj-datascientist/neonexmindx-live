@@ -778,6 +778,274 @@
     });
   </script>
 
+
+<style id="site-global-enquire-modal-css">
+
+/* ==========================================================================
+   GLOBAL ENQUIRE POPUP MODAL (DESKTOP & MOBILE)
+   ========================================================================== */
+.enquire-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(10, 15, 25, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+}
+.enquire-modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.enquire-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  transform: scale(0.94) translateY(18px);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.enquire-modal-overlay.open .enquire-modal-container {
+  transform: scale(1) translateY(0);
+}
+.enquire-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  transition: all 0.15s ease;
+}
+.enquire-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: scale(1.06);
+}
+.enquire-modal-left {
+  background: linear-gradient(145deg, #1B5DB7 0%, #12478e 100%);
+  color: #ffffff;
+  padding: 38px 32px;
+  border-radius: 24px 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.enquire-modal-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #dce8f7;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.enquire-modal-eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #60a5fa;
+}
+.enquire-modal-left h2 {
+  font-size: clamp(26px, 2.4vw, 34px);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.035em;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+.enquire-modal-left p {
+  color: #e0ecfb;
+  font-size: 14.5px;
+  line-height: 1.62;
+  margin-bottom: 24px;
+}
+.enquire-modal-contact-list {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+}
+.enquire-modal-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.enquire-modal-contact-item:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+.enquire-modal-contact-item svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.enquire-modal-right {
+  padding: 38px 46px 34px 34px;
+  background: #ffffff;
+  border-radius: 0 24px 24px 0;
+  display: flex;
+  flex-direction: column;
+}
+.enquire-modal-right h3 {
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+.enquire-modal-right .modal-sub {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.enquire-modal-form .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+.enquire-modal-form .field {
+  display: flex;
+  flex-direction: column;
+}
+.enquire-modal-form .field.full {
+  grid-column: 1 / -1;
+}
+.enquire-modal-form label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 5px;
+}
+.enquire-modal-form .input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.enquire-modal-form .input:focus {
+  border-color: #1B5DB7;
+  box-shadow: 0 0 0 3px rgba(27, 93, 183, 0.12);
+}
+.enquire-modal-form textarea.input {
+  min-height: 74px;
+  resize: vertical;
+}
+.enquire-modal-form .btn-submit {
+  width: 100%;
+  min-height: 48px;
+  background: #1B5DB7;
+  color: #ffffff;
+  border: none;
+  border-radius: 11px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.enquire-modal-form .btn-submit:hover {
+  background: #12478e;
+  transform: translateY(-1px);
+}
+.enquire-modal-form .modal-disclaimer {
+  font-size: 11.5px;
+  color: #64748b;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+@media (max-width: 820px) {
+  .enquire-modal-overlay {
+    padding: 10px;
+    align-items: flex-end;
+  }
+  .enquire-modal-container {
+    display: flex;
+    flex-direction: column-reverse;
+    max-height: 94vh;
+    border-radius: 20px 20px 0 0;
+    margin: 0;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+  .enquire-modal-left {
+    padding: 20px 18px;
+    border-radius: 0;
+    display: none !important;
+  }
+  .enquire-modal-right {
+    display: block !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 24px 18px 28px 18px;
+    border-radius: 20px;
+    background: #ffffff !important;
+  }
+  .enquire-modal-close {
+    top: 10px;
+    right: 10px;
+    background: #e2e8f0;
+    color: #0f172a;
+    width: 34px;
+    height: 34px;
+  }
+  .enquire-modal-form .form-grid {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+  .enquire-modal-form .field.full {
+    grid-column: auto;
+  }
+  .enquire-modal-form .input {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS */
+  }
+}
+
+</style>
 </head>
 <body>
 
@@ -1756,6 +2024,318 @@
     </div>
 
   </div>
+
+
+
+<div class="enquire-modal-overlay" id="enquireModalOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="enquireModalTitle">
+  <div class="enquire-modal-container" role="document">
+    <button class="enquire-modal-close" id="enquireModalCloseBtn" type="button" aria-label="Close form">&times;</button>
+    
+    <!-- Left Blue Info Panel -->
+    <div class="enquire-modal-left">
+      <div>
+        <div class="enquire-modal-eyebrow">Your Next Step</div>
+        <h2 id="enquireModalTitle">Your Next Step Is Not to Enrol Blindly. It Is to Choose Clearly.</h2>
+        <p>Speak with a NeoNex MindX course advisor, compare program outcomes and review the complete syllabus before you commit. The right course should match your current background, the work you want to do and the time you can consistently invest.</p>
+      </div>
+      <div class="enquire-modal-contact-list">
+        <a class="enquire-modal-contact-item" href="tel:+918431803839">
+          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"></path></svg>
+          <span>084318 03839</span>
+        </a>
+        <a class="enquire-modal-contact-item" href="mailto:neonexminds@gmail.com">
+          <svg viewBox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="M3 7l9 6 9-6"></path></svg>
+          <span>neonexminds@gmail.com</span>
+        </a>
+        <a class="enquire-modal-contact-item" href="https://wa.me/918431803839?text=Hi%20NeoNex%20MindX%2C%20I%20would%20like%20course%20counselling." target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.7A8.5 8.5 0 1 1 20.5 11.6z"></path><path d="M8.3 7.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.9c.1.3 0 .5-.1.7l-.6.7c-.2.2-.2.4-.1.6.5 1 1.3 1.8 2.3 2.3.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.5 0 .4-.2 1.2-.8 1.7-.6.5-1.3.8-2.2.6-1.1-.2-2.5-.8-4.1-2.3-1.3-1.2-2.2-2.8-2.5-3.8-.3-1.1 0-2 .4-2.5z"></path></svg>
+          <span>Start a WhatsApp Conversation</span>
+        </a>
+        <a class="enquire-modal-contact-item" href="https://maps.app.goo.gl/MnxCtkmMZF4Nq79n8" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Muthyala Nagar, Bengaluru 560054</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right White Interactive Form -->
+    <div class="enquire-modal-right">
+      <h3>Get the Syllabus, Fee, Batch Schedule and Course Recommendation</h3>
+      <p class="modal-sub">Complete the form to continue the conversation on WhatsApp.</p>
+      
+      <form class="enquire-modal-form" id="popup-enquire-form" data-form-name="Popup Enquire Now Form" novalidate>
+        <input type="hidden" name="source_page" value="" />
+        <div class="form-grid">
+          <div class="field">
+            <label for="modal-name">Full Name *</label>
+            <input type="text" class="input" id="modal-name" name="name" autocomplete="name" required placeholder="Your full name" />
+          </div>
+          <div class="field">
+            <label for="modal-phone">WhatsApp Number *</label>
+            <input type="text" class="input" id="modal-phone" name="phone" inputmode="numeric" autocomplete="tel" required placeholder="10-digit mobile number" />
+          </div>
+          <div class="field">
+            <label for="modal-email">Email Address *</label>
+            <input type="email" class="input" id="modal-email" name="email" autocomplete="email" required placeholder="name@example.com" />
+          </div>
+          <div class="field">
+            <label for="modal-role">Current Education or Job Role *</label>
+            <input type="text" class="input" id="modal-role" name="role" required placeholder="e.g. B.Tech / Working in Sales" />
+          </div>
+          <div class="field">
+            <label for="modal-program">Program or Short Course *</label>
+            <select class="input" id="modal-program" name="program" required>
+              <option value="">Select a course</option>
+              <option value="Data Analytics Course">Data Analytics Course</option>
+              <option value="Data Science Course">Data Science Course</option>
+              <option value="AI & ML Engineering Course">AI &amp; ML Engineering Course</option>
+              <option value="Data Engineering Course">Data Engineering Course</option>
+              <option value="Business Analytics Course">Business Analytics Course</option>
+              <option value="Python Programming Course">Python Programming Course</option>
+              <option value="SQL Course">SQL Course</option>
+              <option value="Excel, Power BI & Tableau Course">Excel, Power BI &amp; Tableau</option>
+              <option value="Machine Learning Course">Machine Learning Course</option>
+              <option value="Not Sure &mdash; Need Guidance">Not Sure &mdash; Need Guidance</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="modal-batch">Preferred Batch *</label>
+            <select class="input" id="modal-batch" name="batch" required>
+              <option value="">Select batch</option>
+              <option value="Weekday Morning">Weekday Morning</option>
+              <option value="Weekday Evening">Weekday Evening</option>
+              <option value="Weekend Batch">Weekend Batch</option>
+              <option value="Flexible / Need Guidance">Flexible / Need Guidance</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="modal-goal">Career Goal</label>
+            <textarea class="input" id="modal-goal" name="goal" placeholder="Tell us the role or skill you want to build"></textarea>
+          </div>
+          <div class="field full">
+            <button class="btn-submit" type="submit">Send My Course Details</button>
+            <p class="modal-disclaimer">By submitting, you agree to receive course and counselling information from NeoNex MindX. No payment is required for this session.</p>
+            <p class="form-status" aria-live="polite" style="display:none;"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<script id="site-global-enquire-modal-engine">
+(() => {
+  window.initEnquireModalEngine = () => {
+    const overlay = document.getElementById('enquireModalOverlay');
+    const closeBtn = document.getElementById('enquireModalCloseBtn');
+    const modalForm = document.getElementById('popup-enquire-form');
+    if (!overlay) return;
+
+    // Set source page in hidden field
+    const srcInput = modalForm ? modalForm.querySelector('input[name="source_page"]') : null;
+    if (srcInput) srcInput.value = window.location.pathname;
+
+    let isModalOpen = false;
+    let initialTimerFired = false;
+    let recurringTimer = null;
+
+    function openEnquireModal(preselectedCourse) {
+      if (!overlay) return;
+      if (overlay.classList.contains('open')) return;
+      if (preselectedCourse && modalForm) {
+        const progSelect = modalForm.querySelector('#modal-program');
+        if (progSelect) {
+          for (let opt of progSelect.options) {
+            if (opt.value.toLowerCase().includes(preselectedCourse.toLowerCase()) || 
+                preselectedCourse.toLowerCase().includes(opt.value.toLowerCase())) {
+              progSelect.value = opt.value;
+              break;
+            }
+          }
+        }
+      }
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      isModalOpen = true;
+    }
+
+    function scheduleReopenTimer() {
+      if (recurringTimer) clearTimeout(recurringTimer);
+      recurringTimer = setTimeout(() => {
+        if (!isModalOpen) {
+          openEnquireModal();
+        }
+      }, 45000); // 45 seconds after closing
+    }
+
+    function closeEnquireModal() {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      isModalOpen = false;
+      scheduleReopenTimer();
+    }
+
+    window.openEnquireModal = openEnquireModal;
+    window.closeEnquireModal = closeEnquireModal;
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeEnquireModal();
+      });
+    }
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        closeEnquireModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) {
+        closeEnquireModal();
+      }
+    });
+
+    // 1. Hook ALL Enquire CTA buttons with event delegation
+    window.addEventListener('click', (e) => {
+      const target = e.target.closest('a, button, [data-open-enquire]');
+      if (!target) return;
+      const text = (target.textContent || '').trim().toLowerCase();
+      const href = (target.getAttribute('href') || '').toLowerCase();
+
+      if (
+        target.hasAttribute('data-open-enquire') ||
+        text === 'enquire now' ||
+        text.includes('enquire now') ||
+        text.includes('book free counselling') ||
+        text.includes('book a free course counselling') ||
+        href === '#enquire' ||
+        href.includes('#enquire')
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        openEnquireModal(document.title.split('|')[0].trim());
+        return false;
+      }
+    }, true);
+
+    // 2. Automated Scroll + 10s Trigger:
+    // When user scrolls and spends 10 seconds on page, show modal
+    let userHasScrolled = false;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        userHasScrolled = true;
+      }
+    }, { passive: true });
+
+    setTimeout(() => {
+      initialTimerFired = true;
+      if (!isModalOpen && userHasScrolled) {
+        openEnquireModal();
+      } else if (!isModalOpen) {
+        const scrollOnceListener = () => {
+          if (!isModalOpen) {
+            openEnquireModal();
+          }
+          window.removeEventListener('scroll', scrollOnceListener);
+        };
+        window.addEventListener('scroll', scrollOnceListener, { passive: true });
+      }
+    }, 10000); // 10th second trigger
+
+    // 3. Form Submission Handling (Dual dispatch: FormSubmit + WhatsApp fallback)
+    if (modalForm) {
+      modalForm.addEventListener('submit', function(ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (!modalForm.reportValidity()) return;
+
+        const fields = new FormData(modalForm);
+        const data = Object.fromEntries(fields.entries());
+
+        const candidateName = (data.name || '').trim();
+        const candidatePhone = (data.phone || '').trim();
+        const candidateEmail = (data.email || '').trim();
+        const candidateRole = (data.role || '').trim();
+        const candidateProgram = (data.program || document.title.split('|')[0].trim()).trim();
+        const candidateBatch = (data.batch || '').trim();
+        const candidateGoal = (data.goal || '').trim();
+
+        const submitBtn = modalForm.querySelector('button[type="submit"]');
+        const statusEl = modalForm.querySelector('.form-status');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+        }
+        if (statusEl) {
+          statusEl.style.display = 'block';
+          statusEl.style.color = '#1B5DB7';
+          statusEl.textContent = 'Connecting with Course Advisor...';
+        }
+
+        // WhatsApp dispatch URL
+        const waText = encodeURIComponent(
+          `*New Enquiry from NeoNeX MindX Website*\n\n` +
+          `*Name:* ${candidateName}\n` +
+          `*Phone:* ${candidatePhone}\n` +
+          `*Email:* ${candidateEmail}\n` +
+          `*Program:* ${candidateProgram}\n` +
+          `*Education / Role:* ${candidateRole || 'Not specified'}\n` +
+          `*Preferred Batch:* ${candidateBatch || 'Flexible'}\n` +
+          `*Goal:* ${candidateGoal || 'Course Counselling'}\n` +
+          `*Source Page:* ${window.location.href}`
+        );
+        const waUrl = `https://wa.me/918431803839?text=${waText}`;
+
+        // Asynchronous POST to FormSubmit endpoint
+        const fsUrl = 'https://formsubmit.co/ajax/neonexminds@gmail.com';
+        fetch(fsUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: `New Lead: ${candidateName} - ${candidateProgram}`,
+            Name: candidateName,
+            Phone: candidatePhone,
+            Email: candidateEmail,
+            Program: candidateProgram,
+            Role: candidateRole,
+            Batch: candidateBatch,
+            Goal: candidateGoal,
+            Page: window.location.href,
+            Timestamp: new Date().toISOString()
+          })
+        }).catch(() => {});
+
+        setTimeout(() => {
+          window.open(waUrl, '_blank', 'noopener,noreferrer');
+          const targetUrl = isLegal ? '/thank-you' : (window.location.pathname.startsWith('/courses/') ? '/thank-you' : 'thank-you.html');
+          const qParams = new URLSearchParams({
+            name: candidateName,
+            program: candidateProgram,
+            phone: candidatePhone
+          });
+          window.location.href = (targetUrl.includes('?') ? targetUrl + '&' : targetUrl + '?') + qParams.toString();
+        }, 1000);
+      }, { capture: true });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', window.initEnquireModalEngine);
+  } else {
+    window.initEnquireModalEngine();
+  }
+})();
+</script>
 
 </body>
 </html>
