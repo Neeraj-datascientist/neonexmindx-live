@@ -1636,7 +1636,105 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </p>
     </div>
   </div>
-</footer><script>
+</footer><div class="enquire-modal-overlay" id="enquireModalOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="enquireModalTitle">
+  <div class="enquire-modal-container" role="document">
+    <button class="enquire-modal-close" id="enquireModalCloseBtn" type="button" aria-label="Close form">&times;</button>
+    
+    <!-- Left Blue Info Panel -->
+    <div class="enquire-modal-left">
+      <div>
+        <div class="enquire-modal-eyebrow">Your Next Step</div>
+        <h2 id="enquireModalTitle">Your Next Step Is Not to Enrol Blindly. It Is to Choose Clearly.</h2>
+        <p>Speak with a NeoNex MindX course advisor, compare program outcomes and review the complete syllabus before you commit. The right course should match your current background, the work you want to do and the time you can consistently invest.</p>
+      </div>
+      <div class="enquire-modal-contact-list">
+        <a class="enquire-modal-contact-item" href="tel:+918431803839">
+          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"></path></svg>
+          <span>084318 03839</span>
+        </a>
+        <a class="enquire-modal-contact-item" href="mailto:neonexminds@gmail.com">
+          <svg viewBox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="M3 7l9 6 9-6"></path></svg>
+          <span>neonexminds@gmail.com</span>
+        </a>
+        <a class="enquire-modal-contact-item" href="https://wa.me/918431803839?text=Hi%20NeoNex%20MindX%2C%20I%20would%20like%20course%20counselling." target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.7A8.5 8.5 0 1 1 20.5 11.6z"></path><path d="M8.3 7.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.9c.1.3 0 .5-.1.7l-.6.7c-.2.2-.2.4-.1.6.5 1 1.3 1.8 2.3 2.3.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.5 0 .4-.2 1.2-.8 1.7-.6.5-1.3.8-2.2.6-1.1-.2-2.5-.8-4.1-2.3-1.3-1.2-2.2-2.8-2.5-3.8-.3-1.1 0-2 .4-2.5z"></path></svg>
+          <span>Start a WhatsApp Conversation</span>
+        </a>
+        <a class="enquire-modal-contact-item" href="https://maps.app.goo.gl/MnxCtkmMZF4Nq79n8" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Muthyala Nagar, Bengaluru 560054</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right White Interactive Form -->
+    <div class="enquire-modal-right">
+      <h3>Get the Syllabus, Fee, Batch Schedule and Course Recommendation</h3>
+      <p class="modal-sub">Complete the form to continue the conversation on WhatsApp.</p>
+      
+      <form class="enquire-modal-form" id="popup-enquire-form" data-form-name="Popup Enquire Now Form" novalidate>
+        <input type="hidden" name="source_page" value="" />
+        <div class="form-grid">
+          <div class="field">
+            <label for="modal-name">Full Name *</label>
+            <input type="text" class="input" id="modal-name" name="name" autocomplete="name" required placeholder="Your full name" />
+          </div>
+          <div class="field">
+            <label for="modal-phone">WhatsApp Number *</label>
+            <input type="text" class="input" id="modal-phone" name="phone" inputmode="numeric" autocomplete="tel" required placeholder="10-digit mobile number" />
+          </div>
+          <div class="field">
+            <label for="modal-email">Email Address *</label>
+            <input type="email" class="input" id="modal-email" name="email" autocomplete="email" required placeholder="name@example.com" />
+          </div>
+          <div class="field">
+            <label for="modal-role">Current Education or Job Role *</label>
+            <input type="text" class="input" id="modal-role" name="role" required placeholder="e.g. B.Tech / Working in Sales" />
+          </div>
+          <div class="field">
+            <label for="modal-program">Program or Short Course *</label>
+            <select class="input" id="modal-program" name="program" required>
+              <option value="">Select a course</option>
+              <option value="Data Analytics Course">Data Analytics Course</option>
+              <option value="Data Science Course">Data Science Course</option>
+              <option value="AI & ML Engineering Course">AI &amp; ML Engineering Course</option>
+              <option value="Data Engineering Course">Data Engineering Course</option>
+              <option value="Business Analytics Course">Business Analytics Course</option>
+              <option value="Python Programming Course">Python Programming Course</option>
+              <option value="SQL Course">SQL Course</option>
+              <option value="Excel, Power BI & Tableau Course">Excel, Power BI &amp; Tableau</option>
+              <option value="Machine Learning Course">Machine Learning Course</option>
+              <option value="Not Sure &mdash; Need Guidance">Not Sure &mdash; Need Guidance</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="modal-batch">Preferred Batch *</label>
+            <select class="input" id="modal-batch" name="batch" required>
+              <option value="">Select batch</option>
+              <option value="Weekday Morning">Weekday Morning</option>
+              <option value="Weekday Evening">Weekday Evening</option>
+              <option value="Weekend Batch">Weekend Batch</option>
+              <option value="Flexible / Need Guidance">Flexible / Need Guidance</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="modal-goal">Career Goal</label>
+            <textarea class="input" id="modal-goal" name="goal" placeholder="Tell us the role or skill you want to build"></textarea>
+          </div>
+          <div class="field full">
+            <button class="btn-submit" type="submit">Send My Course Details</button>
+            <p class="modal-disclaimer">By submitting, you agree to receive course and counselling information from NeoNex MindX. No payment is required for this session.</p>
+            <p class="form-status" aria-live="polite" style="display:none;"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
 id="site-unified-nav-footer-script">
 (() => {
   const isLegal = false;
