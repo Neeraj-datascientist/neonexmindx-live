@@ -1998,13 +1998,57 @@ id="site-unified-nav-footer-script">
     if (srcInput) srcInput.value = window.location.pathname;
 
     let isModalOpen = false;
-    let initialTimerFired = false;
-    let recurringTimer = null;
 
-    function openEnquireModal(preselectedCourse) {
+    // === GLOBAL STRICT FREQUENCY & TIMING CONTROLLER ===
+    // Max 3 automated popups per visitor session across all pages.
+    // 1st: 10s after first entering site (with scroll)
+    // 2nd: 45s later (or on navigating/spending 45s)
+    // 3rd: 120s later on navigation/reading
+    // Once maxed (>= 3), popups NEVER appear on page switch, return, or navigation.
+    const MAX_AUTO_POPUPS = 3;
+    const STORAGE_KEY_COUNT = 'neonex_enquire_popup_count';
+    const STORAGE_KEY_LAST = 'neonex_enquire_last_shown';
+    const SESSION_PAGE_KEY = 'neonex_page_shown_' + encodeURIComponent(window.location.pathname);
+
+    function getAutoPopupCount() {
+      try {
+        return parseInt(sessionStorage.getItem(STORAGE_KEY_COUNT) || '0', 10);
+      } catch (err) {
+        return 0;
+      }
+    }
+
+    function recordAutoPopupShown() {
+      try {
+        const nextCount = getAutoPopupCount() + 1;
+        sessionStorage.setItem(STORAGE_KEY_COUNT, String(nextCount));
+        sessionStorage.setItem(STORAGE_KEY_LAST, String(Date.now()));
+        sessionStorage.setItem(SESSION_PAGE_KEY, '1');
+      } catch (err) {}
+    }
+
+    function canShowAutoPopup() {
+      try {
+        const count = getAutoPopupCount();
+        if (count >= MAX_AUTO_POPUPS) return false; // Hard limit reached (max 3 times)
+        if (sessionStorage.getItem(SESSION_PAGE_KEY) === '1') return false; // Only once per page visit
+        return true;
+      } catch (err) {
+        return false;
+      }
+    }
+
+    function openEnquireModal(preselectedCourse, isManual) {
       if (!overlay) return;
       window.openEnquireModal = openEnquireModal;
       if (overlay.classList.contains('open')) return;
+
+      // Automated triggers must pass strict frequency gating
+      if (!isManual) {
+        if (!canShowAutoPopup()) return;
+        recordAutoPopupShown();
+      }
+
       if (preselectedCourse && modalForm) {
         const progSelect = modalForm.querySelector('#modal-program');
         if (progSelect) {
@@ -2023,21 +2067,11 @@ id="site-unified-nav-footer-script">
       isModalOpen = true;
     }
 
-    function scheduleReopenTimer() {
-      if (recurringTimer) clearTimeout(recurringTimer);
-      recurringTimer = setTimeout(() => {
-        if (!isModalOpen) {
-          openEnquireModal();
-        }
-      }, 45000); // 45 seconds after user closes modal
-    }
-
     function closeEnquireModal() {
       overlay.classList.remove('open');
       overlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       isModalOpen = false;
-      scheduleReopenTimer();
     }
     window.openEnquireModal = openEnquireModal;
     window.closeEnquireModal = closeEnquireModal;
@@ -2061,7 +2095,7 @@ id="site-unified-nav-footer-script">
       }
     });
 
-    // 1. Hook ALL Enquire buttons (header, mobile menu, cards, page links) with CAPTURE
+    // 1. Manual Clicks: Hook ALL Enquire buttons (Always allowed, user-initiated)
     window.addEventListener('click', (e) => {
       const target = e.target.closest('a, button, [data-open-enquire]');
       if (!target) return;
@@ -2080,35 +2114,58 @@ id="site-unified-nav-footer-script">
         e.preventDefault();
         e.stopPropagation();
         e.stopImmediatePropagation();
-        openEnquireModal(document.title.split('|')[0].trim());
+        openEnquireModal(document.title.split('|')[0].trim(), true);
         return false;
       }
     }, true);
 
-    // 2. Automated Scroll + 10s Trigger: Users scrolling and spending 10 seconds on page
+    // 2. Intelligent Smart Interval Automation
+    // User enters site -> 1st: 10s (if scrolling)
+    // 2nd popup: 45s later
+    // 3rd popup: 120s later
+    // Max 3 times ever. Never on returning to an already visited page.
     let userHasScrolled = false;
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 30) {
         userHasScrolled = true;
       }
     }, { passive: true });
 
-    setTimeout(() => {
-      initialTimerFired = true;
-      if (!isModalOpen && userHasScrolled) {
-        // If user is actively scrolling/reading and spent 10s
-        openEnquireModal();
-      } else if (!isModalOpen) {
-        // If 10s passed, listen for next scroll to trigger immediately
-        const scrollOnceListener = () => {
-          if (!isModalOpen) {
-            openEnquireModal();
-          }
-          window.removeEventListener('scroll', scrollOnceListener);
-        };
-        window.addEventListener('scroll', scrollOnceListener, { passive: true });
+    (function initSmartPopupScheduler() {
+      const count = getAutoPopupCount();
+      if (count >= MAX_AUTO_POPUPS) return;
+      if (sessionStorage.getItem(SESSION_PAGE_KEY) === '1') return;
+
+      const lastShown = parseInt(sessionStorage.getItem(STORAGE_KEY_LAST) || '0', 10);
+      const elapsedSinceLast = Date.now() - lastShown;
+
+      // Determine required delay before next popup can trigger:
+      // Count 0 (1st popup): 10 seconds
+      // Count 1 (2nd popup): 45 seconds total elapsed since popup 1
+      // Count 2 (3rd popup): 120 seconds total elapsed since popup 2
+      let delayMs = 10000;
+      if (count === 1) {
+        delayMs = Math.max(45000 - elapsedSinceLast, 15000); // Wait at least 15s on new page, up to 45s since last
+      } else if (count === 2) {
+        delayMs = Math.max(120000 - elapsedSinceLast, 30000); // Wait at least 30s on new page, up to 120s since last
       }
-    }, 10000); // 10th second trigger
+
+      setTimeout(() => {
+        if (!isModalOpen && canShowAutoPopup()) {
+          if (userHasScrolled) {
+            openEnquireModal();
+          } else {
+            const scrollOnceListener = () => {
+              if (!isModalOpen && canShowAutoPopup()) {
+                openEnquireModal();
+              }
+              window.removeEventListener('scroll', scrollOnceListener);
+            };
+            window.addEventListener('scroll', scrollOnceListener, { passive: true });
+          }
+        }
+      }, delayMs);
+    })();
   
     // DIRECT MODAL FORM SUBMIT HANDLER (Email via FormSubmit + WhatsApp to 8431803839)
     if (modalForm) {
