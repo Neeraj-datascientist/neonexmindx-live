@@ -1953,6 +1953,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </p>
             </article>
           </div>
+                      <div class="course-modules-toolbar" style="display:flex;justify-content:space-between;align-items:center;background:#f8fafc;border:1px solid #e2e8f0;padding:12px 18px;border-radius:12px;margin:20px 0 16px;flex-wrap:wrap;gap:10px;">
+              <span style="font-size:13.5px;color:#334155;font-weight:600;">Course Modules &amp; Subtopics: <strong style="color:#0f172a;">Interactive Topic Explorer</strong></span>
+              <div style="display:flex;gap:8px;">
+                <button type="button" class="btn-toggle-course-modules" id="btn-course-expand-all" style="background:#ffffff;border:1px solid #cbd5e1;padding:6px 14px;border-radius:8px;font-size:12.5px;font-weight:600;color:#1e293b;cursor:pointer;transition:all .15s ease;">Expand All Topics</button>
+                <button type="button" class="btn-toggle-course-modules" id="btn-course-collapse-all" style="background:#ffffff;border:1px solid #cbd5e1;padding:6px 14px;border-radius:8px;font-size:12.5px;font-weight:600;color:#1e293b;cursor:pointer;transition:all .15s ease;">Collapse All</button>
+              </div>
+            </div>
+
           <div class="module-list">
             <details class="module-card">
               <summary class="module-toggle">
@@ -3784,6 +3792,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </div>
+
+
+
+<script id="course-interactive-modules-engine">
+document.addEventListener('DOMContentLoaded', function() {
+  var moduleCards = document.querySelectorAll('.module-card, details.module-card');
+  var expandBtn = document.getElementById('btn-course-expand-all');
+  var collapseBtn = document.getElementById('btn-course-collapse-all');
+
+  if (expandBtn) {
+    expandBtn.addEventListener('click', function() {
+      moduleCards.forEach(function(card) {
+        if (card.tagName.toLowerCase() === 'details') {
+          card.open = true;
+        } else {
+          card.classList.add('open');
+        }
+      });
+    });
+  }
+
+  if (collapseBtn) {
+    collapseBtn.addEventListener('click', function() {
+      moduleCards.forEach(function(card) {
+        if (card.tagName.toLowerCase() === 'details') {
+          card.open = false;
+        } else {
+          card.classList.remove('open');
+        }
+      });
+    });
+  }
+});
+</script>
+
 
 </body>
 </html>
