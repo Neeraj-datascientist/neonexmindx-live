@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative AI Practical Crash Course - Complete Master Syllabus | NeoNex MindX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #102a43;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --text: #1f2937;
+      --text-muted: #4b5563;
+      --border: #e2e8f0;
+      --bg-alt: #f8fafc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #f1f5f9;
+      padding: 24px 16px;
+    }
+    .print-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+    .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .brand span { color: var(--accent); }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      color: var(--primary);
+      margin: 12px 0 6px 0;
+      line-height: 1.25;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+    .meta-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+    }
+    .meta-item span {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .meta-item strong {
+      font-size: 16px;
+      color: var(--primary);
+    }
+    .btn-action-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-alt);
+    }
+    .module-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      page-break-inside: avoid;
+    }
+    .module-header {
+      background: var(--bg-alt);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .module-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      color: var(--primary);
+    }
+    .module-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .module-body {
+      padding: 20px;
+    }
+    .topic-group {
+      margin-bottom: 16px;
+    }
+    .topic-group:last-child {
+      margin-bottom: 0;
+    }
+    .topic-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .bullet-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .bullet-list li {
+      margin-bottom: 4px;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 36px;
+    }
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .print-container {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        max-width: 100%;
+      }
+      .btn-action-bar {
+        display: none !important;
+      }
+      .module-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #cbd5e1;
+      }
+    }
+    @media (max-width: 600px) {
+      .print-container { padding: 20px 16px; }
+      .header-bar { flex-direction: column; gap: 12px; }
+      .btn-action-bar { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+<style id="mobile-topbar-cleanup">
+/* HIDE LEGACY TOPBAR ON ALL MOBILE & TABLET SCREENS TO PREVENT BLACK STRIP / TRUNCATION */
+@media (max-width: 1040px) {
+  .topbar,
+  .topbar-inner,
+  .topbar-links,
+  div[class*="topbar"] {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="print-container">
+    <div class="header-bar">
+      <div>
+        <a href="/" class="brand">NeoNeX<span>MindX</span></a>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">School of Artificial Intelligence, Data & Engineering</div>
+      </div>
+      <span class="badge">Official Master Syllabus</span>
+    </div>
+
+    <h1>Generative AI Practical Crash Course</h1>
+    <p class="subtitle">USE AI • BUILD WITH AI • AUTOMATE WITH AI | Standardized across NeoNex MindX Professional Programs (Data Analytics, Business Analytics, Data Science, AI/ML & Data Engineering). Note: Excluded from GenAI Engineering which covers dedicated enterprise-depth training.</p>
+
+    <div class="meta-box">
+      <div class="meta-item">
+        <span>Duration</span>
+        <strong>Included Common Core / Crash Module</strong>
+      </div>
+      <div class="meta-item">
+        <span>Regular Fee</span>
+        <strong>Included in Program Tuition</strong>
+      </div>
+      <div class="meta-item">
+        <span>Learning Format</span>
+        <strong>Live Mentor-Led + Projects</strong>
+      </div>
+      <div class="meta-item">
+        <span>Certification</span>
+        <strong>Industry Accredited + Internship</strong>
+      </div>
+    </div>
+
+    <div class="btn-action-bar">
+      <button onclick="window.print()" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Save / Download as PDF (Print)
+      </button>
+      <a href="tel:+918431803839" class="btn btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Speak with Academic Advisor (084318 03839)
+      </a>
+    </div>
+
+    <div class="syllabus-modules">
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 01: DETAILED SYLLABUS    CLICKABLE  INDEX</h2>
+          
+        </div>
+        <div class="module-body">
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 02: COURSE ARCHITECTURE & CLICKABLE  INDEX</h2>
+          <p>Select a module or elective below to jump directly to its detailed syllabus. The index is organized by the source-defined programme parts.</p>
+        </div>
+        <div class="module-body">
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 03: 01  GENERATIVE AI FUNDAMENTALS</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Introduction to Generative AI</li>
+              <li>AI vs Machine Learning vs Deep Learning vs Generative AI</li>
+              <li>Large Language Models (LLMs)</li>
+              <li>How modern AI assistants work  high level</li>
+              <li>Tokens and Context</li>
+              <li>Context Windows</li>
+              <li>Multimodal AI</li>
+              <li>AI Capabilities and Limitations</li>
+              <li>AI Hallucinations</li>
+              <li>Responsible & Safe AI Usage</li>
+              <li>Real-World Generative AI Applications</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical</div>
+            <ul class="bullet-list">
+              <li>Evaluate AI-generated responses</li>
+              <li>Identify incorrect or hallucinated information</li>
+              <li>Improve poor AI responses</li>
+              <li>Provide effective context to AI</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Understand what Generative AI can do, its limitations, and how to use it effectively and responsibly.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 04: 02  OPEN-SOURCE AI ECOSYSTEM</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is Open-Source AI?</li>
+              <li>Open-Source vs Proprietary AI</li>
+              <li>Open AI Models</li>
+              <li>Local AI</li>
+              <li>Model Selection</li>
+              <li>Model Licenses & Responsible Reuse</li>
+              <li>Introduction to the Open-Source AI Ecosystem</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Hugging Face</div>
+            <ul class="bullet-list">
+              <li>Hugging Face Hub</li>
+              <li>Finding Open-Source Models</li>
+              <li>Models by Task</li>
+              <li>Model Cards</li>
+              <li>Datasets</li>
+              <li>Spaces</li>
+              <li>Exploring Community AI Projects</li>
+              <li>Understanding Model Licenses</li>
+              <li>Using Open Models Locally</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Tools</div>
+            <ul class="bullet-list">
+              <li>Hugging Face</li>
+              <li>Ollama</li>
+              <li>Open WebUI</li>
+              <li>AnythingLLM</li>
+              <li>LibreChat</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical</div>
+            <ul class="bullet-list">
+              <li>Hugging Face  Find Model  Check Model Card  Run Model Locally  Test  Use</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Understand how to discover, evaluate and work with open-source AI models and tools.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 05: 03  AI TOOLS FOR DAY-TO-DAY WORK</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Practical AI for Everyday Productivity</div>
+            <ul class="bullet-list">
+              <li>Learn to select the right AI tool based on the task, rather than simply learning a list of AI websites.</li>
+              <li>AI Assistants</li>
+              <li>ChatGPT</li>
+              <li>Gemini</li>
+              <li>Claude</li>
+              <li>Microsoft Copilot</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Open-Source / Local AI</div>
+            <ul class="bullet-list">
+              <li>Ollama</li>
+              <li>Open WebUI</li>
+              <li>AnythingLLM</li>
+              <li>LibreChat</li>
+              <li>AI Research</li>
+              <li>Perplexica</li>
+              <li>SearXNG</li>
+              <li>AI-assisted research workflows</li>
+              <li>Documents & Knowledge</li>
+              <li>PDF analysis</li>
+              <li>Document summarization</li>
+              <li>Document Q&A</li>
+              <li>Information extraction</li>
+              <li>Knowledge-base creation</li>
+              <li>Writing & Communication</li>
+              <li>Emails</li>
+              <li>Reports</li>
+              <li>Professional communication</li>
+              <li>Content creation</li>
+              <li>Rewriting</li>
+              <li>Grammar improvement</li>
+              <li>Translation</li>
+              <li>Summarization</li>
+              <li>Data & Spreadsheet Work</li>
+              <li>Formula generation</li>
+              <li>Formula explanation</li>
+              <li>Data cleaning assistance</li>
+              <li>SQL generation</li>
+              <li>Data analysis</li>
+              <li>Insight generation</li>
+              <li>Chart interpretation</li>
+              <li>Report generation</li>
+              <li>Presentations & Content</li>
+              <li>AI-assisted presentation creation</li>
+              <li>Slide structure</li>
+              <li>Content generation</li>
+              <li>Speaker notes</li>
+              <li>Training material</li>
+              <li>Visual content planning</li>
+              <li>Creative AI</li>
+              <li>Introduction to image generation</li>
+              <li>ComfyUI</li>
+              <li>AI-assisted creative workflows</li>
+              <li>Coding & Technical Work</li>
+              <li>Code generation</li>
+              <li>Code explanation</li>
+              <li>Debugging</li>
+              <li>SQL assistance</li>
+              <li>Documentation</li>
+              <li>Test-case generation</li>
+              <li>Meetings & Productivity</li>
+              <li>Meeting summaries</li>
+              <li>Action-item extraction</li>
+              <li>Note generation</li>
+              <li>Follow-up communication</li>
+              <li>Core Principle</li>
+              <li>TASK  RIGHT AI TOOL  WORKFLOW  OUTPUT  VERIFY</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Use AI effectively for research, writing, documents, data, presentations, coding, learning, communication and productivity.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 06: 04  PROMPT ENGINEERING</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Prompting for Real Work</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is Prompt Engineering?</li>
+              <li>Anatomy of an Effective Prompt</li>
+              <li>Role / Persona</li>
+              <li>Task / Instruction</li>
+              <li>Context</li>
+              <li>Constraints</li>
+              <li>Examples</li>
+              <li>Output Format</li>
+              <li>Specificity & Clarity</li>
+              <li>Iterative Prompt Refinement</li>
+              <li>Zero-Shot Prompting</li>
+              <li>Few-Shot Prompting</li>
+              <li>Structured Prompting</li>
+              <li>Prompt Testing & Improvement</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Prompt Framework</div>
+            <ul class="bullet-list">
+              <li>ROLE + TASK + CONTEXT + CONSTRAINTS + EXAMPLES + OUTPUT FORMAT</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Open-Source Prompt Libraries</div>
+            <ul class="bullet-list">
+              <li>What are Prompt Libraries?</li>
+              <li>Finding Reusable Prompts</li>
+              <li>Prompt Templates</li>
+              <li>Task-Specific Prompts</li>
+              <li>Role-Based Prompts</li>
+              <li>Evaluating Community Prompts</li>
+              <li>Adapting Existing Prompts</li>
+              <li>Testing & Improving Prompts</li>
+              <li>Creating a Personal Prompt Library</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical</div>
+            <ul class="bullet-list">
+              <li>Create reusable prompts for:</li>
+              <li>Research</li>
+              <li>Writing</li>
+              <li>Data Analysis</li>
+              <li>Coding</li>
+              <li>Reports</li>
+              <li>Presentations</li>
+              <li>Resume & Interview Preparation</li>
+              <li>Learning</li>
+              <li>Business Tasks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Create reliable, reusable and task-specific prompts instead of relying on trial-and-error prompting.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 07: 05  AI PRODUCTIVITY & WORKFLOWS</h2>
+          <p>From Individual Prompts to Complete AI-Assisted Workflows</p>
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>AI as a Work Assistant</li>
+              <li>Task Decomposition</li>
+              <li>Multi-Step AI Workflows</li>
+              <li>Input  Processing  Review  Output</li>
+              <li>Human-in-the-Loop</li>
+              <li>Fact Checking & Verification</li>
+              <li>Working with Reference Material</li>
+              <li>Improving AI Outputs</li>
+              <li>Privacy & Confidential Information</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Workflows</div>
+            <ul class="bullet-list">
+              <li>Research  Collect  Summarize  Verify  Report</li>
+              <li>Meeting  Notes  Summary  Action Items  Follow-Up</li>
+              <li>Data  Analysis  Insights  Report</li>
+              <li>Idea  Research  Draft  Review  Presentation</li>
+              <li>Topic  Explanation  Examples  Quiz  Revision</li>
+              <li>Job Description  Skill Extraction  Resume Analysis  Interview Preparation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Learn how to integrate AI into real-world work processes rather than using AI only as a chatbot.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 08: 06  BUILD WITH AI: LLM APPLICATION BASICS</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is an AI-Powered Application?</li>
+              <li>LLM Application Architecture</li>
+              <li>LLM APIs</li>
+              <li>API Request & Response</li>
+              <li>Authentication & API Keys</li>
+              <li>Model Selection</li>
+              <li>Prompt Integration</li>
+              <li>Connecting Python with LLMs</li>
+              <li>Basic Error Handling</li>
+              <li>Simple AI Application Interfaces</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Framework Exposure</div>
+            <ul class="bullet-list">
+              <li>LangChain  Introduction</li>
+              <li>Prompt Templates</li>
+              <li>Chains & Workflows</li>
+              <li>When to use AI frameworks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical</div>
+            <ul class="bullet-list">
+              <li>Build a simple:</li>
+              <li>Python  LLM  Response  User Interface</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Understand how AI models can be connected to real applications and workflows.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 09: 07  RAG & AI KNOWLEDGE ASSISTANTS</h2>
+          <p>Build AI That Can Work With Your Own Knowledge</p>
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is Retrieval-Augmented Generation?</li>
+              <li>Why RAG is Required</li>
+              <li>LLM vs RAG</li>
+              <li>Documents as Knowledge</li>
+              <li>Document Ingestion</li>
+              <li>Text Chunking</li>
+              <li>Embeddings  Fundamentals</li>
+              <li>Semantic Search</li>
+              <li>Vector Search</li>
+              <li>Vector Database  Fundamentals</li>
+              <li>Retrieval</li>
+              <li>Context Injection</li>
+              <li>Grounded Responses</li>
+              <li>Reducing Hallucinations</li>
+              <li>Domain-Specific AI Applications</li>
+              <li>RAG Pipeline</li>
+              <li>DOCUMENTS  CHUNKING  EMBEDDINGS  VECTOR STORE  RETRIEVAL  LLM  GROUNDED RESPONSE</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Project</div>
+            <ul class="bullet-list">
+              <li>Multi-PDF Knowledge Assistant</li>
+              <li>Students work with multiple documents and build/use a knowledge assistant capable of:</li>
+              <li>Document Q&A</li>
+              <li>Knowledge retrieval</li>
+              <li>Context-aware responses</li>
+              <li>Source/context awareness</li>
+              <li>Out-of-scope query handling</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Tools</div>
+            <ul class="bullet-list">
+              <li>AnythingLLM</li>
+              <li>Open WebUI</li>
+              <li>Open-source/local models</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Understand how to create AI assistants that can answer questions using external or private knowledge.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 10: 08  AI AGENTS & AGENTIC AI</h2>
+          <p>From AI That Answers to AI That Can Act</p>
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">AI Agents</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is an AI Agent?</li>
+              <li>LLM + Tools</li>
+              <li>Agent Components</li>
+              <li>Reasoning</li>
+              <li>Memory</li>
+              <li>Tool Usage</li>
+              <li>Perception</li>
+              <li>Action</li>
+              <li>Task Execution</li>
+              <li>Agent Loop</li>
+              <li>Real-World AI Agent Use Cases</li>
+              <li>Agent Loop</li>
+              <li>UNDERSTAND  REASON  ACT  OBSERVE  REASON  COMPLETE</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Agentic AI</div>
+            <ul class="bullet-list">
+              <li>What is Agentic AI?</li>
+              <li>AI Agent vs Agentic AI</li>
+              <li>Autonomy</li>
+              <li>Goal-Oriented Systems</li>
+              <li>Planning</li>
+              <li>Multi-Step Execution</li>
+              <li>Tool Usage</li>
+              <li>Agentic Workflows</li>
+              <li>Multi-Agent Concepts</li>
+              <li>Business Applications</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Demonstration</div>
+            <ul class="bullet-list">
+              <li>Research Agent</li>
+              <li>Task Automation Agent</li>
+              <li>Tool-Using AI Assistant</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Understand how AI systems can move beyond generating responses toward reasoning, tool usage and multi-step task execution.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 11: 09  AI AUTOMATION</h2>
+          <p>Automate Repetitive Work With AI</p>
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Workflow Automation Fundamentals</li>
+              <li>Triggers</li>
+              <li>Actions</li>
+              <li>Nodes / Steps</li>
+              <li>Workflows</li>
+              <li>JSON Data</li>
+              <li>Conditions</li>
+              <li>Webhooks</li>
+              <li>APIs</li>
+              <li>AI Steps</li>
+              <li>Application Integration</li>
+              <li>Data Transformation</li>
+              <li>Workflow Testing</li>
+              <li>Error Handling</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Workflows</div>
+            <ul class="bullet-list">
+              <li>FORM  AI  PROCESS  DATABASE  NOTIFICATION</li>
+              <li>EMAIL  AI  SUMMARY  STORAGE  NOTIFICATION</li>
+              <li>INPUT  AI ANALYSIS  DECISION  ACTION</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Build practical AI-powered automation workflows for repetitive business and productivity tasks.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 12: 10  VIBE CODING & AI-ASSISTED DEVELOPMENT</h2>
+          <p>Turn Ideas Into Working Applications With AI</p>
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is Vibe Coding?</li>
+              <li>AI-Assisted Development</li>
+              <li>Natural-Language Software Development</li>
+              <li>Idea  Requirement</li>
+              <li>Requirement  Prompt</li>
+              <li>Prompt  Code</li>
+              <li>Running AI-Generated Applications</li>
+              <li>Debugging with AI</li>
+              <li>Testing AI-Generated Code</li>
+              <li>Iterative Development</li>
+              <li>Human Review</li>
+              <li>Security & Responsible AI Coding</li>
+              <li>Google Antigravity  Primary Vibe Coding Tool</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Workflow</div>
+            <ul class="bullet-list">
+              <li>IDEA  REQUIREMENT  PROMPT  BUILD  RUN  TEST  DEBUG  IMPROVE</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical</div>
+            <ul class="bullet-list">
+              <li>Build a small working application such as:</li>
+              <li>Expense Tracker</li>
+              <li>To-Do Application</li>
+              <li>Student Dashboard</li>
+              <li>Course Landing Page</li>
+              <li>AI FAQ Application</li>
+              <li>Simple Business Dashboard</li>
+              <li>Open-Source AI Coding Tools</li>
+              <li>Continue</li>
+              <li>Aider</li>
+              <li>Cline</li>
+              <li>OpenHands</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Local AI Coding</div>
+            <ul class="bullet-list">
+              <li>Ollama + Open Model + AI Coding Tool</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Learn how to use AI-assisted development to rapidly prototype and improve applications while understanding, testing and reviewing the generated code.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 13: 11  GITHUB: DISCOVER, REUSE & BUILD</h2>
+          <p>Learn How to Leverage Existing AI Projects</p>
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>GitHub for AI Projects</li>
+              <li>Finding Relevant Repositories</li>
+              <li>Repository Search</li>
+              <li>GitHub Topics</li>
+              <li>Understanding README Files</li>
+              <li>Checking Project Structure</li>
+              <li>Dependencies</li>
+              <li>Configuration</li>
+              <li>.env.example</li>
+              <li>Issues & Documentation</li>
+              <li>License Checking</li>
+              <li>Running Projects Locally</li>
+              <li>Understanding Before Reusing</li>
+              <li>Modifying Existing Projects</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Workflow</div>
+            <ul class="bullet-list">
+              <li>SEARCH  INSPECT  CLONE/DOWNLOAD  RUN  UNDERSTAND  MODIFY  TEST</li>
+              <li>Vibe Coding Integration</li>
+              <li>Demonstrate how an existing GitHub project can become the starting point for AI-assisted development:</li>
+              <li>GITHUB PROJECT  RUN LOCALLY  UNDERSTAND  ANTIGRAVITY  MODIFY  ADD FEATURE  TEST</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Learn that modern development can involve discovering, understanding, adapting and improving existing projects, rather than always starting from scratch.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 14: 12  PRACTICAL GENAI PROJECTS & ASSIGNMENT</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Project 1  AI Productivity Assistant</div>
+            <ul class="bullet-list">
+              <li>Use AI for:</li>
+              <li>Research</li>
+              <li>Writing</li>
+              <li>Summarization</li>
+              <li>Documents</li>
+              <li>Everyday productivity</li>
+              <li>Tools: Ollama + Open WebUI / AnythingLLM</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Project 2  Multi-PDF Knowledge Assistant</div>
+            <ul class="bullet-list">
+              <li>Build/use a knowledge assistant capable of:</li>
+              <li>Multi-document Q&A</li>
+              <li>Knowledge retrieval</li>
+              <li>Context-aware responses</li>
+              <li>Source/context awareness</li>
+              <li>Out-of-scope handling</li>
+              <li>Tools: AnythingLLM / Open WebUI + Local AI</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Project 3  AI Job & Interview Assistant</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Workflow</div>
+            <ul class="bullet-list">
+              <li>JOB DESCRIPTION  SKILL EXTRACTION  RESUME ANALYSIS  SKILL GAP  INTERVIEW QUESTIONS  PREPARATION</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Project 4  AI Business Automation</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Workflow</div>
+            <ul class="bullet-list">
+              <li>INPUT  AI PROCESSING  DECISION  ACTION  NOTIFICATION</li>
+              <li>Tool: Activepieces</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Project 5  Vibe-Coded Application</div>
+            <ul class="bullet-list">
+              <li>Use:</li>
+              <li>Idea  Requirement  Antigravity  Build  Test  Debug  Improve</li>
+              <li>Students create a functional prototype using AI-assisted development.</li>
+              <li>OPEN-SOURCE AI TOOLKIT</li>
+              <li>AI Models & Ecosystem</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Hugging Face</div>
+            <ul class="bullet-list">
+              <li>Local AI</li>
+              <li>Ollama</li>
+              <li>AI Interfaces</li>
+              <li>Open WebUI  AnythingLLM  LibreChat</li>
+              <li>AI Research</li>
+              <li>Perplexica  SearXNG</li>
+              <li>Generative Media</li>
+              <li>ComfyUI</li>
+              <li>AI Automation</li>
+              <li>Activepieces Community Edition</li>
+              <li>AI Coding</li>
+              <li>Continue  Aider  Cline  OpenHands</li>
+              <li>Vibe Coding</li>
+              <li>Google Antigravity</li>
+              <li>Note: Antigravity is intentionally included as the dedicated Vibe Coding tool. The remaining core tooling is selected around open-source, self-hostable or locally runnable technologies. Individual models may have separate licensing conditions, so learners are taught to check model licenses before commercial use.</li>
+              <li>PRACTICAL LEARNING JOURNEY</li>
+              <li>01  UNDERSTAND AI</li>
+              <li>GenAI Fundamentals</li>
+              <li>02  USE AI</li>
+              <li>Open-Source AI  AI Tools  Prompt Engineering  AI Productivity</li>
+              <li>03  BUILD WITH AI</li>
+              <li>LLMs  APIs  RAG  Knowledge Assistants</li>
+              <li>04  MAKE AI ACT</li>
+              <li>AI Agents  Agentic AI  Automation</li>
+              <li>05  CREATE WITH AI</li>
+              <li>Hugging Face  GitHub  Vibe Coding  Projects</li>
+              <li>CORE SKILL FRAMEWORK</li>
+              <li>USE AI  BUILD WITH AI  AUTOMATE WITH AI</li>
+              <li>USE AI</li>
+              <li>Research  Write  Analyze  Learn  Communicate  Create  Code  Work with Documents</li>
+              <li>BUILD WITH AI</li>
+              <li>LLMs  APIs  RAG  Knowledge Assistants  AI Applications</li>
+              <li>AUTOMATE WITH AI</li>
+              <li>Agents  Agentic Workflows  AI Automation  Vibe Coding</li>
+              <li>AI TOOL EVALUATION SKILL</li>
+              <li>Students will learn to evaluate any new AI tool using:</li>
+              <li>What problem does it solve?</li>
+              <li>Is it open source?</li>
+              <li>Is it free?</li>
+              <li>Can it run locally?</li>
+              <li>What model does it use?</li>
+              <li>What data does it access?</li>
+              <li>What is the license?</li>
+              <li>Can the tool be replaced?</li>
+              <li>Is it suitable for personal, academic or commercial use?</li>
+              <li>What are its limitations?</li>
+              <li>COURSE OUTCOME</li>
+              <li>By the end of the course, learners will be able to:</li>
+              <li>Understand modern Generative AI</li>
+              <li>Use AI effectively in everyday work</li>
+              <li>Select appropriate AI tools for different tasks</li>
+              <li>Create effective and reusable prompts</li>
+              <li>Discover and use open-source AI models</li>
+              <li>Work with Hugging Face</li>
+              <li>Run AI models locally</li>
+              <li>Work with documents and knowledge bases</li>
+              <li>Understand and build basic RAG applications</li>
+              <li>Understand AI Agents and Agentic AI</li>
+              <li>Automate repetitive workflows using AI</li>
+              <li>Discover and reuse GitHub AI projects</li>
+              <li>Use AI-assisted/Vibe Coding tools</li>
+              <li>Build practical AI-powered applications</li>
+              <li>Apply AI to professional, academic and business workflows</li>
+              <li>FINAL POSITIONING</li>
+              <li>GENERATIVE AI PRACTICAL CRASH COURSE</li>
+              <li>USE AI. BUILD WITH AI. AUTOMATE WITH AI.</li>
+              <li>A practical, open-source-focused Generative AI program that takes learners from AI fundamentals and everyday productivity to RAG, AI Agents, automation, Hugging Face, GitHub and Vibe Coding  without requiring a technical background.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-note">
+      <p><strong>NeoNex MindX</strong> &bull; Complete Master Syllabus &bull; www.neonexmindx.com &bull; Contact: +91 84318 03839 / neonexminds@gmail.com</p>
+      <p style="margin-top: 4px;">&copy; 2026 NeoNex MindX Edutech Private Limited. All syllabus contents are proprietary and structured for professional competency.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Engineering Master Program - Complete Master Syllabus | NeoNex MindX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #102a43;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --text: #1f2937;
+      --text-muted: #4b5563;
+      --border: #e2e8f0;
+      --bg-alt: #f8fafc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #f1f5f9;
+      padding: 24px 16px;
+    }
+    .print-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+    .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .brand span { color: var(--accent); }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      color: var(--primary);
+      margin: 12px 0 6px 0;
+      line-height: 1.25;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+    .meta-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+    }
+    .meta-item span {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .meta-item strong {
+      font-size: 16px;
+      color: var(--primary);
+    }
+    .btn-action-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-alt);
+    }
+    .module-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      page-break-inside: avoid;
+    }
+    .module-header {
+      background: var(--bg-alt);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .module-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      color: var(--primary);
+    }
+    .module-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .module-body {
+      padding: 20px;
+    }
+    .topic-group {
+      margin-bottom: 16px;
+    }
+    .topic-group:last-child {
+      margin-bottom: 0;
+    }
+    .topic-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .bullet-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .bullet-list li {
+      margin-bottom: 4px;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 36px;
+    }
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .print-container {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        max-width: 100%;
+      }
+      .btn-action-bar {
+        display: none !important;
+      }
+      .module-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #cbd5e1;
+      }
+    }
+    @media (max-width: 600px) {
+      .print-container { padding: 20px 16px; }
+      .header-bar { flex-direction: column; gap: 12px; }
+      .btn-action-bar { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+<style id="mobile-topbar-cleanup">
+/* HIDE LEGACY TOPBAR ON ALL MOBILE & TABLET SCREENS TO PREVENT BLACK STRIP / TRUNCATION */
+@media (max-width: 1040px) {
+  .topbar,
+  .topbar-inner,
+  .topbar-links,
+  div[class*="topbar"] {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="print-container">
+    <div class="header-bar">
+      <div>
+        <a href="/" class="brand">NeoNeX<span>MindX</span></a>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">School of Artificial Intelligence, Data & Engineering</div>
+      </div>
+      <span class="badge">Official Master Syllabus</span>
+    </div>
+
+    <h1>AI Engineering Master Program</h1>
+    <p class="subtitle">End-to-End Artificial Intelligence Engineering Curriculum: Deep Learning, Pretrained Models, NLP, Computer Vision, Agentic AI, Model Serving, MLOps & GenAI.</p>
+
+    <div class="meta-box">
+      <div class="meta-item">
+        <span>Duration</span>
+        <strong>12–14 months</strong>
+      </div>
+      <div class="meta-item">
+        <span>Regular Fee</span>
+        <strong>₹1,00,000</strong>
+      </div>
+      <div class="meta-item">
+        <span>Learning Format</span>
+        <strong>Live Mentor-Led + Projects</strong>
+      </div>
+      <div class="meta-item">
+        <span>Certification</span>
+        <strong>Industry Accredited + Internship</strong>
+      </div>
+    </div>
+
+    <div class="btn-action-bar">
+      <button onclick="window.print()" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Save / Download as PDF (Print)
+      </button>
+      <a href="tel:+918431803839" class="btn btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Speak with Academic Advisor (084318 03839)
+      </a>
+    </div>
+
+    <div class="syllabus-modules">
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 01: COURSE ARCHITECTURE & CLICKABLE  INDEX</h2>
+          <p>Select a module or elective below to jump directly to its detailed syllabus. The index is organized by the source-defined programme parts.</p>
+        </div>
+        <div class="module-body">
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 02: COMMON GENERATIVE AI PRACTICAL CRASH COURSE</h2>
+          <p>This shared course is taught to every NeoNex MindX candidate, regardless of the primary programme selected. It is a common practical crash course and is delivered alongside the candidates chosen specialization.</p>
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 01  AI FOUNDATION</div>
+            <ul class="bullet-list">
+              <li>Duration: 1 Week</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is Artificial Intelligence?</li>
+              <li>AI vs Machine Learning vs Deep Learning vs Generative AI</li>
+              <li>Major areas of AI</li>
+              <li>Types of AI systems and problems</li>
+              <li>AI lifecycle</li>
+              <li>Role of an AI Engineer</li>
+              <li>Modern AI ecosystem</li>
+              <li>AI system development lifecycle</li>
+              <li>Responsible AI fundamentals</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Outcome</div>
+            <ul class="bullet-list">
+              <li>Understand what AI is, how modern AI systems are structured, where different AI technologies fit, and how an AI Engineer approaches an AI problem end-to-end.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 02  PYTHON</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Python introduction and IDEs</li>
+              <li>Execution models</li>
+              <li>Keywords, identifiers, variables and literals</li>
+              <li>Data types</li>
+              <li>Indexing and slicing</li>
+              <li>Mutability and immutability</li>
+              <li>Operators</li>
+              <li>Control flow</li>
+              <li>Strings</li>
+              <li>Lists</li>
+              <li>Tuples</li>
+              <li>Aliasing and copying</li>
+              <li>Dictionaries</li>
+              <li>Sets</li>
+              <li>Exception handling</li>
+              <li>Functions</li>
+              <li>Lambda</li>
+              <li>map, filter, reduce</li>
+              <li>File handling</li>
+              <li>CSV / JSON</li>
+              <li>Regular expressions</li>
+              <li>NumPy</li>
+              <li>Pandas</li>
+              <li>EDA</li>
+              <li>Use the existing Python syllabus as the common module rather than rebuilding Python specifically for AI Engineering.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 03  MATHEMATICS FOR DATA SCIENCE & AI</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>Linear Algebra</li>
+              <li>Linear Algebra</li>
+              <li>Vectors</li>
+              <li>Matrices</li>
+              <li>Matrix operations</li>
+              <li>Probability & Statistics</li>
+              <li>Probability fundamentals</li>
+              <li>Conditional probability</li>
+              <li>Probability distributions</li>
+              <li>Descriptive statistics</li>
+              <li>Inferential statistics</li>
+              <li>Mean, variance and standard deviation</li>
+              <li>Correlation</li>
+              <li>Sampling</li>
+              <li>Statistical reasoning for AI/ML</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 04  SQL</div>
+            <ul class="bullet-list">
+              <li>Duration: 1 Week</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>SQL and RDBMS fundamentals</li>
+              <li>SQL categories</li>
+              <li>Database and table creation</li>
+              <li>Data types</li>
+              <li>CRUD</li>
+              <li>Filtering</li>
+              <li>Operators</li>
+              <li>Constraints</li>
+              <li>Normalization</li>
+              <li>Aggregation</li>
+              <li>GROUP BY / HAVING</li>
+              <li>Joins</li>
+              <li>Set operators</li>
+              <li>Indexes</li>
+              <li>Views</li>
+              <li>Advanced SQL concepts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 05  MONGODB / NoSQL</div>
+            <ul class="bullet-list">
+              <li>Duration: 1 Week</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Database and NoSQL fundamentals</li>
+              <li>SQL vs NoSQL</li>
+              <li>JSON / BSON</li>
+              <li>Database  Collection  Document</li>
+              <li>CRUD operations</li>
+              <li>Querying and filtering</li>
+              <li>Arrays and nested documents</li>
+              <li>Aggregation framework</li>
+              <li>PyMongo</li>
+              <li>Indexing</li>
+              <li>Query performance</li>
+              <li>MongoDB in data pipelines</li>
+              <li>Data modelling for Data Science / ML</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 06  DATA MODELLING</div>
+            <ul class="bullet-list">
+              <li>Duration: 1 Week</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Data modelling fundamentals</li>
+              <li>Database fundamentals</li>
+              <li>RDBMS / NoSQL</li>
+              <li>OLTP / OLAP</li>
+              <li>Data Lake / Data Warehouse</li>
+              <li>ER modelling</li>
+              <li>Normalization / denormalization</li>
+              <li>Dimensional modelling</li>
+              <li>Fact and dimension tables</li>
+              <li>Grain</li>
+              <li>Keys</li>
+              <li>Star schema</li>
+              <li>Snowflake schema</li>
+              <li>Relationships</li>
+              <li>Slowly Changing Dimensions</li>
+              <li>Performance and scalability</li>
+              <li>Data pipelines and modelling</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 07  GIT & GITHUB</div>
+            <ul class="bullet-list">
+              <li>Duration: 1 Week</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Version control</li>
+              <li>Git fundamentals</li>
+              <li>Repository</li>
+              <li>Working directory</li>
+              <li>Staging</li>
+              <li>Commits</li>
+              <li>History</li>
+              <li>GitHub</li>
+              <li>Remote repositories</li>
+              <li>Push / Pull / Fetch</li>
+              <li>Branching</li>
+              <li>Merge</li>
+              <li>Conflict resolution</li>
+              <li>Pull Requests</li>
+              <li>Code Review</li>
+              <li>Restore / Revert / Reset</li>
+              <li>Stash</li>
+              <li>Tags / Releases</li>
+              <li>GitHub Actions awareness</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 08  MACHINE LEARNING</div>
+            <ul class="bullet-list">
+              <li>Duration: 45 Weeks</li>
+              <li>Data Understanding & Preparation</li>
+              <li>Data understanding</li>
+              <li>Data profiling</li>
+              <li>Data cleaning</li>
+              <li>Missing values</li>
+              <li>Outliers</li>
+              <li>Feature engineering</li>
+              <li>Numerical features</li>
+              <li>Categorical features</li>
+              <li>Encoding</li>
+              <li>Scaling</li>
+              <li>Transformation</li>
+              <li>Feature extraction</li>
+              <li>Feature selection</li>
+              <li>Model Development</li>
+              <li>Train / validation / test split</li>
+              <li>Leakage prevention</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Classification</div>
+            <ul class="bullet-list">
+              <li>Regression</li>
+              <li>Ensemble methods</li>
+              <li>Clustering</li>
+              <li>Dimensionality reduction</li>
+              <li>Semi-supervised learning</li>
+              <li>Evaluation & Optimization</li>
+              <li>Model evaluation</li>
+              <li>Cross-validation</li>
+              <li>Hyperparameter tuning</li>
+              <li>Optimization</li>
+              <li>End-to-end ML workflow</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 09  DEEP LEARNING</div>
+            <ul class="bullet-list">
+              <li>Duration: 23 Weeks</li>
+              <li>Foundations</li>
+              <li>Neural-network fundamentals</li>
+              <li>ANN</li>
+              <li>Forward propagation</li>
+              <li>Backpropagation</li>
+              <li>Activation functions</li>
+              <li>Loss functions</li>
+              <li>Optimizers</li>
+              <li>Training</li>
+              <li>Validation</li>
+              <li>Overfitting</li>
+              <li>Regularization</li>
+              <li>Architecture Awareness</li>
+              <li>CNN</li>
+              <li>RNN</li>
+              <li>LSTM</li>
+              <li>Transfer learning</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical</div>
+            <ul class="bullet-list">
+              <li>Practical deep-learning workflow</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 10  NATURAL LANGUAGE PROCESSING</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>NLP fundamentals</li>
+              <li>Text preprocessing</li>
+              <li>Tokenization</li>
+              <li>Text representation</li>
+              <li>Embeddings</li>
+              <li>Sequence modelling</li>
+              <li>RNN / LSTM concepts</li>
+              <li>NLP workflow</li>
+              <li>Transformer introduction</li>
+              <li>NLP applications</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 11  COMPUTER VISION</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Image fundamentals</li>
+              <li>CNN</li>
+              <li>Image classification</li>
+              <li>Convolution and feature extraction</li>
+              <li>Transfer learning</li>
+              <li>MobileNet</li>
+              <li>VGG</li>
+              <li>Object detection</li>
+              <li>SSD</li>
+              <li>YOLO</li>
+              <li>Detection metrics</li>
+              <li>OpenCV</li>
+              <li>Model inference</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 12  GENERATIVE AI FOUNDATION</div>
+            <ul class="bullet-list">
+              <li>Duration: 3 Weeks</li>
+              <li>Generative AI & LLM Fundamentals</li>
+              <li>Generative AI</li>
+              <li>LLMs</li>
+              <li>Tokens</li>
+              <li>Context windows</li>
+              <li>Multimodal AI</li>
+              <li>LLM capabilities and limitations</li>
+              <li>Hallucinations</li>
+              <li>Responsible AI</li>
+              <li>Open-Source AI</li>
+              <li>Open-source vs proprietary AI</li>
+              <li>Hugging Face</li>
+              <li>Model Hub</li>
+              <li>Model cards</li>
+              <li>Datasets</li>
+              <li>Model selection</li>
+              <li>Model licensing</li>
+              <li>Local AI</li>
+              <li>Ollama</li>
+              <li>Prompt Engineering</li>
+              <li>Prompt Engineering fundamentals</li>
+              <li>Prompt structure</li>
+              <li>Role / persona</li>
+              <li>Instructions</li>
+              <li>Context</li>
+              <li>Output format</li>
+              <li>Zero-shot prompting</li>
+              <li>Few-shot prompting</li>
+              <li>Structured prompting</li>
+              <li>Prompt refinement</li>
+              <li>Prompt design for different use cases</li>
+              <li>Prompt evaluation</li>
+              <li>LLM APIs</li>
+              <li>API fundamentals</li>
+              <li>Authentication</li>
+              <li>OpenAI/Gemini-style APIs</li>
+              <li>Model selection</li>
+              <li>Requests and responses</li>
+              <li>Basic error handling</li>
+              <li>LangChain & LLM Applications</li>
+              <li>LangChain fundamentals</li>
+              <li>Prompt templates</li>
+              <li>Chains</li>
+              <li>Multi-step workflows</li>
+              <li>Conversation memory</li>
+              <li>Embeddings & Vector Databases</li>
+              <li>Embeddings</li>
+              <li>Semantic similarity</li>
+              <li>Vector search</li>
+              <li>Vector databases</li>
+              <li>Chroma</li>
+              <li>Qdrant</li>
+              <li>FAISS</li>
+              <li>pgvector</li>
+              <li>Pinecone / Weaviate awareness</li>
+              <li>RAG Fundamentals</li>
+              <li>RAG architecture</li>
+              <li>Document ingestion</li>
+              <li>Parsing</li>
+              <li>Chunking</li>
+              <li>Metadata</li>
+              <li>Embedding generation</li>
+              <li>Retrieval</li>
+              <li>Context injection</li>
+              <li>Generation</li>
+              <li>Grounded responses</li>
+              <li>Agents & Automation</li>
+              <li>AI Agent fundamentals</li>
+              <li>Agent vs chatbot</li>
+              <li>Tools</li>
+              <li>Tool calling</li>
+              <li>Agentic AI</li>
+              <li>Multi-agent concepts</li>
+              <li>AI automation</li>
+              <li>n8n</li>
+              <li>Workflow automation</li>
+              <li>AI-Assisted Development</li>
+              <li>Vibe Coding</li>
+              <li>AI-assisted coding</li>
+              <li>GitHub project discovery</li>
+              <li>Reusing open-source projects</li>
+              <li>AI-supported development workflows</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 13  ML MODEL DEPLOYMENT</div>
+            <ul class="bullet-list">
+              <li>Duration: 1 Week</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>ML deployment fundamentals</li>
+              <li>Development vs production</li>
+              <li>Model packaging</li>
+              <li>Saving/loading models</li>
+              <li>Complete preprocessing + model pipeline</li>
+              <li>HTTP</li>
+              <li>Request / Response</li>
+              <li>REST concepts</li>
+              <li>Flask</li>
+              <li>Prediction APIs</li>
+              <li>Streamlit</li>
+              <li>Flask vs Streamlit</li>
+              <li>AWS fundamentals</li>
+              <li>S3</li>
+              <li>EC2</li>
+              <li>Deployment security basics</li>
+              <li>Troubleshooting</li>
+              <li>PART B  AI ENGINEERING ADVANCED CORE</li>
+              <li>Purpose: Add the engineering depth required to move from AI/ML practitioner to AI Engineer.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 14  ADVANCED PYTHON / PYTHON FOR AI ENGINEERS</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>Advanced OOP</li>
+              <li>Advanced OOP</li>
+              <li>Composition</li>
+              <li>Abstract classes</li>
+              <li>Interfaces / contracts</li>
+              <li>Advanced Python</li>
+              <li>Advanced functions</li>
+              <li>Closures</li>
+              <li>Iterators</li>
+              <li>Generators</li>
+              <li>Decorators</li>
+              <li>Context managers</li>
+              <li>Custom exception architecture</li>
+              <li>Python Architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Modules and packages</div>
+            <ul class="bullet-list">
+              <li>Package architecture</li>
+              <li>Type hints</li>
+              <li>Dataclasses</li>
+              <li>Relevant design patterns</li>
+              <li>AI/ML project structure</li>
+              <li>Production Engineering</li>
+              <li>Async programming</li>
+              <li>Concurrency concepts</li>
+              <li>API/client programming</li>
+              <li>Configuration management</li>
+              <li>Environment management</li>
+              <li>Logging</li>
+              <li>Testing</li>
+              <li>Dependency management</li>
+              <li>Performance considerations</li>
+              <li>Production-oriented Python architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Build reusable, testable, maintainable and production-oriented Python components for AI/ML systems.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 15  ADVANCED MATHEMATICS & OPTIMIZATION FOR AI</div>
+            <ul class="bullet-list">
+              <li>Duration: 1 Week</li>
+              <li>Calculus</li>
+              <li>Calculus fundamentals for AI</li>
+              <li>Derivatives</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Partial derivatives</div>
+            <ul class="bullet-list">
+              <li>Chain rule</li>
+              <li>Gradients</li>
+              <li>Optimization</li>
+              <li>Gradient-based optimization</li>
+              <li>Loss functions</li>
+              <li>Optimization objectives</li>
+              <li>Gradient descent</li>
+              <li>SGD</li>
+              <li>Mini-batch optimization</li>
+              <li>Momentum</li>
+              <li>Adaptive optimization</li>
+              <li>Neural Network Mathematics</li>
+              <li>Backpropagation intuition</li>
+              <li>Mathematical foundations of neural-network training</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Understand the mathematics behind optimization, model training, loss minimization and neural-network learning.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 16  ADVANCED SQL FOR AI / ML ENGINEERING</div>
+            <ul class="bullet-list">
+              <li>Duration: Integrated / Short Module</li>
+              <li>AI/ML Dataset Engineering</li>
+              <li>ML dataset construction</li>
+              <li>Training-data extraction</li>
+              <li>Inference-data extraction</li>
+              <li>Feature generation using SQL</li>
+              <li>Time-based feature generation</li>
+              <li>Advanced SQL</li>
+              <li>Window functions</li>
+              <li>Analytical queries</li>
+              <li>Large-dataset considerations</li>
+              <li>SQL + Python + ML</li>
+              <li>SQL + Python</li>
+              <li>SQL within ML pipelines</li>
+              <li>Performance</li>
+              <li>Query optimization for AI workloads</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Use SQL as an engineering component inside AI/ML data and feature workflows.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 17  AI DATA LAYER: DATABASES + VECTOR DATA</div>
+            <ul class="bullet-list">
+              <li>Duration: Integrated / Short Module</li>
+              <li>Application Data</li>
+              <li>PostgreSQL for AI applications</li>
+              <li>MongoDB for application state</li>
+              <li>Metadata architecture</li>
+              <li>Conversation state</li>
+              <li>Document metadata</li>
+              <li>Embedding storage</li>
+              <li>Vector Data</li>
+              <li>Vector data</li>
+              <li>Vector database architecture</li>
+              <li>FAISS</li>
+              <li>Chroma</li>
+              <li>Qdrant</li>
+              <li>pgvector</li>
+              <li>Pinecone / Weaviate awareness</li>
+              <li>Architecture</li>
+              <li>Database + vector-store architecture</li>
+              <li>Selecting the appropriate storage layer</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Design the storage layer required by AI applications, RAG systems and agent systems.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 18  AI DATA ARCHITECTURE & AI DATA PIPELINES</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>AI Data Architecture</li>
+              <li>AI data lifecycle</li>
+              <li>Training data</li>
+              <li>Validation data</li>
+              <li>Test data</li>
+              <li>Inference data</li>
+              <li>Feature data</li>
+              <li>Document data</li>
+              <li>Metadata</li>
+              <li>Embedding data</li>
+              <li>Vector data</li>
+              <li>Conversation/state data</li>
+              <li>Model/artifact data</li>
+              <li>AI Data Pipeline Types</li>
+              <li>Data ingestion</li>
+              <li>Training-data pipelines</li>
+              <li>Feature pipelines</li>
+              <li>ML preprocessing pipelines</li>
+              <li>Embedding pipelines</li>
+              <li>Document ingestion pipelines</li>
+              <li>RAG ingestion pipelines</li>
+              <li>Batch inference pipelines</li>
+              <li>Real-time inference pipelines</li>
+              <li>Reliable Data Pipelines</li>
+              <li>Data validation</li>
+              <li>Data quality</li>
+              <li>Schema validation</li>
+              <li>Duplicate handling</li>
+              <li>Idempotency</li>
+              <li>Retry</li>
+              <li>Backoff</li>
+              <li>Checkpointing</li>
+              <li>Replay</li>
+              <li>Backfill</li>
+              <li>Dataset versioning</li>
+              <li>Dataset lineage</li>
+              <li>Data Engineering Awareness</li>
+              <li>Batch vs streaming</li>
+              <li>CDC</li>
+              <li>Data lakes</li>
+              <li>Parquet</li>
+              <li>Object storage</li>
+              <li>Spark / PySpark awareness</li>
+              <li>Kafka / streaming awareness</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Design reliable AI-data flows from ingestion  preparation  storage  embeddings/features  training/inference.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 19  ADVANCED MACHINE LEARNING / ML ENGINEERING</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>ML System Architecture</li>
+              <li>ML system architecture</li>
+              <li>Training architecture</li>
+              <li>Inference architecture</li>
+              <li>Feature pipelines</li>
+              <li>Reusable preprocessing</li>
+              <li>Pipeline serialization</li>
+              <li>Model Lifecycle</li>
+              <li>Model artifacts</li>
+              <li>Model versioning</li>
+              <li>Experiment tracking</li>
+              <li>Model registry</li>
+              <li>Reproducibility</li>
+              <li>Inference Engineering</li>
+              <li>Batch inference</li>
+              <li>Real-time inference</li>
+              <li>Model serving</li>
+              <li>ML APIs</li>
+              <li>Inference optimization</li>
+              <li>Production ML</li>
+              <li>ML testing</li>
+              <li>Data drift</li>
+              <li>Concept drift</li>
+              <li>Model drift</li>
+              <li>Model monitoring</li>
+              <li>Production ML architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Move from training individual models to engineering complete, reproducible and monitorable ML systems.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 20  DEEP LEARNING ENGINEERING & PRODUCTION</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>PyTorch Engineering</li>
+              <li>PyTorch engineering</li>
+              <li>Dataset / DataLoader architecture</li>
+              <li>Training configuration</li>
+              <li>Custom training loops</li>
+              <li>Training Operations</li>
+              <li>Checkpoints</li>
+              <li>Resume training</li>
+              <li>Experiment tracking</li>
+              <li>Model serialization</li>
+              <li>Model Adaptation</li>
+              <li>Transfer-learning engineering</li>
+              <li>Production Deep Learning</li>
+              <li>GPU concepts</li>
+              <li>Batch inference</li>
+              <li>Model serving</li>
+              <li>Model optimization</li>
+              <li>Quantization awareness</li>
+              <li>Production neural-network architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Build and operate production-oriented deep-learning pipelines beyond notebook-based model development.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 21  NLP ENGINEERING & TRANSFORMERS</div>
+            <ul class="bullet-list">
+              <li>Duration: 1 Week</li>
+              <li>Transformer Engineering</li>
+              <li>Transformer architecture for engineers</li>
+              <li>Transformer inference</li>
+              <li>Tokenizer + model pipelines</li>
+              <li>Hugging Face Engineering</li>
+              <li>Hugging Face Transformers</li>
+              <li>Hugging Face Hub</li>
+              <li>Pretrained model loading</li>
+              <li>Semantic NLP</li>
+              <li>Embedding generation</li>
+              <li>Semantic similarity</li>
+              <li>Semantic search</li>
+              <li>NLP Application Engineering</li>
+              <li>Document processing</li>
+              <li>NLP inference APIs</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Use pretrained Transformer models as engineering components for modern NLP and downstream LLM/RAG systems.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 22  ADVANCED LLM ENGINEERING</div>
+            <ul class="bullet-list">
+              <li>Duration: 3 Weeks</li>
+              <li>LLM Architecture</li>
+              <li>Transformer architecture</li>
+              <li>Attention intuition</li>
+              <li>Pretraining vs instruction tuning</li>
+              <li>Inference</li>
+              <li>Model selection</li>
+              <li>Model capability assessment</li>
+              <li>Context Engineering</li>
+              <li>Context engineering fundamentals</li>
+              <li>What information the model receives</li>
+              <li>Context assembly</li>
+              <li>Context selection</li>
+              <li>Context prioritization</li>
+              <li>Context windows</li>
+              <li>Context budgeting</li>
+              <li>Conversation history</li>
+              <li>Retrieved context</li>
+              <li>Tool definitions</li>
+              <li>Long-context management</li>
+              <li>Context compression</li>
+              <li>Prompt Engineering  Context Engineering</li>
+              <li>Prompt Engineering: how instructions are expressed to the model.</li>
+              <li>Context Engineering: how the complete information available to the model is selected, assembled and managed for a particular task.</li>
+              <li>Harness Engineering</li>
+              <li>Agent/runtime environment</li>
+              <li>Tools available to the model</li>
+              <li>Execution environment</li>
+              <li>Permissions</li>
+              <li>Sandboxing</li>
+              <li>Guardrails</li>
+              <li>Verification</li>
+              <li>State and memory integration</li>
+              <li>Error handling</li>
+              <li>Operational controls</li>
+              <li>Harness Engineering: engineering the environment around the model so an agent can act, use tools, be constrained and be verified reliably.</li>
+              <li>Loop Engineering</li>
+              <li>Agent loop</li>
+              <li>Observe</li>
+              <li>Decide</li>
+              <li>Act</li>
+              <li>Receive result</li>
+              <li>Re-evaluate</li>
+              <li>Repeat</li>
+              <li>Stop conditions</li>
+              <li>Retry</li>
+              <li>Recovery</li>
+              <li>Feedback loops</li>
+              <li>Loop Engineering: designing how an agent repeatedly observes, acts, receives feedback and decides whether to continue, recover or stop.</li>
+              <li>Graph Engineering</li>
+              <li>Nodes</li>
+              <li>Edges</li>
+              <li>State transitions</li>
+              <li>Conditional branches</li>
+              <li>Parallel paths</li>
+              <li>Joins</li>
+              <li>Cycles</li>
+              <li>Explicit workflow topology</li>
+              <li>Multi-step AI workflows</li>
+              <li>Graph Engineering: structuring complex AI workflows as connected states/nodes with controlled transitions, branches and execution paths.</li>
+              <li>LLM Application Engineering</li>
+              <li>Structured outputs</li>
+              <li>JSON outputs</li>
+              <li>Schema validation</li>
+              <li>Function calling</li>
+              <li>Tool calling</li>
+              <li>Model routing</li>
+              <li>Provider abstraction</li>
+              <li>Fallback models</li>
+              <li>LLM Reliability</li>
+              <li>Retry</li>
+              <li>Timeout</li>
+              <li>Fallback</li>
+              <li>Validation</li>
+              <li>Error handling</li>
+              <li>LLM Performance</li>
+              <li>Streaming</li>
+              <li>Batching</li>
+              <li>Caching</li>
+              <li>Token optimization</li>
+              <li>Cost optimization</li>
+              <li>Latency optimization</li>
+              <li>Open-Source LLM Engineering</li>
+              <li>Hugging Face</li>
+              <li>Open-source models</li>
+              <li>Model selection</li>
+              <li>Licensing</li>
+              <li>Ollama</li>
+              <li>Local inference</li>
+              <li>vLLM</li>
+              <li>Efficient inference awareness</li>
+              <li>Modern LLM Concepts</li>
+              <li>Reasoning models</li>
+              <li>Reasoning vs standard generation</li>
+              <li>Multimodal LLMs</li>
+              <li>Vision-language models</li>
+              <li>Audio-enabled models</li>
+              <li>Computer-use / action-oriented models</li>
+              <li>Small language models</li>
+              <li>Efficient inference</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Engineer reliable LLM applications through architecture, context, structured outputs, routing, reliability, performance and model selection.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 23  ADVANCED RAG ENGINEERING</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>RAG Architecture</li>
+              <li>Retrieval layer</li>
+              <li>Context layer</li>
+              <li>Generation layer</li>
+              <li>Metadata layer</li>
+              <li>Evaluation layer</li>
+              <li>Advanced Chunking</li>
+              <li>Fixed-size chunking</li>
+              <li>Overlap</li>
+              <li>Semantic chunking</li>
+              <li>Document-aware chunking</li>
+              <li>Parent-child retrieval</li>
+              <li>Retrieval Engineering</li>
+              <li>Dense retrieval</li>
+              <li>Sparse retrieval</li>
+              <li>Hybrid search</li>
+              <li>BM25</li>
+              <li>Metadata filtering</li>
+              <li>Top-k optimization</li>
+              <li>Reranking</li>
+              <li>Candidate retrieval</li>
+              <li>Reranking</li>
+              <li>Retrieval precision</li>
+              <li>Query Engineering</li>
+              <li>Query rewriting</li>
+              <li>Query expansion</li>
+              <li>Multi-query retrieval</li>
+              <li>Contextual retrieval</li>
+              <li>Advanced RAG</li>
+              <li>Multi-source RAG</li>
+              <li>Multi-document RAG</li>
+              <li>Structured + unstructured RAG</li>
+              <li>Agentic RAG</li>
+              <li>Production RAG</li>
+              <li>Retrieval quality</li>
+              <li>Context quality</li>
+              <li>Groundedness</li>
+              <li>Faithfulness</li>
+              <li>Security</li>
+              <li>Access control</li>
+              <li>Performance</li>
+              <li>Caching</li>
+              <li>Observability</li>
+              <li>Failure handling</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Engineer production-quality RAG systems beyond basic vector search.</li>
+              <li>PART C  AI ENGINEERING PRODUCTION & ADVANCED SYSTEMS</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 24  ADVANCED AI AGENT ENGINEERING + MCP + A2A</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>AI Agent Fundamentals</li>
+              <li>What is an AI Agent?</li>
+              <li>AI Agent vs chatbot</li>
+              <li>Agent loop</li>
+              <li>Model + tools + state + memory</li>
+              <li>Environment</li>
+              <li>Planning</li>
+              <li>Decision-making</li>
+              <li>Execution</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Agentic AI</div>
+            <ul class="bullet-list">
+              <li>What is Agentic AI?</li>
+              <li>Autonomous task execution</li>
+              <li>Goal-driven workflows</li>
+              <li>Planning + execution</li>
+              <li>Tool usage</li>
+              <li>Feedback loops</li>
+              <li>Human-in-the-loop</li>
+              <li>Degree of autonomy</li>
+              <li>Controlled vs autonomous agents</li>
+              <li>AI Automation</li>
+              <li>AI automation vs AI agent</li>
+              <li>Workflow automation</li>
+              <li>Event-driven automation</li>
+              <li>API-based automation</li>
+              <li>Rule + AI hybrid workflows</li>
+              <li>n8n</li>
+              <li>AI-powered business workflows</li>
+              <li>Agent-enabled automation</li>
+              <li>Agent Architecture</li>
+              <li>Agent loop</li>
+              <li>State</li>
+              <li>Memory</li>
+              <li>Tools</li>
+              <li>Environment</li>
+              <li>Planner</li>
+              <li>Executor</li>
+              <li>Evaluator</li>
+              <li>LangGraph</li>
+              <li>Graph concepts</li>
+              <li>Nodes</li>
+              <li>Edges</li>
+              <li>State</li>
+              <li>Conditional routing</li>
+              <li>State machines</li>
+              <li>Checkpoints</li>
+              <li>Persistent state</li>
+              <li>Agent Orchestration</li>
+              <li>Planner / executor</li>
+              <li>Router</li>
+              <li>Tool orchestration</li>
+              <li>Parallel execution</li>
+              <li>Conditional execution</li>
+              <li>Reflection</li>
+              <li>Evaluator agents</li>
+              <li>Specialized agents</li>
+              <li>Agent Memory</li>
+              <li>Short-term memory</li>
+              <li>Persistent state</li>
+              <li>Working memory</li>
+              <li>Long-term memory concepts</li>
+              <li>Session state</li>
+              <li>Conversation state</li>
+              <li>Agent Reliability</li>
+              <li>Retries</li>
+              <li>Fallbacks</li>
+              <li>Checkpointing</li>
+              <li>Recovery</li>
+              <li>Human approval</li>
+              <li>Failure handling</li>
+              <li>Stop conditions</li>
+              <li>MCP  Model Context Protocol</li>
+              <li>MCP architecture</li>
+              <li>MCP client</li>
+              <li>MCP server</li>
+              <li>Tools</li>
+              <li>Resources</li>
+              <li>Prompts</li>
+              <li>Context integration</li>
+              <li>Authentication / authorization concepts</li>
+              <li>Secure tool execution</li>
+              <li>MCP-based applications</li>
+              <li>Agent-to-Agent Interoperability</li>
+              <li>Agent interoperability concepts</li>
+              <li>Agent discovery</li>
+              <li>Agent cards</li>
+              <li>Task communication</li>
+              <li>A2A awareness</li>
+              <li>MCP vs A2A</li>
+              <li>Multi-agent boundaries</li>
+              <li>Agent Security</li>
+              <li>Tool permissions</li>
+              <li>Prompt injection</li>
+              <li>Unauthorized actions</li>
+              <li>Data leakage</li>
+              <li>Output validation</li>
+              <li>Secure agent execution</li>
+              <li>Agent Evaluation</li>
+              <li>Task success</li>
+              <li>Tool selection</li>
+              <li>Tool-call correctness</li>
+              <li>Workflow quality</li>
+              <li>Failure analysis</li>
+              <li>Reliability</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Build controlled agents that can reason, use tools, maintain state, execute workflows and recover from failures.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 25  AI APPLICATION ENGINEERING</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>AI Application Architecture</li>
+              <li>AI application architecture</li>
+              <li>Frontend / backend separation</li>
+              <li>AI backend architecture</li>
+              <li>Modular AI application architecture</li>
+              <li>API Engineering</li>
+              <li>FastAPI</li>
+              <li>REST APIs</li>
+              <li>Request validation</li>
+              <li>Response validation</li>
+              <li>Authentication concepts</li>
+              <li>Error handling</li>
+              <li>Async APIs</li>
+              <li>Background tasks</li>
+              <li>Streaming responses</li>
+              <li>AI Services</li>
+              <li>LLM services</li>
+              <li>RAG services</li>
+              <li>Agent services</li>
+              <li>Tool services</li>
+              <li>Data & State</li>
+              <li>PostgreSQL</li>
+              <li>MongoDB</li>
+              <li>Vector databases</li>
+              <li>Object storage</li>
+              <li>Application state</li>
+              <li>Session management</li>
+              <li>Application Operations</li>
+              <li>AI service orchestration</li>
+              <li>Configuration</li>
+              <li>Secrets management</li>
+              <li>Framework Positioning</li>
+              <li>Flask  common ML deployment foundation</li>
+              <li>FastAPI  AI application/API engineering</li>
+              <li>Streamlit  rapid AI application interfaces</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Build complete AI applications around models, RAG pipelines and agents.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 26  MLOPS / LLMOPS + AWS</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>Docker & Packaging</li>
+              <li>Docker</li>
+              <li>Dockerfile</li>
+              <li>Images</li>
+              <li>Containers</li>
+              <li>Environment configuration</li>
+              <li>Dependency management</li>
+              <li>MLflow</li>
+              <li>Experiment tracking</li>
+              <li>Parameters</li>
+              <li>Metrics</li>
+              <li>Artifacts</li>
+              <li>Model tracking</li>
+              <li>Model registry</li>
+              <li>CI/CD</li>
+              <li>GitHub Actions</li>
+              <li>Automated testing</li>
+              <li>Build pipelines</li>
+              <li>Deployment pipelines</li>
+              <li>Environment separation</li>
+              <li>LLMOps</li>
+              <li>Prompt versioning</li>
+              <li>Model versioning</li>
+              <li>Dataset versioning</li>
+              <li>Evaluation datasets</li>
+              <li>Evaluation pipelines</li>
+              <li>LLM tracing</li>
+              <li>Cost tracking</li>
+              <li>Model/provider switching</li>
+              <li>AWS</li>
+              <li>S3</li>
+              <li>EC2</li>
+              <li>IAM awareness</li>
+              <li>CloudWatch</li>
+              <li>AI application deployment</li>
+              <li>Model/artifact storage</li>
+              <li>Compute selection</li>
+              <li>GPU infrastructure awareness</li>
+              <li>SageMaker awareness</li>
+              <li>Modern AI Serving</li>
+              <li>Local vs cloud inference</li>
+              <li>Model serving</li>
+              <li>LLM serving</li>
+              <li>vLLM</li>
+              <li>Ollama</li>
+              <li>Inference optimization</li>
+              <li>Batching</li>
+              <li>Continuous batching</li>
+              <li>Caching</li>
+              <li>Quantization</li>
+              <li>KV-cache concepts</li>
+              <li>Efficient serving</li>
+              <li>Latency / throughput considerations</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Package, track, test, deploy, serve and operate AI systems across development and production environments.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 27  AI EVALUATION, SECURITY & OBSERVABILITY</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>Traditional ML Evaluation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Classification metrics</div>
+            <ul class="bullet-list">
+              <li>Regression metrics</li>
+              <li>Cross-validation</li>
+              <li>Error analysis</li>
+              <li>LLM Evaluation</li>
+              <li>Response quality</li>
+              <li>Relevance</li>
+              <li>Faithfulness</li>
+              <li>Groundedness</li>
+              <li>Hallucination analysis</li>
+              <li>Structured-output validation</li>
+              <li>RAG Evaluation</li>
+              <li>Retrieval quality</li>
+              <li>Context relevance</li>
+              <li>Answer relevance</li>
+              <li>Groundedness</li>
+              <li>Faithfulness</li>
+              <li>Retrieval failure analysis</li>
+              <li>Agent Evaluation</li>
+              <li>Task completion</li>
+              <li>Tool selection</li>
+              <li>Tool-call correctness</li>
+              <li>Workflow quality</li>
+              <li>Failure analysis</li>
+              <li>Human evaluation</li>
+              <li>Evaluation Engineering</li>
+              <li>Evaluation datasets</li>
+              <li>Regression testing</li>
+              <li>Quality gates</li>
+              <li>Evaluation-driven development</li>
+              <li>Production evaluation awareness</li>
+              <li>AI Security</li>
+              <li>API-key security</li>
+              <li>Secrets</li>
+              <li>Prompt injection</li>
+              <li>Jailbreak awareness</li>
+              <li>Indirect prompt injection</li>
+              <li>Data leakage</li>
+              <li>Sensitive-data exposure</li>
+              <li>Tool security</li>
+              <li>Access control</li>
+              <li>RAG authorization</li>
+              <li>Model abuse</li>
+              <li>Agent action boundaries</li>
+              <li>Secure AI application design</li>
+              <li>Guardrails</li>
+              <li>Observability</li>
+              <li>Logs</li>
+              <li>Metrics</li>
+              <li>Traces</li>
+              <li>Request IDs</li>
+              <li>Latency</li>
+              <li>Token usage</li>
+              <li>Cost</li>
+              <li>Retrieval diagnostics</li>
+              <li>Agent traces</li>
+              <li>Model monitoring</li>
+              <li>OpenTelemetry</li>
+              <li>Trace</li>
+              <li>Span</li>
+              <li>Distributed tracing</li>
+              <li>AI/LLM tracing</li>
+              <li>Observability architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Make AI systems measurable, testable, secure, debuggable and production-observable.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 28  AI SYSTEM DESIGN & ARCHITECTURE</div>
+            <ul class="bullet-list">
+              <li>Duration: 1 Week</li>
+              <li>Requirements</li>
+              <li>AI system requirements</li>
+              <li>Functional requirements</li>
+              <li>Non-functional requirements</li>
+              <li>Architecture</li>
+              <li>AI architecture patterns</li>
+              <li>ML system architecture</li>
+              <li>LLM application architecture</li>
+              <li>RAG architecture</li>
+              <li>Agent architecture</li>
+              <li>AI API architecture</li>
+              <li>Technology Decisions</li>
+              <li>Batch vs real-time</li>
+              <li>Model selection</li>
+              <li>Hosted vs open-source models</li>
+              <li>RAG vs fine-tuning</li>
+              <li>SQL vs NoSQL</li>
+              <li>Vector database selection</li>
+              <li>Cloud vs local</li>
+              <li>Production Design</li>
+              <li>Scalability</li>
+              <li>Reliability</li>
+              <li>Availability</li>
+              <li>Performance</li>
+              <li>Latency</li>
+              <li>Cost</li>
+              <li>Security</li>
+              <li>Maintainability</li>
+              <li>Architecture trade-offs</li>
+              <li>AI system design documentation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Outcome</div>
+            <ul class="bullet-list">
+              <li>Design complete AI systems and justify technical choices across models, data, APIs, infrastructure, security, cost and scale.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 29  MODERN AI TECHNOLOGIES & SPECIALIZED AI</div>
+            <ul class="bullet-list">
+              <li>Duration: 1 Week</li>
+              <li>Modern AI Concepts</li>
+              <li>Reasoning models</li>
+              <li>Multimodal AI</li>
+              <li>Vision-language models</li>
+              <li>Audio AI awareness</li>
+              <li>Speech AI awareness</li>
+              <li>Video AI awareness</li>
+              <li>Computer-use agents</li>
+              <li>Tool-using models</li>
+              <li>Structured generation</li>
+              <li>Small language models</li>
+              <li>Local / edge inference</li>
+              <li>Efficient inference</li>
+              <li>Model routing</li>
+              <li>Synthetic data</li>
+              <li>Self-supervised learning</li>
+              <li>Representation learning</li>
+              <li>Modern AI interoperability</li>
+              <li>Reinforcement Learning  Foundation</li>
+              <li>Reinforcement Learning fundamentals</li>
+              <li>Agent</li>
+              <li>Environment</li>
+              <li>State</li>
+              <li>Action</li>
+              <li>Reward</li>
+              <li>Policy</li>
+              <li>Value</li>
+              <li>Exploration vs exploitation</li>
+              <li>Markov Decision Process awareness</li>
+              <li>Model-free vs model-based</li>
+              <li>Q-learning</li>
+              <li>Deep Q-Learning</li>
+              <li>Experience replay</li>
+              <li>Target networks</li>
+              <li>RL environments</li>
+              <li>Applications of RL</li>
+              <li>RL in modern AI</li>
+              <li>RL for reasoning / alignment  conceptual awareness</li>
+              <li>Generative Models  Foundation</li>
+              <li>Autoencoders</li>
+              <li>Variational Autoencoders awareness</li>
+              <li>GAN fundamentals</li>
+              <li>Generator</li>
+              <li>Discriminator</li>
+              <li>GAN training</li>
+              <li>Conditional GAN concepts</li>
+              <li>Applications of GANs</li>
+              <li>Diffusion-model awareness</li>
+              <li>Modern generative-model landscape</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 03: PART D  OPTIONAL / ELECTIVE SPECIALIZATIONS</h2>
+          <p>Purpose: Allow candidates to specialize without duplicating the AI Engineering core.</p>
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">ELECTIVE 01  DSA FOR AI ENGINEERS</div>
+            <ul class="bullet-list">
+              <li>Duration: 12 Weeks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Complexity</li>
+              <li>Arrays</li>
+              <li>Strings</li>
+              <li>Linked Lists</li>
+              <li>Stacks</li>
+              <li>Queues</li>
+              <li>Hashing</li>
+              <li>Recursion</li>
+              <li>Trees</li>
+              <li>Graph basics</li>
+              <li>Searching</li>
+              <li>Sorting</li>
+              <li>Problem-solving patterns</li>
+              <li>DSA for AI/software engineering</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">ELECTIVE 02  ADVANCED COMPUTER VISION</div>
+            <ul class="bullet-list">
+              <li>Duration: 12 Weeks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Advanced CNN architectures</li>
+              <li>Advanced transfer learning</li>
+              <li>YOLO deeper</li>
+              <li>Object detection optimization</li>
+              <li>Segmentation</li>
+              <li>Advanced CV pipelines</li>
+              <li>CV inference services</li>
+              <li>Batch image processing</li>
+              <li>CV APIs</li>
+              <li>Edge inference awareness</li>
+              <li>Production CV architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">ELECTIVE 03  ADVANCED NLP & DOMAIN LANGUAGE AI</div>
+            <ul class="bullet-list">
+              <li>Duration: 12 Weeks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Advanced Transformers</li>
+              <li>Hugging Face deeper</li>
+              <li>Fine-tuning NLP models</li>
+              <li>Advanced embeddings</li>
+              <li>Semantic search</li>
+              <li>Information extraction</li>
+              <li>Advanced NLP evaluation</li>
+              <li>Domain-specific NLP</li>
+              <li>NLP deployment</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">ELECTIVE 04  FINE-TUNING & OPEN-SOURCE LLM ENGINEERING</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>Dataset & Model Preparation</li>
+              <li>Hugging Face ecosystem</li>
+              <li>Dataset preparation</li>
+              <li>Instruction datasets</li>
+              <li>Fine-tuning workflow</li>
+              <li>Efficient Fine-Tuning</li>
+              <li>PEFT</li>
+              <li>LoRA</li>
+              <li>QLoRA</li>
+              <li>Quantization</li>
+              <li>Evaluation & Serving</li>
+              <li>Model evaluation</li>
+              <li>Local LLM deployment</li>
+              <li>Ollama</li>
+              <li>vLLM</li>
+              <li>Model serving</li>
+              <li>RAG vs fine-tuning</li>
+              <li>Advanced Awareness</li>
+              <li>Model merging</li>
+              <li>Distillation</li>
+              <li>Preference optimization</li>
+              <li>Alignment concepts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">ELECTIVE 05  ADVANCED MLOPS / LLMOPS & AI INFERENCE</div>
+            <ul class="bullet-list">
+              <li>Duration: 12 Weeks</li>
+              <li>Advanced MLOps / LLMOps</li>
+              <li>Advanced MLflow</li>
+              <li>Model registry workflows</li>
+              <li>Advanced CI/CD</li>
+              <li>Evaluation pipelines</li>
+              <li>Prompt management</li>
+              <li>Model management</li>
+              <li>Dataset management</li>
+              <li>Feature-store awareness</li>
+              <li>Model monitoring</li>
+              <li>LLM tracing</li>
+              <li>Cost monitoring</li>
+              <li>AI release management</li>
+              <li>Production incident handling</li>
+              <li>Advanced AI Inference</li>
+              <li>vLLM</li>
+              <li>Ollama</li>
+              <li>Model-serving architecture</li>
+              <li>OpenAI-compatible inference APIs</li>
+              <li>Structured outputs</li>
+              <li>Tool calling</li>
+              <li>Batching</li>
+              <li>Continuous batching</li>
+              <li>KV cache</li>
+              <li>Prefix caching</li>
+              <li>Quantization</li>
+              <li>Speculative decoding awareness</li>
+              <li>Model routing</li>
+              <li>GPU utilization</li>
+              <li>Latency optimization</li>
+              <li>Throughput optimization</li>
+              <li>Production inference architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">ELECTIVE 06  ADVANCED AI SYSTEM DESIGN & SCALE</div>
+            <ul class="bullet-list">
+              <li>Duration: 12 Weeks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Large-scale AI architecture</li>
+              <li>Distributed AI services</li>
+              <li>Event-driven AI</li>
+              <li>Queues</li>
+              <li>Caching</li>
+              <li>High-throughput inference</li>
+              <li>Large-scale RAG</li>
+              <li>Multi-agent architectures</li>
+              <li>Distributed inference awareness</li>
+              <li>Multi-region architecture</li>
+              <li>Reliability patterns</li>
+              <li>AI infrastructure trade-offs</li>
+              <li>Distributed training awareness</li>
+              <li>AI compute / GPU architecture awareness</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">ELECTIVE 07  ADVANCED AI AGENTS & MULTI-AGENT SYSTEMS</div>
+            <ul class="bullet-list">
+              <li>Duration: 12 Weeks</li>
+              <li>Advanced Agent Architecture</li>
+              <li>Advanced LangGraph</li>
+              <li>Planner / executor architectures</li>
+              <li>Multi-agent orchestration</li>
+              <li>Agent specialization</li>
+              <li>Agent delegation</li>
+              <li>Persistent memory</li>
+              <li>Long-running agents</li>
+              <li>Enterprise Agent Systems</li>
+              <li>Human-in-the-loop systems</li>
+              <li>Agent evaluation</li>
+              <li>Agent security</li>
+              <li>MCP-based tool ecosystems</li>
+              <li>A2A-based interoperability</li>
+              <li>Agent lifecycle management</li>
+              <li>Enterprise agent architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">ELECTIVE 08  ADVANCED MULTIMODAL AI</div>
+            <ul class="bullet-list">
+              <li>Duration: 12 Weeks</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Vision-language models</li>
+              <li>Image understanding</li>
+              <li>Image generation</li>
+              <li>Speech-to-text</li>
+              <li>Text-to-speech</li>
+              <li>Audio understanding</li>
+              <li>Video understanding</li>
+              <li>Multimodal embeddings</li>
+              <li>Multimodal RAG</li>
+              <li>Multimodal agents</li>
+              <li>Vision-language inference</li>
+              <li>Multimodal application architecture</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">ELECTIVE 09  REINFORCEMENT LEARNING & DEEP RL</div>
+            <ul class="bullet-list">
+              <li>Duration: 2 Weeks</li>
+              <li>RL Foundations</li>
+              <li>MDPs</li>
+              <li>Bellman equations</li>
+              <li>Value functions</li>
+              <li>Policy functions</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Classical & Deep RL</div>
+            <ul class="bullet-list">
+              <li>Q-learning</li>
+              <li>SARSA</li>
+              <li>Deep Q-Networks</li>
+              <li>Experience replay</li>
+              <li>Target networks</li>
+              <li>Exploration strategies</li>
+              <li>Advanced Awareness</li>
+              <li>Model-free vs model-based RL</li>
+              <li>Policy-gradient concepts</li>
+              <li>Actor-Critic awareness</li>
+              <li>RL environments</li>
+              <li>RL applications</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">ELECTIVE 10  ADVANCED GENERATIVE MODELS & DIFFUSION</div>
+            <ul class="bullet-list">
+              <li>Duration: 12 Weeks</li>
+              <li>Generative Models</li>
+              <li>Autoencoders</li>
+              <li>Variational Autoencoders</li>
+              <li>GAN architecture</li>
+              <li>Generator</li>
+              <li>Discriminator</li>
+              <li>GAN training</li>
+              <li>DCGAN</li>
+              <li>Conditional GAN</li>
+              <li>Style-based GAN concepts</li>
+              <li>Image generation</li>
+              <li>GAN evaluation</li>
+              <li>Modern Generative Models</li>
+              <li>Diffusion models</li>
+              <li>Modern image-generation ecosystem</li>
+              <li>Generative-model architecture awareness</li>
+              <li>Applications of generative models</li>
+              <li>CORE TECHNOLOGY STACK</li>
+              <li>Programming</li>
+              <li>Python</li>
+              <li>OOP</li>
+              <li>Async Python</li>
+              <li>Testing</li>
+              <li>Data</li>
+              <li>SQL</li>
+              <li>PostgreSQL</li>
+              <li>MongoDB</li>
+              <li>NumPy</li>
+              <li>Pandas</li>
+              <li>Machine Learning</li>
+              <li>scikit-learn</li>
+              <li>XGBoost</li>
+              <li>Deep Learning</li>
+              <li>PyTorch</li>
+              <li>TensorFlow / Keras awareness</li>
+              <li>Computer Vision</li>
+              <li>OpenCV</li>
+              <li>YOLO</li>
+              <li>SSD</li>
+              <li>NLP</li>
+              <li>Hugging Face Transformers</li>
+              <li>LLM / GenAI</li>
+              <li>LLM APIs</li>
+              <li>Hugging Face</li>
+              <li>Ollama</li>
+              <li>vLLM</li>
+              <li>RAG</li>
+              <li>FAISS</li>
+              <li>Chroma</li>
+              <li>Qdrant</li>
+              <li>pgvector</li>
+              <li>Pinecone / Weaviate awareness</li>
+              <li>AI Frameworks</li>
+              <li>LangChain</li>
+              <li>LangGraph</li>
+              <li>LlamaIndex awareness</li>
+              <li>Agents</li>
+              <li>Tool Calling</li>
+              <li>MCP</li>
+              <li>A2A awareness</li>
+              <li>Multi-agent architecture</li>
+              <li>Application Engineering</li>
+              <li>Flask</li>
+              <li>FastAPI</li>
+              <li>Streamlit</li>
+              <li>REST APIs</li>
+              <li>Production</li>
+              <li>Docker</li>
+              <li>GitHub Actions</li>
+              <li>MLflow</li>
+              <li>AWS</li>
+              <li>S3</li>
+              <li>EC2</li>
+              <li>CloudWatch</li>
+              <li>Observability</li>
+              <li>OpenTelemetry</li>
+              <li>Logs</li>
+              <li>Metrics</li>
+              <li>Traces</li>
+              <li>TECHNOLOGY DEPTH MODEL</li>
+              <li>DEEP PRACTICAL KNOWLEDGE</li>
+              <li>Python</li>
+              <li>Advanced Python</li>
+              <li>SQL</li>
+              <li>MongoDB</li>
+              <li>Machine Learning</li>
+              <li>Deep Learning</li>
+              <li>NLP fundamentals</li>
+              <li>Computer Vision fundamentals</li>
+              <li>LLM Engineering</li>
+              <li>RAG</li>
+              <li>Agents</li>
+              <li>MCP</li>
+              <li>FastAPI</li>
+              <li>Docker</li>
+              <li>MLflow</li>
+              <li>AWS fundamentals</li>
+              <li>AI Evaluation</li>
+              <li>AI Security</li>
+              <li>AI Observability</li>
+              <li>AI System Design</li>
+              <li>PRACTICAL + AWARENESS</li>
+              <li>Hugging Face</li>
+              <li>vLLM</li>
+              <li>Ollama</li>
+              <li>Vector DB alternatives</li>
+              <li>LlamaIndex</li>
+              <li>A2A</li>
+              <li>SageMaker</li>
+              <li>Kafka</li>
+              <li>Spark</li>
+              <li>Kubernetes</li>
+              <li>Distributed inference</li>
+              <li>Multimodal systems</li>
+              <li>SPECIALIZATION / ELECTIVE</li>
+              <li>Advanced CV</li>
+              <li>Advanced NLP</li>
+              <li>Fine-tuning</li>
+              <li>Advanced MLOps / LLMOps</li>
+              <li>Deep RL</li>
+              <li>Advanced GANs</li>
+              <li>Distributed training</li>
+              <li>Advanced AI System Design</li>
+              <li>Advanced Multimodal AI</li>
+              <li>Advanced Agent Engineering</li>
+              <li>Modern AI Inference</li>
+              <li>EXPLICITLY NOT CORE</li>
+              <li>Power BI</li>
+              <li>Tableau</li>
+              <li>Business Intelligence</li>
+              <li>Dedicated Excel analytics track</li>
+              <li>Full Data Engineering specialization</li>
+              <li>Deep Kubernetes administration</li>
+              <li>Training foundation models from scratch</li>
+              <li>Large-scale distributed training as a mandatory subject</li>
+              <li>Advanced GAN research</li>
+              <li>Advanced RL research</li>
+              <li>Learning every cloud provider in depth</li>
+              <li>Learning every vector database in depth</li>
+              <li>Learning every AI framework in depth</li>
+              <li>Excessive framework duplication</li>
+              <li>FINAL COURSE STRUCTURE</li>
+              <li>AI ENGINEER  1113 MONTH MASTER PROGRAM</li>
+              <li>PART A  COMMON FOUNDATION</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 01  AI Foundation</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 02  Python</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 03  Mathematics for Data Science & AI</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 04  SQL</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 05  MongoDB / NoSQL</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 06  Data Modelling</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 07  Git & GitHub</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 08  Machine Learning</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 09  Deep Learning</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 10  Natural Language Processing</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 11  Computer Vision</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 12  Generative AI Foundation</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 13  ML Model Deployment</div>
+            <ul class="bullet-list">
+              <li>PART B  AI ENGINEERING ADVANCED CORE</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 14  Advanced Python / Python for AI Engineers</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 15  Advanced Mathematics & Optimization for AI</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 16  Advanced SQL for AI / ML Engineering</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 17  AI Data Layer: Databases + Vector Data</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 18  AI Data Architecture & AI Data Pipelines</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 19  Advanced Machine Learning / ML Engineering</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 20  Deep Learning Engineering & Production</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 21  NLP Engineering & Transformers</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 22  Advanced LLM Engineering</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 23  Advanced RAG Engineering</div>
+            <ul class="bullet-list">
+              <li>PART C  AI ENGINEERING PRODUCTION & ADVANCED SYSTEMS</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 24  Advanced AI Agent Engineering + MCP + A2A</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 25  AI Application Engineering</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 26  MLOps / LLMOps + AWS</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 27  AI Evaluation, Security & Observability</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 28  AI System Design & Architecture</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 29  Modern AI Technologies & Specialized AI</div>
+            <ul class="bullet-list">
+              <li>PART D  OPTIONAL / ELECTIVE SPECIALIZATIONS</li>
+              <li>Elective 01  DSA for AI Engineers</li>
+              <li>Elective 02  Advanced Computer Vision</li>
+              <li>Elective 03  Advanced NLP & Domain Language AI</li>
+              <li>Elective 04  Fine-Tuning & Open-Source LLM Engineering</li>
+              <li>Elective 05  Advanced MLOps / LLMOps & AI Inference</li>
+              <li>Elective 06  Advanced AI System Design & Scale</li>
+              <li>Elective 07  Advanced AI Agents & Multi-Agent Systems</li>
+              <li>Elective 08  Advanced Multimodal AI</li>
+              <li>Elective 09  Reinforcement Learning & Deep RL</li>
+              <li>Elective 10  Advanced Generative Models & Diffusion</li>
+              <li>FINAL AI ENGINEERING LEARNING PATH</li>
+              <li>PYTHON</li>
+              <li>ADVANCED PYTHON</li>
+              <li>MATHEMATICS</li>
+              <li>ADVANCED MATHEMATICS & OPTIMIZATION</li>
+              <li>SQL / DATABASES / DATA MODELLING</li>
+              <li>ADVANCED SQL</li>
+              <li>AI DATA LAYER</li>
+              <li>AI DATA ARCHITECTURE & PIPELINES</li>
+              <li>MACHINE LEARNING</li>
+              <li>ADVANCED ML / ML ENGINEERING</li>
+              <li>DEEP LEARNING</li>
+              <li>DEEP LEARNING ENGINEERING</li>
+              <li>NLP / TRANSFORMERS</li>
+              <li>GENERATIVE AI</li>
+              <li>PROMPT ENGINEERING</li>
+              <li>CONTEXT ENGINEERING</li>
+              <li>ADVANCED LLM ENGINEERING</li>
+              <li>RAG</li>
+              <li>ADVANCED RAG ENGINEERING</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">AI AGENTS</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">AGENTIC AI</div>
+            <ul class="bullet-list">
+              <li>HARNESS ENGINEERING</li>
+              <li>LOOP ENGINEERING</li>
+              <li>GRAPH ENGINEERING</li>
+              <li>MCP + A2A</li>
+              <li>AI APPLICATION ENGINEERING</li>
+              <li>FASTAPI</li>
+              <li>MLOPS / LLMOPS</li>
+              <li>AWS + DOCKER + MLFLOW</li>
+              <li>EVALUATION</li>
+              <li>SECURITY</li>
+              <li>OBSERVABILITY</li>
+              <li>AI SYSTEM DESIGN</li>
+              <li>MODERN AI TECHNOLOGIES</li>
+              <li>SPECIALIZED ELECTIVES</li>
+              <li>FINAL AI ENGINEER CAPABILITY</li>
+              <li>UNDERSTAND AI</li>
+              <li>BUILD AI</li>
+              <li>ENGINEER AI</li>
+              <li>BUILD DATA FLOWS</li>
+              <li>ENGINEER ML / DL SYSTEMS</li>
+              <li>ENGINEER LLMs</li>
+              <li>ENGINEER RAG</li>
+              <li>BUILD AGENTS</li>
+              <li>ENGINEER CONTEXT</li>
+              <li>ENGINEER HARNESSES</li>
+              <li>ENGINEER LOOPS</li>
+              <li>ENGINEER GRAPHS</li>
+              <li>INTEGRATE AI INTO APPLICATIONS</li>
+              <li>AUTOMATE WITH AI</li>
+              <li>EVALUATE AI</li>
+              <li>SECURE AI</li>
+              <li>OBSERVE AI</li>
+              <li>DEPLOY AI</li>
+              <li>OPERATE AI</li>
+              <li>DESIGN AI SYSTEMS</li>
+              <li>SPECIALIZE</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-note">
+      <p><strong>NeoNex MindX</strong> &bull; Complete Master Syllabus &bull; www.neonexmindx.com &bull; Contact: +91 84318 03839 / neonexminds@gmail.com</p>
+      <p style="margin-top: 4px;">&copy; 2026 NeoNex MindX Edutech Private Limited. All syllabus contents are proprietary and structured for professional competency.</p>
+    </div>
+  </div>
+</body>
+</html>

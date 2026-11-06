@@ -1,0 +1,4365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Analytics Course - Complete Master Syllabus | NeoNex MindX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #102a43;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --text: #1f2937;
+      --text-muted: #4b5563;
+      --border: #e2e8f0;
+      --bg-alt: #f8fafc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #f1f5f9;
+      padding: 24px 16px;
+    }
+    .print-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+    .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .brand span { color: var(--accent); }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      color: var(--primary);
+      margin: 12px 0 6px 0;
+      line-height: 1.25;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+    .meta-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+    }
+    .meta-item span {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .meta-item strong {
+      font-size: 16px;
+      color: var(--primary);
+    }
+    .btn-action-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-alt);
+    }
+    .module-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      page-break-inside: avoid;
+    }
+    .module-header {
+      background: var(--bg-alt);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .module-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      color: var(--primary);
+    }
+    .module-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .module-body {
+      padding: 20px;
+    }
+    .topic-group {
+      margin-bottom: 16px;
+    }
+    .topic-group:last-child {
+      margin-bottom: 0;
+    }
+    .topic-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .bullet-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .bullet-list li {
+      margin-bottom: 4px;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 36px;
+    }
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .print-container {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        max-width: 100%;
+      }
+      .btn-action-bar {
+        display: none !important;
+      }
+      .module-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #cbd5e1;
+      }
+    }
+    @media (max-width: 600px) {
+      .print-container { padding: 20px 16px; }
+      .header-bar { flex-direction: column; gap: 12px; }
+      .btn-action-bar { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+<style id="mobile-topbar-cleanup">
+/* HIDE LEGACY TOPBAR ON ALL MOBILE & TABLET SCREENS TO PREVENT BLACK STRIP / TRUNCATION */
+@media (max-width: 1040px) {
+  .topbar,
+  .topbar-inner,
+  .topbar-links,
+  div[class*="topbar"] {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="print-container">
+    <div class="header-bar">
+      <div>
+        <a href="/" class="brand">NeoNeX<span>MindX</span></a>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">School of Artificial Intelligence, Data & Engineering</div>
+      </div>
+      <span class="badge">Official Master Syllabus</span>
+    </div>
+
+    <h1>Business Analytics Course</h1>
+    <p class="subtitle">End-to-end curriculum encompassing Business Intelligence, KPIs, SQL, Python, Power BI, Tableau, Advanced Excel, Decision Frameworks & GenAI.</p>
+
+    <div class="meta-box">
+      <div class="meta-item">
+        <span>Duration</span>
+        <strong>7–9 months</strong>
+      </div>
+      <div class="meta-item">
+        <span>Regular Fee</span>
+        <strong>₹55,000</strong>
+      </div>
+      <div class="meta-item">
+        <span>Learning Format</span>
+        <strong>Live Mentor-Led + Projects</strong>
+      </div>
+      <div class="meta-item">
+        <span>Certification</span>
+        <strong>Industry Accredited + Internship</strong>
+      </div>
+    </div>
+
+    <div class="btn-action-bar">
+      <button onclick="window.print()" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Save / Download as PDF (Print)
+      </button>
+      <a href="tel:+918431803839" class="btn btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Speak with Academic Advisor (084318 03839)
+      </a>
+    </div>
+
+    <div class="syllabus-modules">
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 01: PYTHON FOR DATA ANALYTICS</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">1. Introduction to Python & IDE</div>
+            <ul class="bullet-list">
+              <li>1.1 What is Python?
+ 1.2 Features of Python
+ 1.3 Installing Python
+ 1.4 IDE Overview (IDLE / PyCharm / VS Code / Jupyter)
+ 1.5 Python Execution Models (Script mode, Interactive mode)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2. Components of Python</div>
+            <ul class="bullet-list">
+              <li>2.1 Keywords
+ 2.2 Identifiers
+ 2.3 Variables
+ 2.4 Literals
+ 2.5 Comments
+ 2.6 Indentation Rules</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3. Subscription, Mutability & Fundamentals</div>
+            <ul class="bullet-list">
+              <li>3.1 Indexing
+ 3.2 Slicing
+ 3.3 Mutability vs Immutability
+ 3.4 Data Access Patterns
+ 3.5 Fundamental Datatypes Overview</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4. Operators in Python</div>
+            <ul class="bullet-list">
+              <li>4.1 Arithmetic Operators
+ 4.2 Relational Operators
+ 4.3 Logical Operators
+ 4.4 Assignment Operators
+ 4.5 Bitwise Operators
+ 4.6 Identity Operators
+ 4.7 Membership Operators</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5. Control Flow Statements</div>
+            <ul class="bullet-list">
+              <li>5.1 if, elif, else
+ 5.2 Nested Conditions
+ 5.3 Loops  for, while
+ 5.4 Loop Control  break, continue, pass
+ 5.5 Range function
+ 5.6 Loop patterns and examples</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6. Datatypes  Strings</div>
+            <ul class="bullet-list">
+              <li>6.1 String declaration
+ 6.2 String slicing
+ 6.3 String methods
+ 6.4 String formatting
+ 6.5 Escape characters
+ 6.6 String immutability</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7. Lists</div>
+            <ul class="bullet-list">
+              <li>7.1 List creation
+ 7.2 Indexing, Slicing, Step
+ 7.3 List methods
+ 7.4 Mutability
+ 7.5 List Comprehension
+ 7.6 Nested Lists</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8. Tuples, Aliasing, Copying & Deep Copying</div>
+            <ul class="bullet-list">
+              <li>8.1 Tuple properties
+ 8.2 Tuple operations & methods
+ 8.3 Aliasing vs Cloning
+ 8.4 Shallow Copy
+ 8.5 Deep Copy
+ 8.6 Copy module usage</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9. Enumerate, Zip & Dictionary</div>
+            <ul class="bullet-list">
+              <li>9.1 enumerate() usage & patterns
+ 9.2 zip()  combining iterables
+ 9.3 Dictionary creation
+ 9.4 Dictionary methods
+ 9.5 Nested dictionaries
+ 9.6 Iterating over dictionaries</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10. Sets & Frozen Sets</div>
+            <ul class="bullet-list">
+              <li>10.1 Set operations
+ 10.2 Set methods (add, remove, update)
+ 10.3 Mathematical set operations
+ 10.4 Frozen sets
+ 10.5 When to use sets</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11. Exceptional Handling</div>
+            <ul class="bullet-list">
+              <li>11.1 Errors vs Exceptions
+ 11.2 try, except, else, finally
+ 11.3 Raising exceptions
+ 11.4 Multiple except blocks
+ 11.5 Custom exceptions</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12. Functions</div>
+            <ul class="bullet-list">
+              <li>12.1 Function declaration
+ 12.2 Arguments (positional, keyword, default, variable-length)
+ 12.3 Return values
+ 12.4 Lambda functions
+ 12.5 map, filter, reduce
+ 12.6 Recursion
+ 12.7 Documentation (docstrings)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13. File Handling</div>
+            <ul class="bullet-list">
+              <li>13.1 Opening files
+ 13.2 Reading & writing files
+ 13.3 Modes (r, w, a, rb, wb)
+ 13.4 With open (context manager)
+ 13.5 File pointer functions
+ 13.6 Working with csv & json</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14. RegEX</div>
+            <ul class="bullet-list">
+              <li>14.1 Introduction to regular expressions
+ 14.2 re module functions (match, search, findall, split, sub)
+ 14.3 Character classes
+ 14.4 Quantifiers
+ 14.5 Anchors
+ 14.6 Grouping & capturing
+ 14.7 Real-world patterns</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">15. NumPy</div>
+            <ul class="bullet-list">
+              <li>15.1 Ndarray introduction
+ 15.2 Array creation
+ 15.3 Indexing & slicing
+ 15.4 Mathematical operations
+ 15.5 Broadcasting
+ 15.6 Reshaping & flattening
+ 15.7 Aggregation functions
+ 15.8 Random module</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">16. Pandas</div>
+            <ul class="bullet-list">
+              <li>16.1 Series & DataFrame
+ 16.2 Loading data (csv, excel, json)
+ 16.3 DataFrame operations
+ 16.4 Handling missing data
+ 16.5 Filtering, sorting
+ 16.6 Groupby
+ 16.7 Merging, joining, concatenation
+ 16.8 Pivot tables</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">17. EDA (Exploratory Data Analysis)</div>
+            <ul class="bullet-list">
+              <li>17.1 Understanding the dataset
+ 17.2 Statistical summary
+ 17.3 Handling missing values
+ 17.4 Outlier detection
+ 17.5 Feature distributions
+ 17.6 Correlation analysis
+ 17.7 Basic data cleaning pipeline</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">18. Data Visualization with Python (Seaborn & Matplotlib)</div>
+            <ul class="bullet-list">
+              <li>18.1 Introduction to plots
+ 18.2 Line, bar, pie, histograms
+ 18.3 Boxplot, violin plot
+ 18.4 Pairplot, heatmap (seaborn)
+ 18.5 Customizing visuals
+ 18.6 Subplots
+ 18.7 Styling & themes
+ 18.8 Saving figures</li>
+              <li>SQL 
+
+
+
+
+1. Introduction to SQL & RDBMS</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1.1 What is SQL?</div>
+            <ul class="bullet-list">
+              <li>Sql notes</li>
+              <li>1.2 Why SQL? (Advantages & Purpose)
+ 1.3 SQL Structure  RDBMS (Tables, Rows, Columns)
+ 1.4 SQL Process Flow (Query  Processor  Engine  Database)
+ 1.5 Basic Terminology  Data, Database, RDBMS, SQL
+ 1.6 SQL Environment (Editor, Messages, Results, Object Explorer) + screenshots (p.8)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2. SQL Classification</div>
+            <ul class="bullet-list">
+              <li>2.1 Categories of SQL Statements (DML, DDL, DQL, DCL)
+ 2.2 Understanding SQL workflows & usage</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3. Creating & Managing Databases</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.1 CREATE DATABASE Statement
+ 3.2 USE Statement
+ 3.3 DROP DATABASE</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4. Table Creation & Data Types</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.1 CREATE TABLE  syntax & examples
+ 4.2 SQL Data Types</div>
+            <ul class="bullet-list">
+              <li>Numeric types (INT, DECIMAL, FLOAT, MONEY)</li>
+              <li>Character types (CHAR, VARCHAR, TEXT)</li>
+              <li>Date types (DATE, TIME, DATETIME, SMALLDATETIME)</li>
+              <li>Misc types (IMAGE, VARBINARY)
+ 4.3 INSERT INTO  with & without column list
+ 4.4 SELECT queries  basic form
+ 4.5 Assignment-1: Creating EMP table, inserting records (p.18)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5. Installing SQL Server</div>
+            <ul class="bullet-list">
+              <li>5.1 SQL Server 2014 download & installation steps (p.19)
+ 5.2 Installing Management Studio</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6. Filtering & Modifying Data</div>
+            <ul class="bullet-list">
+              <li>6.1 WHERE Clause
+ 6.2 LIKE Clause (%, _)
+ 6.3 TOP Clause
+ 6.4 UPDATE Statement
+ 6.5 DELETE Statement
+ 6.6 TRUNCATE
+ 6.7 ALTER TABLE (ADD, DROP, ALTER Column)
+ 6.8 DROP TABLE</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7. SQL Operators</div>
+            <ul class="bullet-list">
+              <li>7.1 Arithmetic Operators
+ 7.2 Comparison Operators
+ 7.3 Logical Operators (AND, OR, NOT)
+ 7.4 Other Operators (BETWEEN, IN, LIKE, DISTINCT, EXISTS)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8. Assignments  Basic CRUD</div>
+            <ul class="bullet-list">
+              <li>8.1 Assignment-2 (EMP_SAL table creation, Sharma employees, salary increase) (p.33)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9. Database Normalization</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9.1 Why Normalization?
+ 9.2 1NF  Rules
+ 9.3 2NF  Rules
+ 9.4 3NF  Rules</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10. SQL Constraints</div>
+            <ul class="bullet-list">
+              <li>10.1 PRIMARY KEY
+ 10.2 UNIQUE
+ 10.3 NOT NULL
+ 10.4 DEFAULT
+ 10.5 CHECK
+ 10.6 FOREIGN KEY + Referential Integrity
+ 10.7 Assignment-3  EMP & EMP_SAL with constraints (p.47)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11. SQL Clauses</div>
+            <ul class="bullet-list">
+              <li>11.1 BETWEEN
+ 11.2 IN
+ 11.3 LIKE
+ 11.4 COUNT
+ 11.5 DISTINCT
+ 11.6 ORDER BY
+ 11.7 GROUP BY
+ 11.8 HAVING
+ 11.9 Assignment-4  grouping queries (p.51)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12. SQL Joins (Detailed Module)</div>
+            <ul class="bullet-list">
+              <li>12.1 Introduction to Joins
+ 12.2 INNER JOIN
+ 12.3 LEFT JOIN
+ 12.4 RIGHT JOIN
+ 12.5 FULL JOIN
+ 12.6 CROSS JOIN (Cartesian Join)
+ 12.7 SELF JOIN + diagram explanation
+ 12.8 Join Venn diagram visuals (p.58)
+ 12.9 Assignment-5 (p.66)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13. Set Operators</div>
+            <ul class="bullet-list">
+              <li>13.1 UNION
+ 13.2 UNION ALL
+ 13.3 INTERSECT
+ 13.4 EXCEPT</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14. Indexes</div>
+            <ul class="bullet-list">
+              <li>14.1 What Are Indexes?
+ 14.2 Creating Indexes
+ 14.3 Composite Indexes
+ 14.4 Implicit Indexes (auto created for PK/Unique)
+ 14.5 Dropping Indexes</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">15. Views</div>
+            <ul class="bullet-list">
+              <li>15.1 What Are Views?
+ 15.2 Creating Views
+ 15.3 WITH CHECK OPTION
+ 15.4 Updating a View  rules (when allowed / not allowed)
+ 15.5 Dropping Views
+ 15.6 Real-world usage of views
+ 15.7 Assignment-6 (salary formulas, managers in 2019, inventory bill view)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">16. SQL Functions</div>
+            <ul class="bullet-list">
+              <li>16.1 Aggregate Functions (COUNT, SUM, AVG, MIN, MAX)
+ 16.2 Mathematical Functions (SQRT, RAND)
+ 16.3 Ranking Functions</li>
+              <li>RANK</li>
+              <li>DENSE_RANK</li>
+              <li>ROW_NUMBER
+ 16.4 String Functions</li>
+              <li>ASCII, CHAR</li>
+              <li>CHARINDEX</li>
+              <li>LEFT, RIGHT</li>
+              <li>LEN</li>
+              <li>LOWER, UPPER</li>
+              <li>SUBSTRING</li>
+              <li>REPLACE</li>
+              <li>REVERSE</li>
+              <li>STUFF
+ 16.5 Date Functions</li>
+              <li>GETDATE, DATEADD</li>
+              <li>DATEDIFF</li>
+              <li>DATEPART</li>
+              <li>DAY, MONTH, YEAR</li>
+              <li>FORMAT</li>
+              <li>CONVERT
+ 16.6 Assignment-6 (page 87)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">17. User-Defined Functions (UDFs)</div>
+            <ul class="bullet-list">
+              <li>17.1 Scalar Functions
+ 17.2 Table-Valued Functions
+ 17.3 Creating Functions
+ 17.4 Dropping Functions
+ 17.5 Assignment-7  multiple UDF problems (page 90)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">18. Subqueries</div>
+            <ul class="bullet-list">
+              <li>18.1 What Are Subqueries?
+ 18.2 Rules for Subqueries
+ 18.3 Simple Subqueries
+ 18.4 Subqueries in SELECT / INSERT / UPDATE / DELETE
+ 18.5 Correlated Subqueries
+ 18.6 EXISTS Operator
+ 18.7 Assignment-7 (p.99)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">19. Stored Procedures</div>
+            <ul class="bullet-list">
+              <li>19.1 What Are Stored Procedures?
+ 19.2 Creating Procedures
+ 19.3 Executing Procedures
+ 19.4 Parameterized Procedures
+ 19.5 Dynamic SQL inside Stored Procedures
+ 19.6 Insert-based Procedures
+ 19.7 Dropping Procedures
+ 19.8 Assignment-8 (Inventory procedures)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">20. Transactions</div>
+            <ul class="bullet-list">
+              <li>20.1 What Is a Transaction?
+ 20.2 ACID Properties
+ 20.3 COMMIT
+ 20.4 ROLLBACK
+ 20.5 SAVEPOINT
+ 20.6 Transaction behavior in real cases</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">21. Auto-Increment (Identity)</div>
+            <ul class="bullet-list">
+              <li>21.1 Using IDENTITY(START, INCREMENT)
+ 21.2 Identity columns in table creation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">22. Sequences</div>
+            <ul class="bullet-list">
+              <li>22.1 What Are Sequences?
+ 22.2 Creating Sequences
+ 22.3 NEXT VALUE FOR
+ 22.4 Sequence vs Identity
+ 22.5 Using Sequences in INSERT
+ 22.6 Procedures using Sequences
+ 22.7 Assignment-9  autogeneration of alphanumeric ID (p.118)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">23. Triggers</div>
+            <ul class="bullet-list">
+              <li>23.1 What Are Triggers? (special type of stored procedures)
+ 23.2 Trigger Syntax
+ 23.3 INSERT Triggers
+ 23.4 UPDATE Triggers
+ 23.5 DELETE Triggers
+ 23.6 Inventory Stock Update Triggers (Examples 14)
+ 23.7 Rollback logic inside triggers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+POWER BI
+
+1. Introduction to Power BI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 02: POWER BI FOR DATA ANALYSIS & REPORTING</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">1.1 What is Power BI?</div>
+            <ul class="bullet-list">
+              <li>Power BI full notes</li>
+              <li>1.2 Components of Power BI (Power Query, Power Pivot, Power View, Power BI Service)
+ 1.3 Why Power BI? (Speed, User-friendly, Interactivity, Cost, Data Connectivity)
+ 1.4 How Power BI Works? (Desktop vs Service)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2. Power BI vs Tableau</div>
+            <ul class="bullet-list">
+              <li>2.1 Visualization Capabilities Comparison
+ 2.2 Dataset Size Limitations
+ 2.3 Supported Data Sources
+ 2.4 Cost Comparison (Tableau vs Power BI)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3. Installing & Upgrading Power BI</div>
+            <ul class="bullet-list">
+              <li>3.1 Downloading Power BI Desktop (MS Store)
+ 3.2 Monthly Upgrades
+ 3.3 Preview Features (File  Options  Preview Features)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4. Power BI Interface Overview</div>
+            <ul class="bullet-list">
+              <li>4.1 Desktop Interface Layout
+ 4.2 Fields Pane
+ 4.3 Visualizations Pane
+ 4.4 Filters Pane
+ 4.5 Pages & Canvas</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5. Three Core Steps in Power BI</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.1 Get Data
+ 5.2 Choose Visualization
+ 5.3 Select Fields</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6. Basic Charts in Power BI</div>
+            <ul class="bullet-list">
+              <li>6.1 Column / Bar Charts
+ 6.2 Stacked Bar Chart
+ 6.3 Pie Chart
+ 6.4 Donut Chart
+ 6.5 Funnel Chart
+ 6.6 Ribbon Chart
+ 6.7 Include / Exclude Feature
+ 6.8 Export Data from Chart</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7. Map Visualizations</div>
+            <ul class="bullet-list">
+              <li>7.1 Map Visualization (Bubble Map, Shape Map)
+ 7.2 Filled Maps
+ 7.3 Map with Pie Charts
+ 7.4 Map Formatting (Colors, Bubbles, Tooltips, Styles)
+ 7.5 Country-specific Maps (India Map)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8. Tabular Visuals</div>
+            <ul class="bullet-list">
+              <li>8.1 Table Visualization
+ 8.2 Table Formatting (Font, Header Size, Grid, Background)
+ 8.3 Conditional Formatting (Colors, Icons)
+ 8.4 Aggregations (Sum, Avg, Count)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9. Matrix Visual</div>
+            <ul class="bullet-list">
+              <li>9.1 Matrix Overview (Hierarchical Views)
+ 9.2 Conditional Formatting
+ 9.3 Hierarchies (Expand/Collapse)
+ 9.4 Formatting Totals</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10. Time-based Visuals</div>
+            <ul class="bullet-list">
+              <li>10.1 Line Chart
+ 10.2 Auto Hierarchy (Year  Quarter  Month  Day)
+ 10.3 Area Chart
+ 10.4 Stacked Area Chart</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11. Advanced Charts</div>
+            <ul class="bullet-list">
+              <li>11.1 100% Stacked Bar Chart
+ 11.2 Decomposition Tree
+ 11.3 Combo Charts (Line & Clustered Column / Line & Stacked Column)
+ 11.4 Scatter Chart (Only animated default chart)
+ 11.5 Waterfall Chart
+ 11.6 Tree Map
+ 11.7 Gauge Chart</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12. Card Visuals</div>
+            <ul class="bullet-list">
+              <li>12.1 Number Cards
+ 12.2 Text Cards
+ 12.3 Dynamic Cards
+ 12.4 Date Cards
+ 12.5 Multiple Row & Column Cards</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13. Filters</div>
+            <ul class="bullet-list">
+              <li>13.1 Filters on This Visual
+ 13.2 Filters on This Page
+ 13.3 Filters on All Pages
+ 13.4 Drill-down Filtering</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14. Slicers</div>
+            <ul class="bullet-list">
+              <li>14.1 Text Slicers
+ 14.2 Date Slicers
+ 14.3 Numeric Slicers</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">15. Advanced Charts from Marketplace</div>
+            <ul class="bullet-list">
+              <li>15.1 Installing Add-in Visuals (AppSource)
+ 15.2 Animated Bar Chart Race
+ 15.3 Word Cloud
+ 15.4 InfoGraphic Visual
+ 15.5 Play Axis
+ 15.6 Scroller
+ 15.7 Sunburst Chart</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">16. Inserting Objects</div>
+            <ul class="bullet-list">
+              <li>16.1 Pictures
+ 16.2 Shapes
+ 16.3 Text Box
+ 16.4 Buttons
+ 16.5 Action URLs
+ 16.6 Navigation
+ 16.7 Bookmarks
+ 16.8 Drill-through Navigation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">17. Bookmark Actions</div>
+            <ul class="bullet-list">
+              <li>17.1 Creating Bookmarks
+ 17.2 Using Buttons + Bookmark Actions
+ 17.3 Managing Selection & Navigation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">18. Creating Reports</div>
+            <ul class="bullet-list">
+              <li>18.1 Report Structure
+ 18.2 Using multiple visuals in a report
+ 18.3 Page-level design</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">19. Publishing to Power BI Service</div>
+            <ul class="bullet-list">
+              <li>19.1 Creating Power BI Service Account
+ 19.2 Publishing Reports
+ 19.3 Comments, Subscriptions, Sharing Options</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">20. Dashboards in Power BI Service</div>
+            <ul class="bullet-list">
+              <li>20.1 Creating Dashboards (Pin Visuals)
+ 20.2 Live Page Pinning
+ 20.3 Static vs Interactive Dashboards
+ 20.4 Real-time Usage Notes</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">21. Data Refresh in Power BI</div>
+            <ul class="bullet-list">
+              <li>21.1 Manual Refresh (Workspace  Datasets  Refresh)
+ 21.2 Refresh Failures & Resolving Credentials
+ 21.3 Installing & Configuring Gateway
+ 21.4 Scheduled Refresh (Pro vs Premium)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">22. Power Query (ETL)</div>
+            <ul class="bullet-list">
+              <li>22.1 Power Query Overview (ETL Tool)
+ 22.2 Accessing Power Query Editor
+ 22.3 Merge
+ 22.4 Split
+ 22.5 Change Case
+ 22.6 Extract (Left, Right, Substring, Delimiter)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">23. Power Query Functions</div>
+            <ul class="bullet-list">
+              <li>23.1 Text Functions
+ 23.2 Date Functions (Day, Month, Year, Age, etc.)
+ 23.3 Number Functions (Add, Subtract, Multiply, Divide, Percentages, Rounding, Parity)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">24. Power Query Transformations</div>
+            <ul class="bullet-list">
+              <li>24.1 Append Queries
+ 24.2 Merge Queries (Joins)
+ 24.3 Columns From Example (CFE / Flash Fill)
+ 24.4 Conditional Columns (No-code IF ELSE)
+ 24.5 Autofill / Fill Down / Fill Up
+ 24.6 Group By
+ 24.7 Transpose
+ 24.8 Unpivot
+ 24.9 Data Types
+ 25.0 Keep / Remove Rows
+ 25.1 Manage Columns</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">25. Random Data Generation</div>
+            <ul class="bullet-list">
+              <li>25.1 Mockaroo  Creating synthetic datasets
+ 25.2 Custom schema creation
+ 25.3 Downloading datasets for modeling practice</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">26. Data Modelling</div>
+            <ul class="bullet-list">
+              <li>26.1 Data View
+ 26.2 Model View
+ 26.3 Creating Relationships (One-to-One, One-to-Many, Many-to-Many)
+ 26.4 Training Model Example with Multiple Tables (Employee, Salary, Dept, Pricing, Training)
+ 26.5 Training Analysis Metrics
+ 26.6 Cost Analysis Metrics
+ 26.7 Creating Columns & Measures</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">27. Connecting Power BI to SQL</div>
+            <ul class="bullet-list">
+              <li>27.1 Connecting via Server Name
+ 27.2 Viewing All Databases
+ 27.3 Loading Multiple Tables
+ 27.4 Using SQL Queries Inside Power BI
+ 27.5 Reflecting Data Source Changes in Reports</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 03: TABLEAU</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">1. Introduction to Tableau</div>
+            <ul class="bullet-list">
+              <li>1.1 What is Tableau? (Visual analytical tool)
+ 1.2 Why Tableau? (Speed, User-friendly, Direct connection, Sharing)</li>
+              <li>tableau full notes</li>
+              <li>1.3 Where Tableau is used?
+ 1.4 Tableau capabilities (50+ data sources, 24 charts)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2. Tableau Products</div>
+            <ul class="bullet-list">
+              <li>2.1 Tableau Desktop
+ 2.2 Tableau Public
+ 2.3 Tableau Online
+ 2.4 Tableau Server
+ 2.5 Tableau Reader
+ 2.6 Tableau Prep (Data cleaning)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3. Installing Tableau</div>
+            <ul class="bullet-list">
+              <li>3.1 Downloading trial version
+ 3.2 Installation steps with screenshots (pages 58)
+ 3.3 Accessing Tableau start window</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4. Basic Tableau Workflow</div>
+            <ul class="bullet-list">
+              <li>4.1 Connecting to a data source
+ 4.2 Selecting dimensions & measures
+ 4.3 Applying visualization technique
+ 4.4 Sample Superstore dataset location</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5. Tableau vs Excel</div>
+            <ul class="bullet-list">
+              <li>5.1 Pivot table vs Tableau summary comparison
+ 5.2 Example: Category-wise product sales</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6. Live vs Extract Connection</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6.1 Live connection
+ 6.2 Extract connection (Saved subset of source data)</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7. Tableau Data Types</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7.1 Number
+ 7.2 String
+ 7.3 Date
+ 7.4 Geographic
+ 7.5 Boolean
+ 7.6 Date & Time</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8. Viewing Data</div>
+            <ul class="bullet-list">
+              <li>8.1 View Data window
+ 8.2 Setting row count
+ 8.3 Hiding columns
+ 8.4 Dragging sheets to view</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9. Column Operations</div>
+            <ul class="bullet-list">
+              <li>9.1 Renaming
+ 9.2 Copying row/column
+ 9.3 Sorting Columns
+  Default sorting
+  Sort by field
+  Sort rows ascending/descending</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10. Row & Graph Sorting</div>
+            <ul class="bullet-list">
+              <li>10.1 Quick Sort button
+ 10.2 Toolbar sorting
+ 10.3 Sorting through pills
+ 10.4 Sorting using Marks card</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11. Hierarchies</div>
+            <ul class="bullet-list">
+              <li>11.1 Creating custom hierarchies
+ 11.2 Auto-generated date hierarchy
+ 11.3 Discrete vs Continuous date graphs
+ 11.4 Removing hierarchy</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12. Grouping</div>
+            <ul class="bullet-list">
+              <li>12.1 Grouping categories in the chart
+ 12.2 Group creation through Data pane</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13. Auto-Generated Fields</div>
+            <ul class="bullet-list">
+              <li>13.1 Number of records
+ 13.2 Longitude
+ 13.3 Latitude
+ 13.4 Measure Names
+ 13.5 Measure Values</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14. Discrete vs Continuous</div>
+            <ul class="bullet-list">
+              <li>14.1 Blue pills (Discrete)
+ 14.2 Green pills (Continuous)
+ 14.3 Use in maps
+ 14.4 Filtering differences</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">15. Parameters</div>
+            <ul class="bullet-list">
+              <li>15.1 Purpose of parameters
+ 15.2 Creating parameters
+ 15.3 Using parameters in calculations
+ 15.4 Dynamic visualization control</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">16. Sets</div>
+            <ul class="bullet-list">
+              <li>16.1 Creating sets manually
+ 16.2 Creating sets from selections
+ 16.3 Comparing values using sets</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">17. Combined Fields</div>
+            <ul class="bullet-list">
+              <li>17.1 Creating combined fields
+ 17.2 Multilevel comparison (Region, Category, Subcategory)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">18. Titles, Captions & Exporting</div>
+            <ul class="bullet-list">
+              <li>18.1 Editing chart titles
+ 18.2 Formatting titles
+ 18.3 Exporting visualizations (PDF, Excel, PowerPoint, etc.)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">19. Granularity</div>
+            <ul class="bullet-list">
+              <li>19.1 Meaning of granularity
+ 19.2 Increasing/decreasing detail levels</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">20. Cards & Shelves</div>
+            <ul class="bullet-list">
+              <li>20.1 Marks card
+ 20.2 Pages card
+ 20.3 Filters
+ 20.4 Rows & Columns shelves
+ 20.5 Worksheet menu navigation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">21. Managing Metadata</div>
+            <ul class="bullet-list">
+              <li>21.1 Hiding/renaming fields
+ 21.2 Creating hierarchies
+ 21.3 Creating folders
+ 21.4 Creating calculated fields</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">22. Joins</div>
+            <ul class="bullet-list">
+              <li>22.1 Inner Join
+ 22.2 Left Join
+ 22.3 Right Join
+ 22.4 Full Outer Join
+ 22.5 Cross-database join</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">23. Data Blending</div>
+            <ul class="bullet-list">
+              <li>23.1 Primary & secondary data sources
+ 23.2 Creating blending relationships
+ 23.3 Blending calculations</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">24. Filters</div>
+            <ul class="bullet-list">
+              <li>24.1 General tab
+ 24.2 Wildcard tab
+ 24.3 Condition tab
+ 24.4 Top tab
+ 24.5 Date filters
+ 24.6 Interactive filters
+ 24.7 Dependent filters
+ 24.8 Where Filters (Summary & Record level)
+ 24.9 Context filters
+ 24.10 Data source filters
+ 24.11 Filter formatting</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">25. Marks Card Customization</div>
+            <ul class="bullet-list">
+              <li>25.1 Size
+ 25.2 Color
+ 25.3 Labels
+ 25.4 Tooltip additions
+ 25.5 Shapes
+ 25.6 Detail mark</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">26. Formatting Visuals</div>
+            <ul class="bullet-list">
+              <li>26.1 Fonts
+ 26.2 Alignment
+ 26.3 Sheet background
+ 26.4 Borders</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">27. Table Calculations</div>
+            <ul class="bullet-list">
+              <li>27.1 Percentage of Total
+ 27.2 Running Total
+ 27.3 Percentage Difference
+ 27.4 KPIs
+ 27.5 Compute Using
+ 27.6 Conditional formatting using INDEX & LAST
+ 27.7 Rank functions</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">28. Charts (24 Types)</div>
+            <ul class="bullet-list">
+              <li>28.1 Scatter Chart
+ 28.2 Word Map
+ 28.3 Line Chart
+ 28.4 Bubble Chart
+ 28.5 Bar Charts (Stacked, Colored, Level, Interactive)
+ 28.6 Tree Map
+ 28.7 Funnel Chart
+ 28.8 Advanced Funnel Chart
+ 28.9 Waterfall Chart (via Gantt bar)
+ 28.10 Heat Map
+ 28.11 Pie Chart
+ 28.12 Reference Lines
+ 28.13 Bump Chart</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">29. Maps</div>
+            <ul class="bullet-list">
+              <li>29.1 Map visualization basics
+ 29.2 Map Layers (backgrounds, styles)
+ 29.3 Custom Territories
+ 29.4 Custom Geocoding
+ 29.5 India Map (Population example)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">30. Worksheet Operations</div>
+            <ul class="bullet-list">
+              <li>30.1 New sheet
+ 30.2 Rename
+ 30.3 Delete
+ 30.4 Duplicate
+ 30.5 Crosstab
+ 30.6 Export
+ 30.7 Copy/Paste formatting
+ 30.8 Show/Hide elements</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">31. Actions</div>
+            <ul class="bullet-list">
+              <li>31.1 Action Filter
+ 31.2 Action Highlight
+ 31.3 Action URL
+ 31.4 Parameter Actions
+ 31.5 Set Actions</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">32. LOD (Level of Detail) Expressions</div>
+            <ul class="bullet-list">
+              <li>32.1 FIXED LOD
+ 32.2 INCLUDE LOD
+ 32.3 EXCLUDE LOD
+ 32.4 Use cases for LOD calculations</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">33. Advanced Visualizations</div>
+            <ul class="bullet-list">
+              <li>33.1 Histogram
+ 33.2 Bullet Chart
+ 33.3 Dual-Axis Chart
+ 33.4 Combined Axis Chart
+ 33.5 Bars in Bar Chart</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">34. Map Layers & Background Images</div>
+            <ul class="bullet-list">
+              <li>34.1 Adding map layers
+ 34.2 Using satellite & layout maps
+ 34.3 Adding background images</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">35. Viz Animations</div>
+            <ul class="bullet-list">
+              <li>35.1 Enabling animations
+ 35.2 Filter animation
+ 35.3 Parameter-based animation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">36. Motion Charts</div>
+            <ul class="bullet-list">
+              <li>36.1 Using Pages shelf
+ 36.2 Motion paths
+ 36.3 History trails</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">37. Pivot in Tableau</div>
+            <ul class="bullet-list">
+              <li>37.1 Pivoting data
+ 37.2 Managing Metadata  Pivot
+ 37.3 Pivot Field Names & Pivot Field Values</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">38. Dashboards</div>
+            <ul class="bullet-list">
+              <li>38.1 Creating dashboards
+ 38.2 Adding multiple sheets
+ 38.3 Dashboard objects (Text, Image, Webpage, Blank, Navigation, Download, Extensions)
+ 38.4 Vertical & Horizontal layout
+ 38.5 Interactive dashboards</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">39. Device Designer</div>
+            <ul class="bullet-list">
+              <li>39.1 Designing layouts for phone, tablet & desktop</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">40. Story Points</div>
+            <ul class="bullet-list">
+              <li>40.1 Creating story points
+ 40.2 Sequential data analysis</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">41. Dashboard Actions (Advanced)</div>
+            <ul class="bullet-list">
+              <li>41.1 Navigation
+ 41.2 Parameter integration
+ 41.3 Set-based dashboard actions</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">42. Analytics Pane</div>
+            <ul class="bullet-list">
+              <li>42.1 Summary tools
+ 42.2 Statistical tools
+ 42.3 Custom tools</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">43. Forecasting</div>
+            <ul class="bullet-list">
+              <li>43.1 Exponential smoothing
+ 43.2 Trend & Seasonality concepts
+ 43.3 Forecast models
+ 43.4 Describe Forecast</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">44. Trend Lines</div>
+            <ul class="bullet-list">
+              <li>44.1 Trend types (Linear, Exponential, Logarithmic, Polynomial, Power)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">45. Clustering</div>
+            <ul class="bullet-list">
+              <li>45.1 K-means clustering
+ 45.2 Cluster creation
+ 45.3 Cluster interpretation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">46. Connecting Tableau to SQL</div>
+            <ul class="bullet-list">
+              <li>46.1 SQL Server connection
+ 46.2 Selecting tables
+ 46.3 Importing data
+ 46.4 Running SQL queries from Tableau
+ 46.5 Parameterized SQL queries</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">47. Tableau Online</div>
+            <ul class="bullet-list">
+              <li>47.1 Uploading reports
+ 47.2 Projects, Workbooks, Views
+ 47.3 Sharing & Permissions
+ 47.4 Groups, Users, Settings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXCEL MASTER ROADMAP (14 MODULES)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 04: EXCEL FOR DATA ANALYSIS & AUTOMATION</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 1: Excel for Data Analysis  Orientation & Analytical Mindset</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Build a data analyst mindset, understand Excels role in the data lifecycle, and set expectations for automation, dashboards, and analytics.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics & Subtopics</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1.1 Introduction to Excel in Data Science & Analytics</div>
+            <ul class="bullet-list">
+              <li>Role of Excel in:</li>
+              <li>Data Analytics</li>
+              <li>Data Science (EDA stage)</li>
+              <li>Business Intelligence</li>
+              <li>Excel vs Python vs SQL vs Power BI</li>
+              <li>Why Excel still dominates industry workflows</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1.2 Data Lifecycle & Excels Position</div>
+            <ul class="bullet-list">
+              <li>Data lifecycle stages:</li>
+              <li>Data collection</li>
+              <li>Data cleaning</li>
+              <li>Data exploration</li>
+              <li>Reporting & storytelling</li>
+              <li>Where Excel fits in each stage</li>
+              <li>Static vs dynamic analysis</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1.3 Types of Data Handled in Excel</div>
+            <ul class="bullet-list">
+              <li>Structured data (tables, CSVs)</li>
+              <li>Semi-structured data</li>
+              <li>Flat files vs relational data</li>
+              <li>Rows vs records, columns vs attributes</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1.4 Analytical Thinking Framework</div>
+            <ul class="bullet-list">
+              <li>Asking the right business questions</li>
+              <li>KPIs vs Metrics</li>
+              <li>Descriptive vs Diagnostic analysis</li>
+              <li>Common beginner mistakes in Excel analysis</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1.5 Excel Ecosystem Overview (High-Level)</div>
+            <ul class="bullet-list">
+              <li>Worksheets, Workbooks</li>
+              <li>Tables, PivotTables</li>
+              <li>Power Query (ETL)</li>
+              <li>VBA (Automation)</li>
+              <li>Dashboards & Reporting</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 2: Excel Interface, Navigation & Spreadsheet Foundations</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Master Excel navigation, structure, and environment, enabling speed, accuracy, and scalability.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics & Subtopics</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2.1 Excel Workbook & Worksheet Architecture</div>
+            <ul class="bullet-list">
+              <li>Workbook vs Worksheet</li>
+              <li>Sheets as logical data layers</li>
+              <li>Renaming, duplicating, hiding sheets</li>
+              <li>Sheet organization best practices (Raw, Clean, Output)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2.2 Excel Interface Deep Dive</div>
+            <ul class="bullet-list">
+              <li>Ribbon overview:</li>
+              <li>Home</li>
+              <li>Insert</li>
+              <li>Page Layout</li>
+              <li>Formulas</li>
+              <li>Data</li>
+              <li>Review</li>
+              <li>View</li>
+              <li>Quick Access Toolbar customization</li>
+              <li>Status bar analytics (Count, Sum, Avg)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2.3 Cell, Range & Grid Fundamentals</div>
+            <ul class="bullet-list">
+              <li>Cells, ranges, rows, columns</li>
+              <li>Active cell behavior</li>
+              <li>Range selection techniques</li>
+              <li>Relative grid logic (row-column intersection)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2.4 Navigation & Productivity Shortcuts</div>
+            <ul class="bullet-list">
+              <li>Keyboard shortcuts for:</li>
+              <li>Navigation</li>
+              <li>Selection</li>
+              <li>Editing</li>
+              <li>Formatting</li>
+              <li>Go To (F5) & Name Box</li>
+              <li>Freeze panes & split views</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2.5 Data Entry Best Practices</div>
+            <ul class="bullet-list">
+              <li>Manual entry vs copy-fill</li>
+              <li>Autofill & flash fill</li>
+              <li>Avoiding merged cells (why analysts hate them)</li>
+              <li>Consistency & data hygiene</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 3: Data Entry, Formatting & Spreadsheet Design Best Practices</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Design clean, readable, professional spreadsheets that support analytics and dashboards.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics & Subtopics</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.1 Data Types & Representation</div>
+            <ul class="bullet-list">
+              <li>Text, Number, Date, Time, Boolean</li>
+              <li>Importance of correct data types</li>
+              <li>Data type pitfalls (numbers stored as text)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.2 Formatting for Analysis (Not Decoration)</div>
+            <ul class="bullet-list">
+              <li>Number formatting:</li>
+              <li>Currency</li>
+              <li>Percentage</li>
+              <li>Decimal precision</li>
+              <li>Date & time formats</li>
+              <li>Conditional formatting (intro level)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.3 Cell Formatting Best Practices</div>
+            <ul class="bullet-list">
+              <li>Fonts, alignment, wrapping</li>
+              <li>Borders vs shading</li>
+              <li>Readability principles</li>
+              <li>Avoiding visual clutter</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.4 Table Creation & Structured References</div>
+            <ul class="bullet-list">
+              <li>Convert range to Table</li>
+              <li>Benefits of Excel Tables:</li>
+              <li>Auto expansion</li>
+              <li>Structured references</li>
+              <li>Cleaner formulas</li>
+              <li>Naming tables & columns</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.5 Spreadsheet Design Standards (Industry)</div>
+            <ul class="bullet-list">
+              <li>Raw data vs processed data separation</li>
+              <li>One dataset per sheet rule</li>
+              <li>Column naming conventions</li>
+              <li>Avoiding hardcoded values</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.6 Common Beginner Errors & Fixes</div>
+            <ul class="bullet-list">
+              <li>Mixing data types in one column</li>
+              <li>Blank rows/columns</li>
+              <li>Inconsistent headers</li>
+              <li>Manual totals instead of formulas</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 4: Excel Formulas & Arithmetic Logic for Business Calculations</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Build formula confidence and understand how Excel performs calculations, dependencies, and logic behind the scenes.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.1 Formula Fundamentals</div>
+            <ul class="bullet-list">
+              <li>What is a formula vs a value</li>
+              <li>Formula syntax structure:</li>
+              <li>= operand operator operand</li>
+              <li>Order of operations (BODMAS / PEMDAS)</li>
+              <li>Common formula errors (#DIV/0!, #VALUE!, #NAME?)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.2 Arithmetic Operators</div>
+            <ul class="bullet-list">
+              <li>Addition (+)</li>
+              <li>Subtraction (-)</li>
+              <li>Multiplication (*)</li>
+              <li>Division (/)</li>
+              <li>Exponentiation (^)</li>
+              <li>Percentage calculations</li>
+              <li>Integer division concepts</li>
+              <li>Real-world use cases:</li>
+              <li>Revenue, profit, margin calculations</li>
+              <li>Salary breakup</li>
+              <li>Growth rate calculations</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.3 Formula Editing & Auditing</div>
+            <ul class="bullet-list">
+              <li>Formula bar usage</li>
+              <li>Editing inside cells vs formula bar</li>
+              <li>Show formulas view</li>
+              <li>Trace precedents & dependents</li>
+              <li>Evaluate formula tool</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.4 Absolute, Relative & Mixed Calculations (Conceptual Intro)</div>
+            <ul class="bullet-list">
+              <li>Why formulas break when copied</li>
+              <li>Conceptual preview of:</li>
+              <li>Relative logic</li>
+              <li>Fixed values (tax, discount)</li>
+              <li>Practical business scenarios</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.5 Formula Performance & Best Practices</div>
+            <ul class="bullet-list">
+              <li>Avoid hardcoded numbers</li>
+              <li>Use reference cells</li>
+              <li>Break complex formulas into steps</li>
+              <li>Naming cells for readability</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 5: Cell Referencing, Formula Control & Error Management</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Gain full control over formulas using correct references and protect calculations from breaking.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.1 Types of Cell References</div>
+            <ul class="bullet-list">
+              <li>Relative references (A1)</li>
+              <li>Absolute references ($A$1)</li>
+              <li>Mixed references ($A1, A$1)</li>
+              <li>When to use each type</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.2 Real-World Referencing Scenarios</div>
+            <ul class="bullet-list">
+              <li>Fixed tax rates</li>
+              <li>Exchange rates</li>
+              <li>Commission slabs</li>
+              <li>Lookup tables</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.3 Copying & Dragging Formulas Safely</div>
+            <ul class="bullet-list">
+              <li>Fill handle behavior</li>
+              <li>Copy vs drag</li>
+              <li>Avoiding reference shifts</li>
+              <li>Testing copied formulas</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.4 Named Ranges</div>
+            <ul class="bullet-list">
+              <li>Creating named ranges</li>
+              <li>Benefits over cell references</li>
+              <li>Using names in formulas</li>
+              <li>Naming conventions</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.5 Formula Error Handling</div>
+            <ul class="bullet-list">
+              <li>Common Excel errors:</li>
+              <li>#DIV/0!</li>
+              <li>#N/A</li>
+              <li>#VALUE!</li>
+              <li>#REF!</li>
+              <li>Understanding why errors occur</li>
+              <li>Using:</li>
+              <li>IFERROR()</li>
+              <li>ISERROR()</li>
+              <li>ISBLANK()</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.6 Formula Debugging Techniques</div>
+            <ul class="bullet-list">
+              <li>Step-by-step evaluation</li>
+              <li>Breakpoints using helper columns</li>
+              <li>Auditing large spreadsheets</li>
+              <li>Error-proofing dashboards</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 6: Core Excel Functions for Data Exploration & Aggregation</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Master foundational Excel functions used in data analysis, reporting, and decision-making.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6.1 Mathematical & Statistical Functions</div>
+            <ul class="bullet-list">
+              <li>SUM</li>
+              <li>AVERAGE</li>
+              <li>MIN / MAX</li>
+              <li>COUNT / COUNTA / COUNTBLANK</li>
+              <li>ROUND, ROUNDUP, ROUNDDOWN</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6.2 Logical Functions</div>
+            <ul class="bullet-list">
+              <li>IF()</li>
+              <li>Nested IF (conceptual intro)</li>
+              <li>AND / OR / NOT</li>
+              <li>Logical evaluation in business rules</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6.3 Aggregation Functions (Intro)</div>
+            <ul class="bullet-list">
+              <li>SUMIF / COUNTIF / AVERAGEIF</li>
+              <li>Conditional aggregation logic</li>
+              <li>Single-condition filtering</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6.4 Text Functions (Intro Level)</div>
+            <ul class="bullet-list">
+              <li>LEFT / RIGHT / MID</li>
+              <li>LEN</li>
+              <li>TRIM</li>
+              <li>CLEAN</li>
+              <li>CONCAT / TEXTJOIN</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6.5 Date & Time Functions (Intro Level)</div>
+            <ul class="bullet-list">
+              <li>TODAY()</li>
+              <li>NOW()</li>
+              <li>DATE()</li>
+              <li>YEAR / MONTH / DAY</li>
+              <li>Basic date arithmetic</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">6.6 Practical Data Exploration Scenarios</div>
+            <ul class="bullet-list">
+              <li>Sales summaries</li>
+              <li>Attendance analysis</li>
+              <li>Expense tracking</li>
+              <li>Basic KPI calculations</li>
+              <li>MODULE 7: Conditional Logic, Decision-Making & Rule-Based Analysis</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Enable Excel to think logically and take decisions on data, similar to real business rules.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7.1 Logical Foundations</div>
+            <ul class="bullet-list">
+              <li>Boolean logic (TRUE / FALSE)</li>
+              <li>Comparison operators:</li>
+              <li>=, <>, >, <, >=, <=</li>
+              <li>Logical evaluation flow</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7.2 Conditional Functions</div>
+            <ul class="bullet-list">
+              <li>IF()</li>
+              <li>Nested IF (multi-condition logic)</li>
+              <li>IF with AND / OR</li>
+              <li>IF with text, numbers, dates</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7.3 Conditional Aggregation</div>
+            <ul class="bullet-list">
+              <li>SUMIF</li>
+              <li>COUNTIF</li>
+              <li>AVERAGEIF</li>
+              <li>Understanding criteria ranges</li>
+              <li>Wildcards (*, ?)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7.4 Decision-Based Calculations</div>
+            <ul class="bullet-list">
+              <li>Discount logic</li>
+              <li>Salary slabs</li>
+              <li>Grading systems</li>
+              <li>Performance categorization</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7.5 Error-Safe Conditional Models</div>
+            <ul class="bullet-list">
+              <li>IFERROR with IF</li>
+              <li>Handling missing or invalid values</li>
+              <li>Designing fault-tolerant sheets</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">7.6 Real-World Business Scenarios</div>
+            <ul class="bullet-list">
+              <li>Sales incentives</li>
+              <li>Eligibility checks</li>
+              <li>Risk flags</li>
+              <li>Automated decision flags</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 8: Text, Date & Time Transformations for Data Readiness</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Convert raw, messy data into clean, analyzable formats using Excel functions.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8.1 Text Cleaning & Standardization</div>
+            <ul class="bullet-list">
+              <li>TRIM</li>
+              <li>CLEAN</li>
+              <li>UPPER / LOWER / PROPER</li>
+              <li>Removing extra spaces & hidden characters</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8.2 Text Extraction & Manipulation</div>
+            <ul class="bullet-list">
+              <li>LEFT / RIGHT / MID</li>
+              <li>FIND / SEARCH</li>
+              <li>SUBSTITUTE / REPLACE</li>
+              <li>Text splitting logic (pre Power Query mindset)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8.3 Text Joining & Formatting</div>
+            <ul class="bullet-list">
+              <li>CONCAT</li>
+              <li>TEXTJOIN</li>
+              <li>Using delimiters</li>
+              <li>Creating readable outputs</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8.4 Date & Time Fundamentals</div>
+            <ul class="bullet-list">
+              <li>Excel date system (serial numbers)</li>
+              <li>Date vs text dates</li>
+              <li>Time vs datetime</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8.5 Date & Time Functions</div>
+            <ul class="bullet-list">
+              <li>TODAY / NOW</li>
+              <li>DATE / TIME</li>
+              <li>YEAR / MONTH / DAY</li>
+              <li>HOUR / MINUTE / SECOND</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8.6 Date-Based Calculations</div>
+            <ul class="bullet-list">
+              <li>Date differences</li>
+              <li>Age calculation</li>
+              <li>Tenure calculation</li>
+              <li>Due date logic</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">8.7 Real-World Data Cleanup Cases</div>
+            <ul class="bullet-list">
+              <li>CRM data cleaning</li>
+              <li>Transaction logs</li>
+              <li>Attendance & HR datasets</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 9: Data Sorting, Filtering & Structured Data Management</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Prepare datasets for analysis, reporting, and dashboards by structuring and organizing data efficiently.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9.1 Sorting Techniques</div>
+            <ul class="bullet-list">
+              <li>Single-column sort</li>
+              <li>Multi-level sort</li>
+              <li>Custom sort orders</li>
+              <li>Sorting by color or icon</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9.2 Filtering Data</div>
+            <ul class="bullet-list">
+              <li>Basic filters</li>
+              <li>Text filters</li>
+              <li>Number filters</li>
+              <li>Date filters</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9.3 Advanced Filtering</div>
+            <ul class="bullet-list">
+              <li>Criteria-based filtering</li>
+              <li>Extracting unique records</li>
+              <li>Filter ranges vs tables</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9.4 Excel Tables</div>
+            <ul class="bullet-list">
+              <li>Converting ranges to tables</li>
+              <li>Structured references</li>
+              <li>Table benefits in analysis</li>
+              <li>Auto-expansion behavior</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9.5 Handling Missing & Duplicate Data</div>
+            <ul class="bullet-list">
+              <li>Removing duplicates</li>
+              <li>Identifying blanks</li>
+              <li>Handling null-like values</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9.6 Data Validation (Intro)</div>
+            <ul class="bullet-list">
+              <li>Dropdown lists</li>
+              <li>Restricting input values</li>
+              <li>Preventing data entry errors</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">9.7 Dataset Readiness Checklist</div>
+            <ul class="bullet-list">
+              <li>Clean headers</li>
+              <li>No merged cells</li>
+              <li>Consistent data types</li>
+              <li>One record per row</li>
+              <li>MODULE 10: Pivot Tables  Core Analytical Engine of Excel</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Transform large raw datasets into meaningful summaries for business decision-making.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10.1 Pivot Table Fundamentals</div>
+            <ul class="bullet-list">
+              <li>What is a Pivot Table and why it matters</li>
+              <li>Pivot Cache concept</li>
+              <li>When to use Pivot Tables vs formulas</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10.2 Creating Pivot Tables</div>
+            <ul class="bullet-list">
+              <li>From Excel ranges</li>
+              <li>From Excel Tables</li>
+              <li>From external sources (intro mindset)</li>
+              <li>Best practices before creating pivots</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10.3 Pivot Table Structure</div>
+            <ul class="bullet-list">
+              <li>Rows area</li>
+              <li>Columns area</li>
+              <li>Values area</li>
+              <li>Filters area</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10.4 Aggregations & Calculations</div>
+            <ul class="bullet-list">
+              <li>Sum, Count, Average, Min, Max</li>
+              <li>Value Field Settings</li>
+              <li>Number formatting inside pivots</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10.5 Grouping Data</div>
+            <ul class="bullet-list">
+              <li>Grouping dates (Year, Quarter, Month)</li>
+              <li>Grouping numeric ranges</li>
+              <li>Ungrouping pitfalls</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10.6 Sorting & Filtering in Pivot Tables</div>
+            <ul class="bullet-list">
+              <li>Top N analysis</li>
+              <li>Value-based sorting</li>
+              <li>Label vs value filters</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10.7 Calculated Fields & Items</div>
+            <ul class="bullet-list">
+              <li>Creating calculated fields</li>
+              <li>Understanding limitations</li>
+              <li>Business use cases (profit, margin)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">10.8 Pivot Table Best Practices</div>
+            <ul class="bullet-list">
+              <li>Refresh behavior</li>
+              <li>Naming conventions</li>
+              <li>Avoiding manual edits</li>
+              <li>Performance considerations</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 11: Charts & Visual Analytics for Insightful Reporting</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Convert numbers into clear, compelling visual stories that executives and stakeholders understand instantly.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11.1 Charting Fundamentals</div>
+            <ul class="bullet-list">
+              <li>Why visuals matter in data analysis</li>
+              <li>Choosing the right chart for the right data</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11.2 Core Chart Types</div>
+            <ul class="bullet-list">
+              <li>Column & Bar charts</li>
+              <li>Line charts</li>
+              <li>Pie & Donut charts</li>
+              <li>Area charts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11.3 Analytical Chart Types</div>
+            <ul class="bullet-list">
+              <li>Combo charts</li>
+              <li>Secondary axis usage</li>
+              <li>Histogram (distribution analysis)</li>
+              <li>Waterfall charts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11.4 Chart Customization</div>
+            <ul class="bullet-list">
+              <li>Titles, labels, legends</li>
+              <li>Axis formatting</li>
+              <li>Color consistency & themes</li>
+              <li>Removing visual noise</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11.5 Chart Interactivity</div>
+            <ul class="bullet-list">
+              <li>Dynamic charts using formulas</li>
+              <li>Charts driven by dropdowns</li>
+              <li>Named ranges & tables for charts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11.6 Pivot Charts</div>
+            <ul class="bullet-list">
+              <li>Creating pivot charts</li>
+              <li>Linking pivot charts to pivot tables</li>
+              <li>Refresh & synchronization behavior</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">11.7 Visualization Best Practices</div>
+            <ul class="bullet-list">
+              <li>Avoiding misleading visuals</li>
+              <li>Data-ink ratio</li>
+              <li>Executive-friendly design principles</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 12: Excel Dashboarding & Data Storytelling</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Build professional, decision-ready dashboards that combine analysis, visualization, and narrative.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12.1 What is a Dashboard?</div>
+            <ul class="bullet-list">
+              <li>Dashboard vs report</li>
+              <li>Operational vs strategic dashboards</li>
+              <li>KPI-driven design</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12.2 Dashboard Planning</div>
+            <ul class="bullet-list">
+              <li>Identifying business questions</li>
+              <li>Selecting KPIs</li>
+              <li>Layout wireframing</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12.3 Dashboard Components</div>
+            <ul class="bullet-list">
+              <li>KPI cards</li>
+              <li>Pivot tables as backend</li>
+              <li>Charts as front-end visuals</li>
+              <li>Supporting tables</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12.4 Interactive Dashboard Elements</div>
+            <ul class="bullet-list">
+              <li>Slicers</li>
+              <li>Timelines</li>
+              <li>Drop-down controls</li>
+              <li>Cross-filtering behavior</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12.5 Dashboard Design Principles</div>
+            <ul class="bullet-list">
+              <li>Alignment & spacing</li>
+              <li>Color psychology</li>
+              <li>Consistent fonts & sizing</li>
+              <li>Minimalism & clarity</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12.6 Storytelling with Data</div>
+            <ul class="bullet-list">
+              <li>Insight  Evidence  Action flow</li>
+              <li>Highlighting trends & anomalies</li>
+              <li>Annotating insights</li>
+              <li>Business narrative framing</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12.7 Real-World Dashboard Case Study</div>
+            <ul class="bullet-list">
+              <li>Sales performance dashboard</li>
+              <li>IPL match analysis dashboard (as referenced)</li>
+              <li>HR / Finance dashboards overview</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">12.8 Dashboard Optimization</div>
+            <ul class="bullet-list">
+              <li>Performance tuning</li>
+              <li>Refresh automation</li>
+              <li>Error handling</li>
+              <li>Scalability for new data</li>
+              <li>MODULE 13: Power Query  Data Engineering & ETL Inside Excel</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Turn Excel into a data engineering tool capable of handling large, messy, multi-source datasets using ETL (Extract, Transform, Load) principles.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.1 Power Query Foundations</div>
+            <ul class="bullet-list">
+              <li>What is Power Query?</li>
+              <li>Power Query vs Excel formulas</li>
+              <li>ETL concept inside Excel</li>
+              <li>When to use Power Query vs Pivot vs VBA</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.2 Power Query Interface & Components</div>
+            <ul class="bullet-list">
+              <li>Power Query Editor</li>
+              <li>Ribbon overview (Home, Transform, Add Column, View)</li>
+              <li>Queries pane</li>
+              <li>Data preview grid</li>
+              <li>Applied Steps pane</li>
+              <li>Formula bar (M code)</li>
+              <li>Advanced Editor</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.3 Data Import Sources</div>
+            <ul class="bullet-list">
+              <li>Excel files</li>
+              <li>CSV / Text files</li>
+              <li>Folder-based ingestion (multiple files)</li>
+              <li>Web data (intro)</li>
+              <li>Database connections (SQL / PostgreSQL mindset)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.4 Column Transformations</div>
+            <ul class="bullet-list">
+              <li>Rename, remove, duplicate columns</li>
+              <li>Reorder and move columns</li>
+              <li>Split column by delimiter / position</li>
+              <li>Merge columns</li>
+              <li>Promote & demote headers</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.5 Row Transformations</div>
+            <ul class="bullet-list">
+              <li>Remove top / bottom rows</li>
+              <li>Remove alternate rows</li>
+              <li>Keep top, bottom, range of rows</li>
+              <li>Remove duplicates</li>
+              <li>Remove blanks</li>
+              <li>Remove errors</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.6 Data Type Handling</div>
+            <ul class="bullet-list">
+              <li>Text, Whole Number, Decimal</li>
+              <li>Date, Time, DateTime</li>
+              <li>Boolean, Duration</li>
+              <li>Fixed Decimal & Currency</li>
+              <li>Detect and change data types</li>
+              <li>Error prevention through correct typing</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.7 Text Transformations</div>
+            <ul class="bullet-list">
+              <li>Trim, Clean</li>
+              <li>Upper / Lower / Capitalize</li>
+              <li>Extract text (before, after, between)</li>
+              <li>Replace values (manual & conditional)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.8 Number Transformations</div>
+            <ul class="bullet-list">
+              <li>Rounding (up, down, nearest)</li>
+              <li>Absolute value</li>
+              <li>Percentage conversion</li>
+              <li>Arithmetic operations</li>
+              <li>Scientific operations (sqrt, power, log)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.9 Date & Time Transformations</div>
+            <ul class="bullet-list">
+              <li>Extract year, month, quarter</li>
+              <li>Extract day, week, weekday</li>
+              <li>Add / subtract days, months, years</li>
+              <li>Date differences</li>
+              <li>Custom date creation</li>
+              <li>Duration conversions</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.10 Filtering, Sorting & Conditional Logic</div>
+            <ul class="bullet-list">
+              <li>Value-based filters</li>
+              <li>Text & date filters</li>
+              <li>Conditional columns (if-then-else)</li>
+              <li>Logical operators (AND, OR, NOT)</li>
+              <li>Nested conditional logic</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.11 Grouping, Aggregation & Reshaping</div>
+            <ul class="bullet-list">
+              <li>Group By (sum, count, avg, min, max)</li>
+              <li>All rows grouping (nested tables)</li>
+              <li>Pivot & Unpivot</li>
+              <li>Data normalization concepts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.12 Merge & Append Queries</div>
+            <ul class="bullet-list">
+              <li>Merge queries (joins)</li>
+              <li>Inner, Left, Right, Full outer</li>
+              <li>Append queries (stacking datasets)</li>
+              <li>Real-world consolidation use cases</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.13 Advanced Power Query Concepts</div>
+            <ul class="bullet-list">
+              <li>Custom columns with M code</li>
+              <li>Invoke custom functions</li>
+              <li>Index & ranking</li>
+              <li>Query dependencies</li>
+              <li>Performance optimization</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.14 Power Query with Databases</div>
+            <ul class="bullet-list">
+              <li>PostgreSQL connectivity</li>
+              <li>ODBC drivers</li>
+              <li>Authentication & SSL</li>
+              <li>Import vs Direct Query mindset</li>
+              <li>Enterprise data pipeline basics</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">13.15 Power Query Best Practices</div>
+            <ul class="bullet-list">
+              <li>Step naming</li>
+              <li>Reusable queries</li>
+              <li>Raw data preservation</li>
+              <li>Refresh strategies</li>
+              <li>Error-resilient pipelines</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 14: VBA  Automation, Logic & Excel App Development</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Transform Excel into a mini-application platform using VBA for automation, interaction, and advanced logic.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.1 VBA Fundamentals</div>
+            <ul class="bullet-list">
+              <li>What is VBA?</li>
+              <li>VBA vs Macros</li>
+              <li>Use cases in real businesses</li>
+              <li>Compatibility & security overview</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.2 VBA Environment</div>
+            <ul class="bullet-list">
+              <li>VBA Editor (ALT + F11)</li>
+              <li>Project Explorer</li>
+              <li>Code window</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Modules, UserForms (intro)</div>
+            <ul class="bullet-list">
+              <li>Enabling Developer tab</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.3 Macros & Recording</div>
+            <ul class="bullet-list">
+              <li>Recording macros</li>
+              <li>Understanding recorded code</li>
+              <li>Editing macro logic</li>
+              <li>Assigning macros to buttons</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.4 VBA Syntax & Structure</div>
+            <ul class="bullet-list">
+              <li>Sub procedures</li>
+              <li>Function procedures</li>
+              <li>Public vs Private procedures</li>
+              <li>Code organization</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.5 Variables, Data Types & Constants</div>
+            <ul class="bullet-list">
+              <li>Variable declaration (Dim)</li>
+              <li>Numeric, text, date, boolean types</li>
+              <li>Variant usage</li>
+              <li>Constants (Const)</li>
+              <li>Naming conventions</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.6 Operators in VBA</div>
+            <ul class="bullet-list">
+              <li>Arithmetic operators</li>
+              <li>Comparison operators</li>
+              <li>Logical operators</li>
+              <li>String concatenation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.7 Decision Making in VBA</div>
+            <ul class="bullet-list">
+              <li>IfThen</li>
+              <li>IfThenElse</li>
+              <li>ElseIf</li>
+              <li>Nested If</li>
+              <li>Select Case</li>
+              <li>Switch function</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.8 Loops & Iteration</div>
+            <ul class="bullet-list">
+              <li>ForNext</li>
+              <li>For EachNext</li>
+              <li>Do While</li>
+              <li>Do Until</li>
+              <li>WhileWend</li>
+              <li>Loop optimization techniques</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.9 Working with Excel Objects</div>
+            <ul class="bullet-list">
+              <li>Workbook, Worksheet, Range</li>
+              <li>Cells vs Range referencing</li>
+              <li>Dynamic last row detection</li>
+              <li>Avoiding .Select and .Activate</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.10 User Interaction</div>
+            <ul class="bullet-list">
+              <li>MsgBox</li>
+              <li>InputBox</li>
+              <li>User-driven workflows</li>
+              <li>Validation through prompts</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.11 VBA Functions (UDFs)</div>
+            <ul class="bullet-list">
+              <li>Creating custom Excel functions</li>
+              <li>Using functions in cells</li>
+              <li>Reusability & modular design</li>
+              <li>Business calculation examples</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.12 Events in VBA</div>
+            <ul class="bullet-list">
+              <li>Workbook_Open</li>
+              <li>Workbook_BeforeClose</li>
+              <li>Worksheet_Change</li>
+              <li>Worksheet_SelectionChange</li>
+              <li>Event-driven automation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.13 Error Handling & Debugging</div>
+            <ul class="bullet-list">
+              <li>On Error Resume Next</li>
+              <li>On Error GoTo</li>
+              <li>Err.Number & Err.Description</li>
+              <li>Debug.Print</li>
+              <li>Breakpoints & step execution</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.14 VBA Automation & Integration</div>
+            <ul class="bullet-list">
+              <li>Automating reports</li>
+              <li>Formatting automation</li>
+              <li>Email automation (Outlook)</li>
+              <li>File handling basics</li>
+              <li>Scheduled workflows (concept)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">14.15 VBA Best Practices</div>
+            <ul class="bullet-list">
+              <li>Option Explicit</li>
+              <li>Code commenting</li>
+              <li>Performance optimization</li>
+              <li>Security considerations</li>
+              <li>Maintainable VBA architecture</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 05: BUSINESS INTELLIGENCE  (23 Weeks)</h2>
+          <p>MODULE NAME: Business Intelligence (BI) Foundations & Decision-Driven Analytics
+ Duration: 23 Weeks</p>
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Objective</div>
+            <ul class="bullet-list">
+              <li>Equip learners with industry-ready Business Intelligence (BI) skills needed to bridge data analysis with business decision-making.
+ This module focuses on BI fundamentals, KPI frameworks, data warehousing, ETL concepts, OLAP analytics, BI-driven reporting, and executive dashboards  aligned with what top Bengaluru EdTech programs teach today.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics & Subtopics (Structured Like Your Excel Roadmap)</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1.0 BI Fundamentals & Analytics Mindset (Week 1)</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1.1 Introduction to Business Intelligence</div>
+            <ul class="bullet-list">
+              <li>What is BI?</li>
+              <li>BI vs Data Analytics vs Data Science</li>
+              <li>BI ecosystem: tools, workflows, and components</li>
+              <li>How BI supports decision-making</li>
+              <li>Where BI fits in the data lifecycle</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1.2 Metrics, KPIs & Business Performance Frameworks</div>
+            <ul class="bullet-list">
+              <li>KPIs vs Metrics vs OKRs</li>
+              <li>North Star Metrics</li>
+              <li>Conversion, retention, revenue KPIs</li>
+              <li>KPI trees and metric decomposition</li>
+              <li>Identifying KPIs for:</li>
+              <li>Sales</li>
+              <li>Marketing</li>
+              <li>Finance</li>
+              <li>Operations</li>
+              <li>HR</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1.3 BI Roles & Industry Use Cases</div>
+            <ul class="bullet-list">
+              <li>BI Analyst vs Data Analyst vs Product Analyst</li>
+              <li>Domain-specific BI use cases:</li>
+              <li>BFSI</li>
+              <li>E-commerce</li>
+              <li>EdTech</li>
+              <li>Healthcare</li>
+              <li>Logistics</li>
+              <li>How businesses use BI dashboards for decisions</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2.0 Data Warehousing & ETL Concepts (Week 11.5)</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2.1 Introduction to Data Warehousing</div>
+            <ul class="bullet-list">
+              <li>OLTP vs OLAP systems</li>
+              <li>Why DWH is required</li>
+              <li>Data Warehouse architecture</li>
+              <li>Facts, dimensions & grain</li>
+              <li>Star Schema vs Snowflake Schema</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2.2 ETL (Extract  Transform  Load)</div>
+            <ul class="bullet-list">
+              <li>ETL pipelines overview</li>
+              <li>Transformations for analytics</li>
+              <li>Data cleansing rules</li>
+              <li>Scheduled ETL workflows</li>
+              <li>Staging  Integration  Presentation layers</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2.3 Dimensional Modelling for BI</div>
+            <ul class="bullet-list">
+              <li>Kimball methodology</li>
+              <li>Fact tables: FactSales, FactOrders</li>
+              <li>Dimension tables: DateDim, ProductDim, CustomerDim</li>
+              <li>Surrogate keys & SCD Types 02</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2.4 Data Marts & Domain Analytics</div>
+            <ul class="bullet-list">
+              <li>Sales mart</li>
+              <li>Marketing mart</li>
+              <li>Finance mart</li>
+              <li>HR mart</li>
+              <li>Building analytical datasets for dashboards</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.0 OLAP, Analytical Queries & BI-Oriented SQL (Week 1.52)</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.1 OLAP Fundamentals</div>
+            <ul class="bullet-list">
+              <li>What is OLAP?</li>
+              <li>Cube concept</li>
+              <li>Operations:</li>
+              <li>Drill-down</li>
+              <li>Roll-up</li>
+              <li>Slice</li>
+              <li>Dice</li>
+              <li>Pivot</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.2 SQL for BI Workloads</div>
+            <ul class="bullet-list">
+              <li>Aggregations for KPI reporting</li>
+              <li>Cohort, funnel, retention queries</li>
+              <li>Time-series BI queries (month-on-month, YoY, QoQ)</li>
+              <li>Segmentation queries (RFM basics)</li>
+              <li>CTE-based report structures</li>
+              <li>Performance-aware BI queries</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3.3 Enterprise Reporting Techniques</div>
+            <ul class="bullet-list">
+              <li>BI-friendly SQL output formatting</li>
+              <li>Generating calendar, hierarchy & metric tables</li>
+              <li>Pre-aggregated tables for fast dashboards</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.0 Power BI for BI  Data Modelling, KPIs & Executive Dashboards (Week 22.5)</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.1 BI Tooling Overview</div>
+            <ul class="bullet-list">
+              <li>Power BI vs Tableau vs Qlik</li>
+              <li>What industry uses today</li>
+              <li>Why Power BI is dominant in Bengaluru</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.2 BI Data Modelling Concepts</div>
+            <ul class="bullet-list">
+              <li>Star schema in Power BI</li>
+              <li>Relationships: One-to-many, many-to-one</li>
+              <li>Normalized vs denormalized models</li>
+              <li>Importance of data modelling in visual performance</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.3 DAX for KPI Logic (BeginnerIntermediate)</div>
+            <ul class="bullet-list">
+              <li>Calculated columns vs Measures</li>
+              <li>Time-intelligence functions:</li>
+              <li>TOTALYTD, SAMEPERIODLASTYEAR</li>
+              <li>Month-to-date, quarter-to-date</li>
+              <li>KPI definitions using DAX:</li>
+              <li>Revenue</li>
+              <li>Profit margin</li>
+              <li>Customer retention</li>
+              <li>ARPU / LTV</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4.4 Executive Dashboard Principles</div>
+            <ul class="bullet-list">
+              <li>Designing dashboards for CXOs, managers & stakeholders</li>
+              <li>KPI cards, scorecards, trends, comparisons</li>
+              <li>Hierarchy navigation (Region  State  City  Store)</li>
+              <li>Drill-through & bookmarks</li>
+              <li>Insights vs Visual clutter</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.0 BI Storytelling, Business Context & Decision Support (Week 3)</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.1 Business Interpretation Layer</div>
+            <ul class="bullet-list">
+              <li>Insight  Evidence  Action storytelling</li>
+              <li>Identifying what matters to business</li>
+              <li>Converting dashboard insights into business decisions</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.2 Presenting BI Insights</div>
+            <ul class="bullet-list">
+              <li>Writing BI narratives</li>
+              <li>Annotating visuals</li>
+              <li>How analysts present to stakeholders</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.3 BI Case Studies (Latest Market-Aligned)</div>
+            <ul class="bullet-list">
+              <li>Sales BI dashboard (real-world KPI evaluation)</li>
+              <li>Marketing funnel BI dashboard</li>
+              <li>Finance Cashflow/KPI BI overview</li>
+              <li>HR analytics BI (attrition, retention, hiring funnel)</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">5.4 Industry Alignment (Bengaluru EdTech Standard)</div>
+            <ul class="bullet-list">
+              <li>Most institutes in Bengaluru (Jigsaw, UpGrad, ExcelR, Learnbay, Simplilearn, etc.) include:</li>
+              <li>Problem-solving mindset</li>
+              <li>KPI reasoning</li>
+              <li>Dashboard building</li>
+              <li>ETL fundamentals</li>
+              <li>Hands-on with Power BI</li>
+              <li>Business interpretation</li>
+              <li>Live case studies</li>
+              <li>Capstone BI project</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 06: Git & GitHub Syllabus</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Module 1  Git & GitHub Fundamentals</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Version Control  why it is used</li>
+              <li>Git  basics & workflow</li>
+              <li>GitHub  remote collaboration</li>
+              <li>Git vs GitHub</li>
+              <li>Covered: Understand how Git tracks and manages project changes.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 2  Git Setup & Repository</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Git Installation & Configuration</li>
+              <li>Repository  local project setup</li>
+              <li>Working Directory</li>
+              <li>Staging Area</li>
+              <li>Repository / Commit History</li>
+              <li>git init, git status</li>
+              <li>Covered: Create and understand the basic Git environment.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 3  Changes, Commits & History</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>File States  untracked, modified, staged</li>
+              <li>Staging  git add</li>
+              <li>Commits  git commit</li>
+              <li>Changes  git diff</li>
+              <li>History  git log</li>
+              <li>Commit Best Practices</li>
+              <li>Covered: Track changes and maintain clean project history.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 4  GitHub & Remote Repositories</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>GitHub Repository</li>
+              <li>Clone  git clone</li>
+              <li>Remote  git remote</li>
+              <li>Push  git push</li>
+              <li>Pull  git pull</li>
+              <li>Fetch  basic understanding</li>
+              <li>Covered: Connect local projects with GitHub and synchronize changes.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 5  Branching</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Branch Concepts</li>
+              <li>Main & Feature Branches</li>
+              <li>Create & Switch Branches</li>
+              <li>Branch Naming</li>
+              <li>Delete Branches</li>
+              <li>Covered: Develop features safely without affecting the main codebase.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 6  Merge & Conflict Resolution</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Merge  combining branches</li>
+              <li>Merge Conflicts  why they occur</li>
+              <li>Conflict Resolution</li>
+              <li>Testing After Merge</li>
+              <li>Abort Merge</li>
+              <li>Covered: Integrate team work and confidently resolve conflicts.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 7  Pull Requests & Collaboration</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Pull Requests</li>
+              <li>Code Review</li>
+              <li>Review Comments</li>
+              <li>Approval & Merge</li>
+              <li>Branch Protection  basic</li>
+              <li>Covered: Follow a professional GitHub team workflow.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 8  Undo & Recover Changes</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Restore Changes  git restore</li>
+              <li>Unstage  restore --staged</li>
+              <li>Revert Commit  git revert</li>
+              <li>Reset  basic understanding</li>
+              <li>Safe vs Risky Operations</li>
+              <li>Covered: Correct common mistakes without damaging project history.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 9  Git Stash & Best Practices</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Stash  temporary changes</li>
+              <li>Apply / Pop Stash</li>
+              <li>Clean Commits</li>
+              <li>Branch Best Practices</li>
+              <li>.gitignore</li>
+              <li>Avoid Committing Secrets</li>
+              <li>Covered: Manage unfinished work and follow professional Git practices.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 10  Tags, Releases & GitHub Issues</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Git Tags</li>
+              <li>Versioning  v1.0.0</li>
+              <li>GitHub Releases</li>
+              <li>Issues</li>
+              <li>Linking Issues & Pull Requests</li>
+              <li>Covered: Manage project versions and basic development tasks.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 11  Advanced Git: Awareness</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Rebase  basic concept</li>
+              <li>Cherry-pick  basic concept</li>
+              <li>Reflog  recovery awareness</li>
+              <li>GitHub Actions  CI/CD introduction</li>
+              <li>Covered: Understand commonly encountered advanced Git features without deep implementation.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Final Capstone  Real Team Git Workflow</div>
+            <ul class="bullet-list">
+              <li>Project Workflow</li>
+              <li>Create Repository  Branch  Code  Commit  Push  Pull Request  Review  Conflict Resolution  Merge  Release</li>
+              <li>Covered: Complete a realistic team development workflow using Git and GitHub.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 07: Agile + Scrum Syllabus</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Module 1  Agile Fundamentals</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is Agile?</li>
+              <li>Agile mindset</li>
+              <li>Why Agile?</li>
+              <li>Agile vs Waterfall</li>
+              <li>Iterative & incremental development</li>
+              <li>Customer value</li>
+              <li>Feedback & adaptation</li>
+              <li>What will be taught:
+Understand what Agile is, why it is used, and how it differs from traditional delivery.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 2  Agile Manifesto</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Agile Manifesto</li>
+              <li>4 Agile Values</li>
+              <li>12 Agile Principles</li>
+              <li>Collaboration</li>
+              <li>Customer focus</li>
+              <li>Responding to change</li>
+              <li>Continuous improvement</li>
+              <li>What will be taught:
+Understand the thinking and principles behind Agile.</li>
+              <li>The supplied material consistently emphasizes the four values around people, working software, customer collaboration and responding to change.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 3  Scrum Framework</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is Scrum?</li>
+              <li>Scrum as a framework</li>
+              <li>Agile vs Scrum</li>
+              <li>Scrum purpose</li>
+              <li>Scrum Team</li>
+              <li>Scrum Events</li>
+              <li>Scrum Artifacts</li>
+              <li>Scrum Values</li>
+              <li>Commitment</li>
+              <li>Focus</li>
+              <li>Openness</li>
+              <li>Respect</li>
+              <li>Courage</li>
+              <li>Empiricism</li>
+              <li>Transparency</li>
+              <li>Inspection</li>
+              <li>Adaptation</li>
+              <li>What will be taught:
+Understand what Scrum actually is and the principles that make Scrum work.</li>
+              <li>This is important because Scrum should not be presented simply as a "process" or "project management tool." Your latest notes correctly emphasize the framework concept.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 4  Scrum Team & Accountabilities</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Product Owner</div>
+            <ul class="bullet-list">
+              <li>Product vision</li>
+              <li>Product value</li>
+              <li>Product Backlog ownership</li>
+              <li>Prioritization</li>
+              <li>Stakeholder collaboration</li>
+              <li>Decision-making</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Scrum Master</div>
+            <ul class="bullet-list">
+              <li>Scrum facilitation</li>
+              <li>Coaching</li>
+              <li>Removing impediments</li>
+              <li>Supporting the team</li>
+              <li>Servant leadership</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Developers</div>
+            <ul class="bullet-list">
+              <li>Cross-functional team</li>
+              <li>Self-management</li>
+              <li>Collaboration</li>
+              <li>Building the Increment</li>
+              <li>Quality responsibility</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Team Structure</div>
+            <ul class="bullet-list">
+              <li>One product  One Product Backlog</li>
+              <li>One Product Owner</li>
+              <li>Multiple Developers / teams where applicable</li>
+              <li>Cross-functional capability</li>
+              <li>What will be taught:
+Understand who is accountable for what and how the Scrum Team works together.</li>
+              <li>Your source specifically describes the Product Owner as the person responsible for maximizing product value and the Scrum Master as facilitator, while the Development Team provides the skills required to deliver the Increment.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 5  Product Backlog & User Stories</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Product Backlog</li>
+              <li>Product Backlog Items</li>
+              <li>Product Goal</li>
+              <li>Epics</li>
+              <li>User Stories</li>
+              <li>Acceptance Criteria</li>
+              <li>Functional requirements</li>
+              <li>Non-functional requirements</li>
+              <li>Backlog prioritization</li>
+              <li>Backlog refinement</li>
+              <li>"Just enough" detail</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Basic hierarchy</div>
+            <ul class="bullet-list">
+              <li>Product Goal
+
+Epic
+
+User Story / PBI
+
+Tasks</li>
+              <li>What will be taught:
+Learn how product requirements are captured, refined and prioritized for development.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 6  Sprint & Sprint Rules</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is a Sprint?</li>
+              <li>Sprint purpose</li>
+              <li>Sprint Goal</li>
+              <li>Sprint duration</li>
+              <li>Sprint as a container</li>
+              <li>Fixed Sprint duration</li>
+              <li>Sprint continuity</li>
+              <li>Working Increment</li>
+              <li>Scope clarification</li>
+              <li>Quality protection</li>
+              <li>Sprint cancellation</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Important Scrum rules</div>
+            <ul class="bullet-list">
+              <li>Maximum Sprint length: 1 month</li>
+              <li>Sprint duration remains fixed</li>
+              <li>Every Sprint aims to create a usable Increment</li>
+              <li>Sprint Goal remains the focus</li>
+              <li>Scope can be clarified as more is learned</li>
+              <li>Quality should not decrease</li>
+              <li>Sprint cancellation is a Product Owner decision when the Sprint Goal becomes obsolete</li>
+              <li>What will be taught:
+Understand what can and cannot happen during a Sprint.</li>
+              <li>This is one area where your latest notes make the syllabus significantly stronger than a basic Scrum course.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 7  Scrum Events</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1. Sprint Planning</div>
+            <ul class="bullet-list">
+              <li>Purpose</li>
+              <li>Product Backlog input</li>
+              <li>Sprint Goal</li>
+              <li>Sprint Backlog</li>
+              <li>Execution approach</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2. Daily Scrum</div>
+            <ul class="bullet-list">
+              <li>15-minute time-box</li>
+              <li>Synchronization</li>
+              <li>Inspect progress</li>
+              <li>Identify impediments</li>
+              <li>Adapt daily work</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3. Sprint Review</div>
+            <ul class="bullet-list">
+              <li>Inspect Increment</li>
+              <li>Stakeholder feedback</li>
+              <li>Product adaptation</li>
+              <li>Product Backlog updates</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4. Sprint Retrospective</div>
+            <ul class="bullet-list">
+              <li>Inspect people</li>
+              <li>Relationships</li>
+              <li>Process</li>
+              <li>Tools</li>
+              <li>Identify improvements</li>
+              <li>Improvement plan</li>
+              <li>What will be taught:
+Understand Scrum events as inspection and adaptation opportunities, not simply meetings.</li>
+              <li>The supplied sources describe the four events and their purposes around planning, synchronization, review and continuous improvement.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 8  Scrum Artifacts & Commitments</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Artifacts</div>
+            <ul class="bullet-list">
+              <li>Product Backlog</li>
+              <li>Sprint Backlog</li>
+              <li>Increment</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Commitments</div>
+            <ul class="bullet-list">
+              <li>Product Goal</li>
+              <li>Sprint Goal</li>
+              <li>Definition of Done</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Definition of Done</div>
+            <ul class="bullet-list">
+              <li>Quality standard</li>
+              <li>Shared understanding</li>
+              <li>Increment completeness</li>
+              <li>Releasable quality</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Non-functional requirements</div>
+            <ul class="bullet-list">
+              <li>Product Backlog</li>
+              <li>Definition of Done</li>
+              <li>Quality expectations</li>
+              <li>What will be taught:
+Understand what Scrum produces, what each artifact represents, and what "Done" actually means.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 9  Estimation, Sizing & Sprint Capacity</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Why estimation?</li>
+              <li>Story Points</li>
+              <li>Relative sizing</li>
+              <li>Planning Poker</li>
+              <li>Fibonacci scale</li>
+              <li>Task sizing</li>
+              <li>Team capacity</li>
+              <li>Realistic Sprint workload</li>
+              <li>Velocity</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Important distinction</div>
+            <ul class="bullet-list">
+              <li>Scrum framework:
+Defines the Sprint, Backlog, Goals, Increment, etc.</li>
+              <li>Team practices:
+Story Points, Planning Poker, Fibonacci, Velocity, etc.</li>
+              <li>So we should teach these as commonly used Scrum practices, not pretend every one is mandatory Scrum.</li>
+              <li>Your supplied notes explicitly make this distinction by noting that capacity, velocity, Definition of Ready and story-point estimation are not inputs defined by the official Scrum Guide.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 10  Scrum Metrics & Performance</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Velocity</li>
+              <li>Burndown Chart</li>
+              <li>Lead Time</li>
+              <li>Cycle Time</li>
+              <li>Committed vs Completed</li>
+              <li>Defect Rate</li>
+              <li>Customer satisfaction</li>
+              <li>Stakeholder feedback</li>
+              <li>Business/product value</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Important concept</div>
+            <ul class="bullet-list">
+              <li>Team metrics  Product success</li>
+              <li>Do not teach:</li>
+              <li>"Higher velocity = better team."</li>
+              <li>Instead:</li>
+              <li>Product success  Value, customer outcomes, quality, stakeholder/business impact</li>
+              <li>Velocity and burndown are primarily planning/progress indicators, not individual performance measurements.</li>
+              <li>This is a valuable addition from your latest notes.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 11  Jira + Agile + Scrum</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Agile  Scrum  Jira</div>
+            <ul class="bullet-list">
+              <li>Agile
+= principles & mindset</li>
+              <li>Scrum
+= Agile framework</li>
+              <li>Jira
+= tool for managing/visualizing the work</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Jira Topics</div>
+            <ul class="bullet-list">
+              <li>What is Jira?</li>
+              <li>Why Jira is used in Agile</li>
+              <li>Jira Scrum project</li>
+              <li>Product Backlog</li>
+              <li>Epic</li>
+              <li>User Story</li>
+              <li>Task</li>
+              <li>Bug</li>
+              <li>Sprint</li>
+              <li>Sprint Backlog</li>
+              <li>Scrum Board</li>
+              <li>Workflow</li>
+              <li>Statuses</li>
+              <li>Assignees</li>
+              <li>Priority</li>
+              <li>Story Points</li>
+              <li>Sprint reports</li>
+              <li>Burndown</li>
+              <li>Velocity</li>
+              <li>What will be taught:
+Take the Scrum concepts and implement them practically inside Jira.</li>
+              <li>The supplied Agile material also identifies Jira as a tool for task management, progress visualization and team alignment.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">MODULE 12  End-to-End Scrum Project</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Flow</div>
+            <ul class="bullet-list">
+              <li>Product Vision
+
+Product Goal
+
+Product Backlog
+
+Epics
+
+User Stories
+
+Prioritization
+
+Backlog Refinement
+
+Sprint Planning
+
+Sprint Goal
+
+Sprint Backlog
+
+Development + Testing
+
+Daily Scrum
+
+Working Increment
+
+Sprint Review
+
+Stakeholder Feedback
+
+Retrospective
+
+Improvements
+
+Next Sprint</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Jira Practical</div>
+            <ul class="bullet-list">
+              <li>Students should actually create:</li>
+              <li>Product</li>
+              <li>Epic</li>
+              <li>Stories</li>
+              <li>Tasks</li>
+              <li>Bugs</li>
+              <li>Backlog</li>
+              <li>Sprint</li>
+              <li>Sprint Goal</li>
+              <li>Story Points</li>
+              <li>Assignees</li>
+              <li>Status workflow</li>
+              <li>Sprint execution</li>
+              <li>Sprint Review</li>
+              <li>Retrospective</li>
+              <li>Burndown</li>
+              <li>What will be taught:
+Students finish with actual Scrum + Jira experience rather than only theory.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 13  Real-World Scrum Practices & Challenges</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Scope creep</li>
+              <li>Mid-Sprint changes</li>
+              <li>Overcommitment</li>
+              <li>Blockers</li>
+              <li>Technical debt</li>
+              <li>Poor backlog quality</li>
+              <li>Stakeholder interference</li>
+              <li>PODeveloper misalignment</li>
+              <li>Unrealistic Sprint Goals</li>
+              <li>Poor communication</li>
+              <li>Sustainable pace</li>
+              <li>Continuous improvement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <h2>Module 08: Generative AI  Course Roadmap</h2>
+          
+        </div>
+        <div class="module-body">
+
+          <div class="topic-group">
+            <div class="topic-title">Module 1  Generative AI & Large Language Models</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Introduction to Generative AI</li>
+              <li>Generative AI vs Traditional AI</li>
+              <li>Large Language Models (LLMs)</li>
+              <li>How LLMs work  high-level architecture</li>
+              <li>Capabilities and limitations of LLMs</li>
+              <li>Real-world GenAI applications</li>
+              <li>Tools / Models</li>
+              <li>ChatGPT</li>
+              <li>OpenAI models</li>
+              <li>Google Gemini</li>
+              <li>Meta Llama</li>
+              <li>Outcome: Understand the GenAI ecosystem and how modern LLM-powered applications work.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 2  Prompt Engineering</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Fundamentals of Prompt Engineering</li>
+              <li>Anatomy of an effective prompt</li>
+              <li>Role / Persona prompting</li>
+              <li>Instruction and context</li>
+              <li>Output formatting</li>
+              <li>Specificity and clarity</li>
+              <li>Iterative prompt refinement</li>
+              <li>Zero-shot prompting</li>
+              <li>Few-shot prompting</li>
+              <li>Structured prompting</li>
+              <li>Reasoning-oriented prompting</li>
+              <li>Prompt design for different use cases</li>
+              <li>Hands-on</li>
+              <li>Content generation</li>
+              <li>Summarization</li>
+              <li>Translation</li>
+              <li>Resume generation</li>
+              <li>Interview preparation</li>
+              <li>Problem explanation</li>
+              <li>Travel and recommendation prompts</li>
+              <li>Outcome: Learn to design effective prompts that produce more relevant, consistent and controlled AI outputs.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 3  Working with LLM APIs</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Introduction to AI APIs</li>
+              <li>API keys and authentication</li>
+              <li>Connecting applications with LLMs</li>
+              <li>OpenAI API fundamentals</li>
+              <li>Google Gemini API fundamentals</li>
+              <li>Model selection</li>
+              <li>Sending prompts and receiving responses</li>
+              <li>Controlling model outputs</li>
+              <li>Handling API responses</li>
+              <li>Basic error handling</li>
+              <li>Hands-on</li>
+              <li>Build an AI-powered chatbot</li>
+              <li>Integrate Gemini into a Python application</li>
+              <li>Create a simple Gradio-based AI interface</li>
+              <li>Outcome: Build applications that communicate directly with modern AI models through APIs.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 4  LangChain Fundamentals</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Introduction to LangChain</li>
+              <li>Why frameworks are used for LLM applications</li>
+              <li>LLMs and Chat Models</li>
+              <li>Prompt Templates</li>
+              <li>Model I/O</li>
+              <li>Output handling</li>
+              <li>Chains</li>
+              <li>Sequential Chains</li>
+              <li>Connecting multiple AI operations</li>
+              <li>Building reusable LLM workflows</li>
+              <li>Hands-on</li>
+              <li>Create prompt templates</li>
+              <li>Build LLM chains</li>
+              <li>Build multi-step AI workflows</li>
+              <li>Translation  summarization  response generation pipeline</li>
+              <li>Outcome: Develop structured AI applications instead of relying only on standalone prompts.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 5  Conversation Memory</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Why AI applications need memory</li>
+              <li>Conversation history</li>
+              <li>Context management</li>
+              <li>Short-term conversational memory</li>
+              <li>Conversation Buffer Memory</li>
+              <li>Conversation Buffer Window Memory</li>
+              <li>Token-based memory</li>
+              <li>Conversation Summary Memory</li>
+              <li>Choosing the appropriate memory approach</li>
+              <li>Hands-on</li>
+              <li>Build a conversational AI application</li>
+              <li>Maintain context across multiple user interactions</li>
+              <li>Optimize conversation history</li>
+              <li>Outcome: Build AI applications capable of maintaining meaningful conversational context.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 6  Embeddings & Vector Databases</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What are embeddings?</li>
+              <li>Text-to-vector representation</li>
+              <li>Semantic similarity</li>
+              <li>Similarity search</li>
+              <li>Cosine similarity</li>
+              <li>Vector search</li>
+              <li>Vector database architecture</li>
+              <li>Storing embeddings and metadata</li>
+              <li>Vector Database Exposure</li>
+              <li>ChromaDB</li>
+              <li>Pinecone</li>
+              <li>Qdrant</li>
+              <li>Redis</li>
+              <li>Weaviate</li>
+              <li>Outcome: Understand how AI applications search and retrieve information based on meaning rather than simple keyword matching.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 7  Retrieval-Augmented Generation (RAG)</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is RAG?</li>
+              <li>Why RAG is required</li>
+              <li>RAG vs traditional LLM applications</li>
+              <li>RAG architecture</li>
+              <li>Knowledge-base creation</li>
+              <li>Document ingestion</li>
+              <li>Document parsing</li>
+              <li>Text chunking</li>
+              <li>Metadata extraction</li>
+              <li>Embedding generation</li>
+              <li>Vector database storage</li>
+              <li>Similarity retrieval</li>
+              <li>Context injection</li>
+              <li>Response generation</li>
+              <li>Reducing hallucinations</li>
+              <li>Domain-specific AI applications</li>
+              <li>RAG Pipeline</li>
+              <li>Documents  Chunking  Embeddings  Vector DB  Retrieval  LLM  Grounded Response</li>
+              <li>Outcome: Build AI applications that answer questions using external/private knowledge instead of relying only on the model's built-in knowledge.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 8  Build a Production-Style RAG Chatbot</div>
+            <ul class="bullet-list">
+              <li>This should be one of the headline projects in your brochure because it directly demonstrates practical GenAI development.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Project: Multi-PDF Knowledge-Base Chatbot</div>
+            <ul class="bullet-list">
+              <li>Build a chatbot that can:</li>
+              <li>Load multiple PDF documents</li>
+              <li>Extract document content</li>
+              <li>Split documents into meaningful chunks</li>
+              <li>Generate embeddings</li>
+              <li>Store embeddings in a vector database</li>
+              <li>Retrieve relevant information</li>
+              <li>Generate contextual responses</li>
+              <li>Maintain conversation history</li>
+              <li>Provide source attribution</li>
+              <li>Handle queries across multiple documents</li>
+              <li>Suggest relevant questions</li>
+              <li>Refuse unsupported questions</li>
+              <li>Recommend alternative questions</li>
+              <li>Update the knowledge base</li>
+              <li>Optimize response performance</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Project Architecture</div>
+            <ul class="bullet-list">
+              <li>PDF Knowledge Base  Document Processing  Chunking  Embeddings  Vector Database  Retrieval  LLM  Conversational Response</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Assessment Project</div>
+            <ul class="bullet-list">
+              <li>Patent & FAQ Knowledge Assistant</li>
+              <li>Students build a chatbot capable of answering questions strictly from a supplied multi-document knowledge base.</li>
+              <li>Key implementation requirements</li>
+              <li>Multi-PDF processing</li>
+              <li>Knowledge retrieval</li>
+              <li>RAG pipeline</li>
+              <li>Conversational memory</li>
+              <li>Source URL attribution</li>
+              <li>Keyword-based question suggestions</li>
+              <li>Out-of-scope query handling</li>
+              <li>Performance optimization</li>
+              <li>Knowledge-base updates</li>
+              <li>Outcome: Students complete a portfolio-ready GenAI application demonstrating an end-to-end RAG workflow.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 9  AI Agents</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is an AI Agent?</li>
+              <li>LLMs vs AI Agents</li>
+              <li>Agent components</li>
+              <li>Agent perception and decision-making</li>
+              <li>Tools and tool usage</li>
+              <li>Autonomous task execution</li>
+              <li>Reactive agents</li>
+              <li>Deliberative agents</li>
+              <li>Hybrid agents</li>
+              <li>Agent-based workflows</li>
+              <li>Real-world AI Agent use cases</li>
+              <li>Examples</li>
+              <li>AI assistants</li>
+              <li>Customer-support agents</li>
+              <li>Research agents</li>
+              <li>Task automation agents</li>
+              <li>Tool-using AI systems</li>
+              <li>Outcome: Understand how LLMs can be combined with tools and decision-making capabilities to perform tasks.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 10  Agentic AI</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>What is Agentic AI?</li>
+              <li>AI Agent vs Agentic AI</li>
+              <li>Autonomy</li>
+              <li>Goal-oriented systems</li>
+              <li>Proactive decision-making</li>
+              <li>Adaptability</li>
+              <li>Reasoning</li>
+              <li>Multi-step task execution</li>
+              <li>Multi-agent systems</li>
+              <li>Agent architectures</li>
+              <li>Agent coordination</li>
+              <li>Agentic workflows</li>
+              <li>Business applications</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">AI Agent vs Agentic AI</div>
+            <ul class="bullet-list">
+              <li>Outcome: Understand where traditional AI agents are appropriate and where more autonomous agentic systems can be applied.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 11  AI Automation with n8n</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Topics</div>
+            <ul class="bullet-list">
+              <li>Introduction to workflow automation</li>
+              <li>What is n8n?</li>
+              <li>Visual workflow builder</li>
+              <li>Nodes</li>
+              <li>Triggers</li>
+              <li>Workflows</li>
+              <li>JSON data flow</li>
+              <li>Conditional logic</li>
+              <li>API integrations</li>
+              <li>Credentials and authentication</li>
+              <li>Custom nodes</li>
+              <li>Workflow execution</li>
+              <li>Testing and debugging</li>
+              <li>Cloud vs self-hosted deployment</li>
+              <li>AI-powered workflows</li>
+              <li>Agentic workflows</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Automation</div>
+            <ul class="bullet-list">
+              <li>Build an automation such as:</li>
+              <li>Newsletter Email  AI Summarization  Notion Database  LinkedIn Post</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Additional Use Cases</div>
+            <ul class="bullet-list">
+              <li>Automated data collection</li>
+              <li>Email notifications</li>
+              <li>Social media automation</li>
+              <li>Report generation</li>
+              <li>AI content creation</li>
+              <li>Application/API integration</li>
+              <li>Outcome: Automate real business workflows by combining AI with applications, APIs and automation platforms.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Module 12  GenAI Application Development & Portfolio</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Capstone Focus</div>
+            <ul class="bullet-list">
+              <li>Students combine the concepts learned throughout the course to develop an end-to-end GenAI application.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Suggested Capstone Options</div>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">1. Multi-PDF RAG Chatbot</div>
+            <ul class="bullet-list">
+              <li>Document Q&A</li>
+              <li>Memory</li>
+              <li>Source attribution</li>
+              <li>Knowledge retrieval</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">2. AI Customer Support Assistant</div>
+            <ul class="bullet-list">
+              <li>FAQ knowledge base</li>
+              <li>RAG</li>
+              <li>Conversation memory</li>
+              <li>Automated responses</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">3. AI Research Assistant</div>
+            <ul class="bullet-list">
+              <li>Document retrieval</li>
+              <li>Summarization</li>
+              <li>Question answering</li>
+              <li>Source-based responses</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">4. AI Automation Agent</div>
+            <ul class="bullet-list">
+              <li>LLM</li>
+              <li>Tools/API</li>
+              <li>n8n</li>
+              <li>Automated workflow</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Practical Learning Path</div>
+            <ul class="bullet-list">
+              <li>The overall progression can be presented very cleanly on your website:</li>
+              <li>01  GenAI Foundations
+ Understand Generative AI, LLMs and modern AI models</li>
+              <li>02  Prompt Engineering
+ Design effective prompts and control AI outputs</li>
+              <li>03  LLM APIs
+ Connect AI models to real applications</li>
+              <li>04  LangChain
+ Build structured LLM-powered applications</li>
+              <li>05  AI Memory
+ Create context-aware conversational applications</li>
+              <li>06  Embeddings & Vector DB
+ Enable semantic search and knowledge retrieval</li>
+              <li>07  RAG
+ Connect LLMs with external/private knowledge</li>
+              <li>08  RAG Chatbot Project
+ Build a multi-document AI knowledge assistant</li>
+              <li>09  AI Agents
+ Build tool-using and task-oriented AI systems</li>
+              <li>10  Agentic AI
+ Explore autonomous, goal-driven AI workflows</li>
+              <li>11  n8n AI Automation
+ Automate real-world business processes</li>
+              <li>12  Capstone Project
+ Build and present a portfolio-ready GenAI application</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Website / Brochure Short Version</div>
+            <ul class="bullet-list">
+              <li>For your course card, brochure or landing page, I would use something shorter like this:</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">GENERATIVE AI  FROM FUNDAMENTALS TO AI AGENTS & AUTOMATION</div>
+            <ul class="bullet-list">
+              <li>Learn to build practical Generative AI applications using LLMs, APIs, LangChain, RAG, Vector Databases, AI Agents, Agentic AI and n8n.</li>
+              <li>Course Modules</li>
+              <li>Generative AI & LLM Fundamentals</li>
+              <li>Prompt Engineering</li>
+              <li>OpenAI & Gemini API Integration</li>
+              <li>LangChain</li>
+              <li>LLM Chains & Workflows</li>
+              <li>Conversational AI & Memory</li>
+              <li>Embeddings & Vector Databases</li>
+              <li>Retrieval-Augmented Generation (RAG)</li>
+              <li>Multi-PDF RAG Chatbot</li>
+              <li>AI Agents</li>
+              <li>Agentic AI & Multi-Agent Concepts</li>
+              <li>n8n AI Automation</li>
+              <li>End-to-End GenAI Application Development</li>
+              <li>Capstone Project</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">Hands-on Projects</div>
+            <ul class="bullet-list">
+              <li>Multi-PDF RAG Knowledge Assistant
+ Build a document-grounded chatbot with retrieval, memory, source attribution and intelligent query handling.</li>
+              <li>AI-Powered Gemini Chatbot
+ Integrate an LLM API into a Python application and build an interactive chatbot.</li>
+              <li>AI Workflow Automation
+ Build an automated AI workflow using n8n, APIs and external applications.</li>
+            </ul>
+          </div>
+
+          <div class="topic-group">
+            <div class="topic-title">What Students Will Be Able To Build</div>
+            <ul class="bullet-list">
+              <li>LLM Applications  AI Chatbots  RAG Systems  Knowledge Assistants  AI Agents  AI Automation Workflows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-note">
+      <p><strong>NeoNex MindX</strong> &bull; Complete Master Syllabus &bull; www.neonexmindx.com &bull; Contact: +91 84318 03839 / neonexminds@gmail.com</p>
+      <p style="margin-top: 4px;">&copy; 2026 NeoNex MindX Edutech Private Limited. All syllabus contents are proprietary and structured for professional competency.</p>
+    </div>
+  </div>
+</body>
+</html>

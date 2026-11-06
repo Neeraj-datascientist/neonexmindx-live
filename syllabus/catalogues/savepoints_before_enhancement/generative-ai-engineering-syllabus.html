@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative AI Engineering Master Program - Official Master Syllabus | NeoNex MindX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --accent-light: #eff6ff;
+      --teal: #0d9488;
+      --purple: #7c3aed;
+      --amber: #d97706;
+      --green: #16a34a;
+      --rose: #e11d48;
+      --text: #334155;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      line-height: 1.65;
+      background: var(--bg);
+      padding: 30px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .print-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 44px 48px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px -10px rgba(15, 23, 42, 0.08), 0 0 0 1px var(--border);
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+      border-bottom: 1.5px solid var(--border);
+    }
+    .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .brand span { color: var(--accent); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: #e0e7ff;
+      color: #3730a3;
+      border: 1px solid #c7d2fe;
+    }
+    .program-hero {
+      margin-bottom: 28px;
+    }
+    .program-hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .program-hero p.subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 980px;
+      line-height: 1.6;
+    }
+    .meta-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: 14px;
+      margin-bottom: 28px;
+    }
+    .meta-item span {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .meta-item strong {
+      font-size: 17px;
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+    .btn-action-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+    }
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--text-dark);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: var(--bg);
+      border-color: #cbd5e1;
+    }
+    .btn-download-docx {
+      background: #059669;
+      color: #fff;
+      border: 1px solid #059669;
+    }
+    .btn-download-docx:hover {
+      background: #047857;
+      border-color: #047857;
+    }
+    .exemption-banner {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      border: 1.5px solid #bfdbfe;
+      border-left: 6px solid #2563eb;
+      padding: 20px 24px;
+      border-radius: 12px;
+      margin-bottom: 36px;
+    }
+    .exemption-banner h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .exemption-banner p {
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.6;
+    }
+    .program-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      background: #f1f5f9;
+      padding: 8px;
+      border-radius: 12px;
+    }
+    .program-nav a {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      transition: background-color 0.15s, color 0.15s;
+    }
+    .program-nav a:hover {
+      background: #fff;
+      color: var(--accent);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .part-section {
+      margin-bottom: 48px;
+    }
+    .part-header {
+      background: #0f172a;
+      color: #fff;
+      padding: 20px 24px;
+      border-radius: 14px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .part-header-info h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .part-header-info p {
+      font-size: 13.5px;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+    .part-pill {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+    }
+    .module-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      page-break-inside: avoid;
+    }
+    .module-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+    }
+    .module-header {
+      background: var(--bg);
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .module-header-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .module-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .module-header-main h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.3px;
+    }
+    .module-meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #0369a1;
+      background: #e0f2fe;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      border: 1px solid #bae6fd;
+    }
+    .module-body {
+      padding: 24px;
+    }
+    .module-purpose {
+      font-size: 14.5px;
+      color: #1e293b;
+      background: #f1f5f9;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 3px solid #64748b;
+    }
+    .module-purpose strong {
+      color: #0f172a;
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+    .topic-group {
+      background: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .topic-group h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .topic-group ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .topic-group li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 13.5px;
+      color: #334155;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .topic-group li::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .module-deliverables {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .deliverable-box {
+      font-size: 13px;
+    }
+    .deliverable-box span {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-bottom: 3px;
+    }
+    .deliverable-box strong {
+      color: #0f172a;
+      line-height: 1.45;
+    }
+    .rubric-table, .glossary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      margin-bottom: 32px;
+      font-size: 13.5px;
+    }
+    .rubric-table th, .glossary-table th {
+      background: #1e293b;
+      color: #fff;
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+    .rubric-table td, .glossary-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+      line-height: 1.55;
+    }
+    .rubric-table tr:nth-child(even), .glossary-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .project-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 24px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      page-break-inside: avoid;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .project-header h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .project-track {
+      font-size: 12px;
+      font-weight: 700;
+      color: #047857;
+      background: #d1fae5;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      border: 1px solid #a7f3d0;
+    }
+    .project-card p.purpose {
+      font-size: 14px;
+      color: #475569;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .project-scope-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .project-scope ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px 0;
+    }
+    .project-scope li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 13.5px;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+    .project-scope li::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #059669;
+    }
+    .project-acceptance {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #166534;
+    }
+    .footer-bar {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1.5px solid var(--border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer-bar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .print-container { box-shadow: none; border: none; padding: 0; }
+      .btn-action-bar, .program-nav, .header-bar .badge { display: none !important; }
+      .module-card, .project-card { border: 1px solid #ccc; break-inside: avoid; }
+    }
+    @media (max-width: 768px) {
+      .print-container { padding: 24px 18px; }
+      .header-bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .btn-action-bar { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+      .topics-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-container">
+
+    <div class="header-bar">
+      <div>
+        <a href="/" class="brand">NeoNeX<span>MindX</span></a>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">School of Artificial Intelligence, Data & Engineering</div>
+      </div>
+      <span class="badge">Official Master Syllabus</span>
+    </div>
+
+    <div class="program-hero">
+      <h1>Generative AI Engineering Master Program</h1>
+      <p class="subtitle">
+        A rigorous, production-grade 13–15 month curriculum engineered to train AI developers into full-stack Generative AI Architects. Covers foundational AI/ML, joint advanced core pipelines, 11 dedicated GenAI specialist modules (Advanced RAG, Multi-Agent Systems, MCP/A2A, Fine-Tuning, LLMOps, Multimodal AI), and 7 comprehensive project studio tracks with technical defense.
+      </p>
+    </div>
+
+    <div class="meta-box">
+      <div class="meta-item">
+        <span>Target Duration</span>
+        <strong>13–15 Months</strong>
+      </div>
+      <div class="meta-item">
+        <span>Regular Fee</span>
+        <strong>₹1,25,000 (Early Bird: ₹1,00,000)</strong>
+      </div>
+      <div class="meta-item">
+        <span>Delivery Format</span>
+        <strong>Live Mentor-Led + Guided Labs + Capstone</strong>
+      </div>
+      <div class="meta-item">
+        <span>Certification</span>
+        <strong>Industry Accredited Master Certificate + Internship</strong>
+      </div>
+    </div>
+
+    <div class="btn-action-bar">
+      <button onclick="window.print()" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Save / Download as PDF (Print)
+      </button>
+      <a href="/syllabus/catalogues/NEONEX_MINDX_GenAI_Engineering_Master_Catalogue.docx" download class="btn btn-download-docx">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Official Catalogue (DOCX)
+      </a>
+      <a href="tel:+918431803839" class="btn btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Speak with Academic Advisor (084318 03839)
+      </a>
+    </div>
+
+    <!-- EXEMPTION BANNER PER USER SPECIFICATION -->
+    <div class="exemption-banner">
+      <h4>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Important Notice: Generative AI Practical Crash Course Exemption
+      </h4>
+      <p>
+        <strong>Note for Enrolled Candidates:</strong> Candidates enrolled in this comprehensive <em>Generative AI Engineering Master Program</em> do <strong>not</strong> need to take the separate introductory Generative AI Practical Crash Course. Because this degree-level curriculum includes in-depth Generative AI Foundation in Part A, joint Advanced LLM and RAG modules in Part B, and 11 specialized enterprise modules in Part C (Stateful Agents, MCP, Fine-Tuning, Security Red Teaming & LLMOps), all introductory crash-course material is superseded by deep-dive practical engineering.
+      </p>
+    </div>
+
+    <!-- PROGRAM SECTIONS NAV -->
+    <div class="program-nav">
+      <a href="#part-a">Part A: Common Foundation (13 Modules)</a>
+      <a href="#part-b">Part B: AI Engineering Core (10 Modules)</a>
+      <a href="#part-c">Part C: GenAI Specialization (11 Modules)</a>
+      <a href="#part-d">Part D: Project Studio (7 Capstones)</a>
+      <a href="#assessment">Defense Rubric & Glossary</a>
+    </div>
+
+    <div class="syllabus-modules">
+
+      <div class="part-section" id="part-a">
+        <div class="part-header">
+          <div class="part-header-info">
+            <h2>PART A: Common Engineering Foundation</h2>
+            <p>Shared fundamental classes establishing core data, programming, mathematics, ML and deep learning.</p>
+          </div>
+          <span class="part-pill">13 Modules &middot; Approx 18–20 Weeks</span>
+        </div>
+
+      <div class="module-card" id="mod-A01">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A01</span>
+            <h3>AI Foundation</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Establish the shared AI vocabulary and system lifecycle used throughout the Neonex Mindx programmes.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Core concepts</h4><ul><li>What is Artificial Intelligence?</li><li>AI vs Machine Learning vs Deep Learning vs Generative AI.</li><li>Major areas of AI and types of AI systems/problems.</li><li>Predictive/discriminative systems versus generative systems; rule-based, statistical, ML and LLM-driven approaches.</li></ul></div><div class="topic-group"><h4>System and professional context</h4><ul><li>AI lifecycle and AI system development lifecycle.</li><li>Role of an AI Engineer and relationship to Data Analyst, Data Scientist, Data Engineer, ML Engineer and GenAI Engineer roles.</li><li>Modern AI ecosystem and where data, models, prompts, tools, applications and deployment fit.</li><li>Responsible AI fundamentals: privacy, fairness/bias awareness, reliability, transparency and human oversight.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Map three real problems to the appropriate method (analytics, classical ML, deep learning or GenAI), then explain why a different approach may be more suitable.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>AI foundation assessment and a one-page AI-system lifecycle map.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain the main AI categories, describe a simple AI project lifecycle and select a sensible first approach to a problem.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Shared with relevant programmes. This block is not a separate GenAI-only orientation; GenAI examples are included inside the same class.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A02">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A02</span>
+            <h3>Python</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks in the AI Engineer roadmap; existing common Python curriculum takes precedence</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Reuse the existing Python module and its established exercises, order, learning outcomes and assessment. Do not create a second GenAI Python fundamentals course.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Programming foundations</h4><ul><li>Python introduction, IDEs and execution models.</li><li>Keywords, identifiers, variables, literals, data types and type conversion.</li><li>Indexing/slicing, mutability/immutability, operators and control flow.</li><li>Strings, lists, tuples, dictionaries, sets, aliasing and copying.</li></ul></div><div class="topic-group"><h4>Reusable coding</h4><ul><li>Exception handling, functions, lambda, map/filter/reduce and core collection patterns.</li><li>File handling, CSV/JSON and regular expressions where already present in the approved syllabus.</li><li>NumPy, Pandas and exploratory data analysis (EDA) as specified in the common Python curriculum.</li><li>Basic debugging, readable code and explanation of code written with or without AI assistance.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Complete a small Python task using file/data input, transformations, validation and a clear output. Learners submit their own explanation and debug at least one deliberately introduced issue.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Existing Python module artifact and assessment record; do not substitute a new lighter GenAI assignment for the shared assessment.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Pass the existing common Python gate and demonstrate independent understanding of submitted code.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Shared class with the relevant Data Analyst, Business Analyst, Data Scientist, Data Engineer and AI Engineer cohorts where their approved paths use the same Python module. Later, Part B adds Advanced Python rather than repeating fundamentals.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A03">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A03</span>
+            <h3>Mathematics for Data Science &amp; AI</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Create the common quantitative foundation for ML, representation, similarity and evaluation.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Linear algebra</h4><ul><li>Vectors and matrices.</li><li>Matrix operations and dimensionality intuition.</li><li>Dot-product intuition useful later for similarity and embeddings.</li></ul></div><div class="topic-group"><h4>Probability and statistics</h4><ul><li>Probability fundamentals and conditional probability.</li><li>Probability distributions.</li><li>Descriptive and inferential statistics.</li><li>Mean, variance and standard deviation.</li><li>Correlation, sampling and statistical reasoning for AI/ML.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Work through a compact numerical lab: summarize a dataset, interpret uncertainty and dimensions, then explain conceptually how vector representations support similarity.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Math/stats workbook with interpretation notes.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can interpret core statistics and vector/matrix concepts well enough to progress into advanced ML/AI systems.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Keep the existing common math module and its sequence. Part B&#x27;s Advanced Mathematics &amp; Optimization is a delta module—not a repetition of linear algebra, probability or statistics.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A04">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A04</span>
+            <h3>SQL</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week in the AI Engineer roadmap; existing approved SQL syllabus takes precedence</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Reuse the existing SQL syllabus, exercises and assessments; avoid making GenAI candidates repeat SQL foundations later.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>SQL/RDBMS foundations</h4><ul><li>SQL and RDBMS fundamentals; SQL categories.</li><li>Database/table creation, data types and CRUD operations.</li><li>Filtering and operators; constraints; normalization.</li><li>Aggregation, GROUP BY/HAVING, joins and set operators.</li></ul></div><div class="topic-group"><h4>Additional concepts in the approved module</h4><ul><li>Indexes and views.</li><li>Advanced SQL concepts already present in the finalized common syllabus.</li><li>Safe parameterized queries and application-level SQL usage where covered.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Query a small relational dataset, join related tables and explain the query&#x27;s purpose and edge cases. In later specialization labs, the same SQL skills can power read-only knowledge or analytics tools.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Existing SQL module assessment and query repository.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Pass the shared SQL gate and explain query behavior.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Shared class. Advanced SQL for AI/ML engineering is introduced in Part B, following the AI Engineer course sequence.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A05">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A05</span>
+            <h3>MongoDB / NoSQL</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Establish the same document-database foundation used in the AI Engineering path.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>NoSQL fundamentals</h4><ul><li>Database and NoSQL fundamentals; SQL vs NoSQL.</li><li>JSON/BSON; database → collection → document.</li><li>CRUD operations, querying/filtering, arrays and nested documents.</li></ul></div><div class="topic-group"><h4>Application and data practice</h4><ul><li>Aggregation framework, PyMongo and indexing.</li><li>Query-performance basics.</li><li>MongoDB in data pipelines and data modelling for Data Science/ML.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Build a small Python-backed document-store exercise with nested records, filters and a simple aggregation. Record the choice of document versus relational storage.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>MongoDB/NoSQL practical and schema notes.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can create, query and model simple document data, and explain a basic SQL-vs-NoSQL trade-off.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Shared for programmes where MongoDB is already in the approved common path. Part B later applies databases to AI application state and vector data.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A06">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A06</span>
+            <h3>Data Modelling</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Reuse the agreed data modelling module before introducing AI-specific data architecture.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Modelling concepts</h4><ul><li>Data modelling fundamentals; database fundamentals; RDBMS vs NoSQL.</li><li>OLTP vs OLAP; data lake vs data warehouse.</li><li>ER modelling; normalization/denormalization; relationships and keys.</li></ul></div><div class="topic-group"><h4>Analytical and operational models</h4><ul><li>Dimensional modelling, fact and dimension tables, grain.</li><li>Star and snowflake schemas; Slowly Changing Dimensions.</li><li>Performance/scalability, data pipelines and modelling decisions.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Model a simple business domain and explain entities, grain, keys, relationships and access patterns; add a note on what AI application state would require later.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Data-model diagram and design explanation.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain the basic model and key design choices.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Shared common module where relevant. GenAI adds document, chunk, embedding, conversation-state and trace schemas later; those are not replacements for the common module.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A07">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A07</span>
+            <h3>Git &amp; GitHub</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Use one standard version-control and collaboration module across technical programmes.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Core Git</h4><ul><li>Version control, repository, working directory, staging, commits and history.</li><li>GitHub, remote repositories, push/pull/fetch.</li><li>Branching, merging and conflict resolution.</li></ul></div><div class="topic-group"><h4>Professional workflow</h4><ul><li>Pull requests and code review.</li><li>Restore/revert/reset, stash, tags/releases.</li><li>GitHub Actions awareness; README, project setup and repository hygiene.</li><li>Avoid committing API keys or confidential data; .gitignore and .env.example awareness.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Use a branch/commit/review flow for a Python change; inspect a repository and identify a configuration or credential mistake before it is merged.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Clean GitHub repository with README, commit history and review evidence.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can manage a small code change through Git and explain how to reproduce the project.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Shared class. Part C specifically applies GitHub repository discovery and safe Vibe Coding/reuse to GenAI systems.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A08">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A08</span>
+            <h3>Machine Learning</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">4–5 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Use the existing ML roadmap as the baseline; GenAI does not require a second comprehensive ML algorithm course.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Data understanding and preparation</h4><ul><li>Data understanding and profiling.</li><li>Data cleaning, missing values and outliers.</li><li>Feature engineering: numeric/categorical features, encoding, scaling, transformation, extraction and feature selection.</li></ul></div><div class="topic-group"><h4>Model development</h4><ul><li>Train/validation/test split and leakage prevention.</li><li>Classification and regression.</li><li>Ensemble methods, clustering, dimensionality reduction and semi-supervised learning.</li></ul></div><div class="topic-group"><h4>Evaluation and workflow</h4><ul><li>Model evaluation and cross-validation.</li><li>Hyperparameter tuning and optimization.</li><li>End-to-end ML workflow, reproducibility and correct metric interpretation.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Build or audit a reproducible ML baseline from data preparation through evaluation, including a leakage check and a short analysis of error cases.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Existing ML project/notebook and evaluation report.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Pass the common ML assessment and explain train/test separation, selected metrics and failure cases.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Shared with AI Engineering candidates in the same sequence. GenAI candidates complete it as AI foundations; broader Advanced ML Engineering remains in Part B because the agreed AI Engineering path includes it.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A09">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A09</span>
+            <h3>Deep Learning</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2–3 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Establish neural-network fundamentals without replacing them with LLM-only content.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Foundations</h4><ul><li>Neural-network fundamentals and ANN.</li><li>Forward propagation, backpropagation, activation functions, loss functions and optimizers.</li><li>Training, validation, overfitting and regularization.</li></ul></div><div class="topic-group"><h4>Architecture awareness and practice</h4><ul><li>CNN, RNN/LSTM and transfer-learning awareness.</li><li>Practical deep-learning workflow.</li><li>Training artifacts versus inference and why they have different operational requirements.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Run or inspect a small deep-learning experiment; vary a training setting, compare results and explain the observed effect and limitations.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Deep-learning practical artifact and model-lifecycle diagram.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain the basic neural-network workflow and key concepts without claiming research-level expertise.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Shared class with AI Engineering. Deep Learning Engineering &amp; Production follows in Part B for both cohorts.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A10">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A10</span>
+            <h3>Natural Language Processing</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Provide the NLP background needed for Transformers and LLM applications.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Language processing</h4><ul><li>NLP fundamentals and text preprocessing.</li><li>Tokenization and text representation.</li><li>Embeddings and sequence modelling.</li><li>RNN/LSTM concepts and typical NLP workflows.</li></ul></div><div class="topic-group"><h4>Transformers and applications</h4><ul><li>Transformer introduction.</li><li>NLP applications and language-data quality considerations.</li><li>Keyword/sparse signals versus semantic representations at a conceptual level.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Compare simple text-processing/keyword results with a semantic representation example; document what each approach can and cannot solve.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>NLP practical and a short concept map.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can describe NLP pipeline stages and explain the purpose of embeddings and Transformers at a foundational level.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Shared foundation. Part B&#x27;s NLP Engineering &amp; Transformers deepens this in the same class as AI Engineers; Part C then focuses on GenAI-specific products.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A11">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A11</span>
+            <h3>Computer Vision</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Preserve the broad AI foundation from the AI Engineer course while bounding CV depth for the GenAI track.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Vision fundamentals</h4><ul><li>Image fundamentals and CNN.</li><li>Image classification, convolution and feature extraction.</li><li>Transfer learning, MobileNet and VGG awareness.</li></ul></div><div class="topic-group"><h4>Detection and implementation</h4><ul><li>Object detection, SSD and YOLO awareness.</li><li>Detection metrics.</li><li>OpenCV and model inference.</li><li>Difference between classic vision pipelines, OCR/document parsing and multimodal vision-language models.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Inspect an image classification/detection example and compare it with a document/image question-answering use case; choose the right class of system and justify why.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Vision foundation practical and a model-choice note.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can identify major CV tasks, basic inference concepts and where multimodal GenAI differs from traditional CV.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Retain the AI Engineering order and baseline. Deep CV is not a promised GenAI specialization; multimodal vision/document use cases reappear in Part C.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A12">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A12</span>
+            <h3>Generative AI Foundation</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">3 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>This is the common bridge into advanced LLM engineering. Both cohorts should attend the same foundational GenAI class and pass the same baseline assessment.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>LLMs and GenAI literacy</h4><ul><li>Generative AI, LLMs, tokens, context windows and multimodal AI.</li><li>LLM capabilities, limitations, hallucinations and responsible AI.</li><li>High-level assistant/application architecture and real-world GenAI use cases.</li></ul></div><div class="topic-group"><h4>Open-source AI and model discovery</h4><ul><li>Open-source vs proprietary AI; Hugging Face Hub, model cards, datasets, model selection and licensing.</li><li>Local AI and Ollama; awareness of hosted versus local inference.</li><li>Open WebUI, AnythingLLM and LibreChat as interface choices; model and product are not the same thing.</li></ul></div><div class="topic-group"><h4>Prompting and APIs</h4><ul><li>Prompt engineering: role/persona, instructions, context, output format, zero-shot/few-shot prompting, structured prompting, refinement and prompt evaluation.</li><li>LLM API fundamentals, authentication, model selection, request/response and basic error handling.</li><li>OpenAI/Gemini-style APIs and building a small Python-connected model call.</li></ul></div><div class="topic-group"><h4>Frameworks, retrieval and agents — baseline only</h4><ul><li>LangChain fundamentals, prompt templates, chains, multi-step workflows and conversation memory.</li><li>Embeddings, semantic similarity, vector search and vector databases: Chroma, Qdrant, FAISS, pgvector; Pinecone/Weaviate awareness.</li><li>RAG fundamentals: ingestion, parsing, chunking, metadata, embeddings, retrieval, context injection and grounded responses.</li><li>AI agent fundamentals, agent vs chatbot, tools/tool calling, Agentic AI concepts, n8n/workflow automation.</li><li>AI-assisted development, Vibe Coding, GitHub project discovery and reusing open-source projects responsibly.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Complete a small GenAI literacy portfolio: compare a hosted and open/local model, create prompts for two tasks, call an LLM API, sketch a baseline RAG flow and explain when an agent/workflow is appropriate. This is foundation exposure—not the final depth evaluation.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Common GenAI foundation assessment, model/tool comparison and baseline application idea.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can describe LLM application building blocks and explain the baseline prompt/API/RAG/agent lifecycle.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>This module deliberately includes many topics at an introductory level because it is the agreed common foundation. Parts B and C deepen them; they must not simply repeat this syllabus as a second GenAI fundamentals course.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-A13">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">A13</span>
+            <h3>ML Model Deployment</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Reuse the approved basic deployment module before advanced application operations.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Deployment basics</h4><ul><li>ML deployment fundamentals; development versus production.</li><li>Model packaging and saving/loading models.</li><li>Complete preprocessing + model pipeline.</li><li>HTTP, request/response and REST concepts.</li></ul></div><div class="topic-group"><h4>Application and cloud baseline</h4><ul><li>Flask and prediction APIs.</li><li>Streamlit; Flask vs Streamlit.</li><li>AWS fundamentals, S3 and EC2.</li><li>Deployment security basics and troubleshooting.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Deploy a small model/application or complete the guided deployment walkthrough; run a smoke test and document configuration and troubleshooting steps.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Basic deployment artifact with README, request/response diagram and validation notes.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain a basic deployed application, request/response behavior and fundamental safety/configuration requirements.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Same Part A position as AI Engineering. Part C does not repeat the basic deployment class; it adds GenAI-specific production architecture, LLMOps and inference economics.</strong></div></div>
+        </div>
+      </div>
+          </div>
+
+      <div class="part-section" id="part-b">
+        <div class="part-header" style="background:#1e293b;">
+          <div class="part-header-info">
+            <h2>PART B: AI Engineering Advanced Core</h2>
+            <p>Taught jointly with AI Engineering: advanced data layers, pipelines, production deep learning, transformers & RAG.</p>
+          </div>
+          <span class="part-pill">10 Modules &middot; Approx 14–16 Weeks</span>
+        </div>
+
+      <div class="module-card" id="mod-B14">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">B14</span>
+            <h3>Advanced Python / Python for AI Engineers</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Move from scripts to maintainable, testable, production-oriented Python components, without reteaching the common Python module.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Advanced OOP and language features</h4><ul><li>Composition, abstract classes and interfaces/contracts.</li><li>Advanced functions and closures.</li><li>Iterators and generators.</li><li>Decorators and context managers.</li><li>Custom exception architecture.</li></ul></div><div class="topic-group"><h4>Python architecture</h4><ul><li>Modules/packages and package architecture.</li><li>Type hints and dataclasses.</li><li>Relevant design patterns.</li><li>AI/ML project structure.</li></ul></div><div class="topic-group"><h4>Production engineering</h4><ul><li>Async programming and concurrency concepts.</li><li>API/client programming.</li><li>Configuration/environment management.</li><li>Logging, testing and dependency management.</li><li>Performance considerations and production-oriented Python architecture.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Refactor a single-file program into a typed, tested package with reusable API clients, explicit configuration, structured logs and controlled error handling. GenAI examples may call a mocked LLM API, but the engineering outcomes remain shared.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Reusable, testable Python package plus code review and test evidence.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can build reusable and maintainable Python components, explain the architecture, and run tests without relying blindly on generated code.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>This is a JOINT class and follows the exact AI Engineering Module 14 position. No second Python fundamentals module is added.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-B15">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">B15</span>
+            <h3>Advanced Mathematics &amp; Optimization for AI</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Extend the common mathematics module only where it supports understanding model training and optimization.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Calculus for AI</h4><ul><li>Calculus fundamentals for AI.</li><li>Derivatives and partial derivatives.</li><li>Chain rule and gradients.</li></ul></div><div class="topic-group"><h4>Optimization</h4><ul><li>Gradient-based optimization.</li><li>Loss functions and optimization objectives.</li><li>Gradient descent, SGD and mini-batch optimization.</li><li>Momentum and adaptive optimization.</li></ul></div><div class="topic-group"><h4>Neural-network training intuition</h4><ul><li>Backpropagation intuition.</li><li>Mathematical foundations of neural-network training.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Work through a guided loss/gradient/optimization notebook or visual lab; connect an optimization choice to training behavior without requiring a research-level mathematical derivation.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Optimization practical worksheet and annotated experiment.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain how gradients, loss and optimization connect to model training.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Same place and learning outcomes as AI Engineering Module 15. This is not a repeat of common linear algebra/probability/statistics.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-B16">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">B16</span>
+            <h3>Advanced SQL for AI / ML Engineering</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">Integrated / short module</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Extend shared SQL into engineering use cases where data is pulled from databases into AI/ML workflows.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>AI/ML dataset engineering</h4><ul><li>ML dataset construction.</li><li>Training-data and inference-data extraction.</li><li>Feature generation using SQL.</li><li>Time-based feature generation.</li></ul></div><div class="topic-group"><h4>Advanced SQL and integration</h4><ul><li>Window functions and analytical queries.</li><li>Large-dataset considerations.</li><li>SQL + Python and SQL within ML pipelines.</li><li>Query optimization for AI workloads.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Construct a reproducible SQL-to-Python dataset extract. GenAI candidates may additionally explain how source documents/metadata differ from structured query results, but all learners complete the common SQL-engineering core.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>SQL/AI data integration exercise with performance and correctness notes.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can use SQL as an engineering component in a data/AI pipeline.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Retain the source module&#x27;s integrated/short duration rather than inventing a fixed week. Deliver in the same AI Engineering class/calendar block.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-B17">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">B17</span>
+            <h3>AI Data Layer: Databases + Vector Data</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">Integrated / short module</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Introduce the data-layer choices and vector data architecture needed for AI applications, RAG and agent systems.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Application data</h4><ul><li>PostgreSQL for AI applications.</li><li>MongoDB for application state.</li><li>Metadata architecture and conversation state.</li><li>Document metadata and embedding storage.</li></ul></div><div class="topic-group"><h4>Vector data</h4><ul><li>Vector data and vector database architecture.</li><li>FAISS, Chroma, Qdrant and pgvector.</li><li>Pinecone/Weaviate awareness.</li></ul></div><div class="topic-group"><h4>Architecture decisions</h4><ul><li>Database + vector-store architecture.</li><li>Selecting an appropriate storage layer for access patterns and operations.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Design a small AI application storage diagram separating operational records, conversation/session state, document metadata and vectors. Demonstrate a simple vector-store operation using the chosen course default.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>AI data-layer diagram, schema notes and vector-store practical.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain what belongs in an operational database versus a vector store and justify a simple storage design.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Same AI Engineering sequence and shared class. In Part C, GenAI candidates extend this to enterprise knowledge operations and permission-aware RAG.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-B18">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">B18</span>
+            <h3>AI Data Architecture &amp; AI Data Pipelines</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Teach the lifecycle and reliability patterns common to AI data flows before each path deepens its own pipeline family.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>AI data architecture</h4><ul><li>AI data lifecycle.</li><li>Training, validation, test and inference data.</li><li>Feature data, document data, metadata, embedding data, vector data, conversation/state data and model/artifact data.</li></ul></div><div class="topic-group"><h4>Types of AI data pipelines</h4><ul><li>Data ingestion and training-data pipelines.</li><li>Feature pipelines and ML preprocessing pipelines.</li><li>Embedding pipelines, document-ingestion pipelines and RAG-ingestion pipelines.</li><li>Batch-inference and real-time-inference pipelines.</li></ul></div><div class="topic-group"><h4>Reliable pipeline engineering</h4><ul><li>Validation, data quality and schema validation.</li><li>Duplicate handling and idempotency.</li><li>Retry/backoff, checkpointing, replay and backfill.</li><li>Dataset versioning and lineage.</li></ul></div><div class="topic-group"><h4>Data-engineering awareness</h4><ul><li>Batch vs streaming, CDC and data lakes.</li><li>Parquet and object storage.</li><li>Spark/PySpark and Kafka/streaming awareness—not a full data engineering specialization.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Design and implement a reliable ingestion mini-pipeline. AI Engineering lab can emphasize feature/inference data; GenAI candidates use documents and embeddings, while sharing pipeline controls and design review.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Runnable ingestion pipeline or reproducible design exercise, architecture diagram and failure-path notes.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can design data flow from ingestion through preparation/storage to feature, embedding, training or inference use; can explain retries and lineage.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Same module order and shared engineering core. The GenAI course later goes deeper into document parsing, indexing lifecycle, RAG source lineage and knowledge updates.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-B19">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">B19</span>
+            <h3>Advanced Machine Learning / ML Engineering</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Engineer a complete reproducible ML system instead of repeating the common algorithm syllabus.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>ML system architecture</h4><ul><li>ML system architecture and separation of training/inference.</li><li>Feature pipelines.</li><li>Reusable preprocessing and pipeline serialization.</li></ul></div><div class="topic-group"><h4>Model lifecycle</h4><ul><li>Model artifacts and model versioning.</li><li>Experiment tracking and model registry.</li><li>Reproducibility.</li></ul></div><div class="topic-group"><h4>Inference engineering</h4><ul><li>Batch and real-time inference.</li><li>Model serving and ML APIs.</li><li>Inference optimization.</li></ul></div><div class="topic-group"><h4>Production ML</h4><ul><li>ML testing.</li><li>Data drift, concept drift and model drift.</li><li>Model monitoring and production ML architecture.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Review a packaged model pipeline; version its artifact and simulate a serving/monitoring scenario. GenAI candidates complete the same ML engineering outcome and later specialise in LLM/RAG operations.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Reproducible ML engineering artifact and short model-lifecycle review.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain a reproducible model lifecycle and the difference between training and inference architecture.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Mandatory joint module in the AI Engineering order. GenAI candidates do not skip it; the Part C branch adds specialized LLM operations rather than repeating classical ML.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-B20">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">B20</span>
+            <h3>Deep Learning Engineering &amp; Production</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Build practical engineering understanding of deep-learning training artifacts and inference.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>PyTorch engineering</h4><ul><li>PyTorch engineering.</li><li>Dataset/DataLoader architecture.</li><li>Training configuration and custom training loops.</li></ul></div><div class="topic-group"><h4>Training operations</h4><ul><li>Checkpoints and resume training.</li><li>Experiment tracking and model serialization.</li></ul></div><div class="topic-group"><h4>Adaptation and production</h4><ul><li>Transfer-learning engineering.</li><li>GPU concepts and batch inference.</li><li>Model serving, model optimization and quantization awareness.</li><li>Production neural-network architecture.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Work through or inspect a PyTorch training/inference workflow with checkpointing and serialization; document what is shared versus hardware-dependent.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Deep-learning engineering practical and a model artifact/inference flow diagram.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain practical DL pipeline components and how a model is saved, loaded and served.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Same AI Engineering Module 20. GenAI-specific model customization and efficient LLM serving are deeper Part C topics; this module is not repeated.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-B21">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">B21</span>
+            <h3>NLP Engineering &amp; Transformers</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Move from NLP foundations to pretrained Transformer models as software components.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Transformer engineering</h4><ul><li>Transformer architecture for engineers.</li><li>Transformer inference.</li><li>Tokenizer + model pipelines.</li></ul></div><div class="topic-group"><h4>Hugging Face engineering</h4><ul><li>Hugging Face Transformers and Hub.</li><li>Pretrained model loading.</li></ul></div><div class="topic-group"><h4>Semantic NLP and applications</h4><ul><li>Embedding generation and semantic similarity/search.</li><li>Document processing.</li><li>NLP inference APIs.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Load a pretrained model/tokenizer or inspect an embedding pipeline, run inference and document inputs, outputs and model constraints.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Transformer inference practical with reproducible setup notes.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can use a pretrained Transformer model as an engineering component and explain tokenizer/model coupling at a practical level.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Same module position as AI Engineering. The GenAI branch later deepens the use of open LLMs, adaptation and multimodal workflows.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-B22">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">B22</span>
+            <h3>Advanced LLM Engineering</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">3 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>This is the most important shared advanced module: it follows NLP/Transformers and covers reliable LLM system engineering rather than only prompt use.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>LLM architecture and selection</h4><ul><li>Transformer architecture and attention intuition.</li><li>Pretraining vs instruction tuning.</li><li>Inference, model selection and model capability assessment.</li></ul></div><div class="topic-group"><h4>Context engineering</h4><ul><li>What information the model receives.</li><li>Context assembly, selection, prioritization and context windows.</li><li>Conversation history, retrieved context and tool definitions.</li><li>Context budgeting, long-context management and context compression.</li></ul></div><div class="topic-group"><h4>Harness, loop and graph engineering</h4><ul><li>Harness: agent/runtime environment, tools, execution environment, permissions, sandboxing, guardrails, verification, state/memory integration and error handling.</li><li>Loop engineering: observe, decide, act, receive result, re-evaluate, repeat; stop conditions, retries and recovery.</li><li>Graph engineering: nodes, edges, state transitions, conditional branches, parallel paths, joins, cycles and explicit workflow topology.</li></ul></div><div class="topic-group"><h4>LLM application engineering</h4><ul><li>Structured/JSON outputs and schema validation.</li><li>Function calling/tool calling, model routing, provider abstraction and fallback models.</li></ul></div><div class="topic-group"><h4>Reliability and performance</h4><ul><li>Retries, timeouts, fallback, validation and error handling.</li><li>Streaming, batching, caching, token/cost/latency optimization.</li></ul></div><div class="topic-group"><h4>Open-source LLM and modern model awareness</h4><ul><li>Hugging Face, open-source/open-weight models, model selection and licensing.</li><li>Ollama and local inference; vLLM and efficient inference awareness.</li><li>Reasoning models vs standard generation; multimodal LLMs, vision-language models, audio-enabled models, computer-use/action-oriented models, small language models and efficient inference.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Build or refactor an LLM service using context budgets, structured outputs, provider abstraction, controlled tools and traces. Include at least one failure test (invalid structured output, provider failure or budget limit) and explain the harness/loop/graph decisions.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Tested LLM application component + context/harness/loop/graph design note + performance observations.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain and implement a reliable LLM interaction path, manage context and structured outputs, choose a model/provider and handle failures and cost constraints.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>This is shared with AI Engineering exactly at Module 22. Part C should apply these foundations in GenAI-heavy product systems, not reteach this module&#x27;s theory.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-B23">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">B23</span>
+            <h3>Advanced RAG Engineering</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Complete the shared advanced RAG engineering module before the GenAI-specific production/enterprise specialization.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>RAG architecture</h4><ul><li>Retrieval, context, generation, metadata and evaluation layers.</li></ul></div><div class="topic-group"><h4>Advanced chunking</h4><ul><li>Fixed-size chunking and overlap.</li><li>Semantic and document-aware chunking.</li><li>Parent-child retrieval.</li></ul></div><div class="topic-group"><h4>Retrieval and ranking</h4><ul><li>Dense and sparse retrieval.</li><li>Hybrid search and BM25.</li><li>Metadata filtering and top-k optimization.</li><li>Candidate retrieval, reranking and retrieval precision.</li></ul></div><div class="topic-group"><h4>Query engineering</h4><ul><li>Query rewriting and query expansion.</li><li>Multi-query retrieval and contextual retrieval.</li></ul></div><div class="topic-group"><h4>Advanced RAG patterns</h4><ul><li>Multi-source and multi-document RAG.</li><li>Structured + unstructured RAG.</li><li>Agentic RAG.</li></ul></div><div class="topic-group"><h4>Production RAG concepts</h4><ul><li>Retrieval/context quality, groundedness and faithfulness.</li><li>Security and access control.</li><li>Performance, caching, observability and failure handling.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Run a controlled RAG lab comparing retrieval configurations and inspect how chunking, retrieval method, ranking and context composition change evidence returned for a test query set.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>RAG architecture and experiment report with retrieval/answer failure examples.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can design advanced RAG pipelines and explain retrieval, context, grounding, security and performance trade-offs.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Same AI Engineering Module 23, in the same order. Part C extends this baseline into enterprise knowledge operations, quality gates and a maintained project rather than repeating the same overview.</strong></div></div>
+        </div>
+      </div>
+          </div>
+
+      <div class="part-section" id="part-c">
+        <div class="part-header" style="background:#1e1b4b;">
+          <div class="part-header-info">
+            <h2>PART C: Generative AI Engineering Specialization</h2>
+            <p>Dedicated specialist depth: Enterprise RAG operations, stateful multi-agents, MCP/A2A, LLMOps, red teaming & fine-tuning.</p>
+          </div>
+          <span class="part-pill" style="background:rgba(124, 58, 237, 0.4);border-color:#a78bfa;">11 Specialist Modules &middot; Approx 15–16 Weeks</span>
+        </div>
+
+      <div class="module-card" id="mod-C01">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C01</span>
+            <h3>Enterprise RAG &amp; Knowledge Operations Practicum</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Turn the shared advanced RAG module into a maintained, permission-aware knowledge product. Emphasis is on operations and evidence, not re-teaching chunking or hybrid-search definitions.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Knowledge-source architecture</h4><ul><li>Document source inventory, ownership, versioning, access classification and retention.</li><li>Multi-format ingestion: PDF, DOCX, HTML/Markdown, CSV and selected structured sources; malformed/scanned document handling.</li><li>Stable source/document/chunk identifiers, timestamps, page/section references and provenance metadata.</li></ul></div><div class="topic-group"><h4>Lifecycle and correctness</h4><ul><li>Incremental ingestion, deduplication, upsert, re-index, document update and deletion workflows.</li><li>Parsing quality checks and OCR/vision extraction boundaries.</li><li>Metadata schema design, tenant/source filters and permission-aware retrieval decisions.</li><li>Handling conflicting, stale or partially available sources; source freshness and version attribution.</li><li>Enforce document/record permissions before retrieved content enters the model context; post-generation redaction alone is not an access-control strategy.</li><li>Test tenant isolation and source-level access using positive and negative authorization cases.</li><li>Record source freshness and index version so updates can be traced to the answers they may change.</li></ul></div><div class="topic-group"><h4>Enterprise query path</h4><ul><li>Multi-source retrieval joining structured records with unstructured documents.</li><li>Context assembly and evidence traceability through retrieval, answer and citation.</li><li>No-answer/abstention decisions, source diversity and question clarification.</li><li>Knowledge-base update workflow with validation, rollback and index consistency.</li></ul></div><div class="topic-group"><h4>Quality and operation</h4><ul><li>Run a fixed query suite before/after a data/index change.</li><li>Categorize failures: extraction, chunking, retrieval, ranking, context, generation, citation or access control.</li><li>Maintain a source-level quality backlog and operating checklist.</li><li>Regression checks for permission changes, document deletion and stale-index scenarios—not only content updates.</li><li>Define a lightweight knowledge-base service objective such as update freshness, citation validity or query success for the selected use case.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Upgrade the shared RAG project into an enterprise-style assistant with source-aware answers, update/delete paths, access filters, document provenance, no-answer behavior and regression tests. Demonstrate a document update and removal end-to-end, then test that a user without permission cannot retrieve the removed/restricted content.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Enterprise Knowledge Assistant v2 with ingestion/index lifecycle diagrams, metadata/access matrix, regression query set, source-lineage report and access-control test results.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can operate a knowledge base through add/update/delete, trace answers to evidence, demonstrate permission/no-answer cases and verify that index changes do not leave stale or unauthorized content retrievable.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Extends B23 into enterprise knowledge operations: source lifecycle, evidence provenance, access enforcement and change regression. Do not reteach baseline embeddings, chunking or hybrid retrieval already assessed in Part B.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-C02">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C02</span>
+            <h3>Stateful Agent Engineering &amp; Orchestration</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">2 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Build durable, controlled agent workflows from the agent foundations in Part A and LLM harness/graph concepts in Part B.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Agent architecture choices</h4><ul><li>When to use a deterministic workflow, single agent, planner/executor or multi-agent design.</li><li>State schema, typed inputs/outputs, nodes, edges, conditional routing, subgraphs and explicit terminal states.</li><li>Planner, executor, router, retrieval/tool nodes and evaluator/critic roles; trade-offs of reflection loops.</li></ul></div><div class="topic-group"><h4>State, memory and recovery</h4><ul><li>Session state versus durable state; working memory, summaries and persisted checkpoints.</li><li>Checkpoint/resume, retries, idempotency and partial failure recovery.</li><li>Timeouts, tool-call budgets, token budgets and termination policies.</li><li>Parallel/branch execution and joining results with validation.</li><li>Long-running task patterns: persist progress, resume after interruption and expose task status to the caller.</li><li>Idempotent recovery for repeated tool calls and protection against duplicate external side effects.</li><li>Choose what state is retained, for how long and who can access it; avoid storing sensitive conversation data without a purpose.</li></ul></div><div class="topic-group"><h4>Tool execution contracts</h4><ul><li>Typed tool schemas, allowlists, input validation, output normalization and timeouts.</li><li>Read-only versus write actions; permission scope and confirmation gates.</li><li>Tool-result provenance, audit trail and deterministic pre/post checks.</li><li>Separate read-only, reversible and high-impact tools; apply progressively stronger authorization and confirmation requirements.</li><li>Run untrusted code/browser/computer-use tools only as a bounded awareness or sandboxed lab; never grant broad local or production credentials to an agent by default.</li></ul></div><div class="topic-group"><h4>Agent behavior evaluation</h4><ul><li>Task success, tool choice, tool-call correctness and workflow-step success.</li><li>Repeatability across runs and failure analysis.</li><li>Human approval and safe stop conditions for consequential actions.</li><li>Evaluate a full workflow trace, including intermediate decisions, tool outputs, policy adherence, recovery and final user outcome.</li><li>Compare a deterministic workflow with an agentic implementation and justify the simpler option when it meets the requirements.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Build a LangGraph-style research/support workflow with 2–3 tools, typed state, checkpoints, retry/timeout controls, branch routing, execution tracing and a human approval interrupt before one external side effect. Simulate a tool timeout and restart to demonstrate safe resume without duplicate action.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Stateful agent repository, state/graph diagram, tool contract tests, permission matrix, interrupted-run recovery test and failed-run trace pack.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain state transitions and demonstrate safe stopping, recovery, approval, repeatable tool contracts and protection against duplicate actions.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Goes beyond introductory agent coverage in Part A and harness/loop/graph concepts in B22. Part C implements, tests and debugs the runtime behavior of a substantial agent workflow.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-C03">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C03</span>
+            <h3>MCP, A2A &amp; Connected Tool Ecosystems</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Turn tool calling into interoperable integrations while teaching protocol boundaries and security as engineering decisions.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>MCP application design</h4><ul><li>MCP architecture; client and server roles.</li><li>Tools, resources and prompts; context integration.</li><li>Server configuration, transport/deployment concepts and connection lifecycle.</li><li>Tool discovery and schema interpretation.</li></ul></div><div class="topic-group"><h4>Security and operations</h4><ul><li>Authentication/authorization concepts and least privilege.</li><li>Trusted/untrusted tools, input/output validation and sensitive-data boundaries.</li><li>Audit logs, tool availability, timeout/retry behavior and version compatibility.</li><li>Avoid treating MCP access as automatic permission to perform any action.</li><li>Treat tool descriptions, tool results and externally supplied resources as untrusted inputs; validate them at the application boundary.</li><li>For authenticated HTTP integrations, understand least-privilege scopes, token audience/recipient validation, short-lived credentials and why credentials must not be passed through to unrelated upstream services.</li><li>Version/pin the protocol and client/server dependencies used by the lab; test incompatible versions and unavailable tools.</li><li>Do not log access tokens, authorization headers or sensitive tool payloads; redact telemetry and provide visible user consent/deny controls for tool invocation.</li></ul></div><div class="topic-group"><h4>A2A and interoperability</h4><ul><li>Agent interoperability concepts, discovery and agent cards.</li><li>Task communication and lifecycle awareness.</li><li>MCP vs A2A: tool/data context access versus agent-to-agent interoperability at a conceptual level.</li><li>When direct API calls or an ordinary workflow are simpler than a protocol layer.</li><li>Agent identity/trust boundaries, task status and failure propagation across an agent-to-agent interaction.</li><li>Keep A2A at architecture/controlled-prototype depth unless the capstone has a justified multi-agent interoperability requirement.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Implement or configure one constrained MCP server exposing a read-only resource/tool and connect it to a bounded assistant. Demonstrate allowed and denied operations, inspect the schema/version, verify authentication/secret handling, and write an MCP-versus-direct-API decision memo. A2A remains a guided prototype or architecture exercise unless the capstone genuinely needs it.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Working MCP-connected assistant or reproducible lab, tool/permission matrix, protocol-version note, security test results and an MCP-versus-A2A/direct-API architecture memo.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain the integration boundary, validate tool inputs, justify protocol use and demonstrate explicit authorization, denial handling and secret-safe logs.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Preserves market-relevant MCP/A2A coverage while making practical security and interoperability the assessment. Protocol adoption is justified by need—not treated as a badge or a replacement for authorization design.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-C04">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C04</span>
+            <h3>GenAI Product &amp; API Engineering</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1.5 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Move the shared LLM app/API pattern into a maintainable product-facing GenAI service with the document, conversation and tool interactions expected in a real application.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Product architecture</h4><ul><li>Boundary between UI, API/service, orchestration, retrieval, model provider, data store and external tools.</li><li>FastAPI endpoints for chat, document upload, knowledge-base status, feedback and health checks.</li><li>Streaming responses and async request flow; response cancellation and user-visible failure behavior.</li><li>Conversation/session IDs, history persistence, feedback capture and retention boundaries.</li><li>Long-running ingestion/agent work: background job or task identifiers, status polling/streaming, cancellation and recoverable failures.</li><li>Request correlation IDs, idempotency for retried submissions and clear behavior when a user disconnects or repeats a request.</li><li>Basic usage quotas and per-user/session boundaries; keep authentication/authorization distinct from UI visibility.</li></ul></div><div class="topic-group"><h4>Validation and provider integration</h4><ul><li>Request/response contracts and Pydantic/JSON schema validation.</li><li>Authentication/authorization concepts, per-user/tenant boundaries and rate-limit awareness.</li><li>Provider abstraction and configuration; failover or fallback behavior.</li><li>File validation, file-size/type limits, safe parsing queue and upload error messages.</li><li>Validate uploaded file size/type and reject unsupported or malformed inputs before expensive processing.</li><li>Test rate-limit, timeout, partial-stream, provider-failure and malformed model-output paths.</li></ul></div><div class="topic-group"><h4>UI and user experience</h4><ul><li>Streamlit or Gradio UI; separate UI logic from business logic.</li><li>Source citations, evidence panel, suggested follow-up questions and explicit no-answer states.</li><li>Progress/status messaging for long-running retrieval/agent workflows.</li><li>Accessibility/usability basics and feedback mechanisms.</li></ul></div><div class="topic-group"><h4>Maintainability</h4><ul><li>Service interfaces, dependency injection awareness and modular project organization.</li><li>Contract tests, integration tests and simple local development environment.</li><li>API documentation and an architecture decision record.</li><li>Basic integration/contract test for upload → ingestion job → retrieval → cited answer; ensure UI code does not own business logic.</li><li>Feedback capture with a privacy-aware retention rule; feedback is a signal to review, not automatically a verified ground-truth label.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Convert the shared RAG project into a product-shaped application with a FastAPI service and Streamlit/Gradio UI. Add validated upload, background ingestion status, query/streaming, citations, sessions, correlation IDs, safe configuration, tests and understandable errors for cancellation, timeout and provider failure.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>RAG/agent application API + UI, API contract, upload/job workflow, tests, architecture diagram, feedback/retention note and README.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can explain request flow across components, validate inputs, protect credentials, handle long-running work and demonstrate tested failure/cancellation cases.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Distinct from B22 request/response engineering: Part C focuses on product-shaped workflows, sessions, document upload, background processing, evidence UX, service contracts and user-facing failure behavior.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-C05">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C05</span>
+            <h3>GenAI Evaluation Engineering &amp; Release Gates</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1.5 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Build repeatable quality tests for model, retrieval, tools and end-to-end application behavior; evaluation becomes part of the release, not a one-off classroom exercise.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Evaluation-set design</h4><ul><li>Define task categories, expected behavior, reference answers where available, answerable/unanswerable prompts and evidence expectations.</li><li>Golden/regression dataset versioning and change notes.</li><li>Sample selection, edge cases, locale/domain variants and privacy-safe test data.</li><li>Use synthetic or model-generated examples only as supplements; review representative/high-risk cases with human-authored or human-verified references.</li><li>Document dataset provenance, privacy constraints, sampling bias and the known gaps in the evaluation set.</li></ul></div><div class="topic-group"><h4>RAG/LLM metrics and review</h4><ul><li>Retrieval relevance/precision/recall concepts; source coverage and citation correctness.</li><li>Answer relevance, groundedness/faithfulness and answerability/abstention.</li><li>Structured-output validity, instruction adherence and task completion.</li><li>Human review rubrics; LLM-as-judge calibration, bias and repeatability limitations.</li><li>Evaluate refusal/no-answer quality, citation entailment/source correctness and unauthorized-source exclusion in addition to answer quality.</li><li>Separate deterministic checks (schema, citation link, permissions, required tool call) from probabilistic quality judgments.</li></ul></div><div class="topic-group"><h4>Agent/workflow evaluation</h4><ul><li>Task success and intermediate-step success.</li><li>Tool selection, tool-call correctness and policy compliance.</li><li>Failure recovery, stop-condition compliance and human-approval adherence.</li><li>Latency, cost and quality comparisons rather than a single score.</li></ul></div><div class="topic-group"><h4>Continuous evaluation</h4><ul><li>Run the evaluation suite when prompts, models, embeddings, retrievers, tools or source content change.</li><li>Regression thresholds and release blocking criteria.</li><li>Error taxonomy and remediation backlog; compare baseline to improved version.</li><li>Online production sampling and user feedback triage with privacy-safe redaction; route uncertain/low-quality cases to human review.</li><li>Detect changes in error categories, latency, token spend and task success after model, prompt, retrieval or source updates.</li><li>Define release thresholds and an exception process; do not let a single aggregate score hide critical security or abstention failures.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Create a versioned evaluation suite for the RAG assistant and agent. Run normal, unanswerable, conflicting-source, access-denied, prompt-injection and tool-failure cases. Fix at least one issue, rerun the suite and produce before/after results. Include one sample production-feedback triage exercise and show which cases would block release.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>GenAI evaluation pack with versioned dataset, rubric, results table, failure taxonomy, release thresholds, online-feedback review flow and remediation log.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can design a repeatable evaluation, distinguish deterministic checks from judgment-based metrics, explain evaluator limitations and show that a quality/security regression can block release.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Adds evaluation engineering beyond the shared B-core foundation: benchmark governance, release gates, offline/online feedback and decision evidence tied to the candidate’s own system.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-C06">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C06</span>
+            <h3>GenAI Security, Red Teaming &amp; Trust Controls</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Threat-model the actual LLM/RAG/agent system and validate defenses against representative failure and abuse paths.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Threat modelling</h4><ul><li>Assets, trust boundaries, actors, attack surfaces and impact.</li><li>Direct and indirect prompt injection through prompts, retrieved files, web pages and tool outputs.</li><li>Sensitive-data leakage, tenant-boundary failure, unauthorized retrieval and unsafe external actions.</li><li>Supply-chain risks in models, datasets, GitHub repositories, plugins/connectors and dependencies.</li><li>Risk from tool-output/connector injection, excessive agency, insecure output handling, unbounded resource consumption and dependency/model/dataset supply-chain issues.</li><li>Cross-user/cross-tenant data access, document permission bypass, unsafe file parsing and credential leakage through logs or generated output.</li><li>Risk-rank scenarios by likelihood, impact and affected trust boundary; document residual risk rather than claiming a system is fully secure.</li></ul></div><div class="topic-group"><h4>Defensive architecture</h4><ul><li>Least-privilege tools, allowlists, safe parameterization and separation of read/write permissions.</li><li>Input validation, output/schema validation, PII minimization/redaction and safe logs.</li><li>RAG access controls applied before or during retrieval—not only after generation.</li><li>Human approval for consequential side effects; rate/step/tool budgets and stop controls.</li><li>Authorization before retrieval/tool execution; enforce permissions at the data/service layer, not solely through prompt instructions.</li><li>Least-privilege tool scopes, allowlists, bounded tool budgets, sandboxing/isolation where applicable and explicit consent for high-impact actions.</li><li>Secret scanning, dependency/license review and restricted execution for code/repository content produced or selected by AI coding tools.</li></ul></div><div class="topic-group"><h4>Red-team and response</h4><ul><li>Adversarial test design and attack/expected-defense records.</li><li>Jailbreak and injection awareness; do not rely on prompts alone as a security boundary.</li><li>Evidence preservation, incident triage, containment and regression tests after fixes.</li><li>Responsible-use boundaries, IP/license checks and privacy review.</li><li>Test malicious documents, tool responses, unauthorized actions, cross-tenant queries, prompt-injection strings and attempts to reveal secrets.</li><li>Turn each confirmed issue into a regression test; document containment, mitigation and re-test evidence.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Run a bounded red-team exercise against the candidate RAG/agent system: malicious retrieved instructions, unauthorized document access, malformed tool arguments, attempted secret exposure, unsafe connector output and resource-exhaustion cases. Fix one or more findings and rerun the corresponding regression tests.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Risk-ranked threat model, attack/expected-defense test matrix, safe tool/connector policy, red-team report and regression evidence.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can identify major GenAI trust boundaries, demonstrate authorization and tool controls, test representative attacks and communicate residual risk and remediation.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Dedicated GenAI security engineering beyond general safe-AI content. The goal is an evidence-based risk review and repeatable tests—not a claim of security certification.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-C07">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C07</span>
+            <h3>LLMOps, Inference, Performance &amp; Cost Engineering</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1.5 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Operate LLM applications under production constraints and understand the trade-offs between hosted APIs and self-hosted inference.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>LLMOps lifecycle</h4><ul><li>Prompt, model, provider, embedding, retriever and dataset versions.</li><li>Evaluation-before-release and rollback after regressions.</li><li>Knowledge-index refresh/release and model/reranker change control.</li><li>Track the prompt, model, provider, embedding model, retriever/reranker, tool schema, index and evaluation dataset versions used in a release.</li><li>Canary/shadow or limited rollout awareness; compare quality and cost before broad release where the chosen stack supports it.</li></ul></div><div class="topic-group"><h4>Serving strategies</h4><ul><li>Hosted provider APIs versus local Ollama; vLLM awareness for high-throughput/self-hosted serving.</li><li>Model/compute fit, quantization and small-model trade-offs.</li><li>OpenAI-compatible inference API concepts; GPU and deployment constraints.</li></ul></div><div class="topic-group"><h4>Performance engineering</h4><ul><li>Token budgeting, prompt/context compression and output limits.</li><li>Streaming, caching, batching/continuous batching awareness and KV-cache concepts.</li><li>Timeouts, concurrency, retries, rate limits, model routing and graceful fallbacks.</li><li>Latency, throughput, reliability, cost and quality trade-offs.</li><li>Per-request/per-user token and spend budgets, concurrency limits, circuit-breaker/fallback awareness and provider quota handling.</li><li>Distinguish application latency from retrieval, model inference, tool execution and queue/wait time; optimize the measured bottleneck.</li></ul></div><div class="topic-group"><h4>Observability and operations</h4><ul><li>Traces across retrieval, model calls and tool execution.</li><li>Latency, token usage, retrieval result quality, error category and cost monitoring.</li><li>Safe redaction and avoiding unneeded sensitive payload logging.</li><li>Operational runbook, alert conditions, incident analysis and release checklist.</li><li>Instrument model, retrieval, agent/workflow and tool spans with OpenTelemetry concepts and GenAI semantic conventions where supported by the stack.</li><li>Track token usage, latency, error type, retrieval outcome and tool outcome without capturing raw prompts, documents, credentials or personal data by default.</li><li>Use production feedback and incidents to update evaluation datasets, but review and curate examples before treating them as labels.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Measure a hosted or local model workflow on repeatable queries; record answer quality, latency by stage and token/cost estimate. Add request/tool trace IDs, safe redaction, a per-run budget, timeout/fallback behavior and a release/rollback runbook. Show how a model/prompt change is evaluated before release.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>LLMOps pack: version matrix, quality/latency/cost benchmark, privacy-safe traces, budget/fallback policy, deployment decision and operational runbook.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can identify dominant cost/latency drivers, follow one request across model/retrieval/tool steps, protect sensitive telemetry and demonstrate a repeatable release/recovery path.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>GenAI-specific operations extend the shared deployment/MLOps foundation. Deep GPU serving is not assumed; vLLM, continuous batching, KV-cache and quantization remain practical/awareness depth unless infrastructure supports a deeper lab.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-C08">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C08</span>
+            <h3>Open-Source LLM Adaptation &amp; Fine-Tuning Lab</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1–1.5 weeks; GPU-heavy work may be guided/optional</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Give candidates applied model-customization judgement and a controlled experiment, without promising training foundation models from scratch.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Model discovery and licensing</h4><ul><li>Hugging Face Hub, model/dataset cards, tokenizer/config files, task tags and intended-use notes.</li><li>Open weights versus open source; code/model/dataset licenses and commercial-use constraints.</li><li>Ollama and local execution; hardware/resource fit and quantization awareness.</li></ul></div><div class="topic-group"><h4>Choose the right adaptation route</h4><ul><li>When prompting/context, RAG, tools, a different model or fine-tuning is appropriate.</li><li>Dataset curation, quality, privacy, train/validation separation and contamination checks.</li><li>Baseline definition and task-specific evaluation before adaptation.</li><li>Compare prompt/context improvement and RAG against fine-tuning using a fixed baseline before choosing adaptation.</li><li>Define dataset permission/provenance, data leakage/contamination checks and intended-use boundaries before training.</li></ul></div><div class="topic-group"><h4>Parameter-efficient fine-tuning</h4><ul><li>PEFT, LoRA and QLoRA concepts; adapter-based adaptation.</li><li>Training configuration and experiment reproducibility.</li><li>Before/after evaluation, overfitting/regression, safety limitations and rollback decision.</li><li>Model card/experiment card and versioned release artifact.</li><li>Record compute/runtime requirements, adapter/base-model compatibility, checkpoints and a rollback path.</li><li>Run task-specific safety/quality regression checks as well as the target metric after adaptation.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Select a legally usable open model and dataset. Compare prompt-only or RAG baseline with an adaptation experiment. Run guided LoRA/QLoRA/PEFT when compute is available, or use a reproducible instructor-provided result set when it is not. Compare base and adapted behavior on fixed quality and safety tests, then document whether the gains justify the cost.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Model-selection memo, model/data license and provenance checklist, experiment card, compute/cost note and baseline-versus-adapted evaluation.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can justify whether fine-tuning is warranted, show measured behavior change and explain compute, licensing, contamination and regression limits.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Keeps model customization useful and honest: the mandatory outcome is sound adaptation judgement and evaluation, not training a foundation model or requiring every learner to have a GPU.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-C09">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C09</span>
+            <h3>Multimodal, Document AI &amp; Voice Experiences</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1.5 weeks</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Build practical multimodal user experiences while keeping deep Computer Vision, classical speech research and generative-media research outside the core.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Images and documents</h4><ul><li>Vision-language models (VLMs) and image/document input patterns.</li><li>Scanned PDF/OCR versus native PDF text extraction; routing to suitable parsers or multimodal models.</li><li>Structured extraction from forms, invoices, screenshots or charts and validation of extracted fields.</li><li>Image/document quality issues, page-level citations and handling uncertain visual interpretation.</li><li>Choose between native text extraction, layout-aware parsing/OCR and a vision-language model based on file type, table/layout needs, traceability, privacy and cost.</li><li>Preserve page/region evidence and validate table/form fields before they trigger a business action.</li><li>Video understanding and frame sampling are awareness-level options unless the selected project specifically needs them.</li></ul></div><div class="topic-group"><h4>Audio and voice</h4><ul><li>Speech-to-text (ASR) and text-to-speech (TTS) pipeline concepts.</li><li>Voice-agent architecture: audio input → transcription/understanding → model/agent → response → speech output.</li><li>Turn-taking, interruption, latency and conversation state awareness.</li><li>Multimodal prompt design and cross-modal grounding.</li><li>Streaming/transcription latency, turn boundaries, interruption handling and safe fallback when speech recognition is uncertain.</li><li>Consent and retention of recorded audio/transcripts; avoid retaining raw recordings by default unless the use case requires it.</li></ul></div><div class="topic-group"><h4>Application and safety</h4><ul><li>Image/audio privacy, content retention and consent considerations.</li><li>Structured outputs and validators for extracted information.</li><li>Fallback to human review when visual/audio evidence is ambiguous.</li><li>ComfyUI and generative media: optional awareness/demo, not a deep creative-model specialization.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Build one focused multimodal assistant: either document/image extraction with page/field evidence and validation, or a basic voice interface with transcription, model response and spoken output. Include ambiguous input, low-confidence result, privacy/retention and human-review cases.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Multimodal mini-app, architecture/data-flow diagram, test samples, output validation, privacy/retention note and limitations.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can justify the chosen multimodal path, validate structured outputs, preserve appropriate evidence and explain errors, latency and human-review boundaries.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Matches market interest in multimodal and voice applications while keeping the core focused; deep Computer Vision, speech research and generative media remain separate specializations.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-C10">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C10</span>
+            <h3>AI Workflow Automation, GitHub Reuse &amp; Vibe Coding</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Connect GenAI systems to a business process and teach AI-assisted development without outsourcing engineering judgement to the code generator.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Automation engineering</h4><ul><li>n8n workflow builder, triggers, nodes, actions, conditions, JSON flow, webhooks and API integrations.</li><li>Credentials/authentication, external application integration, data transformation and AI steps.</li><li>Retries, idempotency, error routes, notifications, approval gates, execution history and debugging.</li><li>Cloud vs self-hosted deployment; operational and credential considerations.</li><li>Activepieces Community Edition comparison lab to preserve the practical crash-course reference.</li><li>Replayability and idempotency: avoid duplicate sends, record updates or publishing actions when a workflow retries.</li><li>Credential scope and connector trust review; review outbound data destinations before connecting private content to a third-party service.</li></ul></div><div class="topic-group"><h4>Business patterns</h4><ul><li>Email/newsletter → AI summary → knowledge store → draft content.</li><li>Form → AI extraction → database/workspace → human review notification.</li><li>Automated data collection, notifications, report/content creation and social-workflow examples.</li><li>Choose deterministic automation versus agentic decision-making appropriately.</li></ul></div><div class="topic-group"><h4>GitHub and AI coding</h4><ul><li>Repository search, README, project structure, dependencies, configuration, .env.example, issues/docs and licenses.</li><li>Safe local setup and understanding a project before modifying it.</li><li>Vibe Coding workflow: idea → requirements → prompt → build → run → test → debug → improve.</li><li>Google Antigravity where available; Continue, Aider, Cline and OpenHands as alternative tools rather than dependencies.</li><li>AI-generated code review, testing, security checks, provenance and human code ownership.</li><li>Use restricted workspace/tool permissions for AI coding agents; do not expose production credentials or unrestricted shell access during experiments.</li><li>Review dependency changes, license/provenance, secret leaks and generated code; run tests and security checks before merging.</li><li>Treat AI-generated code as a draft owned by the candidate; preserve reviewable diffs and explain material changes.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Build an n8n workflow with trigger, LLM processing, schema validation, business rule, storage/notification, error route and human approval before any external side effect. Replay a retry case to check idempotency. Separately adapt a small GitHub project with one tested feature and record dependency, license, secret and security review.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>Exported workflow + replay/failure test record + tested repository change + provenance/security checklist.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can replay and troubleshoot the workflow, show the approval boundary, handle credentials safely and defend the quality/licensing of AI-assisted code.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>Integrates the practical crash course (n8n, Activepieces, GitHub, Vibe Coding) with production controls, rather than assessing only a successful visual workflow or generated prototype.</strong></div></div>
+        </div>
+      </div>
+    
+      <div class="module-card" id="mod-C11">
+        <div class="module-header">
+          <div class="module-header-main">
+            <span class="module-id">C11</span>
+            <h3>GenAI System Design, Architecture &amp; Engineering Defense</h3>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="module-meta-badge">1 week</span>
+          </div>
+        </div>
+        <div class="module-body">
+          <div class="module-purpose"><strong>Module Purpose & Intent</strong>Integrate the specialist modules into a coherent architecture and require candidates to justify trade-offs before the capstone build is accepted.</div>
+          <div class="topics-grid"><div class="topic-group"><h4>Problem-to-pattern design</h4><ul><li>Requirements, user journey, success criteria, non-functional constraints and data sensitivity.</li><li>Choose among LLM-only, RAG, fine-tuning, tool calling, deterministic workflow, single agent and multi-agent design.</li><li>Provider/model routing, fallback and availability decisions.</li></ul></div><div class="topic-group"><h4>Architecture trade-offs</h4><ul><li>Separate user interface, API, orchestration, retrieval, model, data stores, tool adapters and operations.</li><li>Context/memory strategy, RAG data lifecycle, agent state and external side effects.</li><li>Latency, cost, privacy, correctness, reliability, maintainability and deployment trade-offs.</li><li>Set measurable acceptance targets for quality, response time, cost, availability and escalation/abstention behavior where relevant.</li><li>Consider tenant/data boundaries, prompt/retriever/tool/model versions, monitoring ownership and rollback before selecting the final pattern.</li><li>Identify what remains intentionally out of scope and the minimum evidence needed before a broader rollout.</li></ul></div><div class="topic-group"><h4>Engineering review</h4><ul><li>Architecture Decision Records (ADRs), threat model, evaluation plan and monitoring strategy.</li><li>Failure-mode walkthrough: stale source, missing retrieval, malformed output, provider timeout, unsafe tool output and cost spike.</li><li>Harness/loop/graph concepts as a design-review language for agentic systems.</li><li>Release readiness, ownership, operational runbook and rollback.</li><li>Conduct a pre-capstone design review and a post-implementation review against the same architecture, security and evaluation decisions.</li><li>Use a failure tabletop covering unauthorized retrieval, stale knowledge, provider outage, tool side-effect, quality regression and cost/latency spike.</li></ul></div></div>
+          <div class="module-deliverables"><div class="deliverable-box"><span>Practical Lab / Guided Studio</span><strong>Run an architecture review of the candidate capstone before build sign-off. Require a design diagram, 3–5 ADRs, measurable acceptance criteria, evaluation plan, threat model, cost/latency assumptions and a tabletop failure drill. Revisit the design after the first implementation and record justified changes.</strong></div><div class="deliverable-box"><span>Expected Deliverable</span><strong>GenAI system design pack with architecture diagram, ADRs, acceptance criteria, evaluation/security plan, cost/latency assumptions and failure-mode walkthrough.</strong></div><div class="deliverable-box"><span>Progression Gate / Exit Criteria</span><strong>Can defend why the selected pattern is appropriate, explain trade-offs, connect design choices to tests and demonstrate that key failures have a planned response.</strong></div><div class="deliverable-box"><span>Pathway Integration & Context</span><strong>This is the specialization synthesis, not a duplicate general AI System Design course. It uses the candidate’s own GenAI system and provides the design sign-off into the Part D project studio.</strong></div></div>
+        </div>
+      </div>
+          </div>
+
+      <div class="part-section" id="part-d">
+        <div class="part-header" style="background:#064e3b;">
+          <div class="part-header-info">
+            <h2>PART D: Project Studio & Technical Defense</h2>
+            <p>Seven production capstone tracks evaluated against stringent industry acceptance standards and live viva defense.</p>
+          </div>
+          <span class="part-pill" style="background:rgba(16, 185, 129, 0.3);border-color:#6ee7b7;">7 Capstones &middot; 4–6 Weeks Focused Studio</span>
+        </div>
+
+      <div class="project-card" id="proj-D01">
+        <div class="project-header">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="module-id" style="background:#064e3b;">D01</span>
+            <h3>Enterprise Multi-Document Knowledge Assistant</h3>
+          </div>
+          <span class="project-track">RECOMMENDED FLAGSHIP · RAG / KNOWLEDGE ENGINEERING</span>
+        </div>
+        <p class="purpose">A multi-source knowledge assistant designed for a realistic organization, not only a single-PDF demo.</p>
+        <div class="project-scope">
+          <div class="project-scope-title">Required Production Scope & Architecture</div>
+          <ul></ul>
+        </div>
+        <div class="project-acceptance">
+          <strong>Acceptance Evidence & Reviewer Proof:</strong> A reviewer can upload/update a source, ask test questions, inspect citations, observe a no-answer case and reproduce the evaluation.
+        </div>
+      </div>
+    
+      <div class="project-card" id="proj-D02">
+        <div class="project-header">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="module-id" style="background:#064e3b;">D02</span>
+            <h3>Agentic Research &amp; Tool-Using Assistant</h3>
+          </div>
+          <span class="project-track">AGENTIC AI · LANGGRAPH / MCP</span>
+        </div>
+        <p class="purpose">A bounded research/support assistant that plans multi-step work and uses tools under explicit controls.</p>
+        <div class="project-scope">
+          <div class="project-scope-title">Required Production Scope & Architecture</div>
+          <ul></ul>
+        </div>
+        <div class="project-acceptance">
+          <strong>Acceptance Evidence & Reviewer Proof:</strong> A reviewer can follow the agent execution trace and see where the system asks for approval or stops safely.
+        </div>
+      </div>
+    
+      <div class="project-card" id="proj-D03">
+        <div class="project-header">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="module-id" style="background:#064e3b;">D03</span>
+            <h3>Enterprise Customer Support Copilot</h3>
+          </div>
+          <span class="project-track">RAG + AGENT + PRODUCT APPLICATION</span>
+        </div>
+        <p class="purpose">A user-facing support assistant combining knowledge retrieval, conversation flow and controlled workflow actions.</p>
+        <div class="project-scope">
+          <div class="project-scope-title">Required Production Scope & Architecture</div>
+          <ul></ul>
+        </div>
+        <div class="project-acceptance">
+          <strong>Acceptance Evidence & Reviewer Proof:</strong> A reviewer can see evidence for answers, a safely drafted action, escalation cases and quality test results.
+        </div>
+      </div>
+    
+      <div class="project-card" id="proj-D04">
+        <div class="project-header">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="module-id" style="background:#064e3b;">D04</span>
+            <h3>AI Business Workflow Automation</h3>
+          </div>
+          <span class="project-track">N8N / APIS / HUMAN-IN-THE-LOOP</span>
+        </div>
+        <p class="purpose">Automate a real business process without granting an LLM unrestricted authority.</p>
+        <div class="project-scope">
+          <div class="project-scope-title">Required Production Scope & Architecture</div>
+          <ul></ul>
+        </div>
+        <div class="project-acceptance">
+          <strong>Acceptance Evidence & Reviewer Proof:</strong> A reviewer can replay success and failure cases, inspect the execution path and verify the approval boundary.
+        </div>
+      </div>
+    
+      <div class="project-card" id="proj-D05">
+        <div class="project-header">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="module-id" style="background:#064e3b;">D05</span>
+            <h3>Multimodal Document or Voice Assistant</h3>
+          </div>
+          <span class="project-track">VLM / DOCUMENT AI / VOICE</span>
+        </div>
+        <p class="purpose">A focused multimodal system that adds genuine non-text input/output to a reliable LLM workflow.</p>
+        <div class="project-scope">
+          <div class="project-scope-title">Required Production Scope & Architecture</div>
+          <ul></ul>
+        </div>
+        <div class="project-acceptance">
+          <strong>Acceptance Evidence & Reviewer Proof:</strong> A reviewer can supply test files/audio, see structured results and identify when the assistant should not act confidently.
+        </div>
+      </div>
+    
+      <div class="project-card" id="proj-D06">
+        <div class="project-header">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="module-id" style="background:#064e3b;">D06</span>
+            <h3>Open-Source LLM &amp; Private Inference Experiment</h3>
+          </div>
+          <span class="project-track">HUGGING FACE / OLLAMA / PEFT / SERVING</span>
+        </div>
+        <p class="purpose">Evaluate local/open-model options and, where feasible, customize a model for a narrow task.</p>
+        <div class="project-scope">
+          <div class="project-scope-title">Required Production Scope & Architecture</div>
+          <ul></ul>
+        </div>
+        <div class="project-acceptance">
+          <strong>Acceptance Evidence & Reviewer Proof:</strong> A reviewer sees measured comparisons and understands the boundaries of the experiment rather than a claim that the learner trained an LLM from scratch.
+        </div>
+      </div>
+    
+      <div class="project-card" id="proj-D07">
+        <div class="project-header">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="module-id" style="background:#064e3b;">D07</span>
+            <h3>GenAI SaaS-Style Product Capstone</h3>
+          </div>
+          <span class="project-track">FINAL INTEGRATED CAPSTONE · STRONGLY RECOMMENDED</span>
+        </div>
+        <p class="purpose">An approved domain-specific GenAI product that integrates the modules most relevant to the chosen problem and proves implementation ownership.</p>
+        <div class="project-scope">
+          <div class="project-scope-title">Required Production Scope & Architecture</div>
+          <ul></ul>
+        </div>
+        <div class="project-acceptance">
+          <strong>Acceptance Evidence & Reviewer Proof:</strong> The panel can reproduce the system, inspect artifacts, run agreed test cases, see a failure scenario and question the candidate&#x27;s design decisions.
+        </div>
+      </div>
+          </div>
+
+      <div class="part-section" id="assessment">
+        <div class="part-header" style="background:#334155;">
+          <div class="part-header-info">
+            <h2>Part C & D: Technical Defense & Assessment Rubric</h2>
+            <p>Every candidate must demonstrate live working software, answer architecture questions, and present observable evidence.</p>
+          </div>
+          <span class="part-pill">Evaluation Framework</span>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Review Dimension</th>
+              <th>What Independent Reviewers & Technical Panel Verify</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td><strong>1 · Correctness and requirement fit</strong></td>
+              <td>The implementation matches stated behavior, data boundaries and acceptance criteria; no unsupported capability is claimed.</td>
+            </tr>
+    
+            <tr>
+              <td><strong>2 · Engineering structure</strong></td>
+              <td>Components, contracts, configuration, repository and documentation are understandable and maintainable.</td>
+            </tr>
+    
+            <tr>
+              <td><strong>3 · Verification evidence</strong></td>
+              <td>Tests cover successful paths and relevant failure/negative cases; results are reproducible and changes are compared where applicable.</td>
+            </tr>
+    
+            <tr>
+              <td><strong>4 · Security and responsibility</strong></td>
+              <td>Permissions, secrets, data handling, tool boundaries and human review are designed and tested where relevant.</td>
+            </tr>
+    
+            <tr>
+              <td><strong>5 · Operations and trade-offs</strong></td>
+              <td>The candidate can explain recovery, observability, versioning, limitations, cost/latency considerations and rollback where relevant.</td>
+            </tr>
+    
+            <tr>
+              <td><strong>6 · Technical communication</strong></td>
+              <td>The candidate demonstrates the system, walks through artifacts, explains key decisions and distinguishes measured results from assumptions.</td>
+            </tr>
+    
+          </tbody>
+        </table>
+
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin:32px 0 12px 0;color:#0f172a;">Quick Technical Glossary</h3>
+        <p style="font-size:14px;color:#64748b;margin-bottom:16px;">Core terms and operational definitions applied across the curriculum.</p>
+        <table class="glossary-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Term / Acronym</th>
+              <th>Operational Meaning & Industry Context</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">A2A</code></td>
+              <td>Agent-to-agent interoperability: patterns for agents/services to discover or communicate with one another.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">ADR</code></td>
+              <td>Architecture Decision Record: a concise record of a significant design choice, alternatives and consequences.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">API</code></td>
+              <td>Application Programming Interface: a contract through which software components communicate.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">ASR / TTS</code></td>
+              <td>Automatic Speech Recognition converts speech to text; Text-to-Speech converts text to audio.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">Idempotency</code></td>
+              <td>A retry or repeated request does not unintentionally duplicate a state change or external side effect.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">LLMOps</code></td>
+              <td>Operational practices for versioning, evaluating, deploying, observing and improving LLM-based systems.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">MCP</code></td>
+              <td>Model Context Protocol: a protocol for connecting AI applications with external tools and context resources.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">OCR</code></td>
+              <td>Optical Character Recognition: extracting text from images or scanned documents.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">PEFT</code></td>
+              <td>Parameter-Efficient Fine-Tuning: adaptation methods that update a smaller parameter subset or adapter rather than all model weights.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">PII</code></td>
+              <td>Personally Identifiable Information: data that identifies or can reasonably be linked to a person.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">QLoRA / LoRA</code></td>
+              <td>Parameter-efficient adaptation approaches; QLoRA combines quantization with LoRA-style adapters.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">RAG</code></td>
+              <td>Retrieval-Augmented Generation: retrieving relevant evidence and supplying it as context for generation.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">VLM</code></td>
+              <td>Vision-Language Model: a model that processes image/visual content alongside language.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">Release gate</code></td>
+              <td>A defined set of checks or thresholds that must pass before a version is released.</td>
+            </tr>
+    
+            <tr>
+              <td><code style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px;">Tenant isolation</code></td>
+              <td>Controls preventing one customer/account’s data or permissions from leaking into another tenant’s context or results.</td>
+            </tr>
+    
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <p>&copy; 2026 NeoNex MindX &middot; School of Artificial Intelligence, Data & Engineering</p>
+      <p style="margin-top:6px;">
+        <a href="/">Home</a> &middot; 
+        <a href="/courses/generative-ai-engineering-course">Generative AI Engineering Course</a> &middot; 
+        <a href="/courses/ai-ml-course">AI & ML Engineering</a> &middot; 
+        <a href="/courses/data-science-course">Data Science</a> &middot; 
+        <a href="/contact-us">Contact Academic Office</a>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
