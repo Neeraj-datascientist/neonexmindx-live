@@ -85,6 +85,7 @@
 /business-analytics                     /courses/business-analytics-course      301!
 
 # 4. BLOGS & ARTICLES
+/blog/:slug                             /blog-post.html?slug=:slug              200
 /blog                                   /blogs                                  301!
 /blog/                                  /blogs                                  301!
 /blogs.html                             /blogs                                  301!

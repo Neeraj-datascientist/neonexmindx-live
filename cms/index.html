@@ -1850,7 +1850,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </td>
                     <td>
                       <button class="btn btn-sm" onclick="APP.navigateTo('add-article', '${p.id}')">Edit</button>
-                      <button class="btn btn-sm" onclick="window.open('/blog/${p.slug}','_blank')">View</button>
+                      <button class="btn btn-sm" onclick="window.open('/blog-post.html?slug=' + encodeURIComponent(p.slug), '_blank')" title="Open live blog in dedicated URL tab">View</button>
                     </td>
                   </tr>
                 `).join('')}
@@ -1949,7 +1949,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div style="display:flex; gap:6px;">
                         <button class="btn btn-sm" onclick="APP.navigateTo('add-article', '${p.id}')">Edit</button>
                         <button class="btn btn-sm btn-danger" onclick="APP.deletePost('${p.id}')">Delete</button>
-                        <button class="btn btn-sm" onclick="window.open('/blog/${p.slug}','_blank')">View</button>
+                        <button class="btn btn-sm" onclick="window.open('/blog-post.html?slug=' + encodeURIComponent(p.slug), '_blank')" title="Open live blog in dedicated URL tab">View</button>
                       </div>
                     </td>
                   </tr>
@@ -3702,6 +3702,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "/courses/ai-ml-engineering-course": { page_key: "/courses/ai-ml-engineering-course", page_name: "AI & ML Engineering Course", file_name: "Neonex Mindx AI ML Course.html", category: "Career Program", title: "AI and Machine Learning Course India | NeoNex MindX", meta_description: "Learn Python, machine learning, deep learning, NLP, computer vision, LLMs, RAG, MLOps and deployment in a live online AI/ML course." },
           "/courses/data-engineering-course": { page_key: "/courses/data-engineering-course", page_name: "Data Engineering Course", file_name: "Neonex Mindx Data Engineering Course.html", category: "Career Program", title: "Data Engineering Course Online India | NeoNex MindX", meta_description: "Learn Python, advanced SQL, ETL, Spark, Kafka, Airflow, data warehousing and cloud platforms in a live online Data Engineering course." },
           "/courses/business-analytics-course": { page_key: "/courses/business-analytics-course", page_name: "Business Analytics Course", file_name: "Neonex Mindx Business Analytics Course.html", category: "Career Program", title: "Business Analytics Course India | NeoNex MindX", meta_description: "Learn Excel, SQL, Power BI, Tableau, KPIs, forecasting and business decision analytics in a live online Business Analytics course in India." },
+          "/courses/generative-ai-engineering-course": { page_key: "/courses/generative-ai-engineering-course", page_name: "Generative AI Engineering Course", file_name: "courses/generative-ai-engineering-course/index.html", category: "Career Program", title: "Generative AI Engineering Course India | LLMs, RAG, Agents | NeoNex MindX", meta_description: "Master Generative AI, Large Language Models (LLMs), LangChain, LlamaIndex, RAG pipelines, fine-tuning, autonomous AI agents, and enterprise production deployment." },
           "/courses/excel-power-bi-tableau-course": { page_key: "/courses/excel-power-bi-tableau-course", page_name: "Excel, PowerBI & Tableau", file_name: "Neonex Mindx Excel PowerBI Tableau Course.html", category: "Skill Course", title: "Excel Power BI Tableau Course Online India | NeoNex MindX", meta_description: "Join a live Excel, Power BI and Tableau course covering data cleaning, formulas, PivotTables, Power Query, DAX, data modelling, dashboards and projects." },
           "/courses/sql-course": { page_key: "/courses/sql-course", page_name: "SQL Course", file_name: "Neonex Mindx SQL Course.html", category: "Skill Course", title: "SQL Course Online in India with Projects | NeoNex MindX", meta_description: "Join a live SQL course online in India covering database fundamentals, joins, subqueries, CTEs, views, procedures, transactions, indexes and SQL projects." },
           "/courses/python-programming-course": { page_key: "/courses/python-programming-course", page_name: "Python Programming Course", file_name: "Neonex Mindx Python Programming Course.html", category: "Skill Course", title: "Python Course Online in India for Beginners | NeoNex MindX", meta_description: "Join a live Python course online covering fundamentals, OOP, files, NumPy, Pandas, visualisation and practical projects. Beginner friendly." },
@@ -4588,6 +4589,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           { loc: '/courses/ai-ml-engineering-course', priority: '0.9', changefreq: 'weekly', lastmod: todayStr },
           { loc: '/courses/data-engineering-course', priority: '0.9', changefreq: 'weekly', lastmod: todayStr },
           { loc: '/courses/business-analytics-course', priority: '0.9', changefreq: 'weekly', lastmod: todayStr },
+          { loc: '/courses/generative-ai-engineering-course', priority: '0.9', changefreq: 'weekly', lastmod: todayStr },
           { loc: '/courses/excel-power-bi-tableau-course', priority: '0.8', changefreq: 'weekly', lastmod: todayStr },
           { loc: '/courses/sql-course', priority: '0.8', changefreq: 'weekly', lastmod: todayStr },
           { loc: '/courses/python-programming-course', priority: '0.8', changefreq: 'weekly', lastmod: todayStr },
@@ -4797,7 +4799,14 @@ ${allUrls.map(u => `  <url>
       async syncLiveSitemap() {
         try {
           APP.showToast('Regenerating live dynamic sitemap on server...');
-          const res = await fetch('/api/sync-sitemap', { method: 'POST' });
+          const res = await fetch('/api/sync-sitemap', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              customSitemapUrls: DB.customSitemapUrls || [],
+              posts: DB.posts || []
+            })
+          });
           if (res.ok) {
             const data = await res.json();
             try {
@@ -4810,11 +4819,34 @@ ${allUrls.map(u => `  <url>
             } catch(e) {}
             APP.showToast(`Live dynamic sitemap regenerated with ${data.published_articles || 'all'} articles!`);
             APP.renderCurrentView();
-          } else {
-            APP.showToast('Sitemap sync received non-200 response.');
+            return;
           }
-        } catch(e) {
-          APP.showToast('Server connection error while syncing sitemap.');
+        } catch(e) {}
+
+        // Fallback: generate and update preview when server API is unavailable
+        try {
+          const siteUrl = (DB.site && DB.site.siteUrl) || 'https://neonexmindx.com';
+          const posts = (DB.posts || []).filter(p => p.status === 'published');
+          const todayStr = new Date().toISOString().split('T')[0];
+          const allUrls = [];
+          (DB.customSitemapUrls || []).forEach(u => {
+            const fullLoc = u.loc.startsWith('http') ? u.loc : (siteUrl + (u.loc.startsWith('/') ? u.loc : '/' + u.loc));
+            allUrls.push({ loc: fullLoc, priority: u.priority || '0.8', changefreq: u.changefreq || 'weekly', lastmod: u.lastmod || todayStr });
+          });
+          posts.forEach(p => {
+            const postLoc = `${siteUrl}/blog/${p.slug}`;
+            if (!allUrls.some(u => u.loc === postLoc)) {
+              allUrls.push({ loc: postLoc, priority: '0.7', changefreq: 'weekly', lastmod: (p.updatedAt || p.publishDate || todayStr).split('T')[0] });
+            }
+          });
+          const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n` +
+            allUrls.map(u => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`).join('\n') +
+            `\n</urlset>\n`;
+          const el = document.getElementById('sitemap-xml-preview');
+          if (el) el.value = xml;
+          APP.showToast(`Sitemap updated in browser preview (${allUrls.length} URLs)!`);
+        } catch(err) {
+          APP.showToast('Could not regenerate sitemap preview.');
         }
       },
 
