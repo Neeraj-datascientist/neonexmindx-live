@@ -110,6 +110,27 @@ All portals are accessible from any phone, tablet, or secondary laptop on the sa
 
 ## 3. Pending Tasks & Future Roadmap (To Remind User)
 
+### Phase 0: Course Experience & Student Conversion Enhancements (Future Website Goals)
+> *Note: These features are planned for future implementation. Do not start work until explicitly requested.*
+
+- [ ] **Interactive Brochure & Syllabus Engine:**
+  - **Download Brochure:** Clean, single-click & lead-gated brochure download for each course with high-converting PDF styling.
+  - **View & Download Syllabus with Best Visuals:** Interactive on-page visual syllabus browser (expandable modules, week-by-week timeline, interactive tool badges) paired with an instant downloadable high-res PDF syllabus with best-in-class graphic design.
+- [ ] **Visual Learning & Career Roadmap:**
+  - Build comprehensive, domain-specific visual roadmaps (Data Analytics, Data Science, AI/ML Engineering, Data Engineering, Business Analytics).
+  - Clearly guide learners from prerequisites $\rightarrow$ foundational core $\rightarrow$ advanced enterprise stacks $\rightarrow$ portfolio mastery $\rightarrow$ interview readiness.
+- [ ] **Domain-Specific Projects Showcase:**
+  - Detailed real-world project portfolios for each domain (e.g. End-to-end distributed ETL pipelines, Production ML/LLM systems, Power BI Executive Dashboards, Fraud Detection engines).
+  - Include live interactive project previews, architecture diagrams, datasets used, and GitHub-style codebase highlights.
+- [ ] **"Why Choose Us" Interactive Value Proposition:**
+  - Dedicated, visually compelling narrative section clearly explaining the NeoNeX MindX edge:
+    - 1-on-1 mentorship from real industry practitioners (no recorded re-runs or generic scripts).
+    - Production-grade enterprise projects rather than toy datasets.
+    - Honest, structured career & placement support without false promises.
+    - Direct WhatsApp & Discord mentor access with regular code reviews and mock interviews.
+
+---
+
 ### Phase 1: Social Media Full API Connections (When Ready)
 - [ ] **LinkedIn Community Management API v2:**
   - Set up LinkedIn Developer App with `w_member_social` and `w_organization_social` OAuth scopes.

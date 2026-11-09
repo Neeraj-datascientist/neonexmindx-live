@@ -1390,6 +1390,90 @@ body.site-mobile-nav-locked {
   }
 }
 </style>
+<style id="site-sticky-subnav-style">
+
+/* === ENHANCED PERSISTENT STICKY SUBNAV === */
+.subnav {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 76px !important;
+  z-index: 9999 !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+  width: 100% !important;
+  transition: box-shadow 0.25s ease, background-color 0.25s ease, top 0.2s ease !important;
+}
+
+.subnav-inner {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 24px !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+  padding: 13px 20px !important;
+  font-size: 13px !important;
+  font-weight: 650 !important;
+  color: #4A5568 !important;
+  margin: 0 auto !important;
+  max-width: 1240px !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+}
+
+.subnav-inner::-webkit-scrollbar {
+  display: none !important;
+}
+
+.subnav-inner a {
+  color: #4A5568 !important;
+  text-decoration: none !important;
+  padding: 6px 14px !important;
+  border-radius: 9999px !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.subnav-inner a:hover {
+  color: #1B5DB7 !important;
+  background: rgba(27, 93, 183, 0.08) !important;
+}
+
+.subnav-inner a.active {
+  color: #1B5DB7 !important;
+  background: rgba(27, 93, 183, 0.12) !important;
+  font-weight: 700 !important;
+}
+
+/* Mobile & Tablet Sticky Header Alignment */
+@media (max-width: 1040px) {
+  .subnav {
+    top: 76px !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .subnav {
+    display: block !important;
+    top: 68px !important;
+  }
+  .subnav-inner {
+    justify-content: flex-start !important;
+    padding: 10px 16px !important;
+    gap: 10px !important;
+  }
+  .subnav-inner a {
+    padding: 5px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+</style>
 </head>
   <body>
 <!-- Google Tag Manager (noscript) -->
@@ -3889,5 +3973,68 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+<script id="persistent-sticky-subnav-engine">
+document.addEventListener('DOMContentLoaded', function() {
+  var subnav = document.querySelector('.subnav');
+  if (!subnav) return;
+
+  var header = document.querySelector('.site-global-header') || document.querySelector('header');
+  function adjustTop() {
+    if (header) {
+      var hHeight = header.offsetHeight;
+      if (hHeight > 0) {
+        subnav.style.top = hHeight + 'px';
+      }
+    }
+  }
+
+  adjustTop();
+  window.addEventListener('resize', adjustTop, { passive: true });
+
+  // Add subtle shadow elevation when user scrolls down
+  var onScroll = function() {
+    if (window.scrollY > 40) {
+      subnav.style.boxShadow = '0 6px 20px rgba(15, 23, 42, 0.08)';
+    } else {
+      subnav.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Scrollspy to highlight active section in subnav
+  var subnavLinks = subnav.querySelectorAll('.subnav-inner a[href^="#"]');
+  if (subnavLinks.length > 0) {
+    var sectionMap = [];
+    subnavLinks.forEach(function(link) {
+      var targetId = link.getAttribute('href').substring(1);
+      var sec = document.getElementById(targetId);
+      if (sec) {
+        sectionMap.push({ link: link, section: sec });
+      }
+    });
+
+    if (sectionMap.length > 0) {
+      var updateActiveSection = function() {
+        var scrollPos = window.scrollY + (header ? header.offsetHeight : 76) + 40;
+        var current = sectionMap[0];
+        for (var i = 0; i < sectionMap.length; i++) {
+          if (sectionMap[i].section.offsetTop <= scrollPos) {
+            current = sectionMap[i];
+          }
+        }
+        sectionMap.forEach(function(item) {
+          if (item === current) {
+            item.link.classList.add('active');
+          } else {
+            item.link.classList.remove('active');
+          }
+        });
+      };
+      window.addEventListener('scroll', updateActiveSection, { passive: true });
+      updateActiveSection();
+    }
+  }
+});
+</script>
 </body>
 </html>
