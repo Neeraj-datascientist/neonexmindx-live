@@ -47,3 +47,4 @@ for name, rel in pages_to_check:
     else:
         print("  H1: NONE")
     print()
+

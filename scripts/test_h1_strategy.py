@@ -119,3 +119,4 @@ for rel, old_eb, new_h1 in updates:
         print(f"NOT FOUND: {rel}")
     else:
         print(f"READY: {rel}")
+

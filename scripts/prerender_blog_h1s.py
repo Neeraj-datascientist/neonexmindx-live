@@ -19,3 +19,4 @@ for p in posts:
         with open(path, "w", encoding="utf-8") as fp:
             fp.write(txt)
         print(f"Pre-rendered H1 for blog: {slug} -> {title}")
+

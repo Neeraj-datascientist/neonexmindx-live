@@ -173,3 +173,4 @@ for cfg in PAGE_CONFIGS:
             print(f"[CHECK] {rel}: eb_count={eb_count}, h1_count={h1_count}")
 
 print(f"\nTotal files updated successfully: {len(processed_files)}")
+

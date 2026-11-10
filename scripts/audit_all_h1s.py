@@ -37,3 +37,4 @@ for rel, count, texts in h1_audit:
         print(f"[WARN: ZERO H1] {rel}")
 
 print(f"\nSummary: Single H1: {single_h1} | Multiple H1: {multi_h1} | Zero H1: {zero_h1}")
+
