@@ -1517,8 +1517,7 @@ body.site-mobile-nav-locked {
 }
 </style>
 <style id="site-sticky-subnav-style">
-
-/* === ENHANCED PERSISTENT STICKY SUBNAV === */
+/* === DYNAMIC LEFT-TO-CENTER STICKY SUBNAV === */
 .subnav {
   position: -webkit-sticky !important;
   position: sticky !important;
@@ -1528,14 +1527,15 @@ body.site-mobile-nav-locked {
   border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04) !important;
   width: 100% !important;
-  transition: box-shadow 0.25s ease, background-color 0.25s ease, top 0.2s ease !important;
+  transition: box-shadow 0.28s ease, background-color 0.28s ease, top 0.2s ease, border-color 0.28s ease !important;
 }
 
+/* Default / Top state: left-aligned exactly like original screenshot */
 .subnav-inner {
   display: flex !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
   align-items: center !important;
   gap: 24px !important;
   overflow-x: auto !important;
@@ -1548,6 +1548,7 @@ body.site-mobile-nav-locked {
   max-width: 1240px !important;
   -webkit-overflow-scrolling: touch !important;
   scrollbar-width: none !important;
+  transition: justify-content 0.3s ease, padding 0.3s ease !important;
 }
 
 .subnav-inner::-webkit-scrollbar {
@@ -1576,7 +1577,19 @@ body.site-mobile-nav-locked {
   font-weight: 700 !important;
 }
 
-/* Mobile & Tablet Sticky Header Alignment */
+/* Scrolled / Stuck state: locks below header, smoothly centers across desktop */
+.subnav.is-stuck {
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.09) !important;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.8) !important;
+}
+
+@media (min-width: 769px) {
+  .subnav.is-stuck .subnav-inner {
+    justify-content: center !important;
+  }
+}
+
+/* Mobile & Tablet Header Alignment */
 @media (max-width: 1040px) {
   .subnav {
     top: 76px !important;
@@ -1598,7 +1611,6 @@ body.site-mobile-nav-locked {
     font-size: 12px !important;
   }
 }
-
 </style>
 </head>
   <body>
@@ -4182,15 +4194,26 @@ document.addEventListener('DOMContentLoaded', function() {
   adjustTop();
   window.addEventListener('resize', adjustTop, { passive: true });
 
-  // Add subtle shadow elevation when user scrolls down
+  // Dynamic Left-to-Center transition on scroll threshold
+  var getThreshold = function() {
+    var rect = subnav.getBoundingClientRect();
+    var currentTop = parseFloat(subnav.style.top) || 76;
+    return subnav.offsetTop > 0 ? (subnav.offsetTop - currentTop) : 40;
+  };
+
+  var threshold = getThreshold();
+  window.addEventListener('resize', function() { threshold = getThreshold(); }, { passive: true });
+
   var onScroll = function() {
-    if (window.scrollY > 40) {
-      subnav.style.boxShadow = '0 6px 20px rgba(15, 23, 42, 0.08)';
+    if (window.scrollY > (threshold > 10 ? threshold : 40)) {
+      subnav.classList.add('is-stuck');
     } else {
-      subnav.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
+      subnav.classList.remove('is-stuck');
     }
   };
+
   window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   // Scrollspy to highlight active section in subnav
   var subnavLinks = subnav.querySelectorAll('.subnav-inner a[href^="#"]');
