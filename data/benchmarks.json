@@ -1,22 +1,103 @@
 {
-  "timestamp": "2026-11-10T14:40:57.276116",
+  "timestamp": "2026-11-10T14:49:16.529889",
   "targetUrl": "https://neonexmindx.com",
+  "toolsIncluded": [
+    "Google Lighthouse CLI (Core Web Vitals & SEO)",
+    "Playwright Multi-Device (6 Viewports 0px Wobble Check)",
+    "Playwright Chromium Tracing (Visual Snapshots & Timeline)",
+    "Axe-Core Engine (WCAG 2.1 AA/AAA Compliance)",
+    "WebPageTest Core (Network Waterfall & Protocol Latency)"
+  ],
   "summary": {
     "overallHealth": "EXCELLENT",
     "devicesAudited": 6,
     "pagesAudited": 5,
     "responsivePassRate": "100%",
     "lighthouseScores": {
-      "performance": 86,
+      "performance": 84,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
       "agenticBrowsing": 98,
-      "fcp": "1.7\u00a0s",
-      "lcp": "1.7\u00a0s",
+      "fcp": "1.8\u00a0s",
+      "lcp": "1.8\u00a0s",
       "tbt": "0\u00a0ms",
-      "cls": "0.012"
+      "cls": "0.002"
+    },
+    "wptTiming": {
+      "ttfb": "143 ms",
+      "loadEvent": "857 ms",
+      "totalRequests": 13,
+      "totalBytes": "246 KiB"
     }
+  },
+  "tracing": {
+    "traceRecorded": true,
+    "traceFile": "data/traces/production_trace.zip",
+    "traceSizeKiB": 821,
+    "traceEngine": "Chromium DevTools Tracing Protocol"
+  },
+  "webPageTestWaterfall": {
+    "dnsMs": 2,
+    "tcpMs": 274,
+    "sslMs": 148,
+    "ttfbMs": 143,
+    "downloadMs": 84,
+    "domInteractiveMs": 792,
+    "domContentLoadedMs": 793,
+    "loadEventMs": 857,
+    "totalRequests": 13,
+    "totalBytesTransferredKiB": 246,
+    "waterfallKeyAssets": [
+      {
+        "asset": "brand-logo-240.webp",
+        "type": "link",
+        "durationMs": 171,
+        "bytes": 15142
+      },
+      {
+        "asset": "hero-dashboard.webp",
+        "type": "link",
+        "durationMs": 164,
+        "bytes": 38942
+      },
+      {
+        "asset": "xMQ9uFFYT72X5wkB_18qmnndmSdSnh2BAfO5mnuyOo1lfiQwV6-xo6eeIw.woff2",
+        "type": "link",
+        "durationMs": 96,
+        "bytes": 25540
+      },
+      {
+        "asset": "rP2Hp2ywxg089UriCZOIHTWEBlw.woff2",
+        "type": "link",
+        "durationMs": 117,
+        "bytes": 62856
+      },
+      {
+        "asset": "css2",
+        "type": "link",
+        "durationMs": 91,
+        "bytes": 853
+      },
+      {
+        "asset": "neonex-tracker.js",
+        "type": "script",
+        "durationMs": 288,
+        "bytes": 1819
+      },
+      {
+        "asset": "hero-dashboard-640.webp",
+        "type": "img",
+        "durationMs": 259,
+        "bytes": 11744
+      },
+      {
+        "asset": "email-decode.min.js",
+        "type": "script",
+        "durationMs": 278,
+        "bytes": 911
+      }
+    ]
   },
   "responsiveness": [
     {
