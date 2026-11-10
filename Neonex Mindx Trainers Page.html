@@ -41,7 +41,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://neonexmindx.com/trainers" rel="canonical"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Sora:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Sora:wght@500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Sora:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/></noscript>
 <meta content="website" property="og:type"/>
 <meta content="Meet the Trainers and Mentors at NeoNex MindX" property="og:title"/>
 <meta content="Review the NeoNex MindX trainer team, teaching areas, verified profiles, learning approach and program expertise." property="og:description"/>
@@ -858,7 +859,7 @@ body.site-mobile-nav-locked {
   background: rgba(10, 15, 25, 0.78);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 16px;
@@ -868,6 +869,7 @@ body.site-mobile-nav-locked {
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
 }
 .enquire-modal-overlay.open {
+  display: flex !important;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -1272,7 +1274,7 @@ body.site-mobile-nav-locked {
     }
   ]
 }</script>
-  <script src="/neonex-tracker.js"></script>
+  <script src="/neonex-tracker.js" defer></script>
 <style id="mobile-topbar-cleanup">
 /* HIDE LEGACY TOPBAR ON ALL MOBILE & TABLET SCREENS TO PREVENT BLACK STRIP / TRUNCATION */
 @media (max-width: 1040px) {
@@ -2285,6 +2287,7 @@ document.getElementById('navToggle').addEventListener('click',()=>{document.getE
           }
         }
       }
+      overlay.style.display = 'flex';
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -2293,6 +2296,7 @@ document.getElementById('navToggle').addEventListener('click',()=>{document.getE
 
     function closeEnquireModal() {
       overlay.classList.remove('open');
+      overlay.style.display = 'none';
       overlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       isModalOpen = false;
