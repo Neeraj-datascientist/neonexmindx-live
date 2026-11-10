@@ -13,7 +13,6 @@ with open(blogs_json_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
 posts = data.get("posts", [])
-print(f"Generating static SEO HTML files for {len(posts)} posts...")
 
 for post in posts:
     slug = post.get("slug")
@@ -23,7 +22,7 @@ for post in posts:
     date = post.get("date", "2026-11-06")
     category = post.get("category", "Technology")
     image = post.get("featured_image", "/assets/images/blog/default.webp")
-    canonical_url = f"https://neonexmindx.com/blog/{slug}"
+    canonical_url = f"https://neonexmindx.com/blog/{slug}/"
     
     html = template
     # Replace title
@@ -45,16 +44,13 @@ for post in posts:
     html = re.sub(r'<meta\s+property=["\']og:url["\'][^>]*content=["\'][^"\']*["\']', 
                   f'<meta property="og:url" content="{canonical_url}"', html, flags=re.I)
                   
-    # Replace pre-rendered H1 title if present
+    # Replace pre-rendered H1 title
     html = html.replace('id="post-title">Loading Article...</h1>', f'id="post-title">{title}</h1>')
     
-    # Target directory: deployment_NeoNex/blog/<slug>/index.html
     out_dir = os.path.join(base_dir, "blog", slug)
     os.makedirs(out_dir, exist_ok=True)
     out_file = os.path.join(out_dir, "index.html")
     with open(out_file, "w", encoding="utf-8") as out_fp:
         out_fp.write(html)
         
-    print(f"Created: blog/{slug}/index.html with canonical -> {canonical_url}")
-
-print("All static blog pages generated successfully.")
+print("Updated all static blog index.html files with trailing slashes.")
