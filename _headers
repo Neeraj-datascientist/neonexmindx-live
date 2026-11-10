@@ -59,6 +59,11 @@
   Cache-Control: public, max-age=86400
   Content-Type: text/plain; charset=utf-8
 
+/.well-known/ard.json
+  Cache-Control: public, max-age=86400
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
 # 6. Internal Hubs Security & Confidentiality Directives
 /cms/*
   X-Robots-Tag: noindex, nofollow, noarchive
