@@ -5,14 +5,13 @@ export async function onRequest(context) {
 
   // 0. Static well-known & crawler pass-through: NEVER rewrite or fall back to HTML
   if (url.pathname === '/.well-known/ard.json') {
-    const res = await context.env.ASSETS.fetch(url);
-    const newHeaders = new Headers(res.headers);
-    newHeaders.set('content-type', 'application/json; charset=utf-8');
-    newHeaders.set('access-control-allow-origin', '*');
-    return new Response(res.body, {
-      status: res.status,
-      statusText: res.statusText,
-      headers: newHeaders
+    return new Response('{\n  "$schema": "https://agenticresourcediscovery.org/schemas/ard.schema.json",\n  "specVersion": "v0.91",\n  "entries": [\n    {\n      "identifier": "urn:air:neonexmindx.com:catalog:courses",\n      "displayName": "NeoNeX MindX Course & Curriculum Discovery",\n      "type": "application/json",\n      "url": "https://neonexmindx.com/llms.txt",\n      "representativeQueries": [\n        "What data science and AI courses does NeoNeX MindX offer?",\n        "Find syllabus and project details for NeoNeX MindX Data Analytics course",\n        "Who are the mentors and trainers teaching at NeoNeX MindX?",\n        "Explore live online career programs in machine learning and data engineering"\n      ],\n      "capabilities": [\n        "CourseDiscovery",\n        "CurriculumRetrieval",\n        "TrainerVerification",\n        "SyllabusInquiry"\n      ]\n    },\n    {\n      "identifier": "urn:air:neonexmindx.com:agent:counselling",\n      "displayName": "NeoNeX MindX Academic & Career Guidance Assistant",\n      "type": "text/html",\n      "url": "https://neonexmindx.com/contact-us",\n      "representativeQueries": [\n        "Connect with a NeoNeX MindX course counsellor on WhatsApp",\n        "Schedule a free course fit session for career switch into AI",\n        "Get fee, batch timing, and placement support information"\n      ],\n      "capabilities": [\n        "AcademicCounselling",\n        "BatchScheduling",\n        "PlacementGuidance"\n      ]\n    }\n  ]\n}', {
+      status: 200,
+      headers: {
+        'content-type': 'application/json; charset=utf-8',
+        'access-control-allow-origin': '*',
+        'cache-control': 'public, max-age=86400'
+      }
     });
   }
 
