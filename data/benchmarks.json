@@ -29,6 +29,28 @@
       "loadEvent": "857 ms",
       "totalRequests": 13,
       "totalBytes": "246 KiB"
+    },
+    "integrations": {
+      "googleSearchConsole": {
+        "status": "VERIFIED_DNS",
+        "verificationRecord": "google-site-verification=Dm7dUgS3Pn6LW5PgOMkwBmCI1x7pf67NUV0Vh-pyTG8"
+      },
+      "googleAnalytics4": {
+        "status": "ACTIVE_GTM",
+        "measurementId": "G-6EZSGPXCBC",
+        "containerId": "GTM-PG57R85H"
+      },
+      "metaPixel": {
+        "status": "ACTIVE",
+        "pixelId": "1698036971288322"
+      },
+      "googleAds": {
+        "status": "ACTIVE",
+        "conversionIds": [
+          "AW-18518097028",
+          "AW-6065429317"
+        ]
+      }
     }
   },
   "tracing": {
