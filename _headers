@@ -1,4 +1,4 @@
-# Netlify Production HTTP Headers & Security Configuration
+# Netlify & Cloudflare Production HTTP Headers & Security Configuration
 # NeoNeX MindX - https://neonexmindx.com
 
 # 1. Global Security, Compression & Indexing Headers
@@ -24,6 +24,15 @@
   Cache-Control: public, max-age=31536000, immutable
 
 /*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
   Cache-Control: public, max-age=31536000, immutable
 
 /*.woff2
