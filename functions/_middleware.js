@@ -3,6 +3,30 @@ export async function onRequest(context) {
   const host = url.hostname.toLowerCase();
   const rawPath = decodeURIComponent(url.pathname.toLowerCase()).replace(/\/$/, '');
 
+  // 0. Static well-known & crawler pass-through: NEVER rewrite or fall back to HTML
+  if (url.pathname === '/.well-known/ard.json') {
+    const res = await context.env.ASSETS.fetch(url);
+    const newHeaders = new Headers(res.headers);
+    newHeaders.set('content-type', 'application/json; charset=utf-8');
+    newHeaders.set('access-control-allow-origin', '*');
+    return new Response(res.body, {
+      status: res.status,
+      statusText: res.statusText,
+      headers: newHeaders
+    });
+  }
+
+  if (url.pathname === '/llms.txt') {
+    const res = await context.env.ASSETS.fetch(url);
+    const newHeaders = new Headers(res.headers);
+    newHeaders.set('content-type', 'text/plain; charset=utf-8');
+    return new Response(res.body, {
+      status: res.status,
+      statusText: res.statusText,
+      headers: newHeaders
+    });
+  }
+
   // 1. Permanent 301 redirects for legacy standalone courses to flagship career programs
   if (
     rawPath === '/courses/sql-course' ||
