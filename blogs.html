@@ -2318,7 +2318,7 @@ id="site-unified-nav-footer-script">
   <!-- CLIENT-SIDE BLOG ENGINE -->
   <script>
   (()=>{
-    const STORAGE_KEY = 'neonex_mindx_cms_v3';
+    const STORAGE_KEY = 'neonex_mindx_cms_v4';
     let SYNC_CHANNEL = null;
     try {
       SYNC_CHANNEL = new BroadcastChannel('neonex_cms_sync');
@@ -2397,13 +2397,13 @@ id="site-unified-nav-footer-script">
         });
       }
 
-      // Merge authors
+      // Merge authors - server diskData takes precedence so profile/avatar updates apply immediately
       const authorsMap = new Map();
-      if (diskData && Array.isArray(diskData.authors)) {
-        diskData.authors.forEach(a => authorsMap.set(a.id || a.name, a));
-      }
       if (localData && Array.isArray(localData.authors)) {
         localData.authors.forEach(a => authorsMap.set(a.id || a.name, a));
+      }
+      if (diskData && Array.isArray(diskData.authors)) {
+        diskData.authors.forEach(a => authorsMap.set(a.id || a.name, a));
       }
 
       const siteConfig = (localData && localData.site) || (diskData && diskData.site) || null;

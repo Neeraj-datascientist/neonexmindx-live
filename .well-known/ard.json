@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agenticresourcediscovery.org/schemas/ard.schema.json",
+  "specVersion": "v0.91",
+  "entries": [
+    {
+      "identifier": "urn:air:neonexmindx.com:catalog:courses",
+      "displayName": "NeoNeX MindX Course & Curriculum Discovery",
+      "type": "application/json",
+      "url": "https://neonexmindx.com/llms.txt",
+      "representativeQueries": [
+        "What data science and AI courses does NeoNeX MindX offer?",
+        "Find syllabus and project details for NeoNeX MindX Data Analytics course",
+        "Who are the mentors and trainers teaching at NeoNeX MindX?",
+        "Explore live online career programs in machine learning and data engineering"
+      ],
+      "capabilities": [
+        "CourseDiscovery",
+        "CurriculumRetrieval",
+        "TrainerVerification",
+        "SyllabusInquiry"
+      ]
+    },
+    {
+      "identifier": "urn:air:neonexmindx.com:agent:counselling",
+      "displayName": "NeoNeX MindX Academic & Career Guidance Assistant",
+      "type": "text/html",
+      "url": "https://neonexmindx.com/contact-us",
+      "representativeQueries": [
+        "Connect with a NeoNeX MindX course counsellor on WhatsApp",
+        "Schedule a free course fit session for career switch into AI",
+        "Get fee, batch timing, and placement support information"
+      ],
+      "capabilities": [
+        "AcademicCounselling",
+        "BatchScheduling",
+        "PlacementGuidance"
+      ]
+    }
+  ]
+}
