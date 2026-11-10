@@ -1,0 +1,315 @@
+{
+  "timestamp": "2026-11-10T14:40:57.276116",
+  "targetUrl": "https://neonexmindx.com",
+  "summary": {
+    "overallHealth": "EXCELLENT",
+    "devicesAudited": 6,
+    "pagesAudited": 5,
+    "responsivePassRate": "100%",
+    "lighthouseScores": {
+      "performance": 86,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "agenticBrowsing": 98,
+      "fcp": "1.7\u00a0s",
+      "lcp": "1.7\u00a0s",
+      "tbt": "0\u00a0ms",
+      "cls": "0.012"
+    }
+  },
+  "responsiveness": [
+    {
+      "device": "Samsung Galaxy S20",
+      "viewport": "360x740",
+      "page": "/",
+      "status": "PASS",
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "overflowPx": 0
+    },
+    {
+      "device": "Samsung Galaxy S20",
+      "viewport": "360x740",
+      "page": "/courses/data-science-course/",
+      "status": "PASS",
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "overflowPx": 0
+    },
+    {
+      "device": "Samsung Galaxy S20",
+      "viewport": "360x740",
+      "page": "/courses/ai-ml-course/",
+      "status": "PASS",
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "overflowPx": 0
+    },
+    {
+      "device": "Samsung Galaxy S20",
+      "viewport": "360x740",
+      "page": "/blogs.html",
+      "status": "PASS",
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "overflowPx": 0
+    },
+    {
+      "device": "Samsung Galaxy S20",
+      "viewport": "360x740",
+      "page": "/about-us/",
+      "status": "PASS",
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "overflowPx": 0
+    },
+    {
+      "device": "Google Pixel 7",
+      "viewport": "412x892",
+      "page": "/",
+      "status": "PASS",
+      "scrollWidth": 412,
+      "clientWidth": 412,
+      "overflowPx": 0
+    },
+    {
+      "device": "Google Pixel 7",
+      "viewport": "412x892",
+      "page": "/courses/data-science-course/",
+      "status": "PASS",
+      "scrollWidth": 412,
+      "clientWidth": 412,
+      "overflowPx": 0
+    },
+    {
+      "device": "Google Pixel 7",
+      "viewport": "412x892",
+      "page": "/courses/ai-ml-course/",
+      "status": "PASS",
+      "scrollWidth": 412,
+      "clientWidth": 412,
+      "overflowPx": 0
+    },
+    {
+      "device": "Google Pixel 7",
+      "viewport": "412x892",
+      "page": "/blogs.html",
+      "status": "PASS",
+      "scrollWidth": 412,
+      "clientWidth": 412,
+      "overflowPx": 0
+    },
+    {
+      "device": "Google Pixel 7",
+      "viewport": "412x892",
+      "page": "/about-us/",
+      "status": "PASS",
+      "scrollWidth": 412,
+      "clientWidth": 412,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPhone SE",
+      "viewport": "375x667",
+      "page": "/",
+      "status": "PASS",
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPhone SE",
+      "viewport": "375x667",
+      "page": "/courses/data-science-course/",
+      "status": "PASS",
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPhone SE",
+      "viewport": "375x667",
+      "page": "/courses/ai-ml-course/",
+      "status": "PASS",
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPhone SE",
+      "viewport": "375x667",
+      "page": "/blogs.html",
+      "status": "PASS",
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPhone SE",
+      "viewport": "375x667",
+      "page": "/about-us/",
+      "status": "PASS",
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPhone 15 Pro Max",
+      "viewport": "430x932",
+      "page": "/",
+      "status": "PASS",
+      "scrollWidth": 430,
+      "clientWidth": 430,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPhone 15 Pro Max",
+      "viewport": "430x932",
+      "page": "/courses/data-science-course/",
+      "status": "PASS",
+      "scrollWidth": 430,
+      "clientWidth": 430,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPhone 15 Pro Max",
+      "viewport": "430x932",
+      "page": "/courses/ai-ml-course/",
+      "status": "PASS",
+      "scrollWidth": 430,
+      "clientWidth": 430,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPhone 15 Pro Max",
+      "viewport": "430x932",
+      "page": "/blogs.html",
+      "status": "PASS",
+      "scrollWidth": 430,
+      "clientWidth": 430,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPhone 15 Pro Max",
+      "viewport": "430x932",
+      "page": "/about-us/",
+      "status": "PASS",
+      "scrollWidth": 430,
+      "clientWidth": 430,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPad Mini",
+      "viewport": "768x1024",
+      "page": "/",
+      "status": "PASS",
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPad Mini",
+      "viewport": "768x1024",
+      "page": "/courses/data-science-course/",
+      "status": "PASS",
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPad Mini",
+      "viewport": "768x1024",
+      "page": "/courses/ai-ml-course/",
+      "status": "PASS",
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPad Mini",
+      "viewport": "768x1024",
+      "page": "/blogs.html",
+      "status": "PASS",
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "overflowPx": 0
+    },
+    {
+      "device": "iPad Mini",
+      "viewport": "768x1024",
+      "page": "/about-us/",
+      "status": "PASS",
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "overflowPx": 0
+    },
+    {
+      "device": "Desktop Full HD",
+      "viewport": "1920x1080",
+      "page": "/",
+      "status": "PASS",
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "overflowPx": 0
+    },
+    {
+      "device": "Desktop Full HD",
+      "viewport": "1920x1080",
+      "page": "/courses/data-science-course/",
+      "status": "PASS",
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "overflowPx": 0
+    },
+    {
+      "device": "Desktop Full HD",
+      "viewport": "1920x1080",
+      "page": "/courses/ai-ml-course/",
+      "status": "PASS",
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "overflowPx": 0
+    },
+    {
+      "device": "Desktop Full HD",
+      "viewport": "1920x1080",
+      "page": "/blogs.html",
+      "status": "PASS",
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "overflowPx": 0
+    },
+    {
+      "device": "Desktop Full HD",
+      "viewport": "1920x1080",
+      "page": "/about-us/",
+      "status": "PASS",
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "overflowPx": 0
+    }
+  ],
+  "accessibility": [
+    {
+      "page": "/",
+      "violationsCount": 0,
+      "passesCount": 29,
+      "violations": []
+    },
+    {
+      "page": "/courses/data-science-course/",
+      "violationsCount": 1,
+      "passesCount": 26,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 2
+        }
+      ]
+    }
+  ]
+}
