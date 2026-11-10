@@ -63,10 +63,10 @@
     {
       "id": "author-neeraj",
       "name": "Neeraj PC",
-      "designation": "Data Analytics & AI Mentor",
+      "designation": "Data Science and AI Expert",
       "avatar": "trainer-neeraj.webp",
       "linkedin": "https://www.linkedin.com/in/neeraj-neonexmindx/",
-      "bio": "Analytics consultant mentoring students across exploratory data analysis, business intelligence, dashboard storytelling, and machine learning architectures."
+      "bio": "Data Science & AI Expert mentoring students across exploratory data analysis, business intelligence, machine learning architectures, and scalable enterprise AI."
     },
     {
       "id": "author-nikhil",
@@ -112,7 +112,7 @@
       "id": "author-lakshmi",
       "name": "Lakshmi M. Achar",
       "designation": "Senior Data Science & Machine Learning Mentor",
-      "avatar": "trainer-lakshmi.webp",
+      "avatar": "mentor-lakshmi.webp",
       "linkedin": "https://www.linkedin.com/in/lakshmi-m-achar-b5a032212/",
       "bio": "Data scientist with expertise in predictive modeling, statistical learning, customer analytics, and production ML pipelines."
     },
