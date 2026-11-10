@@ -1983,8 +1983,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           title: '',
           slug: '',
           category: (DB.categories[0] && DB.categories[0].name) || 'Data Science',
-          author: (DB.authors[0] && DB.authors[0].name) || 'Dr. Rajesh Varma',
-          authorId: (DB.authors[0] && DB.authors[0].id) || 'author-rajesh',
+          author: (DB.authors[0] && DB.authors[0].name) || 'Neeraj PC',
+          authorId: (DB.authors[0] && DB.authors[0].id) || 'author-neeraj',
           status: 'draft',
           publishDate: new Date().toISOString().split('T')[0],
           readTime: '5 min read',
@@ -2968,7 +2968,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const title = (document.getElementById('ed-title')?.value || '').trim() || 'Untitled Article';
         const metaTitle = (document.getElementById('ed-metatitle')?.value || '').trim() || title;
         const slug = (document.getElementById('ed-slug')?.value || '').trim() || 'article-slug';
-        const authorName = document.getElementById('ed-author')?.value || 'Dr. Rajesh Varma';
+        const authorName = document.getElementById('ed-author')?.value || 'Neeraj PC';
         const authorObj = (DB.authors || []).find(a => a.name === authorName) || { name: authorName, linkedin: 'https://neonexmindx.com' };
         const metaDesc = (document.getElementById('ed-metadesc')?.value || '').trim() || (document.getElementById('ed-excerpt')?.value || '').trim();
         const heroImg = (document.getElementById('ed-heroimage')?.value || '').trim() || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';
@@ -3549,8 +3549,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           const category = document.getElementById('ed-category')?.value || 'Data Science';
           const authorSelect = document.getElementById('ed-author');
-          const author = authorSelect?.value || 'Dr. Rajesh Varma';
-          const authorId = authorSelect?.options[authorSelect.selectedIndex]?.dataset?.id || 'author-rajesh';
+          const author = authorSelect?.value || 'Neeraj PC';
+          const authorId = authorSelect?.options[authorSelect.selectedIndex]?.dataset?.id || 'author-neeraj';
 
           const bodyDiv = document.getElementById('ed-body');
           const sourceTa = document.getElementById('ed-body-source');
@@ -3628,7 +3628,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const slug = (document.getElementById('ed-slug')?.value || '').trim() || APP.slugify(title) || 'preview-post';
         const category = document.getElementById('ed-category')?.value || 'Data Science';
         const authorSelect = document.getElementById('ed-author');
-        const authorName = authorSelect?.value || 'Dr. Rajesh Varma';
+        const authorName = authorSelect?.value || 'Neeraj PC';
         const authorObj = (DB.authors || []).find(a => a.name === authorName) || { name: authorName, designation: 'Curriculum Director & Mentor', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80', bio: 'Mentor at NeoNeX MindX' };
         const rawHero = document.getElementById('ed-heroimage')?.value || '';
         const heroImage = APP.normalizeImageUrl(rawHero) || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80';

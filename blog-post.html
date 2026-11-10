@@ -1040,8 +1040,30 @@ body.site-mobile-nav-locked {
       gap: 48px;
       align-items: flex-start;
     }
+    /* Mobile Table of Contents positioning: move TOC to top on mobile */
     @media (max-width: 1024px) {
-      .article-grid { grid-template-columns: 1fr; gap: 32px; }
+      .article-grid {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+      .article-sidebar {
+        display: contents !important;
+      }
+      #toc-widget {
+        order: -1 !important;
+        margin-bottom: 24px !important;
+        position: static !important;
+        width: 100% !important;
+      }
+      .article-body {
+        order: 1 !important;
+        width: 100% !important;
+      }
+      .enquire-sidebar-widget {
+        order: 2 !important;
+        margin-top: 24px !important;
+        width: 100% !important;
+      }
     }
 
     /* ARTICLE BODY TYPOGRAPHY */
