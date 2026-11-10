@@ -1295,7 +1295,11 @@ body.site-mobile-nav-locked {
 }
 </style>
 <style id="site-sticky-subnav-style">
-/* === DYNAMIC LEFT-TO-CENTER STICKY SUBNAV === */
+/* === BULLETPROOF STICKY SUBNAV === */
+html, body {
+  overflow-x: clip !important;
+}
+
 .subnav {
   position: -webkit-sticky !important;
   position: sticky !important;
@@ -2636,18 +2640,12 @@ document.addEventListener('DOMContentLoaded', function() {
   adjustTop();
   window.addEventListener('resize', adjustTop, { passive: true });
 
-  // Dynamic Left-to-Center transition on scroll threshold
-  var getThreshold = function() {
-    var rect = subnav.getBoundingClientRect();
-    var currentTop = parseFloat(subnav.style.top) || 76;
-    return subnav.offsetTop > 0 ? (subnav.offsetTop - currentTop) : 40;
-  };
-
-  var threshold = getThreshold();
-  window.addEventListener('resize', function() { threshold = getThreshold(); }, { passive: true });
+  // Compute natural unpinned offsetTop before scrolling
+  var originalTop = subnav.getBoundingClientRect().top + window.scrollY;
 
   var onScroll = function() {
-    if (window.scrollY > (threshold > 10 ? threshold : 40)) {
+    var headerHeight = header ? header.offsetHeight : 76;
+    if (window.scrollY >= (originalTop - headerHeight - 2)) {
       subnav.classList.add('is-stuck');
     } else {
       subnav.classList.remove('is-stuck');
