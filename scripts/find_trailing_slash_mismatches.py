@@ -27,3 +27,4 @@ print(f"Total files where canonical has trailing slash: {len(mismatches)}")
 for f, c in mismatches[:10]:
     rel = os.path.relpath(f, r"c:\Users\pcnee\Desktop\NeoNeX MindX website\deployment_NeoNex")
     print(f"  {rel} -> {c}")
+

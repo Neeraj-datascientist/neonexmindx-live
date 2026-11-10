@@ -34,3 +34,4 @@ with open(sitemap_path, "w", encoding="utf-8") as f:
     f.write(new_xml)
 
 print("Updated sitemap.xml with canonical trailing slashes.")
+

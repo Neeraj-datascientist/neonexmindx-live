@@ -117,3 +117,4 @@ for level, items in by_type.items():
         print(f"  [{file}]: {msg}")
     if len(items) > 15:
         print(f"  ... and {len(items) - 15} more.")
+
