@@ -5,8 +5,8 @@
     {
       "identifier": "urn:air:neonexmindx.com:catalog:courses",
       "displayName": "NeoNeX MindX Course & Curriculum Discovery",
-      "type": "application/json",
-      "url": "https://neonexmindx.com/llms.txt",
+      "type": "application/ai-catalog+json",
+      "url": "https://neonexmindx.com/data/blogs.json",
       "representativeQueries": [
         "What data science and AI courses does NeoNeX MindX offer?",
         "Find syllabus and project details for NeoNeX MindX Data Analytics course",
@@ -23,8 +23,8 @@
     {
       "identifier": "urn:air:neonexmindx.com:agent:counselling",
       "displayName": "NeoNeX MindX Academic & Career Guidance Assistant",
-      "type": "text/html",
-      "url": "https://neonexmindx.com/contact-us",
+      "type": "application/agent-card+json",
+      "url": "https://neonexmindx.com/.well-known/ard.json",
       "representativeQueries": [
         "Connect with a NeoNeX MindX course counsellor on WhatsApp",
         "Schedule a free course fit session for career switch into AI",
