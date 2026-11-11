@@ -20,3 +20,4 @@ for p in paths:
         with open(p, "w", encoding="utf-8") as f:
             f.write(txt)
         print(f"Updated title and OG title in {p}")
+

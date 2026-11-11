@@ -100,3 +100,4 @@ for r in results:
     print(f"  Keyword Coverage  : {r['keyword_coverage']}")
     print(f"  Title Tag         : {r['title']}")
     print(f"  Meta Description  : {r['desc_length']} characters")
+
