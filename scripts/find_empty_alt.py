@@ -9,3 +9,4 @@ for idx, img in enumerate(imgs):
     alt_val = re.search(r'alt=["\']([^"\']*)["\']', img, re.I)
     val = alt_val.group(1) if alt_val else "MISSING"
     print(f"Img {idx+1}: alt='{val}' | {img[:90]}")
+

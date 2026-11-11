@@ -3,3 +3,4 @@ with open(r"c:\Users\pcnee\Desktop\NeoNeX MindX website\deployment_NeoNex\index.
 
 pos = txt.find('section-bg"')
 print(txt[pos-50:pos+350])
+
