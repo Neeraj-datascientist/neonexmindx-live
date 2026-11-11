@@ -23,3 +23,4 @@ for f in html_files:
         count += 1
 
 print(f"Added descriptive alt='Facebook Pixel' across {count} HTML files.")
+

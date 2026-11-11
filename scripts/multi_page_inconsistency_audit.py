@@ -91,3 +91,4 @@ for u in urls:
 print(f"\nAudit completed. Total inconsistencies detected across {len(urls)} production pages: {len(inconsistencies)}")
 for typ, url, msg in inconsistencies:
     print(f"[{typ}] {url} -> {msg}")
+

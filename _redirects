@@ -96,6 +96,9 @@
 /digital-marketing.html                 /digital-marketing                      301!
 /sms.html                               /sms                                    301!
 
+# IndexNow Verification Key
+/3d806e385e264c3194ec3c35c892cb9e.txt        /3d806e385e264c3194ec3c35c892cb9e.txt        200
+
 # Static and Well-Known Files (Pass-Through)
 /.well-known/ard.json                    /.well-known/ard.json                   200
 /llms.txt                                /llms.txt                               200
