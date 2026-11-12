@@ -5,3 +5,4 @@ let m;
 while ((m = regex.exec(html)) !== null) {
   console.log('WA link tag:', m[0].substring(0, 150));
 }
+

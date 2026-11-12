@@ -19,3 +19,4 @@ for root, dirs, files in os.walk('deployment_NeoNex'):
                     end = min(len(c), m.end() + 800)
                     print(c[start:end])
                     print("-" * 40)
+

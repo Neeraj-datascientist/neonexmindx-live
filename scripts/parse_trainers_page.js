@@ -16,3 +16,4 @@ function checkCardInTrainers(f) {
 
 checkCardInTrainers('deployment_NeoNex/trainers/index.html');
 checkCardInTrainers('deployment_NeoNex/trainers-and-mentors/index.html');
+

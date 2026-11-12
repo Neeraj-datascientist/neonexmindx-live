@@ -11,3 +11,4 @@ function checkCardInCourse(f) {
 
 checkCourse = 'deployment_NeoNex/courses/python-programming-course/index.html';
 checkCardInCourse(checkCourse);
+

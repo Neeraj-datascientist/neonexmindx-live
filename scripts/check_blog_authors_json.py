@@ -8,3 +8,4 @@ for p in data.get('posts', []):
 print("\n=== AUTHORS IN BLOGS.JSON ===")
 for a in data.get('authors', []):
     print(f"ID: {a.get('id')} | Name: {a.get('name')} | Avatar: {a.get('avatar')} | LinkedIn: {a.get('linkedin')}")
+

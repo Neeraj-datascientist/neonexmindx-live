@@ -33,3 +33,4 @@ const pages = [
 ];
 
 pages.forEach(checkPage);
+

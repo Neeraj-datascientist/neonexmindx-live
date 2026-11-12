@@ -10,3 +10,4 @@ for f in files:
         print(f'{f}: {len(links)} linkedin links')
         for l in sorted(list(set(links))):
             print(f'   {l}')
+

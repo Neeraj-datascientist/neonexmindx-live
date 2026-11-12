@@ -28,3 +28,4 @@ const blogs = [
 ];
 
 blogs.forEach(checkBlog);
+

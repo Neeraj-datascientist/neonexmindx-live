@@ -67,3 +67,4 @@ const targetFiles = [
 ];
 
 targetFiles.forEach(analyzeFile);
+

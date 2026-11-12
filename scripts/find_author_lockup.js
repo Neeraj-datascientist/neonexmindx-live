@@ -7,3 +7,4 @@ console.log(html.substring(s2, s2 + 600));
 const s3 = html.indexOf('author-lockup', s2 + 20);
 console.log('Third author lockup:');
 console.log(html.substring(s3, s3 + 600));
+

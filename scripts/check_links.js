@@ -9,3 +9,4 @@ function checkFile(p) {
 checkFile('deployment_NeoNex/trainers/index.html');
 checkFile('deployment_NeoNex/trainers-and-mentors/index.html');
 checkFile('deployment_NeoNex/courses/sql-course/index.html');
+

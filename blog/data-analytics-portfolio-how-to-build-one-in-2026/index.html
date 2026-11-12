@@ -2462,7 +2462,7 @@ id="site-unified-nav-footer-script">
       }
 
       // Match Author
-      const authorObj = authors.find(a => a.name === post.author || a.id === post.authorId) || {
+      const authorObj = authors.find(a => a.name === post.author) || authors.find(a => post.authorId && a.id === post.authorId) || {
         name: post.author || 'NeoNeX Mentor',
         designation: 'Senior AI Mentor & Data Science Consultant',
         avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&h=240&q=80',

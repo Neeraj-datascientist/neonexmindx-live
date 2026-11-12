@@ -11,3 +11,4 @@ cards.slice(1).forEach((card, idx) => {
     const linkMatch = card.match(/href=["'](.*?)["']/);
     console.log(`Card ${idx+1}: ${name} -> Link: ${linkMatch ? linkMatch[1] : 'NO LINK'}`);
 });
+

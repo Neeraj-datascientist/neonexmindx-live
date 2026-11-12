@@ -14,3 +14,4 @@ inspectFile('deployment_NeoNex/courses/python-programming-course/index.html');
 inspectFile('deployment_NeoNex/courses/sql-course/index.html');
 inspectFile('deployment_NeoNex/courses/machine-learning-course/index.html');
 inspectFile('deployment_NeoNex/courses/excel-power-bi-tableau-course/index.html');
+

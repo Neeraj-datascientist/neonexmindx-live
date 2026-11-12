@@ -13,3 +13,4 @@ for f in files:
     # Find all occurrences of nikhil or neeraj or lakshmi or avatar in static HTML
     for m in re.finditer(r'(trainer-nikhil|trainer-neeraj|mentor-lakshmi|nikhil|neeraj|authorObj)', txt, re.IGNORECASE):
         print("  Snippet:", txt[max(0, m.start()-40):min(len(txt), m.end()+60)].replace('\n', ' '))
+
