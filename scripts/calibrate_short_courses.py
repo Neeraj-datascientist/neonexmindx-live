@@ -46,3 +46,4 @@ for fp in files:
     with open(fp, 'w', encoding='utf-8') as f:
         f.write(html)
 print("Calibration complete.")
+
