@@ -8,3 +8,4 @@ print(f"Total modules in curriculum: {len(summaries)}")
 for s in summaries:
     clean = " ".join(re.sub(r'<[^>]+>', ' ', s).split())
     print("-", clean)
+

@@ -8,3 +8,4 @@ print(f"Total accordion buttons: {len(headers)}")
 for h in headers:
     clean_h = " ".join(re.sub(r'<[^>]+>', ' ', h).split())
     print("-", clean_h)
+

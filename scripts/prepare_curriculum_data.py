@@ -58,3 +58,4 @@ tableau_modules = [
 ]
 
 print("Structures ready for comprehensive curriculum generation.")
+

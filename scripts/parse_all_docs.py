@@ -22,3 +22,4 @@ for p in [
     r'C:\Users\pcnee\Downloads\Excel,powerbi,generative ai (2).docx'
 ]:
     parse_docx(p)
+

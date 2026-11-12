@@ -1172,6 +1172,12 @@ body.site-mobile-nav-locked {
 }
 </style>
   <script src="/neonex-tracker.js"></script>
+<style>
+.curriculum-grid-2col details[open] .plus { transform: rotate(45deg); display: inline-block; color: #dc2626 !important; }
+.curriculum-grid-2col details summary::-webkit-details-marker { display:none; }
+.curriculum-grid-2col details summary::marker { display:none; }
+.curriculum-grid-2col details[open] { border-color: #bfdbfe !important; box-shadow: 0 4px 14px rgba(37,99,235,0.06) !important; }
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1209,10 +1215,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <svg class="site-dropdown-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
         <div class="site-dropdown-menu">
-          <a href="/courses/excel-power-bi-tableau-course">Excel, Power BI &amp; Tableau</a>
-          <a href="/courses/machine-learning-course">Machine Learning Course</a>
-          <a href="/courses/python-programming-course">Python Programming Course</a>
-          <a href="/courses/sql-course">SQL Course</a>
+          <a href="/courses/excel-power-bi-tableau-course/">Excel, Power BI &amp; Tableau</a>
+          <a href="/courses/machine-learning-course/">Machine Learning Course</a>
+          <a href="/courses/python-programming-course/">Python Programming Course</a>
+          <a href="/courses/sql-course/">SQL Course</a>
         </div>
       </div>
 
@@ -1266,142 +1272,912 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="phase"><b>Phase 2 &middot; Power BI Intelligence (6 Modules)</b><span>Data connections, custom visuals, interactive bookmarks, slicers, Star Schema modeling, enterprise DAX, Gateway & Cloud Service.</span></div>
   <div class="phase"><b>Phase 3 &middot; Tableau Storytelling (4 Modules)</b><span>Visual analytics, custom sets, Level of Detail (LOD) expressions, parameters, dynamic action dashboards & SQL integration.</span></div>
   <div class="phase"><b>Phase 4 &middot; Real-World Capstones & Certification</b><span>3 industry-standard portfolio capstone dashboards across Excel, Power BI and Tableau with interview preparation.</span></div>
-</div><div class="curriculum">
-<details class="module" open>
-  <summary><span class="module-number">01</span><span><b>Excel for Data Analysis – Orientation & Analytical Mindset</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Introduction to Excel in Data Science & Analytics</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Data Lifecycle & Excel’s Position</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Types of Data Handled in Excel</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Analytical Thinking Framework</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Excel Ecosystem Overview (High-Level)</span></li></ul></div>
+</div>
+<div class="curriculum-wrapper">
+
+<div class="course-modules-toolbar" style="display:flex;justify-content:space-between;align-items:center;background:#f8fafc;border:1px solid #e2e8f0;padding:12px 18px;border-radius:12px;margin:20px 0 20px;flex-wrap:wrap;gap:10px;">
+  <span style="font-size:13.5px;color:#334155;font-weight:600;">Course Modules &amp; Topics: <strong style="color:#0f172a;">Complete 24-Module Master Catalog</strong></span>
+  <div style="display:flex;gap:8px;">
+    <button type="button" class="btn-toggle-course-modules" id="btn-course-expand-all" style="background:#ffffff;border:1px solid #cbd5e1;padding:6px 14px;border-radius:8px;font-size:12.5px;font-weight:600;color:#1e293b;cursor:pointer;transition:all .15s ease;">Expand All Topics</button>
+    <button type="button" class="btn-toggle-course-modules" id="btn-course-collapse-all" style="background:#ffffff;border:1px solid #cbd5e1;padding:6px 14px;border-radius:8px;font-size:12.5px;font-weight:600;color:#1e293b;cursor:pointer;transition:all .15s ease;">Collapse All</button>
+  </div>
+</div>
+
+<div class="curriculum-grid-2col" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 520px), 1fr));gap:16px;align-items:start;">
+  <div class="curriculum-col-left">
+    <details class="module-card" open style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">01</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Excel for Data Analysis – Orientation & Analytical Mindset</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Introduction to Excel in Data Science & Analytics</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Data Lifecycle & Excel’s Position</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Types of Data Handled in Excel</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Analytical Thinking Framework</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Excel Ecosystem Overview (High-Level)</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">02</span><span><b>Excel Interface, Navigation & Spreadsheet Foundations</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Excel Workbook & Worksheet Architecture</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Excel Interface Deep Dive</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Cell, Range & Grid Fundamentals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Navigation & Productivity Shortcuts</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Data Entry Best Practices</span></li></ul></div>
+<details class="module-card" open style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">03</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Data Entry, Formatting & Spreadsheet Design Best Practices</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Data Types & Representation</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Formatting for Analysis (Not Decoration)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Cell Formatting Best Practices</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Table Creation & Structured References</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Spreadsheet Design Standards (Industry)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Common Beginner Errors & Fixes</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">03</span><span><b>Data Entry, Formatting & Spreadsheet Design Best Practices</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Data Types & Representation</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Formatting for Analysis (Not Decoration)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Cell Formatting Best Practices</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Table Creation & Structured References</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Spreadsheet Design Standards (Industry)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Common Beginner Errors & Fixes</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">05</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Cell Referencing, Formula Control & Error Management</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Types of Cell References</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Real-World Referencing Scenarios</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Copying & Dragging Formulas Safely</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Named Ranges</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Formula Error Handling</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Formula Debugging Techniques</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">04</span><span><b>Excel Formulas & Arithmetic Logic for Business Calculations</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Formula Fundamentals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Arithmetic Operators</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Formula Editing & Auditing</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Absolute, Relative & Mixed Calculations (Conceptual Intro)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Formula Performance & Best Practices</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">07</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Conditional Logic, Decision-Making & Rule-Based Analysis</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Logical Foundations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Conditional Functions</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Conditional Aggregation</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Decision-Based Calculations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Error-Safe Conditional Models</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Real-World Business Scenarios</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">05</span><span><b>Cell Referencing, Formula Control & Error Management</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Types of Cell References</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Real-World Referencing Scenarios</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Copying & Dragging Formulas Safely</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Named Ranges</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Formula Error Handling</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Formula Debugging Techniques</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">09</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Data Sorting, Filtering & Structured Data Management</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Sorting Techniques</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Filtering Data</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Advanced Filtering</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Excel Tables</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Handling Missing & Duplicate Data</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Data Validation (Intro)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Dataset Readiness Checklist</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">06</span><span><b>Core Excel Functions for Data Exploration & Aggregation</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Mathematical & Statistical Functions</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Logical Functions</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Aggregation Functions (Intro)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Text Functions (Intro Level)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Date & Time Functions (Intro Level)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Practical Data Exploration Scenarios</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">11</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Charts & Visual Analytics for Insightful Reporting</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Charting Fundamentals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Core Chart Types</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Analytical Chart Types</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Chart Customization</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Chart Interactivity</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Pivot Charts</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Visualization Best Practices</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">07</span><span><b>Conditional Logic, Decision-Making & Rule-Based Analysis</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Logical Foundations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Conditional Functions</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Conditional Aggregation</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Decision-Based Calculations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Error-Safe Conditional Models</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Real-World Business Scenarios</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">13</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Power Query – Data Engineering & ETL Inside Excel</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Power Query Foundations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Power Query Interface & Components</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Data Import Sources</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Column Transformations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Row Transformations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Data Type Handling</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Text Transformations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Number Transformations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Date & Time Transformations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Filtering, Sorting & Conditional Logic</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Grouping, Aggregation & Reshaping</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Merge & Append Queries</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Advanced Power Query Concepts</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Power Query with Databases</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Power Query Best Practices</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">08</span><span><b>Text, Date & Time Transformations for Data Readiness</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Text Cleaning & Standardization</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Text Extraction & Manipulation</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Text Joining & Formatting</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Date & Time Fundamentals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Date & Time Functions</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Date-Based Calculations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Real-World Data Cleanup Cases</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">15</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Power BI Architecture, Installation & Core Interface</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>What is Power BI & Core Architecture (Desktop, Service, Mobile, Report Server)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Components: Power Query (ETL), Power Pivot (Modeling), Power View (Visuals) & Service (Sharing)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Power BI vs Tableau: Visual Capabilities, Dataset Size Limits & Cost Comparison</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Installing & Updating Power BI Desktop & Configuring Preview Features</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Interface Architecture: Fields Pane, Visualizations Pane, Filters Pane & Report Canvas</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>The Three Core Steps in Power BI: Get Data, Choose Visualization, Select Fields</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">09</span><span><b>Data Sorting, Filtering & Structured Data Management</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Sorting Techniques</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Filtering Data</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Advanced Filtering</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Excel Tables</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Handling Missing & Duplicate Data</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Data Validation (Intro)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Dataset Readiness Checklist</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">17</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Report Interactivity, Slicers, Bookmarks & Navigation</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>KPI Cards: Single-Value Cards, Multi-row Cards, Dynamic KPI Metrics & Card Formatting</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Hierarchical Filtering: Visual-Level, Page-Level, Report-Level & Drill-Down Filtering</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Dynamic Slicers: Text Slicers, Date Sliders, Relative Date Slicers & Dropdown Numeric Slicers</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Inserting Interactive Objects: Shapes, Image Placeholders, Buttons & Action Web URLs</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Bookmarks & Selection Pane: Building Pop-up Filter Panes and Multi-view Viewports</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Page Navigation & Drill-Through: Creating Contextual Detail Pages and Hover Tooltip Pages</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">10</span><span><b>Pivot Tables – Core Analytical Engine of Excel</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Pivot Table Fundamentals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Creating Pivot Tables</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Pivot Table Structure</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Aggregations & Calculations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Grouping Data</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Sorting & Filtering in Pivot Tables</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Calculated Fields & Items</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Pivot Table Best Practices</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">19</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Data Modeling, Star Schema & DAX Formulas</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Data View & Model View: Star Schema vs Snowflake Schema Architecture</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Relationship Cardinality: 1-to-Many, Many-to-Many & Active vs Inactive Relationships</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Multi-Table Enterprise Modeling (Sales, Customer, Product, Department, Financial Targets)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Calculated Columns vs Measures: Row Context vs Filter Context in the VertiPaq Engine</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Core DAX Aggregations: SUM, AVERAGE, COUNT, DIVIDE, RELATED, RELATEDTABLE</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Advanced DAX & Filter Modification: CALCULATE, FILTER, ALL, ALLEXCEPT, KEEPFILTERS</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Time Intelligence DAX: YTD, QTD, MTD, SAMEPERIODLASTYEAR, DATEADD & Moving Averages</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">11</span><span><b>Charts & Visual Analytics for Insightful Reporting</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Charting Fundamentals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Core Chart Types</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Analytical Chart Types</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Chart Customization</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Chart Interactivity</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Pivot Charts</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Visualization Best Practices</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">21</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Tableau Foundations, Architecture & Workflow</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Introduction to Tableau & Capabilities (50+ Data Connectors, 24 Native Visualizations)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Tableau Product Suite: Desktop, Public, Server, Cloud/Online, Reader & Tableau Prep Builder</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Core Visual Workflow: Connecting to Data, Dimensions vs Measures, Discrete vs Continuous (Blue vs Green Pills)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Sample Superstore Dataset Walkthrough & Basic Chart Creation (Bar, Line, Scatter, Highlight Tables)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Tableau vs Excel Paradigm Comparison: Granularity, Aggregation Levels & In-Memory Hyper Engine</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">12</span><span><b>Excel Dashboarding & Data Storytelling</b><small>Insight → Evidence → Action flow</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>What is a Dashboard?</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Dashboard Planning</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Dashboard Components</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Interactive Dashboard Elements</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Dashboard Design Principles</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Storytelling with Data</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Real-World Dashboard Case Study</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Dashboard Optimization</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">23</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Calculated Fields, Table Calcs & Level of Detail (LOD)</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Calculated Fields: String Functions, Date Manipulations, Number Functions & Logical (IF-THEN, CASE)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Table Calculations: Running Total, Difference, % Difference, % of Total, Rank & Moving Averages</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Level of Detail (LOD) Expressions: FIXED (Independent of View), INCLUDE (Finer Grain) & EXCLUDE (Coarser Grain)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Dynamic Parameters: What-If Analysis, Top N Dimension Filtering & Metric Switching Controls</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Statistical Reference Lines, Reference Bands, Box Plots, Distributions & Trend Line Modeling</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">13</span><span><b>Power Query – Data Engineering & ETL Inside Excel</b></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Power Query Foundations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Power Query Interface & Components</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Data Import Sources</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Column Transformations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Row Transformations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Data Type Handling</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Text Transformations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Number Transformations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Date & Time Transformations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Filtering, Sorting & Conditional Logic</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Grouping, Aggregation & Reshaping</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Merge & Append Queries</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Advanced Power Query Concepts</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Power Query with Databases</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Power Query Best Practices</span></li></ul></div>
+  </div>
+  <div class="curriculum-col-right">
+    <details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">02</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Excel Interface, Navigation & Spreadsheet Foundations</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Excel Workbook & Worksheet Architecture</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Excel Interface Deep Dive</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Cell, Range & Grid Fundamentals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Navigation & Productivity Shortcuts</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Data Entry Best Practices</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">14</span><span><b>VBA – Automation, Logic & Excel App Development</b><small>POWER BI</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>VBA Fundamentals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>VBA Environment</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Macros & Recording</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>VBA Syntax & Structure</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Variables, Data Types & Constants</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Operators in VBA</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Decision Making in VBA</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Loops & Iteration</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Working with Excel Objects</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>User Interaction</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>VBA Functions (UDFs)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Events in VBA</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Error Handling & Debugging</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>VBA Automation & Integration</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>VBA Best Practices</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>What is Power BI?</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Components of Power BI (Power Query, Power Pivot, Power View, Power BI Service)
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">04</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Excel Formulas & Arithmetic Logic for Business Calculations</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Formula Fundamentals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Arithmetic Operators</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Formula Editing & Auditing</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Absolute, Relative & Mixed Calculations (Conceptual Intro)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Formula Performance & Best Practices</span>
+    </li>
+    </ul>
+  </div>
+</details>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">06</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Core Excel Functions for Data Exploration & Aggregation</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Mathematical & Statistical Functions</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Logical Functions</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Aggregation Functions (Intro)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Text Functions (Intro Level)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Date & Time Functions (Intro Level)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Practical Data Exploration Scenarios</span>
+    </li>
+    </ul>
+  </div>
+</details>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">08</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Text, Date & Time Transformations for Data Readiness</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Text Cleaning & Standardization</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Text Extraction & Manipulation</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Text Joining & Formatting</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Date & Time Fundamentals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Date & Time Functions</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Date-Based Calculations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Real-World Data Cleanup Cases</span>
+    </li>
+    </ul>
+  </div>
+</details>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">10</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Pivot Tables – Core Analytical Engine of Excel</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Pivot Table Fundamentals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Creating Pivot Tables</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Pivot Table Structure</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Aggregations & Calculations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Grouping Data</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Sorting & Filtering in Pivot Tables</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Calculated Fields & Items</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Pivot Table Best Practices</span>
+    </li>
+    </ul>
+  </div>
+</details>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">12</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Excel Dashboarding & Data Storytelling</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>What is a Dashboard?</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Dashboard Planning</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Dashboard Components</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Interactive Dashboard Elements</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Dashboard Design Principles</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Storytelling with Data</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Real-World Dashboard Case Study</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Dashboard Optimization</span>
+    </li>
+    </ul>
+  </div>
+</details>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">14</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">VBA – Automation, Logic & Excel App Development</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>VBA Fundamentals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>VBA Environment</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Macros & Recording</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>VBA Syntax & Structure</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Variables, Data Types & Constants</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Operators in VBA</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Decision Making in VBA</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Loops & Iteration</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Working with Excel Objects</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>User Interaction</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>VBA Functions (UDFs)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Events in VBA</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Error Handling & Debugging</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>VBA Automation & Integration</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>VBA Best Practices</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>What is Power BI?</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Components of Power BI (Power Query, Power Pivot, Power View, Power BI Service)
  1.3 Why Power BI? (Speed, User-friendly, Interactivity, Cost, Data Connectivity)
- 1.4 How Power BI Works? (Desktop vs Service)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>2. Power BI vs Tableau</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Visualization Capabilities Comparison
+ 1.4 How Power BI Works? (Desktop vs Service)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>2. Power BI vs Tableau</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Visualization Capabilities Comparison
  2.2 Dataset Size Limitations
  2.3 Supported Data Sources
- 2.4 Cost Comparison (Tableau vs Power BI)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>3. Installing & Upgrading Power BI</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Downloading Power BI Desktop (MS Store)
+ 2.4 Cost Comparison (Tableau vs Power BI)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>3. Installing & Upgrading Power BI</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Downloading Power BI Desktop (MS Store)
  3.2 Monthly Upgrades
- 3.3 Preview Features (File → Options → Preview Features)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>4. Power BI Interface Overview</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Desktop Interface Layout
+ 3.3 Preview Features (File → Options → Preview Features)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>4. Power BI Interface Overview</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Desktop Interface Layout
  4.2 Fields Pane
  4.3 Visualizations Pane
  4.4 Filters Pane
- 4.5 Pages & Canvas</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>5. Three Core Steps in Power BI</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Get Data
+ 4.5 Pages & Canvas</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>5. Three Core Steps in Power BI</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Get Data
  5.2 Choose Visualization
- 5.3 Select Fields</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>6. Basic Charts in Power BI</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Column / Bar Charts
+ 5.3 Select Fields</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>6. Basic Charts in Power BI</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Column / Bar Charts
  6.2 Stacked Bar Chart
  6.3 Pie Chart
  6.4 Donut Chart
  6.5 Funnel Chart
  6.6 Ribbon Chart
  6.7 Include / Exclude Feature
- 6.8 Export Data from Chart</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>7. Map Visualizations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Map Visualization (Bubble Map, Shape Map)
+ 6.8 Export Data from Chart</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>7. Map Visualizations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Map Visualization (Bubble Map, Shape Map)
  7.2 Filled Maps
  7.3 Map with Pie Charts
  7.4 Map Formatting (Colors, Bubbles, Tooltips, Styles)
- 7.5 Country-specific Maps (India Map)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>8. Tabular Visuals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Table Visualization
+ 7.5 Country-specific Maps (India Map)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>8. Tabular Visuals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Table Visualization
  8.2 Table Formatting (Font, Header Size, Grid, Background)
  8.3 Conditional Formatting (Colors, Icons)
- 8.4 Aggregations (Sum, Avg, Count)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>9. Matrix Visual</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Matrix Overview (Hierarchical Views)
+ 8.4 Aggregations (Sum, Avg, Count)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>9. Matrix Visual</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Matrix Overview (Hierarchical Views)
  9.2 Conditional Formatting
  9.3 Hierarchies (Expand/Collapse)
- 9.4 Formatting Totals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>10. Time-based Visuals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Line Chart
+ 9.4 Formatting Totals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>10. Time-based Visuals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Line Chart
  10.2 Auto Hierarchy (Year → Quarter → Month → Day)
  10.3 Area Chart
- 10.4 Stacked Area Chart</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>11. Advanced Charts</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>100% Stacked Bar Chart
+ 10.4 Stacked Area Chart</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>11. Advanced Charts</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>100% Stacked Bar Chart
  11.2 Decomposition Tree
  11.3 Combo Charts (Line & Clustered Column / Line & Stacked Column)
  11.4 Scatter Chart (Only animated default chart)
  11.5 Waterfall Chart
  11.6 Tree Map
- 11.7 Gauge Chart</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>12. Card Visuals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Number Cards
+ 11.7 Gauge Chart</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>12. Card Visuals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Number Cards
  12.2 Text Cards
  12.3 Dynamic Cards
  12.4 Date Cards
- 12.5 Multiple Row & Column Cards</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>13. Filters</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Filters on This Visual
+ 12.5 Multiple Row & Column Cards</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>13. Filters</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Filters on This Visual
  13.2 Filters on This Page
  13.3 Filters on All Pages
- 13.4 Drill-down Filtering</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>14. Slicers</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Text Slicers
+ 13.4 Drill-down Filtering</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>14. Slicers</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Text Slicers
  14.2 Date Slicers
- 14.3 Numeric Slicers</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>15. Advanced Charts from Marketplace</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Installing Add-in Visuals (AppSource)
+ 14.3 Numeric Slicers</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>15. Advanced Charts from Marketplace</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Installing Add-in Visuals (AppSource)
  15.2 Animated Bar Chart Race
  15.3 Word Cloud
  15.4 InfoGraphic Visual
  15.5 Play Axis
  15.6 Scroller
- 15.7 Sunburst Chart</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>16. Inserting Objects</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Pictures
+ 15.7 Sunburst Chart</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>16. Inserting Objects</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Pictures
  16.2 Shapes
  16.3 Text Box
  16.4 Buttons
  16.5 Action URLs
  16.6 Navigation
  16.7 Bookmarks
- 16.8 Drill-through Navigation</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>17. Bookmark Actions</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Creating Bookmarks
+ 16.8 Drill-through Navigation</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>17. Bookmark Actions</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Creating Bookmarks
  17.2 Using Buttons + Bookmark Actions
- 17.3 Managing Selection & Navigation</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>18. Creating Reports</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Report Structure
+ 17.3 Managing Selection & Navigation</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>18. Creating Reports</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Report Structure
  18.2 Using multiple visuals in a report
- 18.3 Page-level design</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>19. Publishing to Power BI Service</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Creating Power BI Service Account
+ 18.3 Page-level design</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>19. Publishing to Power BI Service</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Creating Power BI Service Account
  19.2 Publishing Reports
- 19.3 Comments, Subscriptions, Sharing Options</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>20. Dashboards in Power BI Service</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Creating Dashboards (Pin Visuals)
+ 19.3 Comments, Subscriptions, Sharing Options</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>20. Dashboards in Power BI Service</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Creating Dashboards (Pin Visuals)
  20.2 Live Page Pinning
  20.3 Static vs Interactive Dashboards
- 20.4 Real-time Usage Notes</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>21. Data Refresh in Power BI</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Manual Refresh (Workspace → Datasets → Refresh)
+ 20.4 Real-time Usage Notes</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>21. Data Refresh in Power BI</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Manual Refresh (Workspace → Datasets → Refresh)
  21.2 Refresh Failures & Resolving Credentials
  21.3 Installing & Configuring Gateway
- 21.4 Scheduled Refresh (Pro vs Premium)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>22. Power Query (ETL)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Power Query Overview (ETL Tool)
+ 21.4 Scheduled Refresh (Pro vs Premium)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>22. Power Query (ETL)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Power Query Overview (ETL Tool)
  22.2 Accessing Power Query Editor
  22.3 Merge
  22.4 Split
  22.5 Change Case
- 22.6 Extract (Left, Right, Substring, Delimiter)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>23. Power Query Functions</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Text Functions
+ 22.6 Extract (Left, Right, Substring, Delimiter)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>23. Power Query Functions</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Text Functions
  23.2 Date Functions (Day, Month, Year, Age, etc.)
- 23.3 Number Functions (Add, Subtract, Multiply, Divide, Percentages, Rounding, Parity)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>24. Power Query Transformations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Append Queries
+ 23.3 Number Functions (Add, Subtract, Multiply, Divide, Percentages, Rounding, Parity)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>24. Power Query Transformations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Append Queries
  24.2 Merge Queries (Joins)
  24.3 Columns From Example (CFE / Flash Fill)
  24.4 Conditional Columns (No-code IF ELSE)
@@ -1411,56 +2187,213 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  24.8 Unpivot
  24.9 Data Types
  25.0 Keep / Remove Rows
- 25.1 Manage Columns</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>25. Random Data Generation</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Mockaroo – Creating synthetic datasets
+ 25.1 Manage Columns</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>25. Random Data Generation</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Mockaroo – Creating synthetic datasets
  25.2 Custom schema creation
- 25.3 Downloading datasets for modeling practice</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>26. Data Modelling</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Data View
+ 25.3 Downloading datasets for modeling practice</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>26. Data Modelling</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Data View
  26.2 Model View
  26.3 Creating Relationships (One-to-One, One-to-Many, Many-to-Many)
  26.4 Training Model Example with Multiple Tables (Employee, Salary, Dept, Pricing, Training)
  26.5 Training Analysis Metrics
  26.6 Cost Analysis Metrics
- 26.7 Creating Columns & Measures</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>27. Connecting Power BI to SQL</span></li></ul></div>
+ 26.7 Creating Columns & Measures</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>27. Connecting Power BI to SQL</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">15</span><span><b>Power BI Architecture, Installation & Core Interface</b><small>Understand the Power BI ecosystem, compare features against Tableau, and master the report development canvas.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>What is Power BI & Core Architecture (Desktop, Service, Mobile, Report Server)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Components: Power Query (ETL), Power Pivot (Modeling), Power View (Visuals) & Service (Sharing)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Power BI vs Tableau: Visual Capabilities, Dataset Size Limits & Cost Comparison</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Installing & Updating Power BI Desktop & Configuring Preview Features</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Interface Architecture: Fields Pane, Visualizations Pane, Filters Pane & Report Canvas</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>The Three Core Steps in Power BI: Get Data, Choose Visualization, Select Fields</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">16</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Comprehensive Visual Analytics & Custom Visuals</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Standard Visuals: Column, Bar, Stacked Bar, Pie, Donut, Funnel & Ribbon Charts</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Geospatial Visualizations: Bubble Maps, Filled Maps, Shape Maps & Custom Regional India Maps</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Tabular & Hierarchical Visuals: Table & Matrix with Expand/Collapse & Conditional Formatting (Icons, Heatmaps)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Time-Series Visuals: Line Chart, Area Chart, Stacked Area Chart with Auto Date Hierarchies (Year > Quarter > Month > Day)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Advanced Analytical Visuals: Decomposition Tree, Waterfall Chart, Combo Charts, Gauge & Treemap</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>AppSource Marketplace Visuals: Animated Bar Chart Race, Word Cloud, Infographic Visual, Play Axis & Scroller</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">16</span><span><b>Comprehensive Visual Analytics & Custom Visuals</b><small>Build executive-grade visuals from standard bar/line charts to geospatial maps and AppSource marketplace extensions.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Standard Visuals: Column, Bar, Stacked Bar, Pie, Donut, Funnel & Ribbon Charts</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Geospatial Visualizations: Bubble Maps, Filled Maps, Shape Maps & Custom Regional India Maps</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Tabular & Hierarchical Visuals: Table & Matrix with Expand/Collapse & Conditional Formatting (Icons, Heatmaps)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Time-Series Visuals: Line Chart, Area Chart, Stacked Area Chart with Auto Date Hierarchies (Year > Quarter > Month > Day)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Advanced Analytical Visuals: Decomposition Tree, Waterfall Chart, Combo Charts, Gauge & Treemap</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>AppSource Marketplace Visuals: Animated Bar Chart Race, Word Cloud, Infographic Visual, Play Axis & Scroller</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">18</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Power Query ETL & Data Engineering in Power BI</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Power Query Editor Interface & Architecture: Ingesting Excel, CSV, Web, Folders & Databases</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Text, Date & Numeric Transformations: Delimiters, Case Formatting, Extract, Age, Duration & Math Rounding</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Append Queries (Union) & Merge Queries (Joins: Inner, Left Outer, Right, Full Outer & Anti-Joins)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Columns From Example (CFE / Flash Fill) & Conditional Columns (No-Code IF/ELSE Logic)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Data Cleansing: Autofill, Fill Down/Up, Transpose, Unpivot Columns & Group By Aggregations</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Synthetic Data Modeling & Schema Testing using Mockaroo Data Generation</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">17</span><span><b>Report Interactivity, Slicers, Bookmarks & Navigation</b><small>Design dynamic, user-friendly business applications with interactive state switching and drill-down controls.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>KPI Cards: Single-Value Cards, Multi-row Cards, Dynamic KPI Metrics & Card Formatting</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Hierarchical Filtering: Visual-Level, Page-Level, Report-Level & Drill-Down Filtering</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Dynamic Slicers: Text Slicers, Date Sliders, Relative Date Slicers & Dropdown Numeric Slicers</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Inserting Interactive Objects: Shapes, Image Placeholders, Buttons & Action Web URLs</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Bookmarks & Selection Pane: Building Pop-up Filter Panes and Multi-view Viewports</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Page Navigation & Drill-Through: Creating Contextual Detail Pages and Hover Tooltip Pages</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">20</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Power BI Service, Cloud Dashboards, Gateways & Security</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Publishing Reports to Power BI Cloud Service & Workspace Role Management (Admin, Member, Viewer)</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Building Executive Cloud Dashboards & Pinning Live Report Visuals</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Installing & Configuring On-Premises Data Gateway for Local Network & SQL Server Refresh</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Scheduled Refresh Setup (Pro 8x/day vs Premium 48x/day) & Resolving Credential Failures</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Row-Level Security (RLS): Defining DAX Roles, Testing Security as User & Production Deployment</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>DirectQuery vs Import Mode & Connecting Power BI to Live Relational SQL Server Databases</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">18</span><span><b>Power Query ETL & Data Engineering in Power BI</b><small>Master data extraction, transformation, and automated loading pipelines directly inside Power Query.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Power Query Editor Interface & Architecture: Ingesting Excel, CSV, Web, Folders & Databases</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Text, Date & Numeric Transformations: Delimiters, Case Formatting, Extract, Age, Duration & Math Rounding</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Append Queries (Union) & Merge Queries (Joins: Inner, Left Outer, Right, Full Outer & Anti-Joins)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Columns From Example (CFE / Flash Fill) & Conditional Columns (No-Code IF/ELSE Logic)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Data Cleansing: Autofill, Fill Down/Up, Transpose, Unpivot Columns & Group By Aggregations</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Synthetic Data Modeling & Schema Testing using Mockaroo Data Generation</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">22</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Data Organization, Sorting, Sets & Visual Design</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Column Operations: Granularity, Renaming, Aliasing, Data Types, Copying & Default Properties</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Row & Graph Sorting: Manual, Computed, Nested & Hierarchical Multi-Field Sorting</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Custom Groups & Sets: Dynamic In/Out Sets, Combined Sets & Drill-down Hierarchies</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Formatting Worksheets: Custom Color Palettes, Font Sizing, Cell Borders, Tooltips & Dynamic Labels</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Exporting Visuals & Workbooks: Exporting to PDF, PowerPoint, Image, Excel Data & Packaged (.twbx) Workbooks</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">19</span><span><b>Data Modeling, Star Schema & DAX Formulas</b><small>Architect enterprise star schemas and write high-performance DAX measures for real-time KPI reporting.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Data View & Model View: Star Schema vs Snowflake Schema Architecture</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Relationship Cardinality: 1-to-Many, Many-to-Many & Active vs Inactive Relationships</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Multi-Table Enterprise Modeling (Sales, Customer, Product, Department, Financial Targets)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Calculated Columns vs Measures: Row Context vs Filter Context in the VertiPaq Engine</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Core DAX Aggregations: SUM, AVERAGE, COUNT, DIVIDE, RELATED, RELATEDTABLE</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Advanced DAX & Filter Modification: CALCULATE, FILTER, ALL, ALLEXCEPT, KEEPFILTERS</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Time Intelligence DAX: YTD, QTD, MTD, SAMEPERIODLASTYEAR, DATEADD & Moving Averages</span></li></ul></div>
+<details class="module-card" style="border:1px solid #e2e8f0;border-radius:14px;background:#ffffff;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.02);overflow:hidden;transition:all .2s ease;">
+  <summary class="module-toggle" style="list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:16px;background:#ffffff;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="module-num" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:14px;">24</span>
+      <strong style="font-size:15px;color:#0f172a;font-weight:700;line-height:1.35;">Interactive Dashboards, Story Points & SQL Connectivity</strong>
+    </div>
+    <span class="plus" aria-hidden="true" style="font-size:20px;color:#2563eb;font-weight:600;min-width:20px;text-align:right;">+</span>
+  </summary>
+  <div class="module-panel" style="padding:16px 20px 18px;border-top:1px solid #f1f5f9;background:#ffffff;">
+    <ul style="list-style:none;padding:0;margin:0;">
+      <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Dashboard Architecture: Tiled vs Floating Containers, Grid Alignment & Device Preview Layouts</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Dashboard Interactivity: Filter Actions, Highlight Actions, Go to URL & Parameter Update Actions</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Story Points: Crafting Executive Data Stories with Guided Annotations and Narrative Flow</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Advanced Visualizations: Dual Axis Charts, Donut Charts, Waterfall Charts & Pareto 80/20 Analysis</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Analytics Pane: Time-Series Forecasting, K-Means Clustering & Summary Statistics</span>
+    </li><li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:13.5px;color:#334155;line-height:1.45;">
+      <svg style="width:16px;height:16px;min-width:16px;color:#16a34a;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Connecting Tableau to Live SQL Server: Custom SQL Queries, Table Joins, Data Extracts & Cloud Publishing</span>
+    </li>
+    </ul>
+  </div>
 </details>
-<details class="module">
-  <summary><span class="module-number">20</span><span><b>Power BI Service, Cloud Dashboards, Gateways & Security</b><small>Deploy reports to the cloud, configure automated data refresh gateways, and secure corporate datasets.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Publishing Reports to Power BI Cloud Service & Workspace Role Management (Admin, Member, Viewer)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Building Executive Cloud Dashboards & Pinning Live Report Visuals</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Installing & Configuring On-Premises Data Gateway for Local Network & SQL Server Refresh</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Scheduled Refresh Setup (Pro 8x/day vs Premium 48x/day) & Resolving Credential Failures</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Row-Level Security (RLS): Defining DAX Roles, Testing Security as User & Production Deployment</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>DirectQuery vs Import Mode & Connecting Power BI to Live Relational SQL Server Databases</span></li></ul></div>
-</details>
-<details class="module">
-  <summary><span class="module-number">21</span><span><b>Tableau Foundations, Architecture & Workflow</b><small>Understand Tableau's visual engine, product ecosystem, and foundational data preparation workflow.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Introduction to Tableau & Capabilities (50+ Data Connectors, 24 Native Visualizations)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Tableau Product Suite: Desktop, Public, Server, Cloud/Online, Reader & Tableau Prep Builder</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Core Visual Workflow: Connecting to Data, Dimensions vs Measures, Discrete vs Continuous (Blue vs Green Pills)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Sample Superstore Dataset Walkthrough & Basic Chart Creation (Bar, Line, Scatter, Highlight Tables)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Tableau vs Excel Paradigm Comparison: Granularity, Aggregation Levels & In-Memory Hyper Engine</span></li></ul></div>
-</details>
-<details class="module">
-  <summary><span class="module-number">22</span><span><b>Data Organization, Sorting, Sets & Visual Design</b><small>Structure complex datasets with hierarchies, custom sets, color encoding, and presentation formatting.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Column Operations: Granularity, Renaming, Aliasing, Data Types, Copying & Default Properties</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Row & Graph Sorting: Manual, Computed, Nested & Hierarchical Multi-Field Sorting</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Custom Groups & Sets: Dynamic In/Out Sets, Combined Sets & Drill-down Hierarchies</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Formatting Worksheets: Custom Color Palettes, Font Sizing, Cell Borders, Tooltips & Dynamic Labels</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Exporting Visuals & Workbooks: Exporting to PDF, PowerPoint, Image, Excel Data & Packaged (.twbx) Workbooks</span></li></ul></div>
-</details>
-<details class="module">
-  <summary><span class="module-number">23</span><span><b>Calculated Fields, Table Calcs & Level of Detail (LOD)</b><small>Perform sophisticated statistical modeling, advanced table calculations, and LOD expressions.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Calculated Fields: String Functions, Date Manipulations, Number Functions & Logical (IF-THEN, CASE)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Table Calculations: Running Total, Difference, % Difference, % of Total, Rank & Moving Averages</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Level of Detail (LOD) Expressions: FIXED (Independent of View), INCLUDE (Finer Grain) & EXCLUDE (Coarser Grain)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Dynamic Parameters: What-If Analysis, Top N Dimension Filtering & Metric Switching Controls</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Statistical Reference Lines, Reference Bands, Box Plots, Distributions & Trend Line Modeling</span></li></ul></div>
-</details>
-<details class="module">
-  <summary><span class="module-number">24</span><span><b>Interactive Dashboards, Story Points & SQL Connectivity</b><small>Design production-grade executive dashboards with dynamic actions, forecasting, and live SQL databases.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
-  <div class="module-body"><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Dashboard Architecture: Tiled vs Floating Containers, Grid Alignment & Device Preview Layouts</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Dashboard Interactivity: Filter Actions, Highlight Actions, Go to URL & Parameter Update Actions</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Story Points: Crafting Executive Data Stories with Guided Annotations and Narrative Flow</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Advanced Visualizations: Dual Axis Charts, Donut Charts, Waterfall Charts & Pareto 80/20 Analysis</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Analytics Pane: Time-Series Forecasting, K-Means Clustering & Summary Statistics</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Connecting Tableau to Live SQL Server: Custom SQL Queries, Table Joins, Data Extracts & Cloud Publishing</span></li></ul></div>
-</details>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var cards = document.querySelectorAll('.curriculum-grid-2col details.module-card');
+  var expBtn = document.getElementById('btn-course-expand-all');
+  var colBtn = document.getElementById('btn-course-collapse-all');
+  if (expBtn) {
+    expBtn.addEventListener('click', function() {
+      cards.forEach(function(c) { c.open = true; });
+    });
+  }
+  if (colBtn) {
+    colBtn.addEventListener('click', function() {
+      cards.forEach(function(c) { c.open = false; });
+    });
+  }
+});
+</script>
+
+</div>
 </div></div></section>
     <section class="section soft"><div class="container"><div class="section-head"><p class="eyebrow">Tools and environment</p><h2>Tools Covered in the Course</h2><p class="lead">Every tool is taught within a reporting or dashboard workflow instead of as an isolated feature list.</p></div><div class="tools"><span class="tool">Microsoft Excel</span><span class="tool">Excel Tables</span><span class="tool">PivotTables</span><span class="tool">PivotCharts</span><span class="tool">Power Query</span><span class="tool">Power Pivot Foundations</span><span class="tool">Power BI Desktop</span><span class="tool">Power BI Service</span><span class="tool">DAX Foundations</span><span class="tool">Tableau Desktop / Public</span><span class="tool">SQL Connectivity Awareness</span></div></div></section>
     <section class="section" id="projects"><div class="container projects-grid"><div><p class="eyebrow">Projects and portfolio</p><h2>Projects You Will Build</h2><div class="project-list"><article class="project"><h3>Excel Sales and Margin Dashboard</h3><p>Clean transactions, calculate revenue and margin KPIs, build PivotTables and create a management-ready dashboard.</p></article><article class="project"><h3>Power BI Revenue Performance Dashboard</h3><p>Transform multi-table data, build a model, create DAX measures and analyse products, regions and trends.</p></article><article class="project"><h3>Tableau Customer Insights Dashboard</h3><p>Create segments, filters, parameters and interactive views to explain customer behaviour and retention.</p></article><article class="project"><h3>Executive BI Capstone</h3><p>Take a business question from raw files through preparation, KPI definition, dashboard development and final recommendation.</p></article></div></div><div class="media-card"><img data-embed="projects" width="1280" height="853" loading="lazy" alt="Analyst presenting an executive dashboard project"></div></div></section>
@@ -1565,10 +2498,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="site-footer-col">
         <h3>Short Courses</h3>
         <ul class="footer-links site-footer-list">
-          <li><a href="/courses/excel-power-bi-tableau-course">Excel, Power BI &amp; Tableau</a></li>
-          <li><a href="/courses/machine-learning-course">Machine Learning Course</a></li>
-          <li><a href="/courses/python-programming-course">Python Programming Course</a></li>
-          <li><a href="/courses/sql-course">SQL Course</a></li>
+          <li><a href="/courses/excel-power-bi-tableau-course/">Excel, Power BI &amp; Tableau</a></li>
+          <li><a href="/courses/machine-learning-course/">Machine Learning Course</a></li>
+          <li><a href="/courses/python-programming-course/">Python Programming Course</a></li>
+          <li><a href="/courses/sql-course/">SQL Course</a></li>
         </ul>
       </div>
 

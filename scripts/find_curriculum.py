@@ -8,3 +8,4 @@ else:
     print("curriculum id not found, searching 'curriculum'")
     pos2 = html.find('curriculum')
     print(html[pos2:pos2+1000])
+
