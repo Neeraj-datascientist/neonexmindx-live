@@ -26,44 +26,7 @@ export async function onRequest(context) {
     });
   }
 
-  // 1. Permanent 301 redirects for legacy standalone courses to flagship career programs
-  if (
-    rawPath === '/courses/sql-course' ||
-    rawPath === '/sql-course' ||
-    rawPath.includes('sql course') ||
-    rawPath.includes('sql-course')
-  ) {
-    return Response.redirect('https://neonexmindx.com/courses/data-analytics-course/', 301);
-  }
-
-  if (
-    rawPath === '/courses/excel-power-bi-tableau-course' ||
-    rawPath === '/excel-power-bi-tableau-course' ||
-    rawPath.includes('excel powerbi tableau course') ||
-    rawPath.includes('excel, power bi & tableau') ||
-    rawPath.includes('excel-power-bi-tableau-course')
-  ) {
-    return Response.redirect('https://neonexmindx.com/courses/data-analytics-course/', 301);
-  }
-
-  if (
-    rawPath === '/courses/python-programming-course' ||
-    rawPath === '/python-programming-course' ||
-    rawPath.includes('python programming course') ||
-    rawPath.includes('python-programming-course')
-  ) {
-    return Response.redirect('https://neonexmindx.com/courses/data-science-course/', 301);
-  }
-
-  if (
-    rawPath === '/courses/machine-learning-course' ||
-    rawPath === '/machine-learning-course' ||
-    rawPath.includes('machine learning course') ||
-    rawPath.includes('machine-learning-course')
-  ) {
-    return Response.redirect('https://neonexmindx.com/courses/ai-ml-course/', 301);
-  }
-
+  // 1. Standalone short courses are restored as independent full pages.
   // 2. Immediate 301 redirects for any raw named pages to canonical clean URLs
   if (rawPath.includes('data analytics course')) {
     return Response.redirect('https://neonexmindx.com/courses/data-analytics-course/', 301);
