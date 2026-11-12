@@ -4,3 +4,4 @@ with open(r'c:\Users\pcnee\Desktop\NeoNeX MindX website\deployment_NeoNex\course
 pos = html.find('class="curriculum"')
 if pos != -1:
     print(html[pos:pos+3500])
+

@@ -24,3 +24,4 @@ for f in files:
         pass
 
 print(f"Updated dropdown links to have trailing slash in {count} HTML files.")
+

@@ -6,3 +6,4 @@ if pos != -1:
     # search backwards for style
     pos_style = html.rfind('<style', 0, pos)
     print(html[pos_style:pos_style+2000])
+

@@ -17,3 +17,4 @@ for m in set(matches3):
 matches4 = re.findall(r'(\.module-panel[^{]*\{[^}]*\})', html)
 for m in set(matches4):
     print(m)
+

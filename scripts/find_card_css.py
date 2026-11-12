@@ -13,3 +13,4 @@ for m in matches2[:10]:
 matches3 = re.findall(r'(\.module-card[^{]*\{[^}]*\})', html)
 for m in matches3[:10]:
     print(m)
+

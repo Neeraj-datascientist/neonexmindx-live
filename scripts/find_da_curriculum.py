@@ -6,3 +6,4 @@ if pos != -1:
     print(html[pos:pos+3000])
 else:
     print("Curriculum not found in data-analytics")
+
