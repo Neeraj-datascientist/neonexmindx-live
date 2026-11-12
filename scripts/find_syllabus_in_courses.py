@@ -15,3 +15,4 @@ for c in courses:
         print(f"=== {c} ===")
         for s in syls:
             print(f"  {s}")
+

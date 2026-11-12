@@ -27,3 +27,4 @@ with open(src, 'w', encoding='utf-8') as f:
     f.write(content)
 
 print("Updated data-science-course syllabus references to data-science-syllabus.html!")
+

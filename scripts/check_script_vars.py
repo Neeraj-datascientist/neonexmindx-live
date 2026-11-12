@@ -11,3 +11,4 @@ for s in scripts:
 
 if not any('shareTitle' in s or 'currentUrl' in s for s in scripts):
     print("NO SCRIPT DEFINES shareTitle OR currentUrl in static blog post!")
+

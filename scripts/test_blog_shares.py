@@ -23,3 +23,4 @@ for b in blog_files:
         print("  Tray snippet:", tray.group(0)[:200])
     else:
         print("  NO share tray match")
+

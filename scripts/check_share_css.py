@@ -10,3 +10,4 @@ for f in files:
         print(f"=== {f} ===")
         for s in styles:
             print(" ", s)
+

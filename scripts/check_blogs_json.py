@@ -6,3 +6,4 @@ print(f"Posts count: {len(data.get('posts', []))}")
 print(f"Authors count: {len(data.get('authors', []))}")
 for a in data.get('authors', []):
     print("Author:", a)
+

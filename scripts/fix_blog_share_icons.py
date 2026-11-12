@@ -35,3 +35,4 @@ for fp in files:
         print(f"Fixed icons in {fp}")
 
 print(f"Completed! Fixed LinkedIn and Copy Link SVG icons in {fixed_count} blog files.")
+

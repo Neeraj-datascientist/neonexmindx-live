@@ -7,3 +7,4 @@ print("H1:", re.findall(r'<h1[^>]*>(.*?)</h1>', html, re.DOTALL))
 print("Syllabus links:")
 for m in re.finditer(r'href=["\']([^"\']*syllabus[^"\']*)["\']', html):
     print("  ", m.group(1))
+

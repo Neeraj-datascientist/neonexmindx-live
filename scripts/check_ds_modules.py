@@ -10,3 +10,4 @@ if curriculum_section:
     print(f"Curriculum modules found ({len(headers)}):")
     for h in headers:
         print("  -", h.strip())
+

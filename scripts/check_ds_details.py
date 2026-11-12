@@ -13,3 +13,4 @@ print("H1:", h1.group(1).strip() if h1 else 'None')
 # Check AI mentions in DS course
 ai_mentions = len(re.findall(r'\bAI\b|Artificial Intelligence|Deep Learning|NLP|Computer Vision|LLM', ds_html))
 print(f"Total AI/DL/NLP/CV mentions in data-science-course: {ai_mentions}")
+

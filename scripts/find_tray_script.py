@@ -11,3 +11,4 @@ share_tray_in_script = re.search(r'<div class="share-tray">.*?</div>', txt, re.D
 if share_tray_in_script:
     print("Found share tray in template string!")
     print(share_tray_in_script.group(0))
+

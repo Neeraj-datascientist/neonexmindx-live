@@ -12,3 +12,4 @@ if curriculum_section:
         clean_t = re.sub(r'<[^>]+>', ' ', t)
         clean_t = ' '.join(clean_t.split())
         print("  -", clean_t)
+

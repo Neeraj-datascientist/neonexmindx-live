@@ -17,3 +17,4 @@ if author_part:
 # Check header / nav WhatsApp
 header_wa = re.findall(r'href=[\"\'][^\"\']*wa\.me[^\"\']*[\"\']', txt)
 print("Header WhatsApp links:", header_wa)
+

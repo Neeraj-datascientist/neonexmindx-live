@@ -20,3 +20,4 @@ if curriculum_section:
     print(curriculum_section.group(1)[:500])
 else:
     print("No curriculum section id/class found")
+

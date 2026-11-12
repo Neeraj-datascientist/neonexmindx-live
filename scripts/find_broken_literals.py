@@ -27,3 +27,4 @@ for f, pos in empty_hrefs[:10]:
 print(f"Broken JS template literals in static HTML: {len(broken_placeholders)}")
 for f, ph in broken_placeholders[:10]:
     print("  ", f, ph)
+

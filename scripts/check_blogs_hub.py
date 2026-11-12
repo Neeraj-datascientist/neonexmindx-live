@@ -12,3 +12,4 @@ print(f"Articles in blogs/index.html: {len(cards)}")
 print("Links in blogs/index.html:")
 for l in re.findall(r'href=[\"\'][^\"\']*[\"\']', txt)[:20]:
     print(" ", l)
+

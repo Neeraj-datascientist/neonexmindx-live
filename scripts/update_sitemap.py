@@ -20,3 +20,4 @@ if 'https://neonexmindx.com/courses/data-science-and-ai-course/' not in content:
     print("Added data-science-and-ai-course to sitemap.xml!")
 else:
     print("Already in sitemap.xml")
+

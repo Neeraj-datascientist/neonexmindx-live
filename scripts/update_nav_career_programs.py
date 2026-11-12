@@ -22,3 +22,4 @@ for f in files:
         count += 1
 
 print(f"Updated header navigation in {count} HTML files!")
+

@@ -21,3 +21,4 @@ try:
     summarize_docx('c:/Users/pcnee/Downloads/Certified Data Science Professional.docx')
 except Exception as e:
     print("Error:", e)
+

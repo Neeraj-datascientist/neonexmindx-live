@@ -14,3 +14,4 @@ def summarize_docx(path):
 
 summarize_docx('c:/Users/pcnee/Downloads/NEONEX_MINDX_Data_Science_Clickable_Catalogue.docx')
 summarize_docx('c:/Users/pcnee/Downloads/NEONEX_MINDX_Data_Science_and_AI_Clickable_Catalogue.docx')
+

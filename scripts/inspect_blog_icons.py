@@ -10,3 +10,4 @@ while pos_share != -1:
     print(html[max(0, pos_share-100):min(len(html), pos_share+300)])
     pos_share = html.find('share', pos_share + 1)
     if pos_share > 30000: break
+

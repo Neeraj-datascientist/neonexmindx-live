@@ -14,3 +14,4 @@ socials = re.findall(r'<div[^>]*social[^>]*>.*?</div>', txt, re.DOTALL | re.IGNO
 print(f"=== SOCIAL DIVS ({len(socials)}) ===")
 for s in socials:
     print(s)
+

@@ -50,3 +50,4 @@ for bdir in blog_dirs:
     with open(idx, 'w', encoding='utf-8') as f:
         f.write(txt)
     print(f"Fixed SEO and static placeholders for: {slug}")
+

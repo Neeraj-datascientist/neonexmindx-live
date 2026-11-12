@@ -9,3 +9,4 @@ for f in glob.glob("c:/Users/pcnee/Downloads/*Data*Science*"):
 print("Looking in c:/Users/pcnee/Desktop/NeoNeX MindX website:")
 for f in glob.glob("c:/Users/pcnee/Desktop/NeoNeX MindX website/**/*Data*Science*", recursive=True):
     print(" ", f)
+
