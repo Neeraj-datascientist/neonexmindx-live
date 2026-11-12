@@ -1,0 +1,2521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machine Learning with Python - Detailed Syllabus Catalogue | NeoNex MindX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #102a43;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --text: #1f2937;
+      --text-muted: #4b5563;
+      --border: #e2e8f0;
+      --bg-alt: #f8fafc;
+      --success: #16a34a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #f1f5f9;
+      padding: 32px 16px;
+    }
+    .print-container {
+      max-width: 920px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(16,42,67,0.06);
+      border: 1px solid var(--border);
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--accent-light);
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-print {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-print:hover {
+      background: var(--accent);
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .lead-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .meta-strip {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 40px;
+      background: var(--bg-alt);
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .meta-item b {
+      color: var(--primary);
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .meta-item span {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .module-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .module-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+    .module-header {
+      background: var(--bg-alt);
+      padding: 16px 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .module-number {
+      background: var(--accent);
+      color: #ffffff;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .topic-list {
+      padding: 20px 24px;
+      list-style: none;
+    }
+    .topic-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 14.5px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .topic-item:last-child {
+      margin-bottom: 0;
+    }
+    .check-svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: var(--success);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    @media print {
+      body { background: #ffffff; padding: 0; }
+      .print-container { border: none; box-shadow: none; padding: 0; }
+      .btn-print { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-container">
+    <div class="header-bar">
+      <div class="brand-title">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#2563eb" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        NeoNex MindX
+      </div>
+      <div>
+        <span class="badge">Short Course Syllabus</span>
+        <button class="btn-print" onclick="window.print()">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+          Download / Print PDF
+        </button>
+      </div>
+    </div>
+
+    <h1>Machine Learning with Python</h1>
+    <p class="lead-desc">Official curriculum roadmap and modular breakdown designed for hands-on, industry-ready application with live project delivery.</p>
+
+    <div class="meta-strip">
+      <div class="meta-item">
+        <b>Program Mode</b>
+        <span>Live Interactive Online</span>
+      </div>
+      <div class="meta-item">
+        <b>Curriculum Duration</b>
+        <span>8–10 Weeks</span>
+      </div>
+      <div class="meta-item">
+        <b>Certification</b>
+        <span>NeoNex MindX Industry Certificate</span>
+      </div>
+      <div class="meta-item">
+        <b>Support Line</b>
+        <span>WhatsApp: +91 84318 03839</span>
+      </div>
+    </div>
+
+    <div class="modules-container">
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">01</span>
+          <span>MACHINE LEARNING — COMPLETE ROADMAP</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Scope: Data Preparation & Feature Engineering → Supervised ML → Unsupervised ML → Semi-Supervised ML → Evaluation → Optimization → End-to-End ML</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">02</span>
+          <span>MODULE 01 — Data Preparation, Preprocessing & Feature Engineering</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.1 Understanding & Profiling Data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Features, target & observations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Numerical, categorical, ordinal & binary variables</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Continuous vs. discrete variables</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Identifying data types</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Data distributions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature and target analysis</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Data quality assessment</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Data profiling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Identifying inconsistencies</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.2 Data Cleaning & Quality Treatment</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Missing Values</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Detecting missing values</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Missing-value patterns</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>MCAR, MAR & MNAR — concepts</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Row/column deletion</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Mean, median & mode imputation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Constant-value imputation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Forward & backward filling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>KNN/model-based imputation — overview</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Missing-value indicators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Selecting appropriate imputation strategies</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Duplicate & Invalid Data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Duplicate detection & removal</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Inconsistent values</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Incorrect data types</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Invalid/impossible values</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Formatting inconsistencies</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Data standardization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Data validation rules</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Noise</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Identifying noisy observations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Sources of noise</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Treatment vs. removal</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Impact of noisy data on models</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.3 Outlier Detection & Treatment</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Understanding outliers</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Causes and impact</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Univariate vs. multivariate outliers</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Visual detection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Box plots</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Scatter plots</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Distribution plots</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Statistical detection</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">03</span>
+          <span>IQR</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Z-Score</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Percentile method</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Outlier treatment</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Removal</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Capping/Winsorization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Transformation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Imputation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Retaining legitimate outliers</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Algorithm sensitivity to outliers</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.4 Feature Engineering Fundamentals</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>What is feature engineering?</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Raw vs. engineered features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature representation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Domain-driven feature creation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Predictive vs. irrelevant features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature usefulness</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature engineering workflow</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature engineering before/after splitting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Avoiding feature leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.5 Numerical Feature Engineering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Arithmetic features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Addition, subtraction & multiplication</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Ratios</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Percentages</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Rates</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Difference/change features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Aggregate features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Min, max, mean & median</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Range/spread features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Threshold-based features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Binary indicator features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Binning/discretization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Equal-width binning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Equal-frequency binning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Domain-specific numerical features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.6 Categorical Feature Engineering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Cleaning categorical variables</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Standardizing categories</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Combining categories</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Grouping rare categories</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Category aggregation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Binary indicators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Categorical interactions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>High-cardinality features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Handling unseen categories</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.7 Feature Encoding</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Encoding Techniques</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Label Encoding</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Ordinal Encoding</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>One-Hot Encoding</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Dummy Encoding</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Frequency/Count Encoding</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Binary Encoding — concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Target/Mean Encoding</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Encoding Strategy</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Nominal vs. ordinal data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Low vs. high cardinality</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Encoding based on algorithm</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Tree-based vs. linear/distance-based models</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Handling unknown categories</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Target-encoding leakage prevention</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.8 Feature Scaling & Normalization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Why scaling matters</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Scale-sensitive vs. scale-insensitive algorithms</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Standardization / Z-Score</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Min-Max Normalization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Robust Scaling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>MaxAbs Scaling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Effect of outliers on scaling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Scaling sparse features — concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Choosing the appropriate scaler</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Preventing scaling leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.9 Feature Transformation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Distribution Transformations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Understanding skewness</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Log transformation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Square-root transformation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Power transformation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Box-Cox transformation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Yeo-Johnson transformation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Other Transformations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Quantile transformation — concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Rank transformation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Binning/discretization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Handling highly skewed variables</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Transformation vs. scaling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Choosing appropriate transformations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.10 Date & Time Feature Engineering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Datetime parsing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Year</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Quarter</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Month</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Week</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Day</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Day of week</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Hour/minute</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Weekend/weekday</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Business-day indicators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Seasonality</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Time elapsed</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Duration</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Recency</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Time since previous event</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Cyclical time features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.11 Feature Extraction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Structured Data Feature Extraction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Aggregation-based features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Count features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Frequency features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Group-level statistics</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Mean/median/sum</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Min/max</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Standard deviation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Range</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Statistical summaries</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Date/time component extraction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Domain-based feature extraction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Dimensional Feature Extraction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature extraction vs. feature selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>PCA as feature extraction — concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Original vs. transformed feature space</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>When feature extraction is useful</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Detailed PCA remains under Unsupervised Learning.</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.12 Feature Interaction & Feature Creation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature interactions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Numerical × numerical</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Numerical × categorical</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Categorical combinations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Ratio features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Difference features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Polynomial features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Interaction-only features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Domain-based combinations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Controlling feature explosion</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.13 Feature Selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Filter Methods</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Variance Threshold</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Correlation analysis</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Duplicate/constant feature removal</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Chi-Square</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">04</span>
+          <span>ANOVA</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Mutual Information</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Univariate feature selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Wrapper Methods</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Forward Selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Backward Elimination</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Recursive Feature Elimination — RFE</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">05</span>
+          <span>RFECV</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Embedded Methods</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>L1/Lasso-based selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Decision Tree feature importance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Random Forest importance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Gradient Boosting importance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Selection Best Practices</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Training-data-only selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Selection within cross-validation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Avoiding leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Comparing selected vs. complete feature sets</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.14 Multicollinearity & Redundant Features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Understanding multicollinearity</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Correlation matrix</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Highly correlated features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Redundant variables</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>VIF concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Removing correlated features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Multicollinearity in linear models</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>When correlated features can remain</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature selection vs. dimensionality reduction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.15 Imbalanced Data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Understanding class imbalance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Minority vs. majority classes</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Problems with accuracy</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Random Oversampling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Random Undersampling</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">06</span>
+          <span>SMOTE</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Class weights</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Sampling strategy selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Applying resampling only to training data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Preventing leakage during resampling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.16 Train / Validation / Test Strategy</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Features X and target y</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Train/Test split</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Train/Validation/Test split</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Holdout validation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Random splitting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Stratified splitting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Group-aware splitting — concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Time-based splitting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Reproducibility</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Choosing the correct splitting strategy</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.17 Data Leakage Prevention</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Types of Leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Target leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Train-test contamination</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Preprocessing leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature-engineering leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Temporal leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Aggregation leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature-selection leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Resampling leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Correct Order</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Raw Data
+ ↓
+ Split Data
+ ↓
+ Fit preprocessing on Training Data
+ ↓
+ Transform Validation/Test Data
+ ↓
+ Feature Engineering
+ ↓
+ Feature Selection
+ ↓
+ Model Training</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.18 Preprocessing Pipelines</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Why pipelines matter</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>fit(), transform() & fit_transform()</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Scikit-learn Pipeline</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>ColumnTransformer</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Numerical preprocessing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Categorical preprocessing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Mixed-data preprocessing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Imputation + Encoding + Scaling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature selection inside pipelines</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Model + preprocessing integration</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Leakage-free pipelines</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Reusable preprocessing workflows</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">07</span>
+          <span>MODULE 02 — Supervised Learning: Classification</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.1 Classification Fundamentals</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Labeled data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Classification problems</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Binary classification</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Multiclass classification</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Multilabel classification — concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Decision boundaries</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Probabilistic predictions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Generalization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Underfitting & overfitting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Bias–variance trade-off</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.2 Logistic Regression</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Binary classification</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Multiclass classification</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Probability prediction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Decision threshold</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Coefficients & interpretation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Regularization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Practical applications</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.3 K-Nearest Neighbors — KNN</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Distance-based learning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Choosing K</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Classification process</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature scaling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Decision boundaries</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Advantages & limitations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.4 Naive Bayes</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Probabilistic classification</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Gaussian Naive Bayes</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Multinomial Naive Bayes</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Bernoulli Naive Bayes</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Applications</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Strengths & limitations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.5 Support Vector Machines — SVM</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Hyperplanes</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Margins</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Support vectors</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Linear SVM</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Kernel concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>RBF kernel</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>C parameter</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Gamma</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature scaling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Advantages & limitations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.6 Decision Trees</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Tree structure</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Splitting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Gini impurity</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Entropy</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Information gain</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Tree depth</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Overfitting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Pruning concepts</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature importance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.7 Ensemble Learning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Random Forest</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Ensemble concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Bagging</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Multiple decision trees</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Random feature selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Out-of-bag concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature importance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Hyperparameters</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Boosting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Boosting concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Sequential learning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>AdaBoost</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Gradient Boosting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>XGBoost</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>LightGBM</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Model comparison</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Practical use cases</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Additional Ensemble Techniques</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Voting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Stacking</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Extra Trees — overview</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">08</span>
+          <span>MODULE 03 — Supervised Learning: Regression</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.1 Regression Fundamentals</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Continuous target variables</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Regression workflow</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Prediction vs. inference</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Underfitting/overfitting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Bias–variance considerations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.2 Linear Regression</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Simple Linear Regression</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Multiple Linear Regression</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Coefficients</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Predictions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Residuals</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Model assumptions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Interpretation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.3 Polynomial Regression</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Non-linear relationships</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Polynomial features</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Degree selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Overfitting control</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.4 Regularized Regression</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Ridge Regression</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>L2 regularization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Lasso Regression</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>L1 regularization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature selection using Lasso</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Elastic Net</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Comparing regularized models</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.5 Tree-Based Regression</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Decision Tree Regressor</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Random Forest Regressor</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Gradient Boosting Regressor</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>XGBoost Regressor</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>LightGBM Regressor</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Comparing linear vs. tree-based models</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">09</span>
+          <span>MODULE 04 — Unsupervised Learning: Clustering</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.1 Clustering Fundamentals</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Unlabeled data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Similarity and distance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Clustering objectives</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Applications of clustering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Choosing clustering approaches</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.2 K-Means</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Centroids</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Distance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Cluster assignment</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Choosing K</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Elbow Method</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Silhouette Score</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Initialization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Limitations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.3 Hierarchical Clustering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Hierarchical approach</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Agglomerative clustering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Divisive concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Distance metrics</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Linkage methods</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Dendrograms</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Selecting clusters</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">10</span>
+          <span>4.4 DBSCAN</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Density-based clustering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Core points</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Border points</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Noise</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Epsilon</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>MinPts</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Outlier detection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Advantages & limitations</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">11</span>
+          <span>4.5 HDBSCAN</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Variable-density clustering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Noise handling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>HDBSCAN vs. DBSCAN</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>When to use HDBSCAN</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.6 Gaussian Mixture Models — GMM</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Probabilistic clustering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Gaussian distributions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Soft clustering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Number of components</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>EM concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>GMM vs. K-Means</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.7 Clustering Evaluation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Inertia</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Silhouette Score</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Davies-Bouldin Index</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Calinski-Harabasz Index</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Cluster interpretation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Business/domain validation</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">12</span>
+          <span>MODULE 05 — Unsupervised Learning: Dimensionality Reduction</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>5.1 Dimensionality Reduction Fundamentals</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Curse of dimensionality</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>High-dimensional data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature compression</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Noise reduction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Visualization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature extraction vs. feature selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>5.2 Principal Component Analysis — PCA</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Principal components</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Variance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Explained variance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Component selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>PCA workflow</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Dimensionality reduction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Visualization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Noise reduction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Practical applications</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>5.3 t-SNE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Non-linear dimensionality reduction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2D/3D visualization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Perplexity</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Interpretation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Limitations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Visualization vs. modeling</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">13</span>
+          <span>5.4 UMAP</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Non-linear reduction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Local structure</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Global structure</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Visualization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>UMAP vs. t-SNE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Practical applications</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">14</span>
+          <span>MODULE 06 — Semi-Supervised Learning</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Keep this module intentionally compact.</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.1 Fundamentals</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Labeled + unlabeled data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Why semi-supervised learning?</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>When labeling is expensive</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.2 Core Approaches</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Self-Training</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Pseudo-Labeling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Label Propagation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Label Spreading</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Co-Training — concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.3 Practical Considerations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Confidence thresholds</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Noisy pseudo-labels</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Benefits & limitations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>When to use semi-supervised learning</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">15</span>
+          <span>MODULE 07 — Model Evaluation & Validation</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.1 Classification Evaluation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Confusion Matrix</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">16</span>
+          <span>TP, TN, FP, FN</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Accuracy</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Precision</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Recall</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Specificity</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>F1 Score</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>ROC Curve</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">17</span>
+          <span>ROC-AUC</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Precision-Recall Curve</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Multiclass evaluation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Threshold selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.2 Regression Evaluation</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">18</span>
+          <span>MAE</span>
+        </div>
+        <ul class="topic-list">
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">19</span>
+          <span>MSE</span>
+        </div>
+        <ul class="topic-list">
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">20</span>
+          <span>RMSE</span>
+        </div>
+        <ul class="topic-list">
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">21</span>
+          <span>R²</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Adjusted R²</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">22</span>
+          <span>MAPE</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Choosing appropriate metrics</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.3 Cross-Validation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Purpose of cross-validation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>K-Fold</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Stratified K-Fold</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Leave-One-Out — concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Cross-validation for model comparison</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Cross-validation with preprocessing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Avoiding leakage</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.4 Model Diagnostics</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Learning curves</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Validation curves</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Residual analysis</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Error analysis</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Bias vs. variance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Overfitting detection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Model comparison</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">23</span>
+          <span>MODULE 08 — Hyperparameter Tuning & Model Optimization</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>8.1 Parameters vs. Hyperparameters</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Understanding hyperparameters</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Algorithm-specific hyperparameters</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Model complexity</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>8.2 Hyperparameter Search</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Grid Search</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Random Search</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Cross-validation-based tuning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Successive Halving — concept</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>8.3 Model Optimization</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature selection + tuning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Preprocessing + model tuning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Pipeline-based tuning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Comparing candidate models</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Selecting the final model</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Avoiding validation leakage</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">24</span>
+          <span>MODULE 09 — End-to-End Machine Learning Workflow</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Students bring everything together in a complete ML project.</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Complete Workflow</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Problem Definition
+ ↓
+ Data Understanding & Profiling
+ ↓
+ Data Cleaning
+ ↓
+ Train / Validation / Test Split
+ ↓
+ Preprocessing
+ ↓
+ Feature Engineering
+ ↓
+ Feature Extraction
+ ↓
+ Feature Encoding
+ ↓
+ Feature Transformation & Scaling
+ ↓
+ Feature Selection
+ ↓
+ Handle Class Imbalance
+ ↓
+ Build ML Pipeline
+ ↓
+ Model Selection
+ ↓
+ Model Training
+ ↓
+ Cross-Validation
+ ↓
+ Hyperparameter Tuning
+ ↓
+ Model Evaluation
+ ↓
+ Error Analysis
+ ↓
+ Final Model
+ ↓
+ Save & Reuse Pipeline</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>NOTE: keep it as short as possible ,Date & Time Feature Engineering ,and Numerical Feature Engineering</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
