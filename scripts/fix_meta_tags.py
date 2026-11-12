@@ -35,3 +35,4 @@ for path in paths:
         f.write(html)
 
     print(f"Cleaned meta description in {path}")
+

@@ -84,3 +84,4 @@ for path in paths:
         f.write(html)
 
     print(f"Calibrated {path} to perfection.")
+

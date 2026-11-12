@@ -53,3 +53,4 @@ for path in short_courses:
     # 6. Check WhatsApp links
     wa_links = [l for l in links if 'api.whatsapp.com' in l or 'wa.me' in l]
     print(f"WhatsApp links verified: {len(wa_links)} instances")
+

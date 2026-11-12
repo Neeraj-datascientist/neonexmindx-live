@@ -9,3 +9,4 @@ for word in ['TODO', 'example.com', 'undefined']:
     for pos in matches[:3]:
         snippet = html[max(0, pos-40):min(len(html), pos+60)]
         print("  Snippet:", " ".join(snippet.split()))
+

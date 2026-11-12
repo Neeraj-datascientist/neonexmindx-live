@@ -4,3 +4,4 @@ with open(r'deployment_NeoNex/courses/python-programming-course/index.html', 'r'
 import re
 print("Python head:")
 print(html[html.find('<head>'):html.find('</head>')+7])
+
