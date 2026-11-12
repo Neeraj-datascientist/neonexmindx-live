@@ -9,3 +9,4 @@ for t in trainers:
     title = re.search(r'<p>(.*?)</p>', t)
     href = re.search(r'href=["\']([^"\']+)["\']', t)
     print(f"Name: {name.group(1) if name else 'N/A'} | Title: {title.group(1) if title else 'N/A'} | Link: {href.group(1) if href else 'N/A'}")
+

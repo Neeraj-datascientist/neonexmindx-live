@@ -73,3 +73,4 @@ for p in short_courses:
         f.write(html)
         
     print(f"Updated {p}")
+

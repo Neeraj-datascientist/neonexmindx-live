@@ -7,3 +7,4 @@ print(f"Total trainer cards in Python: {len(matches)}")
 for m in matches:
     print('-------------------')
     print(' '.join(m.split()))
+

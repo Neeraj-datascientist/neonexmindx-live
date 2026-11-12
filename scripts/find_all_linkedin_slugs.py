@@ -6,3 +6,4 @@ pos = html.find('linkedin.com/in/')
 while pos != -1:
     print(html[pos-30:pos+80])
     pos = html.find('linkedin.com/in/', pos + 1)
+

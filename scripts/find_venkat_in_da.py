@@ -7,3 +7,4 @@ for mc in mentor_cards:
     if 'Venkat' in mc or 'Nagarjun' in mc:
         print("Venkat card in DA:")
         print(mc)
+

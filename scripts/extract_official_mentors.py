@@ -19,3 +19,4 @@ import json
 with open('deployment_NeoNex/scripts/official_mentor_linkedin.json', 'w', encoding='utf-8') as f:
     json.dump(trainer_links, f, indent=2)
 print("Saved official links mapping.")
+

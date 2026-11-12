@@ -69,3 +69,4 @@ for fp in html_files:
         print(f"Error processing {fp}: {e}")
 
 print(f"Successfully calibrated mentor LinkedIn links across {fixed_files} files sitewide.")
+
