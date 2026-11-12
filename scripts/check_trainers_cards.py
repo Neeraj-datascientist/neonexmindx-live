@@ -9,3 +9,4 @@ for c in cards:
     name = re.search(r'<h3>(.*?)</h3>', c)
     li = re.search(r'href=[\"\']([^\"\']*linkedin[^\"\']*)[\"\']', c)
     print("Trainer:", name.group(1) if name else 'None', "-> LinkedIn:", li.group(1) if li else 'None')
+

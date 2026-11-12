@@ -18,3 +18,4 @@ print(f"Total Person schemas found: {len(schema_trainers)}")
 unique_pairs = set(schema_trainers)
 for name, sameas in sorted(unique_pairs):
     print(f"  {name} -> {sameas}")
+

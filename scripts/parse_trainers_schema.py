@@ -19,3 +19,4 @@ for s in scripts:
         find_persons(data)
     except Exception as e:
         print("JSON parse error:", e)
+

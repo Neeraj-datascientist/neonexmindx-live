@@ -1051,6 +1051,9 @@ body.site-mobile-nav-locked {
       .article-grid {
         display: flex !important;
         flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
       }
       .article-sidebar {
         display: contents !important;
@@ -1060,15 +1063,21 @@ body.site-mobile-nav-locked {
         margin-bottom: 24px !important;
         position: static !important;
         width: 100% !important;
+        box-sizing: border-box !important;
       }
       .article-body {
         order: 1 !important;
         width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
       }
       .enquire-sidebar-widget {
         order: 2 !important;
         margin-top: 24px !important;
         width: 100% !important;
+        box-sizing: border-box !important;
       }
     }
 

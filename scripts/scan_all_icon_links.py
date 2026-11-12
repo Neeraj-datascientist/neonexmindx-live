@@ -47,3 +47,4 @@ for item in icon_links:
 print(f"\nUnique icon link URLs ({len(unique_hrefs)}):")
 for h, f_list in sorted(unique_hrefs.items(), key=lambda x: len(x[1]), reverse=True):
     print(f"  [{len(f_list)} occurrences] {h}")
+
