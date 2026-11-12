@@ -72,3 +72,4 @@ for fp in html_files:
         print(f"Error on {fp}: {e}")
 
 print(f"Fixed internal links with trailing slashes across {fixed_files} HTML files sitewide.")
+

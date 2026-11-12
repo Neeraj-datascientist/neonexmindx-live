@@ -100,3 +100,4 @@ print(f"Total issues flagged: {len(audit_results)}")
 
 for path, category, detail in audit_results:
     print(f"[{category}] in {path}: {detail}")
+

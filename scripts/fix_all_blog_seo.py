@@ -49,3 +49,4 @@ for b in blogs:
         print(f"Injected SEO title and canonical into {b}")
 
 print("All blog post headers fully calibrated.")
+

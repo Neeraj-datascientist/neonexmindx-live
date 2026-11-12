@@ -3,3 +3,4 @@ with open('deployment_NeoNex/blog/data-analytics-portfolio-how-to-build-one-in-2
 
 print("Head of data analytics portfolio blog:")
 print(html[:600])
+

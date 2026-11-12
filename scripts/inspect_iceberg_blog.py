@@ -3,3 +3,4 @@ with open('deployment_NeoNex/blog/distributed-data-pipelines-with-apache-spark-i
 
 print("First 500 chars of iceberg blog:")
 print(html[:500])
+

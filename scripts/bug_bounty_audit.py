@@ -103,3 +103,4 @@ for k, v in issues.items():
         for item in v[:5]:
             print(f"   -> {item}")
         print(f"   ... and {len(v)-5} more.")
+
