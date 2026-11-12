@@ -6,33 +6,35 @@
   <title>SQL for Data Analytics & Engineering - Detailed Syllabus Catalogue | NeoNex MindX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
   <style>
     :root {
-      --primary: #102a43;
-      --accent: #2563eb;
-      --accent-light: #eff6ff;
-      --text: #1f2937;
-      --text-muted: #4b5563;
-      --border: #e2e8f0;
-      --bg-alt: #f8fafc;
-      --success: #16a34a;
+      --primary: #0F172A;
+      --accent: #2563EB;
+      --accent-light: #EFF6FF;
+      --accent-border: #BFDBFE;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --bg-alt: #F8FAFC;
+      --success: #16A34A;
+      --card-bg: #FFFFFF;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       color: var(--text);
       line-height: 1.6;
-      background: #f1f5f9;
-      padding: 32px 16px;
+      background: #F1F5F9;
+      padding: 40px 16px;
     }
     .print-container {
-      max-width: 920px;
+      max-width: 960px;
       margin: 0 auto;
-      background: #ffffff;
+      background: var(--card-bg);
       padding: 48px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(16,42,67,0.06);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
       border: 1px solid var(--border);
     }
     .header-bar {
@@ -52,13 +54,25 @@
       color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+    }
+    .brand-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563EB;
     }
     .badge {
       display: inline-block;
       padding: 6px 14px;
       background: var(--accent-light);
       color: var(--accent);
+      border: 1px solid var(--accent-border);
       border-radius: 9999px;
       font-size: 13px;
       font-weight: 700;
@@ -69,47 +83,53 @@
       background: var(--primary);
       color: #ffffff;
       border: none;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 10px;
       font-weight: 700;
+      font-size: 14px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
     }
     .btn-print:hover {
       background: var(--accent);
+      transform: translateY(-1px);
     }
     h1 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 32px;
+      font-weight: 700;
       color: var(--primary);
       margin-bottom: 12px;
       line-height: 1.25;
+      letter-spacing: -0.02em;
     }
     .lead-desc {
-      font-size: 16px;
+      font-size: 15.5px;
       color: var(--text-muted);
       margin-bottom: 32px;
       line-height: 1.6;
     }
     .meta-strip {
-      display: flex;
-      gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
       margin-bottom: 40px;
       background: var(--bg-alt);
-      padding: 16px 20px;
-      border-radius: 12px;
+      padding: 20px 24px;
+      border-radius: 14px;
       border: 1px solid var(--border);
-      flex-wrap: wrap;
     }
     .meta-item b {
       color: var(--primary);
       display: block;
       font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
     }
     .meta-item span {
       font-size: 15px;
@@ -120,30 +140,32 @@
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       overflow: hidden;
-      transition: box-shadow 0.2s;
+      transition: all 0.2s;
     }
     .module-card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      border-color: #CBD5E1;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
     }
     .module-header {
       background: var(--bg-alt);
-      padding: 16px 20px;
+      padding: 18px 24px;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 17px;
       font-weight: 700;
       color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       border-bottom: 1px solid var(--border);
     }
     .module-number {
       background: var(--accent);
       color: #ffffff;
-      width: 28px;
-      height: 28px;
+      min-width: 30px;
+      height: 30px;
+      padding: 0 8px;
       border-radius: 8px;
       display: inline-flex;
       align-items: center;
@@ -155,149 +177,60 @@
     .topic-list {
       padding: 20px 24px;
       list-style: none;
+      display: grid;
+      gap: 10px;
     }
     .topic-item {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      margin-bottom: 12px;
       font-size: 14.5px;
       color: var(--text);
       line-height: 1.5;
     }
-    .topic-item:last-child {
-      margin-bottom: 0;
-    }
     .check-svg {
-      width: 16px;
-      height: 16px;
+      width: 17px;
+      height: 17px;
       fill: none;
       stroke: var(--success);
       stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
       flex-shrink: 0;
-      margin-top: 3px;
+      margin-top: 2px;
+    }
+    .subtopic-group {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-top: 6px;
+      font-size: 14px;
+      color: #334155;
+    }
+    @media (max-width: 768px) {
+      .print-container { padding: 24px 16px; }
+      h1 { font-size: 26px; }
+      .header-bar { flex-direction: column; align-items: flex-start; }
     }
     @media print {
       body { background: #ffffff; padding: 0; }
-      .print-container { border: none; box-shadow: none; padding: 0; }
+      .print-container { border: none; box-shadow: none; padding: 0; max-width: 100%; }
       .btn-print { display: none !important; }
+      .module-card { break-inside: avoid; page-break-inside: avoid; margin-bottom: 16px; }
     }
   </style>
-
-<style>
-/* Clean up empty topic groups and restore rich visual styling */
-.topic-group:empty {
-  display: none !important;
-}
-.topic-content-body:empty {
-  display: none !important;
-}
-/* Ensure bullet list and topics are clean and visible */
-.bullet-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 8px 0 0 0 !important;
-}
-.bullet-list li {
-  position: relative !important;
-  padding-left: 20px !important;
-  margin-bottom: 8px !important;
-  line-height: 1.55 !important;
-  color: #334155 !important;
-}
-.bullet-list li::before {
-  content: "•";
-  position: absolute;
-  left: 6px;
-  top: 0;
-  color: #2563eb;
-  font-weight: bold;
-}
-.topic-group {
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 10px !important;
-  margin-bottom: 12px !important;
-  background: #f8fafc !important;
-  padding: 12px 16px !important;
-}
-.topic-title {
-  font-weight: 700 !important;
-  font-size: 14.5px !important;
-  color: #0f172a !important;
-}
-</style>
-
-
-<style id="restore-content-style">
-/* Ensure all syllabus content is fully expanded and visible */
-.topic-content-body {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  padding: 12px 16px !important;
-  border-top: 1px solid #e2e8f0 !important;
-  background: #ffffff !important;
-}
-.topic-group {
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 10px !important;
-  margin-bottom: 12px !important;
-  background: #f8fafc !important;
-  display: block !important;
-  overflow: hidden !important;
-}
-.topic-header-toggle {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding: 10px 14px !important;
-  font-weight: 700 !important;
-  font-size: 14.5px !important;
-  color: #102a43 !important;
-  background: #f1f5f9 !important;
-  cursor: pointer !important;
-}
-.topic-sub-chevron {
-  width: 16px !important;
-  height: 16px !important;
-  transform: rotate(180deg) !important;
-  color: #2563eb !important;
-}
-.bullet-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 10px 0 0 0 !important;
-}
-.bullet-list li {
-  position: relative !important;
-  padding-left: 22px !important;
-  margin-bottom: 8px !important;
-  line-height: 1.6 !important;
-  color: #334155 !important;
-  font-size: 14px !important;
-}
-.bullet-list li::before {
-  content: "✓" !important;
-  position: absolute !important;
-  left: 4px !important;
-  top: 0 !important;
-  color: #16a34a !important;
-  font-weight: 800 !important;
-  font-size: 13px !important;
-}
-</style>
-
 </head>
 <body>
   <div class="print-container">
     <div class="header-bar">
       <div class="brand-title">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#2563eb" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
         NeoNex MindX
       </div>
-      <div>
+      <div style="display: flex; align-items: center; gap: 12px;">
         <span class="badge">Short Course Syllabus</span>
         <button class="btn-print" onclick="window.print()">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
@@ -332,18 +265,9 @@
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">01</span>
-          <span>Course Foundations</span>
+          <span>1. Introduction to SQL & RDBMS</span>
         </div>
         <ul class="topic-list">
-          <li class="topic-item">
-            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>SQL 
-
-
-
-
-1. Introduction to SQL & RDBMS</span>
-          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>1.1 What is SQL?</span>
@@ -354,11 +278,23 @@
           </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>1.2 Why SQL? (Advantages & Purpose)
- 1.3 SQL Structure – RDBMS (Tables, Rows, Columns)
- 1.4 SQL Process Flow (Query → Processor → Engine → Database)
- 1.5 Basic Terminology – Data, Database, RDBMS, SQL
- 1.6 SQL Environment (Editor, Messages, Results, Object Explorer) + screenshots (p.8)</span>
+            <span>1.2 Why SQL? (Advantages & Purpose)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.3 SQL Structure – RDBMS (Tables, Rows, Columns)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.4 SQL Process Flow (Query → Processor → Engine → Database)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.5 Basic Terminology – Data, Database, RDBMS, SQL</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.6 SQL Environment (Editor, Messages, Results, Object Explorer) + screenshots (p.8)</span>
           </li>
         </ul>
       </div>
@@ -370,8 +306,11 @@
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>2.1 Categories of SQL Statements (DML, DDL, DQL, DCL)
- 2.2 Understanding SQL workflows & usage</span>
+            <span>2.1 Categories of SQL Statements (DML, DDL, DQL, DCL)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.2 Understanding SQL workflows & usage</span>
           </li>
         </ul>
       </div>
@@ -383,9 +322,15 @@
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>3.1 CREATE DATABASE Statement
- 3.2 USE Statement
- 3.3 DROP DATABASE</span>
+            <span>3.1 CREATE DATABASE Statement</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.2 USE Statement</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.3 DROP DATABASE</span>
           </li>
         </ul>
       </div>
@@ -397,8 +342,11 @@
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>4.1 CREATE TABLE – syntax & examples
- 4.2 SQL Data Types</span>
+            <span>4.1 CREATE TABLE – syntax & examples</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.2 SQL Data Types</span>
           </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -414,10 +362,19 @@
           </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Misc types (IMAGE, VARBINARY)
- 4.3 INSERT INTO – with & without column list
- 4.4 SELECT queries – basic form
- 4.5 Assignment-1: Creating EMP table, inserting records (p.18)</span>
+            <span>Misc types (IMAGE, VARBINARY)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.3 INSERT INTO – with & without column list</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.4 SELECT queries – basic form</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.5 Assignment-1: Creating EMP table, inserting records (p.18)</span>
           </li>
         </ul>
       </div>
@@ -429,8 +386,11 @@
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>5.1 SQL Server 2014 download & installation steps (p.19)
- 5.2 Installing Management Studio</span>
+            <span>5.1 SQL Server 2014 download & installation steps (p.19)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>5.2 Installing Management Studio</span>
           </li>
         </ul>
       </div>
@@ -442,14 +402,35 @@
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>6.1 WHERE Clause
- 6.2 LIKE Clause (%, _)
- 6.3 TOP Clause
- 6.4 UPDATE Statement
- 6.5 DELETE Statement
- 6.6 TRUNCATE
- 6.7 ALTER TABLE (ADD, DROP, ALTER Column)
- 6.8 DROP TABLE</span>
+            <span>6.1 WHERE Clause</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.2 LIKE Clause (%, _)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.3 TOP Clause</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.4 UPDATE Statement</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.5 DELETE Statement</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.6 TRUNCATE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.7 ALTER TABLE (ADD, DROP, ALTER Column)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.8 DROP TABLE</span>
           </li>
         </ul>
       </div>
@@ -461,10 +442,19 @@
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>7.1 Arithmetic Operators
- 7.2 Comparison Operators
- 7.3 Logical Operators (AND, OR, NOT)
- 7.4 Other Operators (BETWEEN, IN, LIKE, DISTINCT, EXISTS)</span>
+            <span>7.1 Arithmetic Operators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.2 Comparison Operators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.3 Logical Operators (AND, OR, NOT)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.4 Other Operators (BETWEEN, IN, LIKE, DISTINCT, EXISTS)</span>
           </li>
         </ul>
       </div>
@@ -488,10 +478,19 @@
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>9.1 Why Normalization?
- 9.2 1NF – Rules
- 9.3 2NF – Rules
- 9.4 3NF – Rules</span>
+            <span>9.1 Why Normalization?</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>9.2 1NF – Rules</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>9.3 2NF – Rules</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>9.4 3NF – Rules</span>
           </li>
         </ul>
       </div>
@@ -503,13 +502,31 @@
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>10.1 PRIMARY KEY
- 10.2 UNIQUE
- 10.3 NOT NULL
- 10.4 DEFAULT
- 10.5 CHECK
- 10.6 FOREIGN KEY + Referential Integrity
- 10.7 Assignment-3 – EMP & EMP_SAL with constraints (p.47)</span>
+            <span>10.1 PRIMARY KEY</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10.2 UNIQUE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10.3 NOT NULL</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10.4 DEFAULT</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10.5 CHECK</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10.6 FOREIGN KEY + Referential Integrity</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10.7 Assignment-3 – EMP & EMP_SAL with constraints (p.47)</span>
           </li>
         </ul>
       </div>
@@ -521,15 +538,39 @@
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>11.1 BETWEEN
- 11.2 IN
- 11.3 LIKE
- 11.4 COUNT
- 11.5 DISTINCT
- 11.6 ORDER BY
- 11.7 GROUP BY
- 11.8 HAVING
- 11.9 Assignment-4 – grouping queries (p.51)</span>
+            <span>11.1 BETWEEN</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.2 IN</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.3 LIKE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.4 COUNT</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.5 DISTINCT</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.6 ORDER BY</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.7 GROUP BY</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.8 HAVING</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.9 Assignment-4 – grouping queries (p.51)</span>
           </li>
         </ul>
       </div>
@@ -541,15 +582,39 @@
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>12.1 Introduction to Joins
- 12.2 INNER JOIN
- 12.3 LEFT JOIN
- 12.4 RIGHT JOIN
- 12.5 FULL JOIN
- 12.6 CROSS JOIN (Cartesian Join)
- 12.7 SELF JOIN + diagram explanation
- 12.8 Join Venn diagram visuals (p.58)
- 12.9 Assignment-5 (p.66)</span>
+            <span>12.1 Introduction to Joins</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.2 INNER JOIN</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.3 LEFT JOIN</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.4 RIGHT JOIN</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.5 FULL JOIN</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.6 CROSS JOIN (Cartesian Join)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.7 SELF JOIN + diagram explanation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.8 Join Venn diagram visuals (p.58)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.9 Assignment-5 (p.66)</span>
           </li>
         </ul>
       </div>
@@ -559,318 +624,413 @@
           <span>13. Set Operators</span>
         </div>
         <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>13.1 UNION</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>13.2 UNION ALL</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>13.3 INTERSECT</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>13.4 EXCEPT</span>
+          </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">14</span>
-          <span>13.1 UNION
- 13.2 UNION ALL
- 13.3 INTERSECT
- 13.4 EXCEPT</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">15</span>
           <span>14. Indexes</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>14.1 What Are Indexes?
- 14.2 Creating Indexes
- 14.3 Composite Indexes
- 14.4 Implicit Indexes (auto created for PK/Unique)
- 14.5 Dropping Indexes</span>
+            <span>14.1 What Are Indexes?</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>14.2 Creating Indexes</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>14.3 Composite Indexes</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>14.4 Implicit Indexes (auto created for PK/Unique)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>14.5 Dropping Indexes</span>
+          </li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-header">
+          <span class="module-number">15</span>
+          <span>15. Views</span>
+        </div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.1 What Are Views?</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.2 Creating Views</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.3 WITH CHECK OPTION</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.4 Updating a View – rules (when allowed / not allowed)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.5 Dropping Views</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.6 Real-world usage of views</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.7 Assignment-6 (salary formulas, managers in 2019, inventory bill view)</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">16</span>
-          <span>15. Views</span>
+          <span>16. SQL Functions</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>15.1 What Are Views?
- 15.2 Creating Views
- 15.3 WITH CHECK OPTION
- 15.4 Updating a View – rules (when allowed / not allowed)
- 15.5 Dropping Views
- 15.6 Real-world usage of views
- 15.7 Assignment-6 (salary formulas, managers in 2019, inventory bill view)</span>
+            <span>16.1 Aggregate Functions (COUNT, SUM, AVG, MIN, MAX)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.2 Mathematical Functions (SQRT, RAND)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.3 Ranking Functions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>RANK</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>DENSE_RANK</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>ROW_NUMBER</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.4 String Functions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>ASCII, CHAR</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>CHARINDEX</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>LEFT, RIGHT</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>LEN</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>LOWER, UPPER</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>SUBSTRING</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>REPLACE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>REVERSE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>STUFF</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.5 Date Functions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>GETDATE, DATEADD</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>DATEDIFF</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>DATEPART</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>DAY, MONTH, YEAR</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>FORMAT</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>CONVERT</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.6 Assignment-6 (page 87)</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">17</span>
-          <span>16. SQL Functions</span>
+          <span>17. User-Defined Functions (UDFs)</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>16.1 Aggregate Functions (COUNT, SUM, AVG, MIN, MAX)
- 16.2 Mathematical Functions (SQRT, RAND)
- 16.3 Ranking Functions</span>
+            <span>17.1 Scalar Functions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>17.2 Table-Valued Functions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>17.3 Creating Functions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>17.4 Dropping Functions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>17.5 Assignment-7 – multiple UDF problems (page 90)</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">18</span>
-          <span>RANK</span>
+          <span>18. Subqueries</span>
         </div>
         <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.1 What Are Subqueries?</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.2 Rules for Subqueries</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.3 Simple Subqueries</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.4 Subqueries in SELECT / INSERT / UPDATE / DELETE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.5 Correlated Subqueries</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.6 EXISTS Operator</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.7 Assignment-7 (p.99)</span>
+          </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">19</span>
-          <span>DENSE_RANK</span>
+          <span>19. Stored Procedures</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>ROW_NUMBER
- 16.4 String Functions</span>
+            <span>19.1 What Are Stored Procedures?</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>19.2 Creating Procedures</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>19.3 Executing Procedures</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>19.4 Parameterized Procedures</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>19.5 Dynamic SQL inside Stored Procedures</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>19.6 Insert-based Procedures</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>19.7 Dropping Procedures</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>19.8 Assignment-8 (Inventory procedures)</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">20</span>
-          <span>ASCII, CHAR</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">21</span>
-          <span>CHARINDEX</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">22</span>
-          <span>LEFT, RIGHT</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">23</span>
-          <span>LEN</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">24</span>
-          <span>LOWER, UPPER</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">25</span>
-          <span>SUBSTRING</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">26</span>
-          <span>REPLACE</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">27</span>
-          <span>REVERSE</span>
-        </div>
-        <ul class="topic-list">
-          <li class="topic-item">
-            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>STUFF
- 16.5 Date Functions</span>
-          </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">28</span>
-          <span>GETDATE, DATEADD</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">29</span>
-          <span>DATEDIFF</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">30</span>
-          <span>DATEPART</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">31</span>
-          <span>DAY, MONTH, YEAR</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">32</span>
-          <span>FORMAT</span>
-        </div>
-        <ul class="topic-list">
-          <li class="topic-item">
-            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>CONVERT
- 16.6 Assignment-6 (page 87)</span>
-          </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">33</span>
-          <span>17. User-Defined Functions (UDFs)</span>
-        </div>
-        <ul class="topic-list">
-          <li class="topic-item">
-            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>17.1 Scalar Functions
- 17.2 Table-Valued Functions
- 17.3 Creating Functions
- 17.4 Dropping Functions
- 17.5 Assignment-7 – multiple UDF problems (page 90)</span>
-          </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">34</span>
-          <span>18. Subqueries</span>
-        </div>
-        <ul class="topic-list">
-          <li class="topic-item">
-            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>18.1 What Are Subqueries?
- 18.2 Rules for Subqueries
- 18.3 Simple Subqueries
- 18.4 Subqueries in SELECT / INSERT / UPDATE / DELETE
- 18.5 Correlated Subqueries
- 18.6 EXISTS Operator
- 18.7 Assignment-7 (p.99)</span>
-          </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">35</span>
-          <span>19. Stored Procedures</span>
-        </div>
-        <ul class="topic-list">
-          <li class="topic-item">
-            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>19.1 What Are Stored Procedures?
- 19.2 Creating Procedures
- 19.3 Executing Procedures
- 19.4 Parameterized Procedures
- 19.5 Dynamic SQL inside Stored Procedures
- 19.6 Insert-based Procedures
- 19.7 Dropping Procedures
- 19.8 Assignment-8 (Inventory procedures)</span>
-          </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">36</span>
           <span>20. Transactions</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>20.1 What Is a Transaction?
- 20.2 ACID Properties
- 20.3 COMMIT
- 20.4 ROLLBACK
- 20.5 SAVEPOINT
- 20.6 Transaction behavior in real cases</span>
+            <span>20.1 What Is a Transaction?</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>20.2 ACID Properties</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>20.3 COMMIT</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>20.4 ROLLBACK</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>20.5 SAVEPOINT</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>20.6 Transaction behavior in real cases</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">37</span>
+          <span class="module-number">21</span>
           <span>21. Auto-Increment (Identity)</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>21.1 Using IDENTITY(START, INCREMENT)
- 21.2 Identity columns in table creation</span>
+            <span>21.1 Using IDENTITY(START, INCREMENT)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>21.2 Identity columns in table creation</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">38</span>
+          <span class="module-number">22</span>
           <span>22. Sequences</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>22.1 What Are Sequences?
- 22.2 Creating Sequences
- 22.3 NEXT VALUE FOR
- 22.4 Sequence vs Identity
- 22.5 Using Sequences in INSERT
- 22.6 Procedures using Sequences
- 22.7 Assignment-9 – autogeneration of alphanumeric ID (p.118)</span>
+            <span>22.1 What Are Sequences?</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>22.2 Creating Sequences</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>22.3 NEXT VALUE FOR</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>22.4 Sequence vs Identity</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>22.5 Using Sequences in INSERT</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>22.6 Procedures using Sequences</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>22.7 Assignment-9 – autogeneration of alphanumeric ID (p.118)</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">39</span>
+          <span class="module-number">23</span>
           <span>23. Triggers</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>23.1 What Are Triggers? (special type of stored procedures)
- 23.2 Trigger Syntax
- 23.3 INSERT Triggers
- 23.4 UPDATE Triggers
- 23.5 DELETE Triggers
- 23.6 Inventory Stock Update Triggers (Examples 1–4)
- 23.7 Rollback logic inside triggers</span>
+            <span>23.1 What Are Triggers? (special type of stored procedures)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>23.2 Trigger Syntax</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>23.3 INSERT Triggers</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>23.4 UPDATE Triggers</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>23.5 DELETE Triggers</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>23.6 Inventory Stock Update Triggers (Examples 1–4)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>23.7 Rollback logic inside triggers</span>
           </li>
         </ul>
       </div>

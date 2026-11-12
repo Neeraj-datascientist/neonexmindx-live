@@ -6,33 +6,35 @@
   <title>Python Programming for Beginners & Data Science - Detailed Syllabus Catalogue | NeoNex MindX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
   <style>
     :root {
-      --primary: #102a43;
-      --accent: #2563eb;
-      --accent-light: #eff6ff;
-      --text: #1f2937;
-      --text-muted: #4b5563;
-      --border: #e2e8f0;
-      --bg-alt: #f8fafc;
-      --success: #16a34a;
+      --primary: #0F172A;
+      --accent: #2563EB;
+      --accent-light: #EFF6FF;
+      --accent-border: #BFDBFE;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --bg-alt: #F8FAFC;
+      --success: #16A34A;
+      --card-bg: #FFFFFF;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       color: var(--text);
       line-height: 1.6;
-      background: #f1f5f9;
-      padding: 32px 16px;
+      background: #F1F5F9;
+      padding: 40px 16px;
     }
     .print-container {
-      max-width: 920px;
+      max-width: 960px;
       margin: 0 auto;
-      background: #ffffff;
+      background: var(--card-bg);
       padding: 48px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(16,42,67,0.06);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
       border: 1px solid var(--border);
     }
     .header-bar {
@@ -52,13 +54,25 @@
       color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+    }
+    .brand-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563EB;
     }
     .badge {
       display: inline-block;
       padding: 6px 14px;
       background: var(--accent-light);
       color: var(--accent);
+      border: 1px solid var(--accent-border);
       border-radius: 9999px;
       font-size: 13px;
       font-weight: 700;
@@ -69,47 +83,53 @@
       background: var(--primary);
       color: #ffffff;
       border: none;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 10px;
       font-weight: 700;
+      font-size: 14px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
     }
     .btn-print:hover {
       background: var(--accent);
+      transform: translateY(-1px);
     }
     h1 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 32px;
+      font-weight: 700;
       color: var(--primary);
       margin-bottom: 12px;
       line-height: 1.25;
+      letter-spacing: -0.02em;
     }
     .lead-desc {
-      font-size: 16px;
+      font-size: 15.5px;
       color: var(--text-muted);
       margin-bottom: 32px;
       line-height: 1.6;
     }
     .meta-strip {
-      display: flex;
-      gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
       margin-bottom: 40px;
       background: var(--bg-alt);
-      padding: 16px 20px;
-      border-radius: 12px;
+      padding: 20px 24px;
+      border-radius: 14px;
       border: 1px solid var(--border);
-      flex-wrap: wrap;
     }
     .meta-item b {
       color: var(--primary);
       display: block;
       font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
     }
     .meta-item span {
       font-size: 15px;
@@ -120,30 +140,32 @@
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       overflow: hidden;
-      transition: box-shadow 0.2s;
+      transition: all 0.2s;
     }
     .module-card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      border-color: #CBD5E1;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
     }
     .module-header {
       background: var(--bg-alt);
-      padding: 16px 20px;
+      padding: 18px 24px;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 17px;
       font-weight: 700;
       color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       border-bottom: 1px solid var(--border);
     }
     .module-number {
       background: var(--accent);
       color: #ffffff;
-      width: 28px;
-      height: 28px;
+      min-width: 30px;
+      height: 30px;
+      padding: 0 8px;
       border-radius: 8px;
       display: inline-flex;
       align-items: center;
@@ -155,149 +177,60 @@
     .topic-list {
       padding: 20px 24px;
       list-style: none;
+      display: grid;
+      gap: 10px;
     }
     .topic-item {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      margin-bottom: 12px;
       font-size: 14.5px;
       color: var(--text);
       line-height: 1.5;
     }
-    .topic-item:last-child {
-      margin-bottom: 0;
-    }
     .check-svg {
-      width: 16px;
-      height: 16px;
+      width: 17px;
+      height: 17px;
       fill: none;
       stroke: var(--success);
       stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
       flex-shrink: 0;
-      margin-top: 3px;
+      margin-top: 2px;
+    }
+    .subtopic-group {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-top: 6px;
+      font-size: 14px;
+      color: #334155;
+    }
+    @media (max-width: 768px) {
+      .print-container { padding: 24px 16px; }
+      h1 { font-size: 26px; }
+      .header-bar { flex-direction: column; align-items: flex-start; }
     }
     @media print {
       body { background: #ffffff; padding: 0; }
-      .print-container { border: none; box-shadow: none; padding: 0; }
+      .print-container { border: none; box-shadow: none; padding: 0; max-width: 100%; }
       .btn-print { display: none !important; }
+      .module-card { break-inside: avoid; page-break-inside: avoid; margin-bottom: 16px; }
     }
   </style>
-
-<style>
-/* Clean up empty topic groups and restore rich visual styling */
-.topic-group:empty {
-  display: none !important;
-}
-.topic-content-body:empty {
-  display: none !important;
-}
-/* Ensure bullet list and topics are clean and visible */
-.bullet-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 8px 0 0 0 !important;
-}
-.bullet-list li {
-  position: relative !important;
-  padding-left: 20px !important;
-  margin-bottom: 8px !important;
-  line-height: 1.55 !important;
-  color: #334155 !important;
-}
-.bullet-list li::before {
-  content: "•";
-  position: absolute;
-  left: 6px;
-  top: 0;
-  color: #2563eb;
-  font-weight: bold;
-}
-.topic-group {
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 10px !important;
-  margin-bottom: 12px !important;
-  background: #f8fafc !important;
-  padding: 12px 16px !important;
-}
-.topic-title {
-  font-weight: 700 !important;
-  font-size: 14.5px !important;
-  color: #0f172a !important;
-}
-</style>
-
-
-<style id="restore-content-style">
-/* Ensure all syllabus content is fully expanded and visible */
-.topic-content-body {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  padding: 12px 16px !important;
-  border-top: 1px solid #e2e8f0 !important;
-  background: #ffffff !important;
-}
-.topic-group {
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 10px !important;
-  margin-bottom: 12px !important;
-  background: #f8fafc !important;
-  display: block !important;
-  overflow: hidden !important;
-}
-.topic-header-toggle {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding: 10px 14px !important;
-  font-weight: 700 !important;
-  font-size: 14.5px !important;
-  color: #102a43 !important;
-  background: #f1f5f9 !important;
-  cursor: pointer !important;
-}
-.topic-sub-chevron {
-  width: 16px !important;
-  height: 16px !important;
-  transform: rotate(180deg) !important;
-  color: #2563eb !important;
-}
-.bullet-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 10px 0 0 0 !important;
-}
-.bullet-list li {
-  position: relative !important;
-  padding-left: 22px !important;
-  margin-bottom: 8px !important;
-  line-height: 1.6 !important;
-  color: #334155 !important;
-  font-size: 14px !important;
-}
-.bullet-list li::before {
-  content: "✓" !important;
-  position: absolute !important;
-  left: 4px !important;
-  top: 0 !important;
-  color: #16a34a !important;
-  font-weight: 800 !important;
-  font-size: 13px !important;
-}
-</style>
-
 </head>
 <body>
   <div class="print-container">
     <div class="header-bar">
       <div class="brand-title">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#2563eb" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
         NeoNex MindX
       </div>
-      <div>
+      <div style="display: flex; align-items: center; gap: 12px;">
         <span class="badge">Short Course Syllabus</span>
         <button class="btn-print" onclick="window.print()">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
@@ -332,324 +265,600 @@
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">01</span>
-          <span>Course Foundations</span>
+          <span>1. Introduction to Python & IDE</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Python</span>
+            <span>1.1 What is Python?</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.2 Features of Python</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.3 Installing Python</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.4 IDE Overview (IDLE / PyCharm / VS Code / Jupyter)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>1.5 Python Execution Models (Script mode, Interactive mode)</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">02</span>
-          <span>1. Introduction to Python & IDE</span>
+          <span>2. Components of Python</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>1.1 What is Python?
- 1.2 Features of Python
- 1.3 Installing Python
- 1.4 IDE Overview (IDLE / PyCharm / VS Code / Jupyter)
- 1.5 Python Execution Models (Script mode, Interactive mode)</span>
+            <span>2.1 Keywords</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.2 Identifiers</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.3 Variables</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.4 Literals</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.5 Comments</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>2.6 Indentation Rules</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">03</span>
-          <span>2. Components of Python</span>
+          <span>3. Subscription, Mutability & Fundamentals</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>2.1 Keywords
- 2.2 Identifiers
- 2.3 Variables
- 2.4 Literals
- 2.5 Comments
- 2.6 Indentation Rules</span>
+            <span>3.1 Indexing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.2 Slicing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.3 Mutability vs Immutability</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.4 Data Access Patterns</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>3.5 Fundamental Datatypes Overview</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">04</span>
-          <span>3. Subscription, Mutability & Fundamentals</span>
+          <span>4. Operators in Python</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>3.1 Indexing
- 3.2 Slicing
- 3.3 Mutability vs Immutability
- 3.4 Data Access Patterns
- 3.5 Fundamental Datatypes Overview</span>
+            <span>4.1 Arithmetic Operators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.2 Relational Operators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.3 Logical Operators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.4 Assignment Operators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.5 Bitwise Operators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.6 Identity Operators</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.7 Membership Operators</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">05</span>
-          <span>4. Operators in Python</span>
+          <span>5. Control Flow Statements</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>4.1 Arithmetic Operators
- 4.2 Relational Operators
- 4.3 Logical Operators
- 4.4 Assignment Operators
- 4.5 Bitwise Operators
- 4.6 Identity Operators
- 4.7 Membership Operators</span>
+            <span>5.1 if, elif, else</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>5.2 Nested Conditions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>5.3 Loops – for, while</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>5.4 Loop Control – break, continue, pass</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>5.5 Range function</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>5.6 Loop patterns and examples</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">06</span>
-          <span>5. Control Flow Statements</span>
+          <span>6. Datatypes – Strings</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>5.1 if, elif, else
- 5.2 Nested Conditions
- 5.3 Loops – for, while
- 5.4 Loop Control – break, continue, pass
- 5.5 Range function
- 5.6 Loop patterns and examples</span>
+            <span>6.1 String declaration</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.2 String slicing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.3 String methods</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.4 String formatting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.5 Escape characters</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>6.6 String immutability</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">07</span>
-          <span>6. Datatypes – Strings</span>
+          <span>7. Lists</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>6.1 String declaration
- 6.2 String slicing
- 6.3 String methods
- 6.4 String formatting
- 6.5 Escape characters
- 6.6 String immutability</span>
+            <span>7.1 List creation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.2 Indexing, Slicing, Step</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.3 List methods</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.4 Mutability</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.5 List Comprehension</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>7.6 Nested Lists</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">08</span>
-          <span>7. Lists</span>
+          <span>8. Tuples, Aliasing, Copying & Deep Copying</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>7.1 List creation
- 7.2 Indexing, Slicing, Step
- 7.3 List methods
- 7.4 Mutability
- 7.5 List Comprehension
- 7.6 Nested Lists</span>
+            <span>8.1 Tuple properties</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>8.2 Tuple operations & methods</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>8.3 Aliasing vs Cloning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>8.4 Shallow Copy</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>8.5 Deep Copy</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>8.6 Copy module usage</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">09</span>
-          <span>8. Tuples, Aliasing, Copying & Deep Copying</span>
+          <span>9. Enumerate, Zip & Dictionary</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>8.1 Tuple properties
- 8.2 Tuple operations & methods
- 8.3 Aliasing vs Cloning
- 8.4 Shallow Copy
- 8.5 Deep Copy
- 8.6 Copy module usage</span>
+            <span>9.1 enumerate() usage & patterns</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>9.2 zip() – combining iterables</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>9.3 Dictionary creation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>9.4 Dictionary methods</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>9.5 Nested dictionaries</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>9.6 Iterating over dictionaries</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">10</span>
-          <span>9. Enumerate, Zip & Dictionary</span>
+          <span>10. Sets & Frozen Sets</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>9.1 enumerate() usage & patterns
- 9.2 zip() – combining iterables
- 9.3 Dictionary creation
- 9.4 Dictionary methods
- 9.5 Nested dictionaries
- 9.6 Iterating over dictionaries</span>
+            <span>10.1 Set operations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10.2 Set methods (add, remove, update…)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10.3 Mathematical set operations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10.4 Frozen sets</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10.5 When to use sets</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">11</span>
-          <span>10. Sets & Frozen Sets</span>
+          <span>11. Exceptional Handling</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>10.1 Set operations
- 10.2 Set methods (add, remove, update…)
- 10.3 Mathematical set operations
- 10.4 Frozen sets
- 10.5 When to use sets</span>
+            <span>11.1 Errors vs Exceptions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.2 try, except, else, finally</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.3 Raising exceptions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.4 Multiple except blocks</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>11.5 Custom exceptions</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">12</span>
-          <span>11. Exceptional Handling</span>
+          <span>12. Functions</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>11.1 Errors vs Exceptions
- 11.2 try, except, else, finally
- 11.3 Raising exceptions
- 11.4 Multiple except blocks
- 11.5 Custom exceptions</span>
+            <span>12.1 Function declaration</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.2 Arguments (positional, keyword, default, variable-length)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.3 Return values</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.4 Lambda functions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.5 map, filter, reduce</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.6 Recursion</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>12.7 Documentation (docstrings)</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">13</span>
-          <span>12. Functions</span>
+          <span>13. File Handling</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>12.1 Function declaration
- 12.2 Arguments (positional, keyword, default, variable-length)
- 12.3 Return values
- 12.4 Lambda functions
- 12.5 map, filter, reduce
- 12.6 Recursion
- 12.7 Documentation (docstrings)</span>
+            <span>13.1 Opening files</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>13.2 Reading & writing files</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>13.3 Modes (r, w, a, rb, wb…)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>13.4 With open (context manager)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>13.5 File pointer functions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>13.6 Working with csv & json</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">14</span>
-          <span>13. File Handling</span>
+          <span>14. RegEX</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>13.1 Opening files
- 13.2 Reading & writing files
- 13.3 Modes (r, w, a, rb, wb…)
- 13.4 With open (context manager)
- 13.5 File pointer functions
- 13.6 Working with csv & json</span>
+            <span>14.1 Introduction to regular expressions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>14.2 re module functions (match, search, findall, split, sub)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>14.3 Character classes</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>14.4 Quantifiers</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>14.5 Anchors</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>14.6 Grouping & capturing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>14.7 Real-world patterns</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">15</span>
-          <span>14. RegEX</span>
+          <span>15. NumPy</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>14.1 Introduction to regular expressions
- 14.2 re module functions (match, search, findall, split, sub)
- 14.3 Character classes
- 14.4 Quantifiers
- 14.5 Anchors
- 14.6 Grouping & capturing
- 14.7 Real-world patterns</span>
+            <span>15.1 Ndarray introduction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.2 Array creation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.3 Indexing & slicing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.4 Mathematical operations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.5 Broadcasting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.6 Reshaping & flattening</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.7 Aggregation functions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>15.8 Random module</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">16</span>
-          <span>15. NumPy</span>
+          <span>16. Pandas</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>15.1 Ndarray introduction
- 15.2 Array creation
- 15.3 Indexing & slicing
- 15.4 Mathematical operations
- 15.5 Broadcasting
- 15.6 Reshaping & flattening
- 15.7 Aggregation functions
- 15.8 Random module</span>
+            <span>16.1 Series & DataFrame</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.2 Loading data (csv, excel, json)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.3 DataFrame operations</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.4 Handling missing data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.5 Filtering, sorting</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.6 Groupby</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.7 Merging, joining, concatenation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>16.8 Pivot tables</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">17</span>
-          <span>16. Pandas</span>
+          <span>17. EDA (Exploratory Data Analysis)</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>16.1 Series & DataFrame
- 16.2 Loading data (csv, excel, json)
- 16.3 DataFrame operations
- 16.4 Handling missing data
- 16.5 Filtering, sorting
- 16.6 Groupby
- 16.7 Merging, joining, concatenation
- 16.8 Pivot tables</span>
+            <span>17.1 Understanding the dataset</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>17.2 Statistical summary</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>17.3 Handling missing values</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>17.4 Outlier detection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>17.5 Feature distributions</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>17.6 Correlation analysis</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>17.7 Basic data cleaning pipeline</span>
           </li>
         </ul>
       </div>
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">18</span>
-          <span>17. EDA (Exploratory Data Analysis)</span>
-        </div>
-        <ul class="topic-list">
-          <li class="topic-item">
-            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>17.1 Understanding the dataset
- 17.2 Statistical summary
- 17.3 Handling missing values
- 17.4 Outlier detection
- 17.5 Feature distributions
- 17.6 Correlation analysis
- 17.7 Basic data cleaning pipeline</span>
-          </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">19</span>
           <span>18. Data Visualization with Python (Seaborn & Matplotlib)</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>18.1 Introduction to plots
- 18.2 Line, bar, pie, histograms
- 18.3 Boxplot, violin plot
- 18.4 Pairplot, heatmap (seaborn)
- 18.5 Customizing visuals
- 18.6 Subplots
- 18.7 Styling & themes
- 18.8 Saving figures</span>
+            <span>18.1 Introduction to plots</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.2 Line, bar, pie, histograms</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.3 Boxplot, violin plot</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.4 Pairplot, heatmap (seaborn)</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.5 Customizing visuals</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.6 Subplots</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.7 Styling & themes</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>18.8 Saving figures</span>
           </li>
         </ul>
       </div>

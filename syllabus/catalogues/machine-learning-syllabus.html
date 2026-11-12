@@ -6,33 +6,35 @@
   <title>Machine Learning with Python - Detailed Syllabus Catalogue | NeoNex MindX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=optional" rel="stylesheet">
   <style>
     :root {
-      --primary: #102a43;
-      --accent: #2563eb;
-      --accent-light: #eff6ff;
-      --text: #1f2937;
-      --text-muted: #4b5563;
-      --border: #e2e8f0;
-      --bg-alt: #f8fafc;
-      --success: #16a34a;
+      --primary: #0F172A;
+      --accent: #2563EB;
+      --accent-light: #EFF6FF;
+      --accent-border: #BFDBFE;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --bg-alt: #F8FAFC;
+      --success: #16A34A;
+      --card-bg: #FFFFFF;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       color: var(--text);
       line-height: 1.6;
-      background: #f1f5f9;
-      padding: 32px 16px;
+      background: #F1F5F9;
+      padding: 40px 16px;
     }
     .print-container {
-      max-width: 920px;
+      max-width: 960px;
       margin: 0 auto;
-      background: #ffffff;
+      background: var(--card-bg);
       padding: 48px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(16,42,67,0.06);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
       border: 1px solid var(--border);
     }
     .header-bar {
@@ -52,13 +54,25 @@
       color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+    }
+    .brand-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563EB;
     }
     .badge {
       display: inline-block;
       padding: 6px 14px;
       background: var(--accent-light);
       color: var(--accent);
+      border: 1px solid var(--accent-border);
       border-radius: 9999px;
       font-size: 13px;
       font-weight: 700;
@@ -69,47 +83,53 @@
       background: var(--primary);
       color: #ffffff;
       border: none;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 10px;
       font-weight: 700;
+      font-size: 14px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
     }
     .btn-print:hover {
       background: var(--accent);
+      transform: translateY(-1px);
     }
     h1 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 32px;
+      font-weight: 700;
       color: var(--primary);
       margin-bottom: 12px;
       line-height: 1.25;
+      letter-spacing: -0.02em;
     }
     .lead-desc {
-      font-size: 16px;
+      font-size: 15.5px;
       color: var(--text-muted);
       margin-bottom: 32px;
       line-height: 1.6;
     }
     .meta-strip {
-      display: flex;
-      gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
       margin-bottom: 40px;
       background: var(--bg-alt);
-      padding: 16px 20px;
-      border-radius: 12px;
+      padding: 20px 24px;
+      border-radius: 14px;
       border: 1px solid var(--border);
-      flex-wrap: wrap;
     }
     .meta-item b {
       color: var(--primary);
       display: block;
       font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
     }
     .meta-item span {
       font-size: 15px;
@@ -120,30 +140,32 @@
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       overflow: hidden;
-      transition: box-shadow 0.2s;
+      transition: all 0.2s;
     }
     .module-card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      border-color: #CBD5E1;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
     }
     .module-header {
       background: var(--bg-alt);
-      padding: 16px 20px;
+      padding: 18px 24px;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 17px;
       font-weight: 700;
       color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       border-bottom: 1px solid var(--border);
     }
     .module-number {
       background: var(--accent);
       color: #ffffff;
-      width: 28px;
-      height: 28px;
+      min-width: 30px;
+      height: 30px;
+      padding: 0 8px;
       border-radius: 8px;
       display: inline-flex;
       align-items: center;
@@ -155,149 +177,60 @@
     .topic-list {
       padding: 20px 24px;
       list-style: none;
+      display: grid;
+      gap: 10px;
     }
     .topic-item {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      margin-bottom: 12px;
       font-size: 14.5px;
       color: var(--text);
       line-height: 1.5;
     }
-    .topic-item:last-child {
-      margin-bottom: 0;
-    }
     .check-svg {
-      width: 16px;
-      height: 16px;
+      width: 17px;
+      height: 17px;
       fill: none;
       stroke: var(--success);
       stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
       flex-shrink: 0;
-      margin-top: 3px;
+      margin-top: 2px;
+    }
+    .subtopic-group {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-top: 6px;
+      font-size: 14px;
+      color: #334155;
+    }
+    @media (max-width: 768px) {
+      .print-container { padding: 24px 16px; }
+      h1 { font-size: 26px; }
+      .header-bar { flex-direction: column; align-items: flex-start; }
     }
     @media print {
       body { background: #ffffff; padding: 0; }
-      .print-container { border: none; box-shadow: none; padding: 0; }
+      .print-container { border: none; box-shadow: none; padding: 0; max-width: 100%; }
       .btn-print { display: none !important; }
+      .module-card { break-inside: avoid; page-break-inside: avoid; margin-bottom: 16px; }
     }
   </style>
-
-<style>
-/* Clean up empty topic groups and restore rich visual styling */
-.topic-group:empty {
-  display: none !important;
-}
-.topic-content-body:empty {
-  display: none !important;
-}
-/* Ensure bullet list and topics are clean and visible */
-.bullet-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 8px 0 0 0 !important;
-}
-.bullet-list li {
-  position: relative !important;
-  padding-left: 20px !important;
-  margin-bottom: 8px !important;
-  line-height: 1.55 !important;
-  color: #334155 !important;
-}
-.bullet-list li::before {
-  content: "•";
-  position: absolute;
-  left: 6px;
-  top: 0;
-  color: #2563eb;
-  font-weight: bold;
-}
-.topic-group {
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 10px !important;
-  margin-bottom: 12px !important;
-  background: #f8fafc !important;
-  padding: 12px 16px !important;
-}
-.topic-title {
-  font-weight: 700 !important;
-  font-size: 14.5px !important;
-  color: #0f172a !important;
-}
-</style>
-
-
-<style id="restore-content-style">
-/* Ensure all syllabus content is fully expanded and visible */
-.topic-content-body {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  padding: 12px 16px !important;
-  border-top: 1px solid #e2e8f0 !important;
-  background: #ffffff !important;
-}
-.topic-group {
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 10px !important;
-  margin-bottom: 12px !important;
-  background: #f8fafc !important;
-  display: block !important;
-  overflow: hidden !important;
-}
-.topic-header-toggle {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding: 10px 14px !important;
-  font-weight: 700 !important;
-  font-size: 14.5px !important;
-  color: #102a43 !important;
-  background: #f1f5f9 !important;
-  cursor: pointer !important;
-}
-.topic-sub-chevron {
-  width: 16px !important;
-  height: 16px !important;
-  transform: rotate(180deg) !important;
-  color: #2563eb !important;
-}
-.bullet-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 10px 0 0 0 !important;
-}
-.bullet-list li {
-  position: relative !important;
-  padding-left: 22px !important;
-  margin-bottom: 8px !important;
-  line-height: 1.6 !important;
-  color: #334155 !important;
-  font-size: 14px !important;
-}
-.bullet-list li::before {
-  content: "✓" !important;
-  position: absolute !important;
-  left: 4px !important;
-  top: 0 !important;
-  color: #16a34a !important;
-  font-weight: 800 !important;
-  font-size: 13px !important;
-}
-</style>
-
 </head>
 <body>
   <div class="print-container">
     <div class="header-bar">
       <div class="brand-title">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#2563eb" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
         NeoNex MindX
       </div>
-      <div>
+      <div style="display: flex; align-items: center; gap: 12px;">
         <span class="badge">Short Course Syllabus</span>
         <button class="btn-print" onclick="window.print()">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
@@ -332,12 +265,12 @@
       <div class="module-card">
         <div class="module-header">
           <span class="module-number">01</span>
-          <span>MACHINE LEARNING — COMPLETE ROADMAP</span>
+          <span>MODULE 01 — Data Preparation, Preprocessing & Feature Engineering</span>
         </div>
         <ul class="topic-list">
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Scope: Data Preparation & Feature Engineering → Supervised ML → Unsupervised ML → Semi-Supervised ML → Evaluation → Optimization → End-to-End ML</span>
+            <span>MACHINE LEARNING — COMPLETE ROADMAP</span>
           </li>
         </ul>
       </div>
@@ -523,14 +456,10 @@
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Statistical detection</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">03</span>
-          <span>IQR</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>IQR</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Z-Score</span>
@@ -1091,14 +1020,10 @@
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Chi-Square</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">04</span>
-          <span>ANOVA</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>ANOVA</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Mutual Information</span>
@@ -1123,14 +1048,10 @@
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Recursive Feature Elimination — RFE</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">05</span>
-          <span>RFECV</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>RFECV</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Embedded Methods</span>
@@ -1235,14 +1156,10 @@
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Random Undersampling</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">06</span>
-          <span>SMOTE</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>SMOTE</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Class weights</span>
@@ -1349,19 +1266,55 @@
           </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Raw Data
- ↓
- Split Data
- ↓
- Fit preprocessing on Training Data
- ↓
- Transform Validation/Test Data
- ↓
- Feature Engineering
- ↓
- Feature Selection
- ↓
- Model Training</span>
+            <span>Raw Data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Split Data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Fit preprocessing on Training Data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Transform Validation/Test Data</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature Engineering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature Selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Model Training</span>
           </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -1419,7 +1372,7 @@
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">07</span>
+          <span class="module-number">03</span>
           <span>MODULE 02 — Supervised Learning: Classification</span>
         </div>
         <ul class="topic-list">
@@ -1731,7 +1684,7 @@
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">08</span>
+          <span class="module-number">04</span>
           <span>MODULE 03 — Supervised Learning: Regression</span>
         </div>
         <ul class="topic-list">
@@ -1875,7 +1828,7 @@
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">09</span>
+          <span class="module-number">05</span>
           <span>MODULE 04 — Unsupervised Learning: Clustering</span>
         </div>
         <ul class="topic-list">
@@ -1971,14 +1924,10 @@
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Selecting clusters</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">10</span>
-          <span>4.4 DBSCAN</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.4 DBSCAN</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Density-based clustering</span>
@@ -2011,14 +1960,10 @@
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Advantages & limitations</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">11</span>
-          <span>4.5 HDBSCAN</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>4.5 HDBSCAN</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Variable-density clustering</span>
@@ -2095,7 +2040,7 @@
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">12</span>
+          <span class="module-number">06</span>
           <span>MODULE 05 — Unsupervised Learning: Dimensionality Reduction</span>
         </div>
         <ul class="topic-list">
@@ -2195,14 +2140,10 @@
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Visualization vs. modeling</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">13</span>
-          <span>5.4 UMAP</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>5.4 UMAP</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Non-linear reduction</span>
@@ -2231,7 +2172,7 @@
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">14</span>
+          <span class="module-number">07</span>
           <span>MODULE 06 — Semi-Supervised Learning</span>
         </div>
         <ul class="topic-list">
@@ -2303,7 +2244,7 @@
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">15</span>
+          <span class="module-number">08</span>
           <span>MODULE 07 — Model Evaluation & Validation</span>
         </div>
         <ul class="topic-list">
@@ -2315,14 +2256,10 @@
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Confusion Matrix</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">16</span>
-          <span>TP, TN, FP, FN</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>TP, TN, FP, FN</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Accuracy</span>
@@ -2347,14 +2284,10 @@
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>ROC Curve</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">17</span>
-          <span>ROC-AUC</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>ROC-AUC</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Precision-Recall Curve</span>
@@ -2371,50 +2304,30 @@
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>7.2 Regression Evaluation</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">18</span>
-          <span>MAE</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">19</span>
-          <span>MSE</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">20</span>
-          <span>RMSE</span>
-        </div>
-        <ul class="topic-list">
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">21</span>
-          <span>R²</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>MAE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>MSE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>RMSE</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>R²</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Adjusted R²</span>
           </li>
-        </ul>
-      </div>
-      <div class="module-card">
-        <div class="module-header">
-          <span class="module-number">22</span>
-          <span>MAPE</span>
-        </div>
-        <ul class="topic-list">
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>MAPE</span>
+          </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span>Choosing appropriate metrics</span>
@@ -2487,7 +2400,7 @@
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">23</span>
+          <span class="module-number">09</span>
           <span>MODULE 08 — Hyperparameter Tuning & Model Optimization</span>
         </div>
         <ul class="topic-list">
@@ -2559,7 +2472,7 @@
       </div>
       <div class="module-card">
         <div class="module-header">
-          <span class="module-number">24</span>
+          <span class="module-number">10</span>
           <span>MODULE 09 — End-to-End Machine Learning Workflow</span>
         </div>
         <ul class="topic-list">
@@ -2573,45 +2486,159 @@
           </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Problem Definition
- ↓
- Data Understanding & Profiling
- ↓
- Data Cleaning
- ↓
- Train / Validation / Test Split
- ↓
- Preprocessing
- ↓
- Feature Engineering
- ↓
- Feature Extraction
- ↓
- Feature Encoding
- ↓
- Feature Transformation & Scaling
- ↓
- Feature Selection
- ↓
- Handle Class Imbalance
- ↓
- Build ML Pipeline
- ↓
- Model Selection
- ↓
- Model Training
- ↓
- Cross-Validation
- ↓
- Hyperparameter Tuning
- ↓
- Model Evaluation
- ↓
- Error Analysis
- ↓
- Final Model
- ↓
- Save & Reuse Pipeline</span>
+            <span>Problem Definition</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Data Understanding & Profiling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Data Cleaning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Train / Validation / Test Split</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Preprocessing</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature Engineering</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature Extraction</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature Encoding</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature Transformation & Scaling</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Feature Selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Handle Class Imbalance</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Build ML Pipeline</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Model Selection</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Model Training</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Cross-Validation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Hyperparameter Tuning</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Model Evaluation</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Error Analysis</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Final Model</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>↓</span>
+          </li>
+          <li class="topic-item">
+            <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Save & Reuse Pipeline</span>
           </li>
           <li class="topic-item">
             <svg class="check-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
