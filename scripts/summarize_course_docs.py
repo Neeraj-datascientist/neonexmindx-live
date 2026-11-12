@@ -13,3 +13,4 @@ def summarize_doc(path):
 summarize_doc(r'deployment_NeoNex\syllabus\individual modules\Python (4).docx')
 summarize_doc(r'deployment_NeoNex\syllabus\individual modules\SQL  (3).docx')
 summarize_doc(r'deployment_NeoNex\syllabus\individual modules\MACHINE LEARNING — COMPLETE ROADMAP (2).docx')
+

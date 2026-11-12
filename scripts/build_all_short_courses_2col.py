@@ -177,3 +177,4 @@ inject_curriculum(r'deployment_NeoNex\courses\sql-course\index.html', sql_html)
 # Update Machine Learning
 ml_html = build_2col_grid_html(ml_mods, "Machine Learning")
 inject_curriculum(r'deployment_NeoNex\courses\machine-learning-course\index.html', ml_html)
+
