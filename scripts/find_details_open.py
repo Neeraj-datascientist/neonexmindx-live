@@ -7,3 +7,4 @@ prev_details = txt.rfind('<details', 0, idx)
 # find matching </details>
 next_details = txt.find('</details>', idx) + len('</details>')
 print(txt[prev_details:next_details][:300])
+

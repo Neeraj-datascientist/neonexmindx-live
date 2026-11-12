@@ -71,3 +71,4 @@ for f in files:
         with open(f, 'w', encoding='utf-8') as out:
             out.write(txt)
         print(f"Restored content visibility in {f}!")
+

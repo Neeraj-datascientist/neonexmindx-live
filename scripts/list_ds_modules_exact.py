@@ -8,3 +8,4 @@ for i, m in enumerate(modules):
     clean = re.sub(r'<[^>]+>', ' ', m)
     clean = ' '.join(clean.split())
     print(f"  {i+1}: {clean}")
+

@@ -30,3 +30,4 @@ with open('deployment_NeoNex/courses/data-science-course/index.html', 'w', encod
     f.write(txt)
 
 print("Updated data-science-course: now strictly contains Data Science core modules!")
+

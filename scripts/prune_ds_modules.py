@@ -18,3 +18,4 @@ with open('deployment_NeoNex/courses/data-science-course/index.html', 'w', encod
     f.write(txt)
 
 print("data-science-course now exclusively features the Pure Data Science curriculum!")
+

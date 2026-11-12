@@ -14,3 +14,4 @@ h1_ai = re.search(r'<h1[^>]*>(.*?)</h1>', txt_ai, re.DOTALL)
 print("H1:", h1_ai.group(1).strip() if h1_ai else '')
 hero_title_ai = re.search(r'<div class="hero-title"[^>]*>(.*?)</div>', txt_ai, re.DOTALL)
 print("Hero Title:", hero_title_ai.group(1).strip() if hero_title_ai else '')
+

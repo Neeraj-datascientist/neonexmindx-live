@@ -67,3 +67,4 @@ for f in files:
         print(f"Cleaned empty topic groups in {f}!")
 
 print(f"Done! Cleaned {cleaned_count} catalogue files.")
+
