@@ -16,3 +16,4 @@ for m in re.finditer(r'<[a-z]+[^>]*syllabus[^>]*>.*?</[a-z]+>', txt, re.IGNORECA
 
 for m in re.finditer(r'<a\b[^>]*href=[\"\'][^\"\']*syllabus[^\"\']*[\"\'][^>]*>.*?</a>', txt, re.DOTALL | re.IGNORECASE):
     print("Syllabus link:", m.group(0))
+

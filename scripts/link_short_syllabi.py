@@ -39,3 +39,4 @@ for page, syl_url in courses:
     with open(path, 'w', encoding='utf-8') as f:
         f.write(txt)
     print(f"Linked {page} to {syl_url}!")
+

@@ -319,3 +319,4 @@ build_syllabus_catalogue(
     docx_path="c:/Users/pcnee/Downloads/MACHINE LEARNING — COMPLETE ROADMAP (2).docx",
     out_html_path="deployment_NeoNex/syllabus/catalogues/machine-learning-syllabus.html"
 )
+

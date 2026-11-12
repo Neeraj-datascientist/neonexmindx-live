@@ -3,3 +3,4 @@ idx = txt.lower().find('float')
 while idx != -1:
     print(txt[max(0, idx-40):min(len(txt), idx+100)].replace('\n', ' '))
     idx = txt.lower().find('float', idx+1)
+

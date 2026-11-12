@@ -11,3 +11,4 @@ for f in files:
     txt = open(f, 'r', encoding='utf-8').read()
     has_download = 'download' in txt.lower() and 'syllabus' in txt.lower()
     print(f, "has download syllabus:", has_download)
+

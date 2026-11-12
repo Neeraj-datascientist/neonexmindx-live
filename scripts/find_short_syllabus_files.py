@@ -10,3 +10,4 @@ print("\nLooking in downloads:")
 for f in glob.glob('c:/Users/pcnee/Downloads/*'):
     if any(k in f.lower() for k in ['sql', 'python', 'tableau', 'excel', 'machine learning', 'syllabus']):
         print(" ", f)
+

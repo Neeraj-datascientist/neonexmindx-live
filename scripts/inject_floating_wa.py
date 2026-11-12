@@ -81,3 +81,4 @@ for f in files:
         with open(f, 'w', encoding='utf-8') as out:
             out.write(txt)
         print(f"Injected floating WhatsApp button into {f}!")
+

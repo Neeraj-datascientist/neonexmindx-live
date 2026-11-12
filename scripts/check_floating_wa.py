@@ -14,3 +14,4 @@ for f in files:
     # Check if there is floating whatsapp or whatsapp widget
     floating = 'floating' in txt.lower() or 'wa-float' in txt.lower() or 'whatsapp-float' in txt.lower()
     print(f, "has floating WA:", floating)
+
