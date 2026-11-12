@@ -1,12 +1,22 @@
-# 301 Permanent Redirects for standalone tool courses -> Main Program
-/courses/sql-course                      /courses/data-analytics-course/         301!
-/courses/sql-course/                     /courses/data-analytics-course/         301!
-/courses/excel-power-bi-tableau-course   /courses/data-analytics-course/         301!
-/courses/excel-power-bi-tableau-course/  /courses/data-analytics-course/         301!
-/courses/python-programming-course       /courses/data-science-course/           301!
-/courses/python-programming-course/      /courses/data-science-course/           301!
-/courses/machine-learning-course         /courses/ai-ml-course/                  301!
-/courses/machine-learning-course/        /courses/ai-ml-course/                  301!
+# 4 SHORT COURSES CLEAN DIRECTORIES (Now live standalone pages!)
+/courses/python-programming-course      /courses/python-programming-course/     301!
+/courses/excel-power-bi-tableau-course  /courses/excel-power-bi-tableau-course/ 301!
+/courses/sql-course                     /courses/sql-course/                    301!
+/courses/machine-learning-course        /courses/machine-learning-course/       301!
+
+/python-programming-course              /courses/python-programming-course/     301!
+/python-programming-course/             /courses/python-programming-course/     301!
+/excel-power-bi-tableau-course          /courses/excel-power-bi-tableau-course/ 301!
+/excel-power-bi-tableau-course/         /courses/excel-power-bi-tableau-course/ 301!
+/sql-course                             /courses/sql-course/                    301!
+/sql-course/                            /courses/sql-course/                    301!
+/machine-learning-course                /courses/machine-learning-course/       301!
+/machine-learning-course/               /courses/machine-learning-course/       301!
+
+/Neonex*Excel*PowerBI*Tableau*Course*   /courses/excel-power-bi-tableau-course/ 301!
+/Neonex*Machine*Learning*Course*        /courses/machine-learning-course/       301!
+/Neonex*Python*Programming*Course*      /courses/python-programming-course/     301!
+/Neonex*SQL*Course*                     /courses/sql-course/                    301!
 
 # Cloudflare Pages Clean Canonical Redirects (Priority 1)
 /Neonex*Data*Analytics*Course*            /courses/data-analytics-course/         301!
@@ -14,10 +24,10 @@
 /Neonex*AI*ML*Course*                     /courses/ai-ml-course/                  301!
 /Neonex*Data*Engineering*Course*          /courses/data-engineering-course/       301!
 /Neonex*Business*Analytics*Course*        /courses/business-analytics-course/     301!
-/Neonex*Excel*PowerBI*Tableau*Course*    /courses/data-analytics-course/          301!
-/Neonex*Machine*Learning*Course*         /courses/ai-ml-course/                   301!
-/Neonex*Python*Programming*Course*       /courses/data-science-course/            301!
-/Neonex*SQL*Course*                      /courses/data-analytics-course/          301!
+
+
+
+
 /Neonex*About*us*page*                    /about-us/                              301!
 /Neonex*Contact*Us*                       /contact-us/                            301!
 /Neonex*Trainers*Page*                    /trainers/                              301!

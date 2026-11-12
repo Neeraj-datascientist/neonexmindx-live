@@ -46,3 +46,4 @@ for ep in endpoints:
         print(f"[{ep}] Response HTTP {e.code}: {e.read().decode('utf-8', errors='ignore')}")
     except Exception as e:
         print(f"[{ep}] Error: {e}")
+

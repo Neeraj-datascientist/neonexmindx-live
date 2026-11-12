@@ -16,10 +16,6 @@ Disallow: /digital-marketing/
 Disallow: /digital-marketing-dashboard/
 Disallow: /thank-you
 Disallow: /thank-you/
-Disallow: /courses/sql-course/
-Disallow: /courses/python-programming-course/
-Disallow: /courses/excel-power-bi-tableau-course/
-Disallow: /courses/machine-learning-course/
 
 # 2. AI Crawlers & Answer Engines (AEO / GEO Optimization)
 # Allow search indexation and answer citations for AI/LLM models
@@ -52,10 +48,6 @@ Disallow: /digital-marketing/
 Disallow: /digital-marketing-dashboard/
 Disallow: /thank-you
 Disallow: /thank-you/
-Disallow: /courses/sql-course/
-Disallow: /courses/python-programming-course/
-Disallow: /courses/excel-power-bi-tableau-course/
-Disallow: /courses/machine-learning-course/
 
 # Sitemaps & LLM Context
 Sitemap: https://neonexmindx.com/sitemap.xml
