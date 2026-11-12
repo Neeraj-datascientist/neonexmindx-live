@@ -14,3 +14,4 @@ for m in re.finditer(r'(courses|programs|curriculum)', txt, re.IGNORECASE):
         print("--- Match ---")
         print(snippet[:300])
         print("...")
+

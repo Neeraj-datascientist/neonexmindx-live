@@ -24,3 +24,4 @@ no_submit = [f for f in forms if not f['has_submit']]
 print(f"Forms without submit button: {len(no_submit)}")
 for ns in no_submit:
     print(" ", ns['file'], ns['id'])
+

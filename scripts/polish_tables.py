@@ -38,3 +38,4 @@ txt_ai = txt_ai.replace('Structured 6&ndash;7 month learning path', 'Structured 
 with open(ds_ai_path, 'w', encoding='utf-8') as f:
     f.write(txt_ai)
 print("Updated data-science-and-ai-course summary table and hero points cleanly!")
+

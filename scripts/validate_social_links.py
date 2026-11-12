@@ -25,3 +25,4 @@ for f in files:
 
 print("Invalid WA links:", len(invalid_wa), invalid_wa[:5])
 print("Invalid LinkedIn links:", len(invalid_li), invalid_li[:5])
+

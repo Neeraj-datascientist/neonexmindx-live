@@ -10,3 +10,4 @@ for i, m in enumerate(matches):
     eyebrow = re.search(r'class="eyebrow"[^>]*>(.*?)<', s)
     id_m = re.search(r'id=["\']([^"\']*)["\']', s)
     print(f"Section {i+1}: ID={id_m.group(1) if id_m else 'None'} | Eyebrow={eyebrow.group(1) if eyebrow else 'None'} | Heading={h.group(1) if h else 'None'}")
+

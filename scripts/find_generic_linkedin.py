@@ -24,3 +24,4 @@ for f in files:
         for m in re.finditer(r'.{0,100}https://www\.linkedin\.com/?.{0,100}', txt):
             if 'company' not in m.group(0) and '/in/' not in m.group(0) and 'share-offsite' not in m.group(0):
                 print("  Context:", m.group(0).replace('\n', ' '))
+

@@ -18,3 +18,4 @@ for f in files:
         # find any duration badge
         d_badge = re.findall(r'class="[^"]*duration[^"]*"[^>]*>(.*?)<', txt)
         print("  Duration badges:", d_badge[:3])
+

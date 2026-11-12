@@ -12,3 +12,4 @@ else:
     main_idx = txt.find('<main')
     print("=== MAIN SNIPPET ===")
     print(txt[main_idx:main_idx+1500])
+

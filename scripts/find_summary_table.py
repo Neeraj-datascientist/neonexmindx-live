@@ -5,3 +5,4 @@ m = re.search(r'<table[^>]*>.*?Program Duration.*?</table>', txt, re.DOTALL)
 if m:
     print("=== SUMMARY TABLE IN DATA SCIENCE COURSE ===")
     print(m.group(0))
+

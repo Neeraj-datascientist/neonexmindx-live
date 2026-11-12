@@ -14,3 +14,4 @@ for m in re.finditer(r'(duration|months|weeks|hours)', txt, re.IGNORECASE):
     print("Match:", snippet.replace('\n', ' '))
     if 'month' in snippet.lower():
         print("  -> FOUND MONTH!")
+

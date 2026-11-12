@@ -7,3 +7,4 @@ m = re.search(r'<section class="section soft" id="focused-short-courses">.*?</se
 if m:
     print("=== focused-short-courses ===")
     print(m.group(0))
+

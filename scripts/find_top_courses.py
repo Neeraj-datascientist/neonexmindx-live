@@ -9,3 +9,4 @@ print("Top 150 lines:")
 for i, l in enumerate(lines[:150]):
     if 'course' in l.lower() or 'program' in l.lower() or 'offer' in l.lower() or 'hero' in l.lower():
         print(f"{i+1}: {l}")
+

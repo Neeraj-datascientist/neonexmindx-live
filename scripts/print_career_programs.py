@@ -12,3 +12,4 @@ m_comp = re.search(r'<table class="compare">.*?</table>', txt, re.DOTALL)
 if m_comp:
     print("=== compare table ===")
     print(m_comp.group(0))
+

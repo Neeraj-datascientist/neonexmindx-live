@@ -10,3 +10,4 @@ syls = set(re.findall(r'href=[\"\']([^\"\']*data-science[^\"\']*)[\"\']', txt))
 print("Syllabus / DS links in data-science-and-ai-course:")
 for s in syls:
     print("  ", s)
+

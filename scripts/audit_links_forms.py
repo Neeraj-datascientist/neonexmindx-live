@@ -25,3 +25,4 @@ for f in files:
 print(f"Total HTML files with forms: {len(forms)}")
 print(f"Total HTML files with WhatsApp links: {len(wa_links)}")
 print(f"Total HTML files with LinkedIn links: {len(li_links)}")
+

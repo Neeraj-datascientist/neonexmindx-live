@@ -12,3 +12,4 @@ for p in paras:
     if any(k in p.lower() for k in ['duration:', 'months', 'weeks', 'part i', 'part ii', 'part iii', 'part iv', 'part v', 'overview']):
         if len(p) < 120:
             print("  *", p)
+

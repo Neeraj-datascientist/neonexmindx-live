@@ -11,3 +11,4 @@ if m:
         dur = re.search(r'class="duration"[^>]*>(.*?)<', c)
         cat = re.search(r'data-category="([^"]*)"', c)
         print("  Card:", title.group(1) if title else 'None', "| Duration:", dur.group(1) if dur else 'None', "| Cat:", cat.group(1) if cat else 'None')
+

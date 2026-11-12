@@ -145,3 +145,4 @@ else:
 
 with open('deployment_NeoNex/index.html', 'w', encoding='utf-8') as f:
     f.write(txt)
+

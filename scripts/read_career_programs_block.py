@@ -7,3 +7,4 @@ txt = open(idx_path, 'r', encoding='utf-8').read()
 m = re.search(r'(<section class="section soft" id="career-programs">.*?</section>)', txt, re.DOTALL)
 if m:
     print(m.group(1)[:1200])
+

@@ -13,3 +13,4 @@ m2 = re.search(r'</section>\s*(<section.*?</section>)', txt[txt.find('<section c
 if m2:
     print("=== NEXT SECTION AFTER HERO ===")
     print(m2.group(1)[:1500])
+

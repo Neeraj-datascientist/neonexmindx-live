@@ -12,3 +12,4 @@ m_ai = re.search(r'<article class="program-card" data-category="ai">.*?</article
 if m_ai:
     print("=== AI CARD IN HOME ===")
     print(m_ai.group(0))
+
