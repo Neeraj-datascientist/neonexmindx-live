@@ -4,6 +4,37 @@
   "payments": [],
   "enquiries": [
     {
+      "id": "gads-sprint2-1794500002",
+      "name": "Abhishek Nambiar",
+      "phone": "+91 97412 87654",
+      "email": "abhishek.nambiar@yahoo.com",
+      "program": "Data Science & AI Master Program",
+      "date": "20/11/2026",
+      "status": "New",
+      "sprint": "Sprint 2 (Current)",
+      "source": "Google Ads (Search)",
+      "utm_source": "google_ads",
+      "utm_medium": "cpc",
+      "utm_campaign": "Search_Data_Analytics_Course_Bengaluru",
+      "notes": "[Sprint 2 Active] Google Lead Form extension. Working professional seeking weekend batch."
+    },
+    {
+      "id": "meta-sprint2-1794500001",
+      "name": "Priyanka Deshmukh",
+      "phone": "+91 98201 23456",
+      "email": "priyanka.deshmukh@gmail.com",
+      "program": "Data Analytics Master Program",
+      "date": "18/11/2026",
+      "status": "New",
+      "sprint": "Sprint 2 (Current)",
+      "source": "Meta Ads (Instagram)",
+      "utm_source": "meta_ads",
+      "utm_medium": "paid_social",
+      "utm_campaign": "Bengaluru_DataScience_LeadGen_Sprint2",
+      "utm_content": "Reels_Mentor_Breakdown_02",
+      "notes": "[Sprint 2 Active] Enquired via Instagram Lead Form. Interested in Power BI & Tableau."
+    },
+    {
       "id": "meta-1793633451723",
       "name": "Karthik Raja",
       "phone": "+91 94480 12345",
@@ -11,12 +42,13 @@
       "program": "Data Science & AI Master Program",
       "date": "02/11/2026",
       "status": "New",
-      "notes": "Looking for weekend batch with placement assistance",
+      "notes": "[Sprint 1 Historical] Looking for weekend batch with placement assistance",
       "source_page": "Meta Lead Ads (Facebook & Instagram)",
       "utm_source": "meta_ads",
       "utm_medium": "paid_social",
       "utm_campaign": "Bengaluru_DataScience_LeadGen_Nov2026",
-      "utm_content": "QA_to_AI_Carousel_Ad_03"
+      "utm_content": "QA_to_AI_Carousel_Ad_03",
+      "sprint": "Sprint 1 (Legacy)"
     }
   ],
   "courses": [

@@ -601,6 +601,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .form-control { width: 100%; height: 38px; padding: 0 10px; border: 1px solid #CBD5E1; border-radius: 6px; font-size: 13px; font-weight: 600; outline: none; }
     .form-control:focus { border-color: var(--primary-teal); }
 
+    
+    /* CAMPAIGN TABS */
+    .crm-tab-btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--line-border);
+      background: var(--card-bg);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .crm-tab-btn:hover {
+      background: var(--surface-2);
+      border-color: #94A3B8;
+    }
+    .crm-tab-btn.active-tab {
+      background: var(--primary-teal);
+      color: #FFFFFF !important;
+      border-color: var(--primary-teal) !important;
+    }
+
     /* AUTH GATEWAY */
     #auth-gate { position: fixed; inset: 0; background: #FFFFFF; z-index: 100; display: none; place-items: center; }
     #auth-gate.active { display: grid; }
@@ -799,7 +823,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       students: [],
       invoices: [],
       payments: [],
-      enquiries: [],
+      enquiries: [
+        {
+          id: 'meta-sprint2-1794500001',
+          name: 'Priyanka Deshmukh',
+          phone: '+91 98201 23456',
+          email: 'priyanka.deshmukh@gmail.com',
+          program: 'Data Analytics Master Program',
+          date: '18/11/2026',
+          status: 'New',
+          sprint: 'Sprint 2 (Current)',
+          source: 'Meta Ads (Instagram)',
+          utm_source: 'meta_ads',
+          utm_medium: 'paid_social',
+          utm_campaign: 'Bengaluru_DataScience_LeadGen_Sprint2',
+          utm_content: 'Reels_Mentor_Breakdown_02',
+          notes: '[Sprint 2 Active] Enquired via Instagram Lead Form. Interested in Power BI & Tableau.'
+        },
+        {
+          id: 'gads-sprint2-1794500002',
+          name: 'Abhishek Nambiar',
+          phone: '+91 97412 87654',
+          email: 'abhishek.nambiar@yahoo.com',
+          program: 'Data Science & AI Master Program',
+          date: '20/11/2026',
+          status: 'New',
+          sprint: 'Sprint 2 (Current)',
+          source: 'Google Ads (Search)',
+          utm_source: 'google_ads',
+          utm_medium: 'cpc',
+          utm_campaign: 'Search_Data_Analytics_Course_Bengaluru',
+          notes: '[Sprint 2 Active] Google Lead Form extension. Working professional seeking weekend batch.'
+        },
+        {
+          id: 'meta-1793633451723',
+          name: 'Karthik Raja',
+          phone: '+91 94480 12345',
+          email: 'karthik.raja.eng@gmail.com',
+          program: 'Data Science & AI Master Program',
+          date: '02/11/2026',
+          status: 'New',
+          sprint: 'Sprint 1 (Legacy)',
+          source: 'Meta Ads (Facebook & Instagram)',
+          utm_source: 'meta_ads',
+          utm_medium: 'paid_social',
+          utm_campaign: 'Bengaluru_DataScience_LeadGen_Nov2026',
+          utm_content: 'QA_to_AI_Carousel_Ad_03',
+          notes: '[Sprint 1 Historical] Looking for weekend batch with placement assistance'
+        }
+      ],
       courses: [
         { title: 'Data Analytics Master Program', duration: '12-16 Weeks', fee: '$ 42,000.00', batches: '2 Active' },
         { title: 'Data Science & AI Master Program', duration: '16-20 Weeks', fee: '$ 53,100.00', batches: '2 Active' },
@@ -839,6 +911,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     let SEARCH_QUERY = '';
     let INVOICE_SEARCH_QUERY = '';
     let PAYMENT_SEARCH_QUERY = '';
+    let ENQUIRIES_FILTER = 'all'; // 'all', 'sprint2', 'sprint1', 'google', 'meta', 'website'
+    let ENQUIRIES_SEARCH = '';
 
     const CRM = {
       async init() {
@@ -1339,64 +1413,269 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         `;
       },
 
-      /* 3. ENQUIRIES VIEW (Screenshot 4 exact reproduction + active table listing) */
-      viewEnquiries() {
-        return `
-          <div style="padding:10px 0 20px;">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:12px;">
-              <div>
-                <h1 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:4px;">Enquiries</h1>
-                <p style="font-size:13px;font-weight:600;color:#64748B;">Track prospective student enquiries and their next steps.</p>
-              </div>
-              <button class="btn-crm-add" onclick="CRM.openAddEnquiry()">+ Add New Enquiry</button>
-            </div>
+            /* 3. ENQUIRIES VIEW (Advanced Multi-Campaign & Sprints Hub) */
+      setEnquiriesFilter(f) {
+        ENQUIRIES_FILTER = f;
+        CRM.render();
+      },
 
-            ${APP_DATA.enquiries.length === 0 ? `
-              <div style="text-align:center;padding:60px 20px;max-width:500px;margin:30px auto;">
-                <div style="width:64px;height:64px;background:#F1F5F9;border-radius:12px;display:grid;place-items:center;font-size:28px;margin:0 auto 16px;">💬</div>
-                <div style="font-size:14px;font-weight:700;color:#334155;margin-bottom:18px;">Enquiries management will appear here as records are added.</div>
-                <button class="btn-crm-add" onclick="CRM.openAddEnquiry()">+ Add New Enquiry</button>
-              </div>
-            ` : `
-              <div class="crm-table-card" style="margin-top:20px;">
-                <table class="crm-table">
-                  <thead>
-                    <tr>
-                      <th>Candidate</th>
-                      <th>Program</th>
-                      <th>Date</th>
-                      <th>Phone</th>
-                      <th>Status</th>
-                      <th>Notes</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${APP_DATA.enquiries.map(e => `
-                      <tr>
-                        <td>
-                          <b>${e.name}</b><br>
-                          <small style="color:#64748B;">${e.email}</small>
-                          ${e.utm_source ? `<br><span style="display:inline-block; margin-top:3px; background:rgba(37,99,235,0.1); color:#2563EB; border:1px solid rgba(37,99,235,0.25); border-radius:4px; font-size:10px; font-weight:700; padding:1px 5px;">🎯 ${e.utm_source}${e.utm_campaign ? ` • ${e.utm_campaign}` : ''}</span>` : ''}
-                        </td>
-                        <td>${e.program}</td>
-                        <td>${e.date}</td>
-                        <td>${e.phone}</td>
-                        <td><span style="background:#EFF6FF;color:#2563EB;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">${e.status}</span></td>
-                        <td><span style="font-size:12px;color:#64748B;">${e.notes || '-'}</span></td>
-                        <td>
-                          <a href="https://wa.me/${e.phone.replace(/[^0-9]/g,'')}?text=Hi%20${encodeURIComponent(e.name)}%2C%20counsellor%20calling%20from%20NeoNex%20MindX%20regarding%20${encodeURIComponent(e.program)}." target="_blank" style="color:#0284C7;font-weight:700;margin-right:8px;">WhatsApp</a>
-                          <button onclick="CRM.deleteEnquiry('${e.phone}')" style="background:none;border:none;color:#DC2626;cursor:pointer;font-weight:800;">&times;</button>
-                        </td>
-                      </tr>
-                    `).join('')}
-                  </tbody>
-                </table>
-              </div>
-            `}
+      setEnquiriesSearch(val) {
+        ENQUIRIES_SEARCH = (val || '').toLowerCase().trim();
+        const tbody = document.getElementById('enquiries-tbody');
+        if (tbody) {
+          tbody.innerHTML = CRM.renderEnquiriesRows();
+        }
+      },
+
+      getEnquiryCampaignBadge(e) {
+        const src = (e.utm_source || e.source || '').toLowerCase();
+        const camp = (e.utm_campaign || e.campaign || '').toLowerCase();
+        const notes = (e.notes || '').toLowerCase();
+        
+        let sprint = '';
+        if (e.sprint) {
+          sprint = e.sprint;
+        } else if (camp.includes('sprint2') || camp.includes('sprint 2') || notes.includes('sprint 2') || notes.includes('sprint2')) {
+          sprint = 'Sprint 2 (Current)';
+        } else if (camp.includes('sprint1') || camp.includes('sprint 1') || notes.includes('sprint 1') || notes.includes('sprint1')) {
+          sprint = 'Sprint 1 (Legacy)';
+        } else {
+          // Date heuristic: parse date or id
+          try {
+            if (e.id && e.id.includes('meta-1793')) {
+              sprint = 'Sprint 1 (Legacy)';
+            } else if (e.date) {
+              const parts = e.date.split('/');
+              if (parts.length === 3) {
+                const day = parseInt(parts[0], 10);
+                const month = parseInt(parts[1], 10);
+                if (month === 11 && day >= 13) sprint = 'Sprint 2 (Current)';
+                else sprint = 'Sprint 1 (Legacy)';
+              }
+            }
+          } catch(err){}
+        }
+        if (!sprint) sprint = 'Sprint 2 (Current)';
+
+        let platformIcon = '🌐';
+        let platformLabel = 'Website';
+        let badgeBg = '#EFF6FF';
+        let badgeColor = '#1D4ED8';
+        let borderCol = '#BFDBFE';
+
+        if (src.includes('meta') || src.includes('facebook') || src.includes('instagram') || notes.includes('meta lead')) {
+          platformIcon = '📱';
+          platformLabel = 'Meta Ads';
+          badgeBg = '#EFF6FF';
+          badgeColor = '#1D4ED8';
+          borderCol = '#93C5FD';
+        } else if (src.includes('google') || src.includes('gads') || notes.includes('google ad')) {
+          platformIcon = '🎯';
+          platformLabel = 'Google Ads';
+          badgeBg = '#FEF3C7';
+          badgeColor = '#B45309';
+          borderCol = '#FDE68A';
+        } else if (src.includes('gmb') || src.includes('maps')) {
+          platformIcon = '📍';
+          platformLabel = 'GMB Profile';
+          badgeBg = '#DCFCE7';
+          badgeColor = '#15803D';
+          borderCol = '#86EFAC';
+        } else if (src.includes('linkedin')) {
+          platformIcon = '💼';
+          platformLabel = 'LinkedIn';
+          badgeBg = '#E0F2FE';
+          badgeColor = '#0369A1';
+          borderCol = '#7DD3FC';
+        } else if (src.includes('whatsapp') || src.includes('wa')) {
+          platformIcon = '💬';
+          platformLabel = 'WhatsApp';
+          badgeBg = '#DCFCE7';
+          badgeColor = '#15803D';
+          borderCol = '#86EFAC';
+        } else if (src.includes('youtube')) {
+          platformIcon = '▶️';
+          platformLabel = 'YouTube';
+          badgeBg = '#FEE2E2';
+          badgeColor = '#B91C1C';
+          borderCol = '#FCA5A5';
+        }
+
+        const sprintBg = sprint.includes('Sprint 2') ? '#ECFDF5' : '#F1F5F9';
+        const sprintColor = sprint.includes('Sprint 2') ? '#047857' : '#475569';
+        const sprintBorder = sprint.includes('Sprint 2') ? '#A7F3D0' : '#CBD5E1';
+
+        return `
+          <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+            <span style="display:inline-flex;align-items:center;gap:3px;background:${badgeBg};color:${badgeColor};border:1px solid ${borderCol};border-radius:4px;font-size:10px;font-weight:700;padding:1px 6px;">
+              ${platformIcon} ${platformLabel}
+            </span>
+            <span style="display:inline-flex;align-items:center;background:${sprintBg};color:${sprintColor};border:1px solid ${sprintBorder};border-radius:4px;font-size:10px;font-weight:800;padding:1px 6px;">
+              ⚡ ${sprint}
+            </span>
+            ${e.utm_campaign ? `<span style="font-size:9.5px;color:#64748B;align-self:center;margin-left:2px;" title="${e.utm_campaign}">${e.utm_campaign.substring(0, 24)}...</span>` : ''}
           </div>
         `;
       },
+
+      renderEnquiriesRows() {
+        const filtered = APP_DATA.enquiries.filter(e => {
+          // 1. Text search
+          if (ENQUIRIES_SEARCH) {
+            const rowText = `${e.name} ${e.phone} ${e.email} ${e.program} ${e.notes || ''} ${e.utm_source || ''} ${e.utm_campaign || ''}`.toLowerCase();
+            if (!rowText.includes(ENQUIRIES_SEARCH)) return false;
+          }
+          // 2. Tab filter
+          const src = (e.utm_source || e.source || '').toLowerCase();
+          const camp = (e.utm_campaign || e.campaign || '').toLowerCase();
+          const notes = (e.notes || '').toLowerCase();
+
+          const isMeta = src.includes('meta') || src.includes('facebook') || src.includes('instagram') || notes.includes('meta');
+          const isGoogle = src.includes('google') || src.includes('gads') || notes.includes('google');
+          
+          let isSprint2 = false;
+          if (e.sprint && e.sprint.includes('2')) isSprint2 = true;
+          else if (camp.includes('sprint2') || notes.includes('sprint 2')) isSprint2 = true;
+          else if (e.date) {
+            const parts = e.date.split('/');
+            if (parts.length === 3 && parseInt(parts[1], 10) === 11 && parseInt(parts[0], 10) >= 13) isSprint2 = true;
+          }
+
+          if (ENQUIRIES_FILTER === 'sprint2') return isSprint2;
+          if (ENQUIRIES_FILTER === 'sprint1') return !isSprint2;
+          if (ENQUIRIES_FILTER === 'meta') return isMeta;
+          if (ENQUIRIES_FILTER === 'google') return isGoogle;
+          if (ENQUIRIES_FILTER === 'website') return !isMeta && !isGoogle;
+          return true; // 'all'
+        });
+
+        if (filtered.length === 0) {
+          return `
+            <tr>
+              <td colspan="7" style="text-align:center;padding:40px;color:#64748B;font-size:13px;">
+                No enquiries found matching this filter criteria. Try changing tab or search query.
+              </td>
+            </tr>
+          `;
+        }
+
+        return filtered.map(e => `
+          <tr>
+            <td>
+              <div style="font-weight:800;color:var(--ink);">${e.name}</div>
+              <small style="color:#64748B;">${e.email || 'No email'}</small>
+              ${CRM.getEnquiryCampaignBadge(e)}
+            </td>
+            <td><span style="font-weight:600;font-size:12.5px;color:#0F172A;">${e.program}</span></td>
+            <td><span style="font-size:12px;color:#475569;">${e.date}</span></td>
+            <td><code style="font-size:12px;color:#0284C7;font-weight:700;">${e.phone}</code></td>
+            <td><span style="background:#EFF6FF;color:#2563EB;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:800;">${e.status || 'New'}</span></td>
+            <td><span style="font-size:12px;color:#64748B;">${e.notes || '-'}</span></td>
+            <td>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <a href="https://wa.me/${(e.phone || '').replace(/[^0-9]/g,'')}?text=Hi%20${encodeURIComponent(e.name)}%2C%20counsellor%20calling%20from%20NeoNex%20MindX%20regarding%20${encodeURIComponent(e.program)}." target="_blank" style="display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:6px;background:#DCFCE7;color:#15803D;font-size:11.5px;font-weight:800;text-decoration:none;">
+                  <span>💬 WhatsApp</span>
+                </a>
+                <button onclick="CRM.deleteEnquiry('${e.phone}')" style="background:none;border:none;color:#DC2626;cursor:pointer;font-weight:800;font-size:16px;" title="Delete lead">&times;</button>
+              </div>
+            </td>
+          </tr>
+        `).join('');
+      },
+
+      viewEnquiries() {
+        // Compute count tallies for tabs
+        let countAll = APP_DATA.enquiries.length;
+        let countSprint2 = 0;
+        let countSprint1 = 0;
+        let countMeta = 0;
+        let countGoogle = 0;
+
+        APP_DATA.enquiries.forEach(e => {
+          const src = (e.utm_source || e.source || '').toLowerCase();
+          const camp = (e.utm_campaign || e.campaign || '').toLowerCase();
+          const notes = (e.notes || '').toLowerCase();
+          const isMeta = src.includes('meta') || src.includes('facebook') || src.includes('instagram') || notes.includes('meta');
+          const isGoogle = src.includes('google') || src.includes('gads') || notes.includes('google');
+          if (isMeta) countMeta++;
+          if (isGoogle) countGoogle++;
+
+          let isS2 = false;
+          if (e.sprint && e.sprint.includes('2')) isS2 = true;
+          else if (camp.includes('sprint2') || notes.includes('sprint 2')) isS2 = true;
+          else if (e.date) {
+            const parts = e.date.split('/');
+            if (parts.length === 3 && parseInt(parts[1], 10) === 11 && parseInt(parts[0], 10) >= 13) isS2 = true;
+          }
+          if (isS2) countSprint2++;
+          else countSprint1++;
+        });
+
+        return `
+          <div style="padding:10px 0 20px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:12px;">
+              <div>
+                <h1 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:4px;">Enquiries &amp; Lead Ingestion Hub</h1>
+                <p style="font-size:13px;font-weight:600;color:#64748B;">Multi-channel lead intelligence: Meta Ads, Google Ads, GMB, Website admissions.</p>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                <button class="btn-crm-refresh" onclick="CRM.openImportLeadsModal()" style="display:inline-flex;align-items:center;gap:6px;">
+                  <span>📥 Import Leads CSV</span>
+                </button>
+                <button class="btn-crm-add" onclick="CRM.openAddEnquiry()">+ Add Manual Enquiry</button>
+              </div>
+            </div>
+
+            <!-- CAMPAIGN FILTER TABS BAR -->
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap;background:var(--surface);padding:8px 12px;border-radius:10px;border:1px solid var(--line-border);">
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                <button onclick="CRM.setEnquiriesFilter('all')" class="crm-tab-btn ${ENQUIRIES_FILTER === 'all' ? 'active-tab' : ''}">
+                  All Leads (${countAll})
+                </button>
+                <button onclick="CRM.setEnquiriesFilter('sprint2')" class="crm-tab-btn ${ENQUIRIES_FILTER === 'sprint2' ? 'active-tab' : ''}" style="${ENQUIRIES_FILTER === 'sprint2' ? 'background:#059669;color:#fff;border-color:#059669;' : 'color:#059669;'}">
+                  ⚡ Sprint 2 (Recent 7-10 Days) (${countSprint2})
+                </button>
+                <button onclick="CRM.setEnquiriesFilter('sprint1')" class="crm-tab-btn ${ENQUIRIES_FILTER === 'sprint1' ? 'active-tab' : ''}">
+                  📁 Sprint 1 (Earlier Campaign) (${countSprint1})
+                </button>
+                <button onclick="CRM.setEnquiriesFilter('meta')" class="crm-tab-btn ${ENQUIRIES_FILTER === 'meta' ? 'active-tab' : ''}">
+                  📱 Meta Ads (${countMeta})
+                </button>
+                <button onclick="CRM.setEnquiriesFilter('google')" class="crm-tab-btn ${ENQUIRIES_FILTER === 'google' ? 'active-tab' : ''}">
+                  🎯 Google Ads (${countGoogle})
+                </button>
+                <button onclick="CRM.setEnquiriesFilter('website')" class="crm-tab-btn ${ENQUIRIES_FILTER === 'website' ? 'active-tab' : ''}">
+                  🌐 Website / Direct
+                </button>
+              </div>
+              <div style="min-width:220px;flex:1;max-width:320px;">
+                <input type="text" placeholder="Search candidate, phone, notes..." class="form-control" style="font-size:12px;padding:6px 12px;border-radius:8px;" value="${ENQUIRIES_SEARCH}" oninput="CRM.setEnquiriesSearch(this.value)" />
+              </div>
+            </div>
+
+            <!-- TABLE -->
+            <div class="crm-table-card">
+              <table class="crm-table">
+                <thead>
+                  <tr>
+                    <th>Candidate &amp; Source</th>
+                    <th>Program</th>
+                    <th>Date</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Campaign &amp; Notes</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="enquiries-tbody">
+                  ${CRM.renderEnquiriesRows()}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `;
+      },
+
 
       /* 4. COURSES VIEW (Screenshot 4 exact reproduction + active table listing) */
       viewCourses() {
@@ -2063,26 +2342,49 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         CRM.toast('Integrations configuration saved!');
       },
 
-      simulateIncomingLead(source) {
-        const sampleNames = ['Rohan Verma', 'Kavya Nair', 'Aman Deep', 'Siddharth Rao', 'Deepika Sharma'];
+      simulateIncomingLead(source, sprintParam = 'Sprint 2 (Current)') {
+        const sampleNames = ['Rohan Verma', 'Kavya Nair', 'Aman Deep', 'Siddharth Rao', 'Deepika Sharma', 'Aditya Menon', 'Pooja Hegde'];
         const samplePrograms = ['Data Analytics Master Program', 'Data Science & AI Master Program', 'AI & Machine Learning Engineering'];
         const name = sampleNames[Math.floor(Math.random() * sampleNames.length)];
         const program = samplePrograms[Math.floor(Math.random() * samplePrograms.length)];
         const phone = '+91 9' + Math.floor(100000000 + Math.random() * 900000000);
-        const email = name.toLowerCase().replace(' ', '.') + '@example.com';
-        const notes = source === 'Meta' ? 'Direct Instant Form Lead (Meta Ads Instagram)' : 'Google Ads Lead Form Extension (PMax)';
+        const email = name.toLowerCase().replace(' ', '.') + '@gmail.com';
+        
+        let notes = '';
+        let utm_source = 'meta_ads';
+        let utm_campaign = 'Bengaluru_DataScience_LeadGen_Sprint2';
+
+        if (source === 'Meta') {
+          notes = '[Sprint 2 Active] Instant Lead Form (Instagram / Facebook Ad)';
+          utm_source = 'meta_ads';
+          utm_campaign = 'Bengaluru_DataScience_LeadGen_Sprint2';
+        } else if (source === 'Google') {
+          notes = '[Sprint 2 Active] Google Search & PMax Lead Extension';
+          utm_source = 'google_ads';
+          utm_campaign = 'Search_Data_Analytics_Course_Bengaluru';
+        } else if (source === 'GMB') {
+          notes = '[Local Inbound] Google My Business Profile Call / Message';
+          utm_source = 'gmb_local';
+          utm_campaign = 'GMB_Bengaluru_HSR';
+        }
 
         APP_DATA.enquiries.unshift({
+          id: 'sim-' + Date.now(),
           name,
           phone,
           email,
           program,
           date: new Date().toLocaleDateString('en-GB'),
           status: 'New',
-          notes: `[${source} Lead Ads] ${notes}`
+          sprint: sprintParam,
+          source: source + ' Inbound',
+          utm_source,
+          utm_campaign,
+          notes: `[${sprintParam}] ${notes}`
         });
         CRM.save();
-        CRM.toast(`New incoming lead ingested from ${source}: ${name}!`);
+        CRM.updateBadges();
+        CRM.toast(`New incoming lead ingested from ${source} (${sprintParam}): ${name}!`);
         CRM.render();
       },
 
@@ -2204,6 +2506,62 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <div style="display:flex;gap:8px;">
                   <button class="btn-crm-action" style="flex:1;" onclick="CRM.simulateIncomingLead('Google')">Simulate Google Lead</button>
+                </div>
+              </div>
+              <!-- 4. GOOGLE MY BUSINESS (GMB) DIRECT LEADS -->
+              <div class="crm-table-card" style="padding:24px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:26px;">📍</span>
+                    <div>
+                      <h3 style="font-size:15px;font-weight:800;color:var(--ink);">Google My Business (GMB)</h3>
+                      <span style="font-size:11px;font-weight:700;color:#16A34A;">Maps Calls &amp; Local Inquiries</span>
+                    </div>
+                  </div>
+                  <span style="background:#DCFCE7;color:#15803D;font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;">LOCAL SEO</span>
+                </div>
+                <div class="form-group" style="margin-bottom:12px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">GMB Profile Location</label>
+                  <input type="text" class="form-control" readonly value="NeoNeX MindX - Bengaluru HSR &amp; Online" />
+                </div>
+                <div class="form-group" style="margin-bottom:16px;">
+                  <label style="font-size:12px;font-weight:700;color:var(--muted-gray);">Primary Intake Tracking Number</label>
+                  <input type="text" class="form-control" readonly value="+91 84318 03839" />
+                </div>
+                <div style="display:flex;gap:8px;">
+                  <button class="btn-crm-action" style="flex:1;" onclick="CRM.simulateIncomingLead('GMB')">Simulate GMB Lead</button>
+                </div>
+              </div>
+
+              <!-- 5. SOCIAL LEAD CHANNELS (LinkedIn, Instagram, YouTube, X, Quora, Reddit) -->
+              <div class="crm-table-card" style="padding:24px;grid-column:1/-1;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:26px;">🌐</span>
+                    <div>
+                      <h3 style="font-size:15px;font-weight:800;color:var(--ink);">Omnichannel Inbound Tracking (Social &amp; Communities)</h3>
+                      <span style="font-size:11px;font-weight:700;color:#0284C7;">LinkedIn &bull; Instagram Bio &bull; YouTube &bull; X / Twitter &bull; Quora &bull; Reddit</span>
+                    </div>
+                  </div>
+                  <span style="background:#EFF6FF;color:#2563EB;font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;">UTM AUTOLINKED</span>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:12px;font-size:12.5px;color:var(--ink);">
+                  <div style="background:var(--surface-2);padding:12px;border-radius:8px;">
+                    <b>💼 LinkedIn Inbound:</b> <code>?utm_source=linkedin</code>
+                    <div style="font-size:11px;color:var(--muted-gray);margin-top:4px;">Captured via mentor profiles, thought leadership articles &amp; company page.</div>
+                  </div>
+                  <div style="background:var(--surface-2);padding:12px;border-radius:8px;">
+                    <b>📸 Instagram Organic:</b> <code>?utm_source=instagram_bio</code>
+                    <div style="font-size:11px;color:var(--muted-gray);margin-top:4px;">Profile link, story stickers &amp; DM automation link.</div>
+                  </div>
+                  <div style="background:var(--surface-2);padding:12px;border-radius:8px;">
+                    <b>▶️ YouTube Channel:</b> <code>?utm_source=youtube</code>
+                    <div style="font-size:11px;color:var(--muted-gray);margin-top:4px;">Course walkthrough video descriptions and pinned comments.</div>
+                  </div>
+                  <div style="background:var(--surface-2);padding:12px;border-radius:8px;">
+                    <b>💬 Quora &amp; Reddit:</b> <code>?utm_source=community</code>
+                    <div style="font-size:11px;color:var(--muted-gray);margin-top:4px;">Answers on career switch to Data Science &amp; tech discussions.</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2641,6 +2999,139 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <button class="btn-crm-add" onclick="window.print()">🖨️ Print Admission Slip</button>
         `;
         CRM.modal(`Admission Slip: ${studentName}`, body, footer);
+      },
+
+            openImportLeadsModal() {
+        const body = `
+          <div style="font-family:var(--font-body);display:flex;flex-direction:column;gap:14px;">
+            <div style="font-size:13px;color:#475569;line-height:1.5;">
+              Paste CSV or tabular data exported from <b>Meta Ads Manager</b> or <b>Google Ads</b>. 
+              The intelligent parser automatically maps <code>Full Name</code>, <code>Phone Number</code>, <code>Email</code>, <code>Campaign Name</code>, and <code>Date</code>.
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" style="font-weight:700;">Assign to Campaign Sprint *</label>
+              <select id="import-sprint" class="form-control" style="font-weight:700;">
+                <option value="Sprint 2 (Current)" selected>⚡ Sprint 2 (Recent 7-10 Days Campaign)</option>
+                <option value="Sprint 1 (Legacy)">📁 Sprint 1 (Earlier Run - Historical Archive)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" style="font-weight:700;">Default Lead Source</label>
+              <select id="import-source" class="form-control">
+                <option value="Meta Ads (FB/IG)" selected>📱 Meta Ads (Facebook & Instagram Lead Ads)</option>
+                <option value="Google Ads">🎯 Google Ads (Lead Form Extensions)</option>
+                <option value="GMB Profile">📍 Google My Business (GMB Direct)</option>
+                <option value="LinkedIn Ads">💼 LinkedIn Lead Gen Form</option>
+                <option value="WhatsApp Inbound">💬 WhatsApp Business Direct</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" style="font-weight:700;">Paste CSV Data or Tab-Delimited Leads *</label>
+              <textarea id="import-csv-text" class="form-control" rows="8" placeholder="created_time,full_name,phone_number,email,campaign_name,course
+2026-11-20T10:30:00+05:30,Sneha Roy,+91 98765 43210,sneha.roy@gmail.com,Bengaluru_DataScience_LeadGen_Sprint2,Data Science & AI
+2026-11-21T14:15:00+05:30,Rajesh Kumar,+91 91234 56789,rajesh.k@gmail.com,PowerBI_Tableau_FastTrack,Data Analytics" style="font-family:monospace;font-size:11.5px;"></textarea>
+            </div>
+            <div style="font-size:11.5px;color:#64748B;">
+              💡 <b>Tip:</b> Headers like <code>name</code>, <code>phone</code>, <code>email</code>, <code>campaign</code> are auto-detected. Comma, tab, or semicolon separated.
+            </div>
+          </div>
+        `;
+
+        const footer = `
+          <button onclick="CRM.closeModal()" style="padding:6px 14px;border:1px solid #CBD5E1;background:#FFF;border-radius:6px;cursor:pointer;font-weight:700;">Cancel</button>
+          <button class="btn-crm-add" onclick="CRM.processImportLeads()">Parse &amp; Ingest Leads</button>
+        `;
+
+        CRM.modal('📥 Bulk Import Leads from Ads Manager', body, footer);
+      },
+
+      processImportLeads() {
+        const rawText = (document.getElementById('import-csv-text')?.value || '').trim();
+        const sprint = document.getElementById('import-sprint')?.value || 'Sprint 2 (Current)';
+        const defaultSource = document.getElementById('import-source')?.value || 'Meta Ads (FB/IG)';
+
+        if (!rawText) return alert('Please paste CSV or text lead data to import.');
+
+        const lines = rawText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+        if (lines.length === 0) return alert('No valid data lines found.');
+
+        // Determine separator: comma, tab, or semicolon
+        const firstLine = lines[0];
+        let sep = ',';
+        if (firstLine.includes('\t')) sep = '\t';
+        else if (firstLine.includes(';') && !firstLine.includes(',')) sep = ';';
+
+        // Parse header row
+        const headers = lines[0].split(sep).map(h => h.replace(/^["']|["']$/g, '').trim().toLowerCase());
+        
+        let nameIdx = headers.findIndex(h => h.includes('name') || h === 'full_name' || h === 'candidate');
+        let phoneIdx = headers.findIndex(h => h.includes('phone') || h.includes('mobile') || h.includes('contact') || h === 'phone_number');
+        let emailIdx = headers.findIndex(h => h.includes('email') || h.includes('mail'));
+        let campIdx = headers.findIndex(h => h.includes('camp') || h.includes('ad_name') || h.includes('source'));
+        let courseIdx = headers.findIndex(h => h.includes('course') || h.includes('program'));
+        let dateIdx = headers.findIndex(h => h.includes('date') || h.includes('time') || h.includes('created'));
+
+        let startRow = 1;
+        // If header not detected, assume standard columns: Name, Phone, Email, Program
+        if (nameIdx === -1 && phoneIdx === -1) {
+          nameIdx = 0; phoneIdx = 1; emailIdx = 2; courseIdx = 3;
+          startRow = 0;
+        }
+
+        let importedCount = 0;
+        const existingPhones = new Set(APP_DATA.enquiries.map(e => (e.phone || '').replace(/[^0-9]/g, '')));
+
+        for (let i = startRow; i < lines.length; i++) {
+          const cols = lines[i].split(sep).map(c => c.replace(/^["']|["']$/g, '').trim());
+          if (cols.length < 2) continue;
+
+          const name = (nameIdx >= 0 && cols[nameIdx]) ? cols[nameIdx] : 'Prospective Learner';
+          const rawPhone = (phoneIdx >= 0 && cols[phoneIdx]) ? cols[phoneIdx] : '';
+          const cleanPhone = rawPhone.replace(/[^0-9]/g, '');
+
+          if (!cleanPhone || cleanPhone.length < 8) continue;
+          if (existingPhones.has(cleanPhone)) continue; // skip duplicates
+
+          const email = (emailIdx >= 0 && cols[emailIdx]) ? cols[emailIdx] : '-';
+          const campaign = (campIdx >= 0 && cols[campIdx]) ? cols[campIdx] : (sprint.includes('2') ? 'Sprint2_Ads' : 'Sprint1_Historical');
+          const program = (courseIdx >= 0 && cols[courseIdx]) ? cols[courseIdx] : 'Data Analytics Master Program';
+          
+          let dateStr = new Date().toLocaleDateString('en-GB');
+          if (dateIdx >= 0 && cols[dateIdx]) {
+            try {
+              const d = new Date(cols[dateIdx]);
+              if (!isNaN(d.getTime())) dateStr = d.toLocaleDateString('en-GB');
+            } catch(e){}
+          }
+
+          const newLead = {
+            id: 'imp-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+            name,
+            phone: rawPhone.startsWith('+') ? rawPhone : ('+91 ' + rawPhone),
+            email,
+            program,
+            date: dateStr,
+            status: 'New',
+            sprint,
+            source: defaultSource,
+            utm_source: defaultSource.toLowerCase().includes('meta') ? 'meta_ads' : (defaultSource.toLowerCase().includes('google') ? 'google_ads' : 'direct'),
+            utm_campaign: campaign,
+            notes: `[${sprint}] Imported from ${defaultSource} • Campaign: ${campaign}`
+          };
+
+          APP_DATA.enquiries.unshift(newLead);
+          existingPhones.add(cleanPhone);
+          importedCount++;
+        }
+
+        CRM.save();
+        CRM.closeModal();
+        CRM.updateBadges();
+        CRM.toast(`Successfully imported and segmented ${importedCount} new lead(s) into ${sprint}!`);
+        CRM.render();
       },
 
       openAddEnquiry() {
